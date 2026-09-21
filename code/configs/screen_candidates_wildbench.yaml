@@ -1,0 +1,27 @@
+# ============================================================================
+# WildBench v2 candidate set - dataset health check. Not Phase 1A data.
+# ============================================================================
+# Same machinery as the MT-Bench health check: same Model X and revision, same
+# finalized system message, task text verbatim, greedy bf16, 2048-token budget,
+# no accepted truncations.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidate_generation:
+  name: SCREEN_wildbench_v1
+  model: modelx_olmo3
+  datasets: [wildbench_v2]
+  n_prompts: 12
+  seed: 42
+  out_dir: results/screen/wildbench
+  candidates_out: data/candidates/screen_wildbench_v1.json
+  candidate_response_id: modelx_olmo3_r0
+  evaluated_model_label: modelx_olmo3
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 2048
+  do_sample: false

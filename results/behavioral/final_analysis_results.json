@@ -1,0 +1,3518 @@
+{
+  "complete_case": {
+    "measurement_basis": "complete_case",
+    "n_records": 4680,
+    "primary": {
+      "population": "500 fully held-out (arena_hard + wildbench)",
+      "contrast": "no_history_minus_self_low_2",
+      "n_cells": 8,
+      "cell_weight": 0.125,
+      "macro_average": 1.2418911089476092,
+      "n_empty_cells": 0,
+      "cell_means": {
+        "arena_hard|llama": 1.8293243243243245,
+        "arena_hard|qwen": 1.9407894736842106,
+        "arena_hard|gemma": 0.6153846153846154,
+        "arena_hard|olmo32b": 0.9957142857142858,
+        "wildbench|llama": 1.2098591549295776,
+        "wildbench|qwen": 1.7894736842105263,
+        "wildbench|gemma": 0.4066666666666667,
+        "wildbench|olmo32b": 1.1479166666666667
+      },
+      "cell_n": {
+        "arena_hard|llama": 74,
+        "arena_hard|qwen": 76,
+        "arena_hard|gemma": 78,
+        "arena_hard|olmo32b": 70,
+        "wildbench|llama": 71,
+        "wildbench|qwen": 76,
+        "wildbench|gemma": 75,
+        "wildbench|olmo32b": 72
+      },
+      "ci_95": {
+        "ci_low": 1.1566162509503384,
+        "ci_high": 1.3293547905385388,
+        "n_bootstrap_reps": 10000
+      },
+      "n_empty_cell_replicates": 0
+    },
+    "secondary": {
+      "population": "all 578 tasks",
+      "contrast": "no_history_minus_self_low_2",
+      "n_cells": 12,
+      "cell_weight": 0.08333333333333333,
+      "macro_average": 1.1699584012855417,
+      "n_empty_cells": 0,
+      "cell_means": {
+        "mtbench|llama": 1.7454545454545456,
+        "mtbench|qwen": 1.4423076923076923,
+        "mtbench|gemma": 0.33766233766233766,
+        "mtbench|olmo32b": 0.5789473684210527,
+        "arena_hard|llama": 1.8293243243243245,
+        "arena_hard|qwen": 1.9407894736842106,
+        "arena_hard|gemma": 0.6153846153846154,
+        "arena_hard|olmo32b": 0.9957142857142858,
+        "wildbench|llama": 1.2098591549295776,
+        "wildbench|qwen": 1.7894736842105263,
+        "wildbench|gemma": 0.4066666666666667,
+        "wildbench|olmo32b": 1.1479166666666667
+      },
+      "cell_n": {
+        "mtbench|llama": 77,
+        "mtbench|qwen": 78,
+        "mtbench|gemma": 77,
+        "mtbench|olmo32b": 76,
+        "arena_hard|llama": 74,
+        "arena_hard|qwen": 76,
+        "arena_hard|gemma": 78,
+        "arena_hard|olmo32b": 70,
+        "wildbench|llama": 71,
+        "wildbench|qwen": 76,
+        "wildbench|gemma": 75,
+        "wildbench|olmo32b": 72
+      },
+      "ci_95": {
+        "ci_low": 1.099288435839116,
+        "ci_high": 1.2431467796257658,
+        "n_bootstrap_reps": 10000
+      },
+      "n_empty_cell_replicates": 0
+    },
+    "pooled_summaries": {
+      "task_weighted": {
+        "heldout_500": {
+          "mean": 1.2193870967741935,
+          "n": 155
+        },
+        "full_578": {
+          "mean": 1.156030042918455,
+          "n": 233
+        }
+      },
+      "pair_weighted": {
+        "heldout_500": {
+          "mean": 1.2426013513513514,
+          "n": 592
+        },
+        "full_578": {
+          "mean": 1.1694666666666667,
+          "n": 900
+        }
+      },
+      "dataset_wise": {
+        "mtbench": {
+          "mean": 1.026092985961407,
+          "n_scorers_with_data": 4
+        },
+        "arena_hard": {
+          "mean": 1.3453031747768591,
+          "n_scorers_with_data": 4
+        },
+        "wildbench": {
+          "mean": 1.1384790431183593,
+          "n_scorers_with_data": 4
+        }
+      },
+      "scorer_wise": {
+        "llama": {
+          "mean": 1.5948793415694826,
+          "n_datasets_with_data": 3
+        },
+        "qwen": {
+          "mean": 1.7241902834008098,
+          "n_datasets_with_data": 3
+        },
+        "gemma": {
+          "mean": 0.45323787323787323,
+          "n_datasets_with_data": 3
+        },
+        "olmo32b": {
+          "mean": 0.9075261069340016,
+          "n_datasets_with_data": 3
+        }
+      }
+    },
+    "per_condition_levels": {
+      "heldout_500": [
+        {
+          "condition": "no_history",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 7.923076923076923,
+          "sd": 1.4484136487558028,
+          "n": 78
+        },
+        {
+          "condition": "no_history",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 7.796052631578948,
+          "sd": 1.37156268924403,
+          "n": 76
+        },
+        {
+          "condition": "no_history",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 7.984933333333333,
+          "sd": 1.4921500661192961,
+          "n": 75
+        },
+        {
+          "condition": "no_history",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 8.209859154929577,
+          "sd": 1.267523449157841,
+          "n": 71
+        },
+        {
+          "condition": "no_history",
+          "scorer": "olmo32b",
+          "dataset": "arena_hard",
+          "mean": 7.106944444444444,
+          "sd": 2.5447170566250703,
+          "n": 72
+        },
+        {
+          "condition": "no_history",
+          "scorer": "olmo32b",
+          "dataset": "wildbench",
+          "mean": 8.204109589041096,
+          "sd": 1.533735305658522,
+          "n": 73
+        },
+        {
+          "condition": "no_history",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 7.707792207792208,
+          "sd": 1.948938053197597,
+          "n": 77
+        },
+        {
+          "condition": "no_history",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 8.157894736842104,
+          "sd": 1.604598654525568,
+          "n": 76
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 7.602564102564102,
+          "sd": 1.548688121745272,
+          "n": 78
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 7.644736842105263,
+          "sd": 1.5379982433316455,
+          "n": 76
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 6.930666666666666,
+          "sd": 1.5258115548457813,
+          "n": 75
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 7.5,
+          "sd": 1.3515423288475528,
+          "n": 76
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 6.842105263157895,
+          "sd": 2.298130437719306,
+          "n": 76
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 7.618421052631579,
+          "sd": 1.7202101054864036,
+          "n": 76
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 8.883116883116884,
+          "sd": 1.4046354272646686,
+          "n": 77
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 8.636363636363637,
+          "sd": 0.944639877205941,
+          "n": 77
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 8.701315789473684,
+          "sd": 1.8907136868426258,
+          "n": 76
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 9.051948051948052,
+          "sd": 1.3342266032592964,
+          "n": 77
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 9.131578947368421,
+          "sd": 1.5692215077390692,
+          "n": 76
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 9.487179487179487,
+          "sd": 1.2942790175067256,
+          "n": 78
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 7.3076923076923075,
+          "sd": 1.5816126268775492,
+          "n": 78
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 7.4,
+          "sd": 1.6765472885698187,
+          "n": 75
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 6.18,
+          "sd": 1.9790114922573054,
+          "n": 75
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 6.9605263157894735,
+          "sd": 1.7005159175864577,
+          "n": 76
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "olmo32b",
+          "dataset": "arena_hard",
+          "mean": 6.069444444444445,
+          "sd": 2.5855851158367047,
+          "n": 72
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "olmo32b",
+          "dataset": "wildbench",
+          "mean": 6.962837837837838,
+          "sd": 2.06832042261432,
+          "n": 74
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 5.75,
+          "sd": 2.191650823770368,
+          "n": 76
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 6.358974358974359,
+          "sd": 1.879308790965852,
+          "n": 78
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 6.9743589743589745,
+          "sd": 1.750505373961778,
+          "n": 78
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 7.118421052631579,
+          "sd": 1.5228666412452352,
+          "n": 76
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 6.98,
+          "sd": 1.636657767723188,
+          "n": 75
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 7.64,
+          "sd": 1.1553635206569681,
+          "n": 75
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 6.441558441558442,
+          "sd": 2.364727126204642,
+          "n": 77
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 7.077922077922078,
+          "sd": 1.804717748497807,
+          "n": 77
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 7.384615384615385,
+          "sd": 1.7300309225580315,
+          "n": 78
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 7.3896103896103895,
+          "sd": 1.8364428155070545,
+          "n": 77
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 6.339473684210526,
+          "sd": 1.9825289537940116,
+          "n": 76
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 6.618421052631579,
+          "sd": 1.9678557214264665,
+          "n": 76
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 5.921052631578948,
+          "sd": 2.4806620508497965,
+          "n": 76
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 6.805194805194805,
+          "sd": 2.121561993084099,
+          "n": 77
+        }
+      ],
+      "full_578": [
+        {
+          "condition": "no_history",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 7.923076923076923,
+          "sd": 1.4484136487558028,
+          "n": 78
+        },
+        {
+          "condition": "no_history",
+          "scorer": "gemma",
+          "dataset": "mtbench",
+          "mean": 8.467532467532468,
+          "sd": 1.509482445151802,
+          "n": 77
+        },
+        {
+          "condition": "no_history",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 7.796052631578948,
+          "sd": 1.37156268924403,
+          "n": 76
+        },
+        {
+          "condition": "no_history",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 7.984933333333333,
+          "sd": 1.4921500661192961,
+          "n": 75
+        },
+        {
+          "condition": "no_history",
+          "scorer": "llama",
+          "dataset": "mtbench",
+          "mean": 7.615584415584415,
+          "sd": 2.1587682242588526,
+          "n": 77
+        },
+        {
+          "condition": "no_history",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 8.209859154929577,
+          "sd": 1.267523449157841,
+          "n": 71
+        },
+        {
+          "condition": "no_history",
+          "scorer": "olmo32b",
+          "dataset": "arena_hard",
+          "mean": 7.106944444444444,
+          "sd": 2.5447170566250703,
+          "n": 72
+        },
+        {
+          "condition": "no_history",
+          "scorer": "olmo32b",
+          "dataset": "mtbench",
+          "mean": 7.907894736842105,
+          "sd": 2.7309467544129444,
+          "n": 76
+        },
+        {
+          "condition": "no_history",
+          "scorer": "olmo32b",
+          "dataset": "wildbench",
+          "mean": 8.204109589041096,
+          "sd": 1.533735305658522,
+          "n": 73
+        },
+        {
+          "condition": "no_history",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 7.707792207792208,
+          "sd": 1.948938053197597,
+          "n": 77
+        },
+        {
+          "condition": "no_history",
+          "scorer": "qwen",
+          "dataset": "mtbench",
+          "mean": 8.346153846153847,
+          "sd": 1.8782896549712527,
+          "n": 78
+        },
+        {
+          "condition": "no_history",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 8.157894736842104,
+          "sd": 1.604598654525568,
+          "n": 76
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 7.602564102564102,
+          "sd": 1.548688121745272,
+          "n": 78
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "gemma",
+          "dataset": "mtbench",
+          "mean": 8.328947368421053,
+          "sd": 1.5865111231440039,
+          "n": 76
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 7.644736842105263,
+          "sd": 1.5379982433316455,
+          "n": 76
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 6.930666666666666,
+          "sd": 1.5258115548457813,
+          "n": 75
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "llama",
+          "dataset": "mtbench",
+          "mean": 6.4743589743589745,
+          "sd": 2.23737066795547,
+          "n": 78
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 7.5,
+          "sd": 1.3515423288475528,
+          "n": 76
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 6.842105263157895,
+          "sd": 2.298130437719306,
+          "n": 76
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "qwen",
+          "dataset": "mtbench",
+          "mean": 7.923076923076923,
+          "sd": 1.9919919598311553,
+          "n": 78
+        },
+        {
+          "condition": "other_low_2",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 7.618421052631579,
+          "sd": 1.7202101054864036,
+          "n": 76
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 8.883116883116884,
+          "sd": 1.4046354272646686,
+          "n": 77
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "gemma",
+          "dataset": "mtbench",
+          "mean": 9.164473684210526,
+          "sd": 1.3276248413231222,
+          "n": 76
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 8.636363636363637,
+          "sd": 0.944639877205941,
+          "n": 77
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 8.701315789473684,
+          "sd": 1.8907136868426258,
+          "n": 76
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "llama",
+          "dataset": "mtbench",
+          "mean": 8.636363636363637,
+          "sd": 2.027177782229657,
+          "n": 77
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 9.051948051948052,
+          "sd": 1.3342266032592964,
+          "n": 77
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 9.131578947368421,
+          "sd": 1.5692215077390692,
+          "n": 76
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "qwen",
+          "dataset": "mtbench",
+          "mean": 9.679487179487179,
+          "sd": 0.8899670173895728,
+          "n": 78
+        },
+        {
+          "condition": "self_high_10",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 9.487179487179487,
+          "sd": 1.2942790175067256,
+          "n": 78
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 7.3076923076923075,
+          "sd": 1.5816126268775492,
+          "n": 78
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "gemma",
+          "dataset": "mtbench",
+          "mean": 8.12987012987013,
+          "sd": 1.734712545204759,
+          "n": 77
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 7.4,
+          "sd": 1.6765472885698187,
+          "n": 75
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 6.18,
+          "sd": 1.9790114922573054,
+          "n": 75
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "llama",
+          "dataset": "mtbench",
+          "mean": 5.846153846153846,
+          "sd": 1.7363712203860713,
+          "n": 78
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 6.9605263157894735,
+          "sd": 1.7005159175864577,
+          "n": 76
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "olmo32b",
+          "dataset": "arena_hard",
+          "mean": 6.069444444444445,
+          "sd": 2.5855851158367047,
+          "n": 72
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "olmo32b",
+          "dataset": "mtbench",
+          "mean": 7.328947368421052,
+          "sd": 2.6652737590210718,
+          "n": 76
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "olmo32b",
+          "dataset": "wildbench",
+          "mean": 6.962837837837838,
+          "sd": 2.06832042261432,
+          "n": 74
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 5.75,
+          "sd": 2.191650823770368,
+          "n": 76
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "qwen",
+          "dataset": "mtbench",
+          "mean": 6.903846153846154,
+          "sd": 2.0049576416610764,
+          "n": 78
+        },
+        {
+          "condition": "self_low_2",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 6.358974358974359,
+          "sd": 1.879308790965852,
+          "n": 78
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 6.9743589743589745,
+          "sd": 1.750505373961778,
+          "n": 78
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "gemma",
+          "dataset": "mtbench",
+          "mean": 7.779220779220779,
+          "sd": 1.8326237778500774,
+          "n": 77
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 7.118421052631579,
+          "sd": 1.5228666412452352,
+          "n": 76
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 6.98,
+          "sd": 1.636657767723188,
+          "n": 75
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "llama",
+          "dataset": "mtbench",
+          "mean": 6.67948717948718,
+          "sd": 2.0480817109282268,
+          "n": 78
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 7.64,
+          "sd": 1.1553635206569681,
+          "n": 75
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 6.441558441558442,
+          "sd": 2.364727126204642,
+          "n": 77
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "qwen",
+          "dataset": "mtbench",
+          "mean": 7.435897435897436,
+          "sd": 2.05502073544532,
+          "n": 78
+        },
+        {
+          "condition": "unrelated_low_2",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 7.077922077922078,
+          "sd": 1.804717748497807,
+          "n": 77
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "gemma",
+          "dataset": "arena_hard",
+          "mean": 7.384615384615385,
+          "sd": 1.7300309225580315,
+          "n": 78
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "gemma",
+          "dataset": "mtbench",
+          "mean": 8.220779220779221,
+          "sd": 1.7890263201807248,
+          "n": 77
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "gemma",
+          "dataset": "wildbench",
+          "mean": 7.3896103896103895,
+          "sd": 1.8364428155070545,
+          "n": 77
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "llama",
+          "dataset": "arena_hard",
+          "mean": 6.339473684210526,
+          "sd": 1.9825289537940116,
+          "n": 76
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "llama",
+          "dataset": "mtbench",
+          "mean": 5.788461538461538,
+          "sd": 2.2613626950936547,
+          "n": 78
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "llama",
+          "dataset": "wildbench",
+          "mean": 6.618421052631579,
+          "sd": 1.9678557214264665,
+          "n": 76
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "qwen",
+          "dataset": "arena_hard",
+          "mean": 5.921052631578948,
+          "sd": 2.4806620508497965,
+          "n": 76
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "qwen",
+          "dataset": "mtbench",
+          "mean": 6.871794871794871,
+          "sd": 2.4193965887137754,
+          "n": 78
+        },
+        {
+          "condition": "verbal_negative",
+          "scorer": "qwen",
+          "dataset": "wildbench",
+          "mean": 6.805194805194805,
+          "sd": 2.121561993084099,
+          "n": 77
+        }
+      ]
+    },
+    "task_level_distribution": {
+      "heldout_500": {
+        "overall": {
+          "n_tasks": 155,
+          "fraction_gt_0": 0.9483870967741935,
+          "fraction_eq_0": 0.01935483870967742,
+          "fraction_lt_0": 0.03225806451612903,
+          "fraction_ge_1": 0.6645161290322581,
+          "fraction_ge_2": 0.17419354838709677,
+          "min": -1.0,
+          "p25": 0.75,
+          "median": 1.25,
+          "p75": 1.75,
+          "max": 3.3333333333333335
+        },
+        "per_dataset": {
+          "arena_hard": {
+            "n_tasks": 78,
+            "fraction_gt_0": 0.9615384615384616,
+            "fraction_eq_0": 0.0,
+            "fraction_lt_0": 0.038461538461538464,
+            "fraction_ge_1": 0.7307692307692307,
+            "fraction_ge_2": 0.21794871794871795,
+            "min": -1.0,
+            "p25": 0.875,
+            "median": 1.25,
+            "p75": 1.75,
+            "max": 3.3333333333333335
+          },
+          "wildbench": {
+            "n_tasks": 77,
+            "fraction_gt_0": 0.935064935064935,
+            "fraction_eq_0": 0.03896103896103896,
+            "fraction_lt_0": 0.025974025974025976,
+            "fraction_ge_1": 0.5974025974025974,
+            "fraction_ge_2": 0.12987012987012986,
+            "min": -0.25,
+            "p25": 0.5,
+            "median": 1.125,
+            "p75": 1.5,
+            "max": 2.75
+          }
+        }
+      },
+      "full_578": {
+        "overall": {
+          "n_tasks": 233,
+          "fraction_gt_0": 0.9399141630901288,
+          "fraction_eq_0": 0.012875536480686695,
+          "fraction_lt_0": 0.04721030042918455,
+          "fraction_ge_1": 0.6523605150214592,
+          "fraction_ge_2": 0.15450643776824036,
+          "min": -2.5,
+          "p25": 0.75,
+          "median": 1.125,
+          "p75": 1.625,
+          "max": 3.3333333333333335
+        },
+        "per_dataset": {
+          "mtbench": {
+            "n_tasks": 78,
+            "fraction_gt_0": 0.9230769230769231,
+            "fraction_eq_0": 0.0,
+            "fraction_lt_0": 0.07692307692307693,
+            "fraction_ge_1": 0.6282051282051282,
+            "fraction_ge_2": 0.11538461538461539,
+            "min": -2.5,
+            "p25": 0.75,
+            "median": 1.0,
+            "p75": 1.5,
+            "max": 3.0
+          },
+          "arena_hard": {
+            "n_tasks": 78,
+            "fraction_gt_0": 0.9615384615384616,
+            "fraction_eq_0": 0.0,
+            "fraction_lt_0": 0.038461538461538464,
+            "fraction_ge_1": 0.7307692307692307,
+            "fraction_ge_2": 0.21794871794871795,
+            "min": -1.0,
+            "p25": 0.875,
+            "median": 1.25,
+            "p75": 1.75,
+            "max": 3.3333333333333335
+          },
+          "wildbench": {
+            "n_tasks": 77,
+            "fraction_gt_0": 0.935064935064935,
+            "fraction_eq_0": 0.03896103896103896,
+            "fraction_lt_0": 0.025974025974025976,
+            "fraction_ge_1": 0.5974025974025974,
+            "fraction_ge_2": 0.12987012987012986,
+            "min": -0.25,
+            "p25": 0.5,
+            "median": 1.125,
+            "p75": 1.5,
+            "max": 2.75
+          }
+        }
+      }
+    },
+    "diagnostics": {
+      "point": {
+        "no_history_minus_self_low_2": {
+          "pooled": {
+            "null": {
+              "mean": 1.1694666666666667,
+              "n": 900
+            }
+          },
+          "dataset": {
+            "mtbench": {
+              "mean": 1.0288961038961038,
+              "n": 308
+            },
+            "arena_hard": {
+              "mean": 1.3441946308724833,
+              "n": 298
+            },
+            "wildbench": {
+              "mean": 1.1396258503401362,
+              "n": 294
+            }
+          },
+          "scorer": {
+            "olmo32b": {
+              "mean": 0.9006880733944954,
+              "n": 218
+            },
+            "gemma": {
+              "mean": 0.4543478260869565,
+              "n": 230
+            },
+            "qwen": {
+              "mean": 1.7217391304347827,
+              "n": 230
+            },
+            "llama": {
+              "mean": 1.6021171171171171,
+              "n": 222
+            }
+          }
+        },
+        "other_low_2_minus_self_low_2": {
+          "pooled": {
+            "null": {
+              "mean": 0.6561863173216885,
+              "n": 687
+            }
+          },
+          "dataset": {
+            "mtbench": {
+              "mean": 0.6228448275862069,
+              "n": 232
+            },
+            "arena_hard": {
+              "mean": 0.6767543859649123,
+              "n": 228
+            },
+            "wildbench": {
+              "mean": 0.6696035242290749,
+              "n": 227
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "mean": 0.2576419213973799,
+              "n": 229
+            },
+            "qwen": {
+              "mean": 1.1021739130434782,
+              "n": 230
+            },
+            "llama": {
+              "mean": 0.6065789473684211,
+              "n": 228
+            }
+          }
+        },
+        "unrelated_low_2_minus_self_low_2": {
+          "pooled": {
+            "null": {
+              "mean": 0.3626453488372093,
+              "n": 688
+            }
+          },
+          "dataset": {
+            "mtbench": {
+              "mean": 0.34120171673819744,
+              "n": 233
+            },
+            "arena_hard": {
+              "mean": 0.36403508771929827,
+              "n": 228
+            },
+            "wildbench": {
+              "mean": 0.3832599118942731,
+              "n": 227
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "mean": -0.3130434782608696,
+              "n": 230
+            },
+            "qwen": {
+              "mean": 0.6558441558441559,
+              "n": 231
+            },
+            "llama": {
+              "mean": 0.748898678414097,
+              "n": 227
+            }
+          }
+        },
+        "no_history_minus_unrelated_low_2": {
+          "pooled": {
+            "null": {
+              "mean": 0.8940995607613469,
+              "n": 683
+            }
+          },
+          "dataset": {
+            "mtbench": {
+              "mean": 0.8336206896551724,
+              "n": 232
+            },
+            "arena_hard": {
+              "mean": 1.064934497816594,
+              "n": 229
+            },
+            "wildbench": {
+              "mean": 0.7810810810810811,
+              "n": 222
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "mean": 0.7727272727272727,
+              "n": 231
+            },
+            "qwen": {
+              "mean": 1.08008658008658,
+              "n": 231
+            },
+            "llama": {
+              "mean": 0.8265610859728506,
+              "n": 221
+            }
+          }
+        },
+        "no_history_minus_verbal_negative": {
+          "pooled": {
+            "null": {
+              "mean": 1.1930746705710102,
+              "n": 683
+            }
+          },
+          "dataset": {
+            "mtbench": {
+              "mean": 1.1762931034482758,
+              "n": 232
+            },
+            "arena_hard": {
+              "mean": 1.3168995633187772,
+              "n": 229
+            },
+            "wildbench": {
+              "mean": 1.0828828828828827,
+              "n": 222
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "mean": 0.4090909090909091,
+              "n": 231
+            },
+            "qwen": {
+              "mean": 1.5239130434782608,
+              "n": 230
+            },
+            "llama": {
+              "mean": 1.666081081081081,
+              "n": 222
+            }
+          }
+        },
+        "self_high_10_minus_self_low_2": {
+          "pooled": {
+            "null": {
+              "mean": 2.281686046511628,
+              "n": 688
+            }
+          },
+          "dataset": {
+            "mtbench": {
+              "mean": 2.2034632034632033,
+              "n": 231
+            },
+            "arena_hard": {
+              "mean": 2.490350877192982,
+              "n": 228
+            },
+            "wildbench": {
+              "mean": 2.1528384279475983,
+              "n": 229
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "mean": 1.2785087719298245,
+              "n": 228
+            },
+            "qwen": {
+              "mean": 3.0926724137931036,
+              "n": 232
+            },
+            "llama": {
+              "mean": 2.459649122807017,
+              "n": 228
+            }
+          }
+        },
+        "self_high_10_minus_no_history": {
+          "pooled": {
+            "null": {
+              "mean": 1.0090014684287811,
+              "n": 681
+            }
+          },
+          "dataset": {
+            "mtbench": {
+              "mean": 1.0004347826086957,
+              "n": 230
+            },
+            "arena_hard": {
+              "mean": 1.034780701754386,
+              "n": 228
+            },
+            "wildbench": {
+              "mean": 0.9914798206278027,
+              "n": 223
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "mean": 0.8296943231441049,
+              "n": 229
+            },
+            "qwen": {
+              "mean": 1.3695652173913044,
+              "n": 230
+            },
+            "llama": {
+              "mean": 0.8204054054054054,
+              "n": 222
+            }
+          }
+        },
+        "no_history_minus_other_low_2": {
+          "pooled": {
+            "null": {
+              "mean": 0.5923201174743025,
+              "n": 681
+            }
+          },
+          "dataset": {
+            "mtbench": {
+              "mean": 0.5385281385281385,
+              "n": 231
+            },
+            "arena_hard": {
+              "mean": 0.7305701754385965,
+              "n": 228
+            },
+            "wildbench": {
+              "mean": 0.5063063063063064,
+              "n": 222
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "mean": 0.20217391304347826,
+              "n": 230
+            },
+            "qwen": {
+              "mean": 0.6353711790393013,
+              "n": 229
+            },
+            "llama": {
+              "mean": 0.9521171171171171,
+              "n": 222
+            }
+          }
+        }
+      },
+      "ci_95": {
+        "no_history_minus_self_low_2": {
+          "pooled": {
+            "null": {
+              "ci_low": 1.0987183766002844,
+              "ci_high": 1.2433284127121904,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "dataset": {
+            "arena_hard": {
+              "ci_low": 1.2253940886699508,
+              "ci_high": 1.4678768947745562,
+              "n_bootstrap_reps": 10000
+            },
+            "mtbench": {
+              "ci_low": 0.9023112922705314,
+              "ci_high": 1.1645699082470928,
+              "n_bootstrap_reps": 10000
+            },
+            "wildbench": {
+              "ci_low": 1.0213055848530213,
+              "ci_high": 1.256434690241228,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "scorer": {
+            "olmo32b": {
+              "ci_low": 0.7526100475881463,
+              "ci_high": 1.0552289424968182,
+              "n_bootstrap_reps": 10000
+            },
+            "gemma": {
+              "ci_low": 0.3724832214765101,
+              "ci_high": 0.53125,
+              "n_bootstrap_reps": 10000
+            },
+            "qwen": {
+              "ci_low": 1.582142857142857,
+              "ci_high": 1.8613181840599724,
+              "n_bootstrap_reps": 10000
+            },
+            "llama": {
+              "ci_low": 1.4458273381294964,
+              "ci_high": 1.75963535776704,
+              "n_bootstrap_reps": 10000
+            }
+          }
+        },
+        "other_low_2_minus_self_low_2": {
+          "pooled": {
+            "null": {
+              "ci_low": 0.5917041090629801,
+              "ci_high": 0.7200957524157989,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "dataset": {
+            "arena_hard": {
+              "ci_low": 0.5499999999999999,
+              "ci_high": 0.8007194244604317,
+              "n_bootstrap_reps": 10000
+            },
+            "mtbench": {
+              "ci_low": 0.513986013986014,
+              "ci_high": 0.7304762620192307,
+              "n_bootstrap_reps": 10000
+            },
+            "wildbench": {
+              "ci_low": 0.5724137931034483,
+              "ci_high": 0.7664233576642335,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "ci_low": 0.19148153942428037,
+              "ci_high": 0.3194444444444444,
+              "n_bootstrap_reps": 10000
+            },
+            "qwen": {
+              "ci_low": 0.9620623802681992,
+              "ci_high": 1.241750236518448,
+              "n_bootstrap_reps": 10000
+            },
+            "llama": {
+              "ci_low": 0.4776223776223776,
+              "ci_high": 0.734697742733457,
+              "n_bootstrap_reps": 10000
+            }
+          }
+        },
+        "unrelated_low_2_minus_self_low_2": {
+          "pooled": {
+            "null": {
+              "ci_low": 0.29050734782333587,
+              "ci_high": 0.43525285653829876,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "dataset": {
+            "arena_hard": {
+              "ci_low": 0.24814814814814815,
+              "ci_high": 0.4745251776977753,
+              "n_bootstrap_reps": 10000
+            },
+            "mtbench": {
+              "ci_low": 0.19095982142857143,
+              "ci_high": 0.5,
+              "n_bootstrap_reps": 10000
+            },
+            "wildbench": {
+              "ci_low": 0.2861522911051213,
+              "ci_high": 0.4776143169502804,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "ci_low": -0.4026868941088739,
+              "ci_high": -0.21678321678321677,
+              "n_bootstrap_reps": 10000
+            },
+            "qwen": {
+              "ci_low": 0.5361788858386975,
+              "ci_high": 0.7730496453900709,
+              "n_bootstrap_reps": 10000
+            },
+            "llama": {
+              "ci_low": 0.6190476190476191,
+              "ci_high": 0.8785714285714286,
+              "n_bootstrap_reps": 10000
+            }
+          }
+        },
+        "no_history_minus_unrelated_low_2": {
+          "pooled": {
+            "null": {
+              "ci_low": 0.8155028600596318,
+              "ci_high": 0.9727622559025212,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "dataset": {
+            "arena_hard": {
+              "ci_low": 0.9249493585884315,
+              "ci_high": 1.2027022415295783,
+              "n_bootstrap_reps": 10000
+            },
+            "mtbench": {
+              "ci_low": 0.6694416666666667,
+              "ci_high": 0.995862777515352,
+              "n_bootstrap_reps": 10000
+            },
+            "wildbench": {
+              "ci_low": 0.6915542487314011,
+              "ci_high": 0.8718541167066347,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "ci_low": 0.673755171394799,
+              "ci_high": 0.8636440940012368,
+              "n_bootstrap_reps": 10000
+            },
+            "qwen": {
+              "ci_low": 0.944078947368421,
+              "ci_high": 1.222972972972973,
+              "n_bootstrap_reps": 10000
+            },
+            "llama": {
+              "ci_low": 0.6807312150279776,
+              "ci_high": 0.9753554626369327,
+              "n_bootstrap_reps": 10000
+            }
+          }
+        },
+        "no_history_minus_verbal_negative": {
+          "pooled": {
+            "null": {
+              "ci_low": 1.1054115817535546,
+              "ci_high": 1.2795939576754487,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "dataset": {
+            "arena_hard": {
+              "ci_low": 1.1708022015540382,
+              "ci_high": 1.4584826164045637,
+              "n_bootstrap_reps": 10000
+            },
+            "mtbench": {
+              "ci_low": 1.0091430876147927,
+              "ci_high": 1.345205479452055,
+              "n_bootstrap_reps": 10000
+            },
+            "wildbench": {
+              "ci_low": 0.9460978876473289,
+              "ci_high": 1.2185185185185186,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "ci_low": 0.31788079470198677,
+              "ci_high": 0.4931972789115646,
+              "n_bootstrap_reps": 10000
+            },
+            "qwen": {
+              "ci_low": 1.3664323268377387,
+              "ci_high": 1.6826939655172413,
+              "n_bootstrap_reps": 10000
+            },
+            "llama": {
+              "ci_low": 1.4973472884731165,
+              "ci_high": 1.8306627331711274,
+              "n_bootstrap_reps": 10000
+            }
+          }
+        },
+        "self_high_10_minus_self_low_2": {
+          "pooled": {
+            "null": {
+              "ci_low": 2.199768916624354,
+              "ci_high": 2.363885057872158,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "dataset": {
+            "arena_hard": {
+              "ci_low": 2.3386666666666667,
+              "ci_high": 2.643457959376476,
+              "n_bootstrap_reps": 10000
+            },
+            "mtbench": {
+              "ci_low": 2.0683373709195907,
+              "ci_high": 2.335616438356164,
+              "n_bootstrap_reps": 10000
+            },
+            "wildbench": {
+              "ci_low": 2.016663907284768,
+              "ci_high": 2.288738110481068,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "ci_low": 1.1654676258992807,
+              "ci_high": 1.3878205128205128,
+              "n_bootstrap_reps": 10000
+            },
+            "qwen": {
+              "ci_low": 2.9349242322499776,
+              "ci_high": 3.2533344594594595,
+              "n_bootstrap_reps": 10000
+            },
+            "llama": {
+              "ci_low": 2.315492957746479,
+              "ci_high": 2.6055221674876847,
+              "n_bootstrap_reps": 10000
+            }
+          }
+        },
+        "self_high_10_minus_no_history": {
+          "pooled": {
+            "null": {
+              "ci_low": 0.9498335020454166,
+              "ci_high": 1.0659448989891636,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "dataset": {
+            "arena_hard": {
+              "ci_low": 0.9351335616438354,
+              "ci_high": 1.1360196382607095,
+              "n_bootstrap_reps": 10000
+            },
+            "mtbench": {
+              "ci_low": 0.889654533844189,
+              "ci_high": 1.1035460992907802,
+              "n_bootstrap_reps": 10000
+            },
+            "wildbench": {
+              "ci_low": 0.8986387471655328,
+              "ci_high": 1.080369765270739,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "ci_low": 0.7482511283043197,
+              "ci_high": 0.9097222222222222,
+              "n_bootstrap_reps": 10000
+            },
+            "qwen": {
+              "ci_low": 1.2414965986394557,
+              "ci_high": 1.493008207070707,
+              "n_bootstrap_reps": 10000
+            },
+            "llama": {
+              "ci_low": 0.6932401763465592,
+              "ci_high": 0.949124402667647,
+              "n_bootstrap_reps": 10000
+            }
+          }
+        },
+        "no_history_minus_other_low_2": {
+          "pooled": {
+            "null": {
+              "ci_low": 0.53356004405428,
+              "ci_high": 0.6506007181405803,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "dataset": {
+            "arena_hard": {
+              "ci_low": 0.6372794117647059,
+              "ci_high": 0.8233111723856208,
+              "n_bootstrap_reps": 10000
+            },
+            "mtbench": {
+              "ci_low": 0.4166666666666667,
+              "ci_high": 0.659883126133126,
+              "n_bootstrap_reps": 10000
+            },
+            "wildbench": {
+              "ci_low": 0.41889621134314736,
+              "ci_high": 0.5886563194664972,
+              "n_bootstrap_reps": 10000
+            }
+          },
+          "scorer": {
+            "gemma": {
+              "ci_low": 0.13945578231292516,
+              "ci_high": 0.26223776223776224,
+              "n_bootstrap_reps": 10000
+            },
+            "qwen": {
+              "ci_low": 0.5132428546531892,
+              "ci_high": 0.7605633802816901,
+              "n_bootstrap_reps": 10000
+            },
+            "llama": {
+              "ci_low": 0.8235221198041567,
+              "ci_high": 1.0849684509326845,
+              "n_bootstrap_reps": 10000
+            }
+          }
+        }
+      },
+      "note": "non-confirmatory, unadjusted for multiplicity"
+    },
+    "S1_three_scorer_sensitivity": {
+      "confirmatory": false,
+      "status": "robustness check, NOT a correction of a confound (see C1_1)",
+      "label": "primary recomputed on the three non-OLMo scorers",
+      "scorers": [
+        "llama",
+        "qwen",
+        "gemma"
+      ],
+      "primary": {
+        "population": "the same 500 fully held-out arena_hard + wildbench tasks",
+        "n_cells": 6,
+        "cell_weight": 0.16666666666666666,
+        "macro_average": 1.2985829865333203,
+        "n_empty_cells": 0,
+        "cell_means": {
+          "arena_hard|llama": 1.8293243243243245,
+          "arena_hard|qwen": 1.9407894736842106,
+          "arena_hard|gemma": 0.6153846153846154,
+          "wildbench|llama": 1.2098591549295776,
+          "wildbench|qwen": 1.7894736842105263,
+          "wildbench|gemma": 0.4066666666666667
+        },
+        "cell_n": {
+          "arena_hard|llama": 74,
+          "arena_hard|qwen": 76,
+          "arena_hard|gemma": 78,
+          "wildbench|llama": 71,
+          "wildbench|qwen": 76,
+          "wildbench|gemma": 75
+        },
+        "ci_95": {
+          "ci_low": 1.214029275902467,
+          "ci_high": 1.3821474799418312,
+          "n_bootstrap_reps": 10000
+        },
+        "difference_from_four_scorer_primary": 0.05669187758571104
+      },
+      "secondary": {
+        "population": "all 578 tasks",
+        "n_cells": 9,
+        "cell_weight": 0.1111111111111111,
+        "macro_average": 1.257435832736055,
+        "n_empty_cells": 0,
+        "cell_means": {
+          "mtbench|llama": 1.7454545454545456,
+          "mtbench|qwen": 1.4423076923076923,
+          "mtbench|gemma": 0.33766233766233766,
+          "arena_hard|llama": 1.8293243243243245,
+          "arena_hard|qwen": 1.9407894736842106,
+          "arena_hard|gemma": 0.6153846153846154,
+          "wildbench|llama": 1.2098591549295776,
+          "wildbench|qwen": 1.7894736842105263,
+          "wildbench|gemma": 0.4066666666666667
+        },
+        "cell_n": {
+          "mtbench|llama": 77,
+          "mtbench|qwen": 78,
+          "mtbench|gemma": 77,
+          "arena_hard|llama": 74,
+          "arena_hard|qwen": 76,
+          "arena_hard|gemma": 78,
+          "wildbench|llama": 71,
+          "wildbench|qwen": 76,
+          "wildbench|gemma": 75
+        },
+        "ci_95": {
+          "ci_low": 1.1878495134969862,
+          "ci_high": 1.3291008312272383,
+          "n_bootstrap_reps": 10000
+        },
+        "difference_from_four_scorer_secondary": 0.08747743145051334
+      },
+      "fourth_scorer_cell_means": {
+        "heldout_500": {
+          "arena_hard": {
+            "mean": 0.9957142857142858,
+            "n": 70
+          },
+          "wildbench": {
+            "mean": 1.1479166666666667,
+            "n": 72
+          }
+        },
+        "full_578": {
+          "mtbench": {
+            "mean": 0.5789473684210527,
+            "n": 76
+          },
+          "arena_hard": {
+            "mean": 0.9957142857142858,
+            "n": 70
+          },
+          "wildbench": {
+            "mean": 1.1479166666666667,
+            "n": 72
+          }
+        }
+      },
+      "decision_rule": "NONE",
+      "explicitly_forbidden": [
+        "S1 may never replace, override or become the primary analysis",
+        "no rule may switch the primary from the four-scorer 8-cell macro on the basis of S1 or of any observed data",
+        "S1 disagreeing with the primary is reported as a limitation of interpretation, not as grounds for discarding either estimate"
+      ],
+      "reporting_note": "per Clarification C1_1: an additive answer-family affinity cancels in the paired contrast because the frozen answer is byte-identical across conditions; a scorer-family-by-condition interaction would not, and its direction is not established. S1 tests whether the primary conclusion depends materially on including the OLMo scorer -- it does not establish that no such interaction exists, nor any direction or magnitude of bias in the four-scorer primary."
+    },
+    "robustness": {
+      "R1_trimmed_mean": {
+        "primary_8_cell": {
+          "macro_average": 1.1410687454573392,
+          "n_empty_cells": 0,
+          "cell_means": {
+            "arena_hard|llama": 1.6561666666666668,
+            "arena_hard|qwen": 1.935483870967742,
+            "arena_hard|gemma": 0.546875,
+            "arena_hard|olmo32b": 0.8964285714285715,
+            "wildbench|llama": 1.0456140350877192,
+            "wildbench|qwen": 1.6774193548387097,
+            "wildbench|gemma": 0.3524590163934426,
+            "wildbench|olmo32b": 1.018103448275862
+          },
+          "cell_n": {
+            "arena_hard|llama": 74,
+            "arena_hard|qwen": 76,
+            "arena_hard|gemma": 78,
+            "arena_hard|olmo32b": 70,
+            "wildbench|llama": 71,
+            "wildbench|qwen": 76,
+            "wildbench|gemma": 75,
+            "wildbench|olmo32b": 72
+          },
+          "ci_95": {
+            "ci_low": 1.0688290458238616,
+            "ci_high": 1.2387215670453744,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "secondary_12_cell": {
+          "macro_average": 1.1062506780818173,
+          "n_empty_cells": 0,
+          "cell_means": {
+            "mtbench|llama": 1.8476190476190477,
+            "mtbench|qwen": 1.3828125,
+            "mtbench|gemma": 0.20634920634920634,
+            "mtbench|olmo32b": 0.7096774193548387,
+            "arena_hard|llama": 1.6561666666666668,
+            "arena_hard|qwen": 1.935483870967742,
+            "arena_hard|gemma": 0.546875,
+            "arena_hard|olmo32b": 0.8964285714285715,
+            "wildbench|llama": 1.0456140350877192,
+            "wildbench|qwen": 1.6774193548387097,
+            "wildbench|gemma": 0.3524590163934426,
+            "wildbench|olmo32b": 1.018103448275862
+          },
+          "cell_n": {
+            "mtbench|llama": 77,
+            "mtbench|qwen": 78,
+            "mtbench|gemma": 77,
+            "mtbench|olmo32b": 76,
+            "arena_hard|llama": 74,
+            "arena_hard|qwen": 76,
+            "arena_hard|gemma": 78,
+            "arena_hard|olmo32b": 70,
+            "wildbench|llama": 71,
+            "wildbench|qwen": 76,
+            "wildbench|gemma": 75,
+            "wildbench|olmo32b": 72
+          },
+          "ci_95": {
+            "ci_low": 1.0482187296304535,
+            "ci_high": 1.1805033504991105,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "trim_fraction": 0.1
+      },
+      "R2_leave_one_task_out": {
+        "primary_500": {
+          "baseline_macro_average": 1.241891108947609,
+          "n_recomputations": 156,
+          "min_shift": -0.011460231345227001,
+          "max_shift": 0.011469865161403137,
+          "range_shift": 0.022930096506630138,
+          "ten_most_influential": [
+            {
+              "excluded_task_id": "4b9ba55ea5704f0d",
+              "dataset": "arena_hard",
+              "macro_average_excl": 1.2533609741090121,
+              "shift": 0.011469865161403137
+            },
+            {
+              "excluded_task_id": "ee6a697e2b39423e",
+              "dataset": "arena_hard",
+              "macro_average_excl": 1.230430877602382,
+              "shift": -0.011460231345227001
+            },
+            {
+              "excluded_task_id": "f41bb5bf57c8481c",
+              "dataset": "wildbench",
+              "macro_average_excl": 1.2304404149483839,
+              "shift": -0.011450693999225159
+            },
+            {
+              "excluded_task_id": "369827bfcf534e0a",
+              "dataset": "arena_hard",
+              "macro_average_excl": 1.253131864283044,
+              "shift": 0.011240755335435004
+            },
+            {
+              "excluded_task_id": "02cda0d324384da7",
+              "dataset": "wildbench",
+              "macro_average_excl": 1.2306507308981365,
+              "shift": -0.011240378049472532
+            },
+            {
+              "excluded_task_id": "f85200a0f1bd4543",
+              "dataset": "arena_hard",
+              "macro_average_excl": 1.2320085921253021,
+              "shift": -0.009882516822306897
+            },
+            {
+              "excluded_task_id": "6634578f233b44f9",
+              "dataset": "wildbench",
+              "macro_average_excl": 1.251502508228787,
+              "shift": 0.009611399281177935
+            },
+            {
+              "excluded_task_id": "b9ebb67820354dcd",
+              "dataset": "arena_hard",
+              "macro_average_excl": 1.2325883022702295,
+              "shift": -0.009302806677379483
+            },
+            {
+              "excluded_task_id": "7bb0b31e023f4a6e",
+              "dataset": "arena_hard",
+              "macro_average_excl": 1.2326723330399363,
+              "shift": -0.009218775907672727
+            },
+            {
+              "excluded_task_id": "2149588bda5a45f4",
+              "dataset": "wildbench",
+              "macro_average_excl": 1.2509919448485052,
+              "shift": 0.009100835900896165
+            }
+          ]
+        },
+        "secondary_578": {
+          "baseline_macro_average": 1.1699584012855417,
+          "n_recomputations": 234,
+          "min_shift": -0.008627220732483787,
+          "max_shift": 0.01557096412359571,
+          "range_shift": 0.024198184856079497,
+          "ten_most_influential": [
+            {
+              "excluded_task_id": "104",
+              "dataset": "mtbench",
+              "macro_average_excl": 1.1855293654091374,
+              "shift": 0.01557096412359571
+            },
+            {
+              "excluded_task_id": "140",
+              "dataset": "mtbench",
+              "macro_average_excl": 1.161331180553058,
+              "shift": -0.008627220732483787
+            },
+            {
+              "excluded_task_id": "108",
+              "dataset": "mtbench",
+              "macro_average_excl": 1.1776792476905986,
+              "shift": 0.00772084640505688
+            },
+            {
+              "excluded_task_id": "4b9ba55ea5704f0d",
+              "dataset": "arena_hard",
+              "macro_average_excl": 1.1776049780598103,
+              "shift": 0.00764657677426861
+            },
+            {
+              "excluded_task_id": "ee6a697e2b39423e",
+              "dataset": "arena_hard",
+              "macro_average_excl": 1.1623182470553903,
+              "shift": -0.007640154230151408
+            },
+            {
+              "excluded_task_id": "f41bb5bf57c8481c",
+              "dataset": "wildbench",
+              "macro_average_excl": 1.1623246052860583,
+              "shift": -0.007633795999483439
+            },
+            {
+              "excluded_task_id": "369827bfcf534e0a",
+              "dataset": "arena_hard",
+              "macro_average_excl": 1.1774522381758319,
+              "shift": 0.007493836890290151
+            },
+            {
+              "excluded_task_id": "02cda0d324384da7",
+              "dataset": "wildbench",
+              "macro_average_excl": 1.1624648159192266,
+              "shift": -0.00749358536631517
+            },
+            {
+              "excluded_task_id": "106",
+              "dataset": "mtbench",
+              "macro_average_excl": 1.176668577074665,
+              "shift": 0.006710175789123252
+            },
+            {
+              "excluded_task_id": "111",
+              "dataset": "mtbench",
+              "macro_average_excl": 1.176639717045805,
+              "shift": 0.006681315760263207
+            }
+          ]
+        }
+      },
+      "R4_prior_use_descriptive": {
+        "previously_used": {
+          "n": 74,
+          "mean_task_level_effect": 1.0503378378378379
+        },
+        "held_out": {
+          "n": 159,
+          "mean_task_level_effect": 1.2052201257861634
+        },
+        "CONFOUNDED_WITH_DATASET": true,
+        "confound_statement": "Previous-use status is completely confounded with MT-Bench and cannot receive a causal interpretation. All previously-used tasks are MT-Bench; only a handful of MT-Bench tasks are naive, so any group difference is indistinguishable from a MT-Bench vs other-datasets difference.",
+        "status": "descriptive_only",
+        "forbidden_claim": "no statement of the form 'prior exposure changes the effect' may be made from this comparison",
+        "design_level_answer": "the primary analysis, restricted to the 500 never-used tasks"
+      }
+    }
+  },
+  "primary_measurement_basis": "complete_case",
+  "attrition_summary": {
+    "scorer": {
+      "olmo32b": {
+        "n_total": 468,
+        "n_failed": 25,
+        "rate": 0.053418803418803416
+      },
+      "gemma": {
+        "n_total": 1404,
+        "n_failed": 20,
+        "rate": 0.014245014245014245
+      },
+      "qwen": {
+        "n_total": 1404,
+        "n_failed": 16,
+        "rate": 0.011396011396011397
+      },
+      "llama": {
+        "n_total": 1404,
+        "n_failed": 35,
+        "rate": 0.02492877492877493
+      }
+    },
+    "dataset": {
+      "mtbench": {
+        "n_total": 1560,
+        "n_failed": 14,
+        "rate": 0.008974358974358974
+      },
+      "arena_hard": {
+        "n_total": 1560,
+        "n_failed": 39,
+        "rate": 0.025
+      },
+      "wildbench": {
+        "n_total": 1560,
+        "n_failed": 43,
+        "rate": 0.027564102564102563
+      }
+    },
+    "condition": {
+      "no_history": {
+        "n_total": 936,
+        "n_failed": 30,
+        "rate": 0.03205128205128205
+      },
+      "self_low_2": {
+        "n_total": 936,
+        "n_failed": 23,
+        "rate": 0.024572649572649572
+      },
+      "other_low_2": {
+        "n_total": 702,
+        "n_failed": 13,
+        "rate": 0.018518518518518517
+      },
+      "unrelated_low_2": {
+        "n_total": 702,
+        "n_failed": 11,
+        "rate": 0.01566951566951567
+      },
+      "verbal_negative": {
+        "n_total": 702,
+        "n_failed": 9,
+        "rate": 0.01282051282051282
+      },
+      "self_high_10": {
+        "n_total": 702,
+        "n_failed": 10,
+        "rate": 0.014245014245014245
+      }
+    },
+    "scorer_condition": {
+      "('olmo32b', 'no_history')": {
+        "n_total": 234,
+        "n_failed": 13,
+        "rate": 0.05555555555555555
+      },
+      "('olmo32b', 'self_low_2')": {
+        "n_total": 234,
+        "n_failed": 12,
+        "rate": 0.05128205128205128
+      },
+      "('gemma', 'no_history')": {
+        "n_total": 234,
+        "n_failed": 3,
+        "rate": 0.01282051282051282
+      },
+      "('gemma', 'self_low_2')": {
+        "n_total": 234,
+        "n_failed": 4,
+        "rate": 0.017094017094017096
+      },
+      "('gemma', 'other_low_2')": {
+        "n_total": 234,
+        "n_failed": 4,
+        "rate": 0.017094017094017096
+      },
+      "('gemma', 'unrelated_low_2')": {
+        "n_total": 234,
+        "n_failed": 3,
+        "rate": 0.01282051282051282
+      },
+      "('gemma', 'verbal_negative')": {
+        "n_total": 234,
+        "n_failed": 2,
+        "rate": 0.008547008547008548
+      },
+      "('gemma', 'self_high_10')": {
+        "n_total": 234,
+        "n_failed": 4,
+        "rate": 0.017094017094017096
+      },
+      "('qwen', 'no_history')": {
+        "n_total": 234,
+        "n_failed": 3,
+        "rate": 0.01282051282051282
+      },
+      "('qwen', 'self_low_2')": {
+        "n_total": 234,
+        "n_failed": 2,
+        "rate": 0.008547008547008548
+      },
+      "('qwen', 'other_low_2')": {
+        "n_total": 234,
+        "n_failed": 4,
+        "rate": 0.017094017094017096
+      },
+      "('qwen', 'unrelated_low_2')": {
+        "n_total": 234,
+        "n_failed": 2,
+        "rate": 0.008547008547008548
+      },
+      "('qwen', 'verbal_negative')": {
+        "n_total": 234,
+        "n_failed": 3,
+        "rate": 0.01282051282051282
+      },
+      "('qwen', 'self_high_10')": {
+        "n_total": 234,
+        "n_failed": 2,
+        "rate": 0.008547008547008548
+      },
+      "('llama', 'no_history')": {
+        "n_total": 234,
+        "n_failed": 11,
+        "rate": 0.04700854700854701
+      },
+      "('llama', 'self_low_2')": {
+        "n_total": 234,
+        "n_failed": 5,
+        "rate": 0.021367521367521368
+      },
+      "('llama', 'other_low_2')": {
+        "n_total": 234,
+        "n_failed": 5,
+        "rate": 0.021367521367521368
+      },
+      "('llama', 'unrelated_low_2')": {
+        "n_total": 234,
+        "n_failed": 6,
+        "rate": 0.02564102564102564
+      },
+      "('llama', 'verbal_negative')": {
+        "n_total": 234,
+        "n_failed": 4,
+        "rate": 0.017094017094017096
+      },
+      "('llama', 'self_high_10')": {
+        "n_total": 234,
+        "n_failed": 4,
+        "rate": 0.017094017094017096
+      }
+    }
+  },
+  "a5_missingness_by_cell": {
+    "cells": [
+      {
+        "scorer_key": "gemma",
+        "dataset": "arena_hard",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "arena_hard",
+        "condition": "other_low_2",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "arena_hard",
+        "condition": "self_high_10",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "arena_hard",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "arena_hard",
+        "condition": "unrelated_low_2",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "arena_hard",
+        "condition": "verbal_negative",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "mtbench",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "mtbench",
+        "condition": "other_low_2",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 2,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "mtbench",
+        "condition": "self_high_10",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 2,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "mtbench",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "mtbench",
+        "condition": "unrelated_low_2",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "mtbench",
+        "condition": "verbal_negative",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "wildbench",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 2,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "wildbench",
+        "condition": "other_low_2",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 2,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "wildbench",
+        "condition": "self_high_10",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "wildbench",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 75,
+        "n_capped_incomplete": 3,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.038461538461538464
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "wildbench",
+        "condition": "unrelated_low_2",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 2,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "gemma",
+        "dataset": "wildbench",
+        "condition": "verbal_negative",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "arena_hard",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 75,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 2,
+        "n_generation_error": 0,
+        "missing_rate": 0.038461538461538464
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "arena_hard",
+        "condition": "other_low_2",
+        "n_total": 78,
+        "n_valid": 75,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 3,
+        "n_generation_error": 0,
+        "missing_rate": 0.038461538461538464
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "arena_hard",
+        "condition": "self_high_10",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "arena_hard",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 75,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 3,
+        "n_generation_error": 0,
+        "missing_rate": 0.038461538461538464
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "arena_hard",
+        "condition": "unrelated_low_2",
+        "n_total": 78,
+        "n_valid": 75,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 2,
+        "n_generation_error": 0,
+        "missing_rate": 0.038461538461538464
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "arena_hard",
+        "condition": "verbal_negative",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 2,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "mtbench",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "mtbench",
+        "condition": "other_low_2",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "mtbench",
+        "condition": "self_high_10",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "mtbench",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "mtbench",
+        "condition": "unrelated_low_2",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "mtbench",
+        "condition": "verbal_negative",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "wildbench",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 71,
+        "n_capped_incomplete": 6,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.08974358974358974
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "wildbench",
+        "condition": "other_low_2",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 2,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "wildbench",
+        "condition": "self_high_10",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "wildbench",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 2,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "wildbench",
+        "condition": "unrelated_low_2",
+        "n_total": 78,
+        "n_valid": 75,
+        "n_capped_incomplete": 2,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.038461538461538464
+      },
+      {
+        "scorer_key": "llama",
+        "dataset": "wildbench",
+        "condition": "verbal_negative",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 2,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "olmo32b",
+        "dataset": "arena_hard",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 72,
+        "n_capped_incomplete": 3,
+        "n_parse_failed": 3,
+        "n_generation_error": 0,
+        "missing_rate": 0.07692307692307693
+      },
+      {
+        "scorer_key": "olmo32b",
+        "dataset": "arena_hard",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 72,
+        "n_capped_incomplete": 3,
+        "n_parse_failed": 3,
+        "n_generation_error": 0,
+        "missing_rate": 0.07692307692307693
+      },
+      {
+        "scorer_key": "olmo32b",
+        "dataset": "mtbench",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 2,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "olmo32b",
+        "dataset": "mtbench",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "olmo32b",
+        "dataset": "wildbench",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 73,
+        "n_capped_incomplete": 3,
+        "n_parse_failed": 2,
+        "n_generation_error": 0,
+        "missing_rate": 0.0641025641025641
+      },
+      {
+        "scorer_key": "olmo32b",
+        "dataset": "wildbench",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 74,
+        "n_capped_incomplete": 4,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.05128205128205128
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "arena_hard",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "arena_hard",
+        "condition": "other_low_2",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 2,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "arena_hard",
+        "condition": "self_high_10",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 2,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "arena_hard",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "arena_hard",
+        "condition": "unrelated_low_2",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "arena_hard",
+        "condition": "verbal_negative",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 1,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "mtbench",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "mtbench",
+        "condition": "other_low_2",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "mtbench",
+        "condition": "self_high_10",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "mtbench",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "mtbench",
+        "condition": "unrelated_low_2",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "mtbench",
+        "condition": "verbal_negative",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "wildbench",
+        "condition": "no_history",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 2,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "wildbench",
+        "condition": "other_low_2",
+        "n_total": 78,
+        "n_valid": 76,
+        "n_capped_incomplete": 2,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.02564102564102564
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "wildbench",
+        "condition": "self_high_10",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "wildbench",
+        "condition": "self_low_2",
+        "n_total": 78,
+        "n_valid": 78,
+        "n_capped_incomplete": 0,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.0
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "wildbench",
+        "condition": "unrelated_low_2",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      },
+      {
+        "scorer_key": "qwen",
+        "dataset": "wildbench",
+        "condition": "verbal_negative",
+        "n_total": 78,
+        "n_valid": 77,
+        "n_capped_incomplete": 1,
+        "n_parse_failed": 0,
+        "n_generation_error": 0,
+        "missing_rate": 0.01282051282051282
+      }
+    ],
+    "n_cells": 60,
+    "n_total": 4680,
+    "n_valid": 4584,
+    "n_capped_incomplete": 54,
+    "n_parse_failed": 42,
+    "n_generation_error": 0
+  },
+  "a5_retained_pairs": {
+    "no_history_vs_self_low_2": {
+      "contrast": [
+        "no_history",
+        "self_low_2"
+      ],
+      "cells": [
+        {
+          "scorer_key": "gemma",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 75,
+          "retention_rate": 0.9615384615384616
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 74,
+          "retention_rate": 0.9487179487179487
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 71,
+          "retention_rate": 0.9102564102564102
+        },
+        {
+          "scorer_key": "olmo32b",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 70,
+          "retention_rate": 0.8974358974358975
+        },
+        {
+          "scorer_key": "olmo32b",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "olmo32b",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 72,
+          "retention_rate": 0.9230769230769231
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        }
+      ],
+      "n_tasks": 936,
+      "n_retained": 900
+    },
+    "other_low_2_vs_self_low_2": {
+      "contrast": [
+        "other_low_2",
+        "self_low_2"
+      ],
+      "cells": [
+        {
+          "scorer_key": "gemma",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 75,
+          "retention_rate": 0.9615384615384616
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 74,
+          "retention_rate": 0.9487179487179487
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        }
+      ],
+      "n_tasks": 702,
+      "n_retained": 687
+    },
+    "unrelated_low_2_vs_self_low_2": {
+      "contrast": [
+        "unrelated_low_2",
+        "self_low_2"
+      ],
+      "cells": [
+        {
+          "scorer_key": "gemma",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 75,
+          "retention_rate": 0.9615384615384616
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 74,
+          "retention_rate": 0.9487179487179487
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 75,
+          "retention_rate": 0.9615384615384616
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        }
+      ],
+      "n_tasks": 702,
+      "n_retained": 688
+    },
+    "no_history_vs_unrelated_low_2": {
+      "contrast": [
+        "no_history",
+        "unrelated_low_2"
+      ],
+      "cells": [
+        {
+          "scorer_key": "gemma",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 74,
+          "retention_rate": 0.9487179487179487
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 70,
+          "retention_rate": 0.8974358974358975
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        }
+      ],
+      "n_tasks": 702,
+      "n_retained": 683
+    },
+    "no_history_vs_verbal_negative": {
+      "contrast": [
+        "no_history",
+        "verbal_negative"
+      ],
+      "cells": [
+        {
+          "scorer_key": "gemma",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 75,
+          "retention_rate": 0.9615384615384616
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 70,
+          "retention_rate": 0.8974358974358975
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        }
+      ],
+      "n_tasks": 702,
+      "n_retained": 683
+    },
+    "self_high_10_vs_self_low_2": {
+      "contrast": [
+        "self_high_10",
+        "self_low_2"
+      ],
+      "cells": [
+        {
+          "scorer_key": "gemma",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 75,
+          "retention_rate": 0.9615384615384616
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 75,
+          "retention_rate": 0.9615384615384616
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        }
+      ],
+      "n_tasks": 702,
+      "n_retained": 688
+    },
+    "self_high_10_vs_no_history": {
+      "contrast": [
+        "self_high_10",
+        "no_history"
+      ],
+      "cells": [
+        {
+          "scorer_key": "gemma",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 75,
+          "retention_rate": 0.9615384615384616
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 71,
+          "retention_rate": 0.9102564102564102
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        }
+      ],
+      "n_tasks": 702,
+      "n_retained": 681
+    },
+    "no_history_vs_other_low_2": {
+      "contrast": [
+        "no_history",
+        "other_low_2"
+      ],
+      "cells": [
+        {
+          "scorer_key": "gemma",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "gemma",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 74,
+          "retention_rate": 0.9487179487179487
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 77,
+          "retention_rate": 0.9871794871794872
+        },
+        {
+          "scorer_key": "llama",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 71,
+          "retention_rate": 0.9102564102564102
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "arena_hard",
+          "n_tasks": 78,
+          "n_retained": 76,
+          "retention_rate": 0.9743589743589743
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "mtbench",
+          "n_tasks": 78,
+          "n_retained": 78,
+          "retention_rate": 1.0
+        },
+        {
+          "scorer_key": "qwen",
+          "dataset": "wildbench",
+          "n_tasks": 78,
+          "n_retained": 75,
+          "retention_rate": 0.9615384615384616
+        }
+      ],
+      "n_tasks": 702,
+      "n_retained": 681
+    }
+  },
+  "n_attrition_records_flagged": 96,
+  "design_constants": {
+    "scorers": [
+      "llama",
+      "qwen",
+      "gemma",
+      "olmo32b"
+    ],
+    "heldout_datasets": [
+      "arena_hard",
+      "wildbench"
+    ],
+    "full_datasets": [
+      "mtbench",
+      "arena_hard",
+      "wildbench"
+    ],
+    "primary_contrast": "no_history_minus_self_low_2",
+    "all_contrasts": [
+      "no_history_minus_self_low_2",
+      "other_low_2_minus_self_low_2",
+      "unrelated_low_2_minus_self_low_2",
+      "no_history_minus_unrelated_low_2",
+      "no_history_minus_verbal_negative",
+      "self_high_10_minus_self_low_2",
+      "self_high_10_minus_no_history",
+      "no_history_minus_other_low_2"
+    ],
+    "n_cells_primary": 8,
+    "n_cells_secondary": 12,
+    "bootstrap_n_replicates": 10000,
+    "bootstrap_seed": 20260818,
+    "trim_fraction": 0.1,
+    "s1_scorers": [
+      "llama",
+      "qwen",
+      "gemma"
+    ],
+    "s1_n_cells_primary": 6,
+    "s1_n_cells_secondary": 9
+  }
+}

@@ -1,0 +1,12 @@
+statistic,value
+n_tasks,233
+fraction_positive,0.9399
+fraction_at_least_plus_1,0.6524
+fraction_at_least_plus_2,0.1545
+fraction_zero,0.0129
+fraction_negative,0.0472
+min,-2.5
+p25,0.75
+median,1.125
+p75,1.625
+max,3.3333

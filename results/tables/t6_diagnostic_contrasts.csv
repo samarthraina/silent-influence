@@ -1,0 +1,9 @@
+contrast,is_confirmatory_primary,pair_weighted_pooled,n_pairs,ci_low,ci_high,llama,qwen,gemma
+no_history_minus_self_low_2,yes,1.1695,900,1.0987,1.2433,1.6021,1.7217,0.4543
+other_low_2_minus_self_low_2,no,0.6562,687,0.5917,0.7201,0.6066,1.1022,0.2576
+unrelated_low_2_minus_self_low_2,no,0.3626,688,0.2905,0.4353,0.7489,0.6558,-0.313
+no_history_minus_unrelated_low_2,no,0.8941,683,0.8155,0.9728,0.8266,1.0801,0.7727
+no_history_minus_verbal_negative,no,1.1931,683,1.1054,1.2796,1.6661,1.5239,0.4091
+self_high_10_minus_self_low_2,no,2.2817,688,2.1998,2.3639,2.4596,3.0927,1.2785
+self_high_10_minus_no_history,no,1.009,681,0.9498,1.0659,0.8204,1.3696,0.8297
+no_history_minus_other_low_2,no,0.5923,681,0.5336,0.6506,0.9521,0.6354,0.2022

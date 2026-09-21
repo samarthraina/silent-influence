@@ -1,0 +1,4 @@
+dataset,equal_weight_mean,n_scorers,pair_weighted_mean,n_pairs,ci_low_pair_weighted,ci_high_pair_weighted
+mtbench,1.0261,4,1.0289,308,0.9023,1.1646
+arena_hard,1.3453,4,1.3442,298,1.2254,1.4679
+wildbench,1.1385,4,1.1396,294,1.0213,1.2564

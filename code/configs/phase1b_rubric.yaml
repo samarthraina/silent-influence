@@ -1,0 +1,36 @@
+# Phase 1B — rubric sensitivity. Same manipulation, rubric grounding varied.
+# NOT YET APPROVED TO RUN.
+#
+# `anchored_legacy` is available in src/silent_influence/rubrics.py and can be added to
+# rubric_variants to measure the legacy 2/5/8 anchor collision directly rather than
+# assuming it matters. It is left out of this default sweep.
+#
+# Grid: 20 prompts x 5 conditions x 2 rubrics x 3 judges x K=2 = 1200 calls
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidates:
+  path: data/candidates/pinned_candidates_v1.json
+
+experiment:
+  name: phase1b_rubric
+  seed: 42
+  datasets: [arena_hard_v2]
+  n_prompts: 20
+  judge_models: [llama8b, qwen8b, qwen14b]
+  evaluated_models: [gemma]
+  candidates_per_prompt: 1
+  exclude_self_judging: true
+  prior_context_conditions: [no_history, score_1, score_3, score_7, score_10]
+  rubric_variants: [grounded, minimal]
+  output_protocols: [score_then_justification]
+  history_template: dyadic_anon_prior_round
+  replicates: 2
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 320
+  do_sample: false

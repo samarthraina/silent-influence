@@ -1,0 +1,31 @@
+# Frozen candidate answers from Model X (allenai/Olmo-3-7B-Instruct).
+#
+# Generated once, then immutable. Every judge in Phase 1A scores byte-identical text
+# under every prior-context condition, so the candidate can never covary with the
+# manipulation.
+#
+# Decoding is greedy for the same reason the judging protocol is: the stimulus set
+# should be reproducible from the config alone.
+#
+# Staged: run with --limit 5 first and inspect, then generate the full 20.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidate_generation:
+  name: candidates_olmo3_v1
+  model: modelx_olmo3
+  dataset: arena_hard_v2
+  n_prompts: 20                 # the Phase 1A task set; --limit takes a nested prefix
+  seed: 42
+  out_dir: results/candidates_olmo3_v1
+  candidates_out: data/candidates/candidates_olmo3_v1.json
+  candidate_response_id: modelx_olmo3_r0
+  evaluated_model_label: modelx_olmo3
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 2048          # 1024 truncated 1 of 5 in the staged run
+  do_sample: false              # bf16, no quantization (see models.yaml)

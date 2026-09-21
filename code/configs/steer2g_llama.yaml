@@ -1,0 +1,48 @@
+# ============================================================================
+# PHASE 2G — position-wise steering / sufficiency, Llama-3.1-8B-Instruct.
+# ============================================================================
+# Phase 2E showed the position-wise prior-score representation is necessary for
+# part of the behavioural effect. This asks the converse: injected into an
+# otherwise history-free evaluation, is it sufficient to move the score?
+#
+# Everything structural is inherited and frozen — layer 14, the same 300-token
+# rubric/instruction/schema span, the same hook point validated in 2E, the same
+# 9/9 split. Nothing here was selected using Phase 2F; the Jacobian-lens peak at
+# L25 is deliberately NOT used as a target.
+#
+# Steering uses the RAW mean-difference vector Delta_t, not the unit direction,
+# so the per-position magnitude is the one actually observed between score_10
+# and score_1 rather than an imposed scale.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+control:                       # same block name so the fit script is reused unchanged
+  name: PHASE2G_steering_positionwise_llama_arenahard
+  judge_model: llama8b
+  source_glob: results/arenahard/judge/*/records.jsonl
+  split: results/phase2a_split.json
+  out_dir: results/phase2g
+  direction_file: results/phase2g/directions_steering.npz
+  history_template: dyadic_anon_prior_round
+  low_condition: score_1
+  high_condition: score_10
+  neutral_condition: no_history
+  span: rubric_instruction
+  layer: 14
+  late_layer: 14               # unused in 2G; kept equal so no extra arm runs
+  seed: 42
+
+steer:
+  # Fixed before any result was seen. Not tuned.
+  betas: [-1.0, -0.5, 0.0, 0.5, 1.0]
+  control_betas: [-1.0, 1.0]
+  n_permuted: 20               # Control A — learned vectors, positions shuffled
+  n_random: 20                 # Control B — random vectors at matched per-position norm
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

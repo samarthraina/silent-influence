@@ -1,0 +1,25 @@
+{
+  "record_id": "silence_human_validation_120",
+  "seed_string": "silence_human_validation_120_20260819",
+  "seed_int": 17169883842552604111,
+  "n": 120,
+  "stratification": "15 per scorer x condition (8 cells)",
+  "copies": [
+    "A",
+    "B"
+  ],
+  "independently_shuffled": true,
+  "shared_id_space": true,
+  "shown_to_human": [
+    "item_id",
+    "rationale_text"
+  ],
+  "withheld": [
+    "scorer",
+    "condition",
+    "dataset",
+    "task id",
+    "score",
+    "expected direction"
+  ]
+}

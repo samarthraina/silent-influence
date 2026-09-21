@@ -1,0 +1,26 @@
+# ============================================================================
+# FINAL SCALED JACOBIAN-LENS STUDY — continuous prior-score dose direction (qwen8b)
+# ============================================================================
+# 11 numeric conditions score_0..score_10 define the dose axis. no_history is a
+# structural reference only: never given a numeric dose, never in the regression
+# or the permutation test.
+#
+# INDEXING (mandatory): jlens layer i == hidden_states[i+1]. Verified at run time
+# for this model; the run aborts if it does not hold.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+dose:
+  name: DOSE_DIRECTION_qwen8b
+  judge_model: qwen8b
+  source_glob: results/arenahard/judge/*/records.jsonl
+  score0_records: results/exploratory_score0/arenahard/records.jsonl
+  out_dir: results/dose_direction
+  history_template: dyadic_anon_prior_round
+  lens_repo: neuronpedia/jacobian-lens
+  lens_file: qwen3-8b/jlens/Salesforce-wikitext/Qwen3-8B_jacobian_lens.pt
+  lens_revision: a4114d7752d11eb546e6cf372213d7e75526d3a1
+  lens_sha256: 1e1f96c3b63ac46731a78658304c8857ef08992351268f0c78893361692059c3
+  jlens_commit: 581d398613e5602a5af361e1c34d3a92ea82ba8e

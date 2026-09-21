@@ -1,0 +1,177 @@
+{
+  "plan_id": "final_behavioral_study_sap_v2_amendment_A5",
+  "plan_version": "2.5",
+  "status": "pre-specified",
+  "prospective": true,
+  "prospective_evidence": {
+    "results/final_behavioral_study": false,
+    "results/final_behavioral_study_adjudicated": false,
+    "data/candidates/final_olmo_answers.json": false,
+    "generation_calls_executed": 0,
+    "scoring_calls_executed": 0,
+    "verified_on_hosts": [
+      "workstation",
+      "a100_instance_47940113"
+    ]
+  },
+  "amends": {
+    "plan_id": "final_behavioral_study_sap_v2_amendment_A4",
+    "path": "configs/final_analysis_plan_v2_4.json",
+    "sha256": "062cb165a626fbd81388b499550227853b1d6454dd93a2f5a27850cf05932771"
+  },
+  "amendment_chain": [
+    {
+      "version": "2.0",
+      "path": "configs/final_analysis_plan.json"
+    },
+    {
+      "version": "2.1",
+      "label": "A1",
+      "path": "configs/final_analysis_plan_v2_1.json"
+    },
+    {
+      "version": "2.2",
+      "label": "A2",
+      "path": "configs/final_analysis_plan_v2_2.json"
+    },
+    {
+      "version": "2.2-C1",
+      "label": "C1",
+      "path": "configs/final_analysis_plan_v2_2_clarification_C1.json"
+    },
+    {
+      "version": "2.3",
+      "label": "A3",
+      "path": "configs/final_analysis_plan_v2_3.json"
+    },
+    {
+      "version": "2.4",
+      "label": "A4",
+      "path": "configs/final_analysis_plan_v2_4.json"
+    },
+    {
+      "version": "2.5",
+      "label": "A5",
+      "path": "configs/final_analysis_plan_v2_5.json"
+    }
+  ],
+  "amendment_narrative": "Code/research_notes/final_analysis_plan_amendment_A5.md",
+  "overwrites_history": false,
+  "non_destructive": true,
+  "statistical_content_changed": false,
+  "statistical_content_note": "no estimand, weight, population, contrast, bootstrap parameter or ceiling changes. A5 adds an output-validity rule that decides which observations are admissible, and the missingness reporting that accompanies it.",
+  "the_rule": {
+    "1_definition": "a response is capped_incomplete when it exhausts max_new_tokens without emitting an EOS / valid terminal completion",
+    "2_invalid_for_analysis": "capped_incomplete is invalid even when the frozen parser finds a numeric score",
+    "3_retained_for_audit": [
+      "raw response",
+      "extracted numeric matches",
+      "generated-token count",
+      "cap metadata",
+      "analysis score set to missing"
+    ],
+    "4_no_human_recovery": "capped_incomplete never enters human score recovery: an explicitly final score cannot be inferred from an incomplete generation",
+    "5_recovery_unchanged": "uncapped parser failures follow the frozen recovery process",
+    "6_paired_complete_case": "frozen rule retained: a task contributes to a contrast only when both relevant condition scores are valid",
+    "7_reporting": "missingness and retained-pair counts by scorer x dataset x condition, reported ALONGSIDE the frozen R5 differential-attrition checks, not instead of them",
+    "8_ceilings_unchanged": {
+      "olmo32b": 2048,
+      "llama": 512,
+      "qwen": 512,
+      "gemma": 512
+    }
+  },
+  "completeness_is_decided_by_terminator_presence": {
+    "why_not_length": "trim_to_first_eos is inclusive, so a response whose last token is its terminator has equal raw and trimmed lengths and would be misread as unterminated",
+    "terminated_on_the_boundary_is_valid": true,
+    "missing_terminator_evidence_on_a_capped_record": "fails closed, treated as unfinished"
+  },
+  "measured_basis": {
+    "source": "36-call A4 validation at 2048 continuing the same 36 generations from the 512-ceiling diagnostic; condition-blind, held-out tasks",
+    "capped_but_parsed_scores_that_were_wrong": [
+      {
+        "task": "wildbench/d62241ec",
+        "condition": "no_history",
+        "score_at_512": 10.0,
+        "true_score": 9.0,
+        "error": -1.0
+      },
+      {
+        "task": "wildbench/d62241ec",
+        "condition": "self_low_2",
+        "score_at_512": 1.0,
+        "true_score": 9.5,
+        "error": 8.5
+      },
+      {
+        "task": "wildbench/d62241ec",
+        "condition": "unrelated_low_2",
+        "score_at_512": 2.5,
+        "true_score": 9.75,
+        "error": 7.25
+      },
+      {
+        "task": "wildbench/d62241ec",
+        "condition": "self_high_10",
+        "score_at_512": 10.0,
+        "true_score": 9.8,
+        "error": -0.2
+      }
+    ],
+    "interpretation": "a capped response can be silently and badly wrong while looking well-formed to a strict parser; the parser did nothing wrong, the text it was given was not a finished answer",
+    "residual_at_2048": {
+      "n_calls": 36,
+      "capped_incomplete": 1,
+      "task": "arena_hard/449e2408",
+      "condition": "no_history",
+      "mechanism": "loops on arithmetic re-derivation, never concludes"
+    }
+  },
+  "retrospective_verification": {
+    "a4_validation_36_calls_at_2048": {
+      "valid": 35,
+      "capped_incomplete": 1
+    },
+    "diagnostic_36_calls_at_512": {
+      "valid": 20,
+      "capped_incomplete": 16,
+      "queued_for_human_recovery": 0
+    },
+    "four_misleading_interim_scores_rejected": 4,
+    "their_parsed_values_retained_in_audit_fields": true
+  },
+  "unchanged_by_A5": [
+    "the 2048 / 512 generation ceilings (A4)",
+    "the frozen 578-task manifest and its hash",
+    "the six conditions and their exact added_context wording",
+    "the scoring prompt renderer and its wording",
+    "the frozen parser (scaled_parsing.py) -- NOT modified",
+    "the frozen recovery module (score_recovery.py) -- NOT modified",
+    "the four-scorer panel and every pinned revision",
+    "call IDs and the total of 13,872 scoring calls",
+    "the primary 8-cell estimand at 1/8 and the secondary 12-cell estimand at 1/12",
+    "the bootstrap plan (10,000 replicates, seed 20260818, task-clustered, dataset-stratified, shared draws)",
+    "the 7 diagnostic contrasts and the robustness suite R1-R5",
+    "S1_three_scorer_sensitivity (6 cells at 1/6, 9 cells at 1/9, non-confirmatory)",
+    "the retry / technical-failure policy and the no-reserve-substitution rule"
+  ],
+  "implementation": {
+    "new_module": "src/silent_influence/output_validity.py",
+    "wired_into": [
+      "scripts/run_final_scoring.py (stamps the verdict on every record)",
+      "scripts/audit_final_score_recovery.py (excludes capped from the queue)",
+      "scripts/build_final_adjudicated_records.py (cannot promote capped)",
+      "scripts/analyze_final_study.py (admission + point-7 reporting)"
+    ],
+    "additive": "parse_ok and parsed_score keep their original meaning; the verdict is stored once and read by resume, recovery, adjudication and analysis so they cannot disagree"
+  },
+  "explicit_non_claims": [
+    "NOT claimed that the residual capped_incomplete rate is ignorable or that its missingness is uninformative",
+    "NOT claimed that excluding these observations is unbiased with respect to the estimand; it removes a known-wrong measurement and reports the attrition",
+    "NOT claimed that the four corrected scores generalise in magnitude or direction (n=4, one task, no condition contrast computed)",
+    "NOT claimed that anything follows about the conditions; the four responses were examined only as parsing artefacts"
+  ],
+  "unresolved_scientific_decisions": {
+    "count": 0
+  }
+}

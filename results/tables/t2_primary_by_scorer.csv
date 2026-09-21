@@ -1,0 +1,5 @@
+scorer,equal_weight_mean,n_datasets,pair_weighted_mean,n_pairs,ci_low_pair_weighted,ci_high_pair_weighted
+llama,1.5949,3,1.6021,222,1.4458,1.7596
+qwen,1.7242,3,1.7217,230,1.5821,1.8613
+gemma,0.4532,3,0.4543,230,0.3725,0.5312
+olmo32b,0.9075,3,0.9007,218,0.7526,1.0552

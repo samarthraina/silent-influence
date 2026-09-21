@@ -1,0 +1,51 @@
+# ============================================================================
+# PHASE 2E CONTROL — position-wise necessity test, Llama-3.1-8B-Instruct.
+# ============================================================================
+# Phase 2D pooled all 300 span positions into a single direction and found no
+# necessity. This asks whether the pooling is what destroyed the structure: one
+# direction is fitted per relative token position, and all 300 removals are
+# applied at once.
+#
+# Relative position is only meaningful because the span is token-identical in
+# every task and condition — 54/54 pairs, 300 tokens, sha256 4d9e84c0f225c87b.
+# That is checked by scripts/verify_span_alignment.py before anything is fitted.
+#
+# Layer and span are inherited from the Phase 2C TRACE result, not independently
+# pre-specified: L14 was the strongest layer of the broad downstream patch, and
+# the rubric/instruction/schema span carried 74% of that effect. Any claim from
+# this phase is conditional on that selection.
+#
+# Every direction is fitted on the 9 Phase 2A TRAIN tasks only. The 9 TEST tasks
+# are never used to fit anything; they are only intervened on.
+#
+# Layer indexing unchanged: L0 = embed_tokens output, L>=1 = POST-block hook on
+# layers[L-1], i.e. exactly hidden_states[L].
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+control:
+  name: PHASE2E_control_positionwise_llama_arenahard
+  judge_model: llama8b
+  source_glob: results/arenahard/judge/*/records.jsonl
+  split: results/phase2a_split.json
+  out_dir: results/phase2e
+  direction_file: results/phase2e/directions_positionwise.npz
+  history_template: dyadic_anon_prior_round
+  low_condition: score_1
+  high_condition: score_10
+  neutral_condition: no_history
+  span: rubric_instruction
+  layer: 14
+  late_layer: 14            # no late-layer arm in 2E; kept equal so nothing extra runs
+  alphas: [0.0, 1.0]        # alpha=0 is the zero-intervention control
+  n_random: 20
+  n_permuted: 20            # the learned d_t permuted across relative positions
+  seed: 42
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

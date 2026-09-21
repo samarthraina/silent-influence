@@ -1,0 +1,45 @@
+# ============================================================================
+# PHASE 1A — prior-score dose response. 20 x 11 x 1 judge = 220 units.
+# ============================================================================
+# Primary causal comparison is within score_1..score_10, where the interaction
+# structure is held constant and only the injected numeral changes.
+# no_history is a separate history-presence reference, not a matched neutral.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidates:
+  path: data/candidates/phase1a_mtbench_20.json
+
+experiment:
+  name: PHASE1A_llama8b
+  seed: 42
+  datasets: [mtbench_t1]
+  n_prompts: 20
+  judge_models: [llama8b]
+  evaluated_models: [modelx_olmo3]
+  candidates_per_prompt: 1
+  exclude_self_judging: true
+  prior_context_conditions:
+    - no_history
+    - score_1
+    - score_2
+    - score_3
+    - score_4
+    - score_5
+    - score_6
+    - score_7
+    - score_8
+    - score_9
+    - score_10
+  rubric_variants: [grounded]
+  output_protocols: [score_only]
+  history_template: dyadic_anon_prior_round
+  replicates: 1
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

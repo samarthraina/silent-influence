@@ -1,0 +1,35 @@
+# ============================================================================
+# MT-Bench first-turn candidate set — health check stage. Not Phase 1A data.
+# ============================================================================
+# Freezes only the 12 MT-Bench candidates. Reuses run_id and out_dir from
+# screen_candidates.yaml so the already-generated records are reused rather than
+# regenerated — no new model calls.
+#
+# Arena-Hard and AlpacaEval records remain in the same generation_records.jsonl as
+# audit/calibration evidence (Arena-Hard: 3/12 truncated at 2048; AlpacaEval: 1 refusal,
+# 1 degenerate output). They are parked, not deleted, and are not frozen here.
+#
+# MT-Bench question_id 131 and 138 are excluded upstream at pin time
+# (scripts/prepare_dataset.py) because those tasks ask for numeric rating output.
+# That exclusion is structural and was fixed before any judging.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidate_generation:
+  name: SCREEN_candidates_v1          # same run: reuse existing records
+  model: modelx_olmo3
+  datasets: [mtbench_t1]
+  n_prompts: 12
+  seed: 42
+  out_dir: results/screen/candidates
+  candidates_out: data/candidates/screen_mtbench_v1.json
+  candidate_response_id: modelx_olmo3_r0
+  evaluated_model_label: modelx_olmo3
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 2048
+  do_sample: false

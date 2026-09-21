@@ -1,0 +1,273 @@
+{
+  "scorer": "gemma",
+  "stage": "DISCOVERY -- frozen before validation",
+  "n_layers": 42,
+  "position": "final_input",
+  "selection_metric": "logit-lens JSD (bits) between the two conditions' readouts",
+  "instrument_note": "NOT a Jacobian lens; no fitted lens exists for this model. Same quantity and position as the Llama rule, different readout.",
+  "eligible_layers": [
+    5,
+    38
+  ],
+  "excluded_first": 4,
+  "excluded_last": 4,
+  "selected_layer": 36,
+  "n_discovery_tasks": 12,
+  "by_layer": [
+    {
+      "layer": 1,
+      "jsd_bits_mean": 0.00027307607721619814,
+      "jsd_bits_sd": 0.0001684173751455457,
+      "cosine_divergence_mean": 1.647075017293294e-05
+    },
+    {
+      "layer": 2,
+      "jsd_bits_mean": 0.00027665725345589937,
+      "jsd_bits_sd": 0.0002262676520466507,
+      "cosine_divergence_mean": 7.362663745880127e-05
+    },
+    {
+      "layer": 3,
+      "jsd_bits_mean": 0.0009823408704884666,
+      "jsd_bits_sd": 0.0015453021438683104,
+      "cosine_divergence_mean": 0.00013127426306406656
+    },
+    {
+      "layer": 4,
+      "jsd_bits_mean": 0.0031955900243095434,
+      "jsd_bits_sd": 0.002970694404768781,
+      "cosine_divergence_mean": 0.00027889013290405273
+    },
+    {
+      "layer": 5,
+      "jsd_bits_mean": 0.0017869487055577338,
+      "jsd_bits_sd": 0.0014616244694872636,
+      "cosine_divergence_mean": 0.0004636545976003011
+    },
+    {
+      "layer": 6,
+      "jsd_bits_mean": 0.0005222145849378043,
+      "jsd_bits_sd": 0.00047340226922471977,
+      "cosine_divergence_mean": 0.0004356503486633301
+    },
+    {
+      "layer": 7,
+      "jsd_bits_mean": 0.0012479275537771173,
+      "jsd_bits_sd": 0.0010933561897248836,
+      "cosine_divergence_mean": 0.0006194263696670532
+    },
+    {
+      "layer": 8,
+      "jsd_bits_mean": 0.0007873612339608371,
+      "jsd_bits_sd": 0.000733481880497293,
+      "cosine_divergence_mean": 0.0005345642566680908
+    },
+    {
+      "layer": 9,
+      "jsd_bits_mean": 0.0014581253090000246,
+      "jsd_bits_sd": 0.0012794777424489387,
+      "cosine_divergence_mean": 0.0012903014818827312
+    },
+    {
+      "layer": 10,
+      "jsd_bits_mean": 0.0016676059979848408,
+      "jsd_bits_sd": 0.00096243085313473,
+      "cosine_divergence_mean": 0.0031774242719014487
+    },
+    {
+      "layer": 11,
+      "jsd_bits_mean": 0.002355943203535086,
+      "jsd_bits_sd": 0.0011789461144392926,
+      "cosine_divergence_mean": 0.0028561304012934365
+    },
+    {
+      "layer": 12,
+      "jsd_bits_mean": 0.0029050752733989307,
+      "jsd_bits_sd": 0.0014220560498690341,
+      "cosine_divergence_mean": 0.003895541032155355
+    },
+    {
+      "layer": 13,
+      "jsd_bits_mean": 0.0026218906617335356,
+      "jsd_bits_sd": 0.0015961927069948183,
+      "cosine_divergence_mean": 0.004452849427858989
+    },
+    {
+      "layer": 14,
+      "jsd_bits_mean": 0.00257620793612053,
+      "jsd_bits_sd": 0.0015432610191722898,
+      "cosine_divergence_mean": 0.005359371503194173
+    },
+    {
+      "layer": 15,
+      "jsd_bits_mean": 0.0023071746497104564,
+      "jsd_bits_sd": 0.0008634161316677969,
+      "cosine_divergence_mean": 0.007623915870984395
+    },
+    {
+      "layer": 16,
+      "jsd_bits_mean": 0.006780368916224688,
+      "jsd_bits_sd": 0.0035557345148960313,
+      "cosine_divergence_mean": 0.009308035175005594
+    },
+    {
+      "layer": 17,
+      "jsd_bits_mean": 0.004732435161713511,
+      "jsd_bits_sd": 0.002140123152800493,
+      "cosine_divergence_mean": 0.009328335523605347
+    },
+    {
+      "layer": 18,
+      "jsd_bits_mean": 0.004040060409655173,
+      "jsd_bits_sd": 0.0019291099540184491,
+      "cosine_divergence_mean": 0.01211454967657725
+    },
+    {
+      "layer": 19,
+      "jsd_bits_mean": 0.009685830834011236,
+      "jsd_bits_sd": 0.003183233213377695,
+      "cosine_divergence_mean": 0.01843040684858958
+    },
+    {
+      "layer": 20,
+      "jsd_bits_mean": 0.011359442840330303,
+      "jsd_bits_sd": 0.0037237075024362304,
+      "cosine_divergence_mean": 0.015324056148529053
+    },
+    {
+      "layer": 21,
+      "jsd_bits_mean": 0.01088431446502606,
+      "jsd_bits_sd": 0.006009068518024281,
+      "cosine_divergence_mean": 0.01657712956269582
+    },
+    {
+      "layer": 22,
+      "jsd_bits_mean": 0.012297686655074358,
+      "jsd_bits_sd": 0.005396508913661496,
+      "cosine_divergence_mean": 0.018664956092834473
+    },
+    {
+      "layer": 23,
+      "jsd_bits_mean": 0.022472959865505498,
+      "jsd_bits_sd": 0.012744448002846204,
+      "cosine_divergence_mean": 0.018143023053805035
+    },
+    {
+      "layer": 24,
+      "jsd_bits_mean": 0.019995233005223174,
+      "jsd_bits_sd": 0.008009280582305548,
+      "cosine_divergence_mean": 0.016397396723429363
+    },
+    {
+      "layer": 25,
+      "jsd_bits_mean": 0.009513148882736763,
+      "jsd_bits_sd": 0.004162206247137036,
+      "cosine_divergence_mean": 0.01750628153483073
+    },
+    {
+      "layer": 26,
+      "jsd_bits_mean": 0.011378837865777314,
+      "jsd_bits_sd": 0.006260951694537108,
+      "cosine_divergence_mean": 0.019709547360738117
+    },
+    {
+      "layer": 27,
+      "jsd_bits_mean": 0.018281034853619833,
+      "jsd_bits_sd": 0.011106707984515855,
+      "cosine_divergence_mean": 0.023522526025772095
+    },
+    {
+      "layer": 28,
+      "jsd_bits_mean": 0.020516765226299565,
+      "jsd_bits_sd": 0.0161127059038953,
+      "cosine_divergence_mean": 0.02019515633583069
+    },
+    {
+      "layer": 29,
+      "jsd_bits_mean": 0.02779285074211657,
+      "jsd_bits_sd": 0.02006914338641264,
+      "cosine_divergence_mean": 0.02510295311609904
+    },
+    {
+      "layer": 30,
+      "jsd_bits_mean": 0.03137983079068363,
+      "jsd_bits_sd": 0.02839177040613761,
+      "cosine_divergence_mean": 0.024970178802808125
+    },
+    {
+      "layer": 31,
+      "jsd_bits_mean": 0.031208073409895103,
+      "jsd_bits_sd": 0.02095820489890137,
+      "cosine_divergence_mean": 0.02574114004770915
+    },
+    {
+      "layer": 32,
+      "jsd_bits_mean": 0.03202364322108527,
+      "jsd_bits_sd": 0.02200559291806133,
+      "cosine_divergence_mean": 0.02751860022544861
+    },
+    {
+      "layer": 33,
+      "jsd_bits_mean": 0.04902210490157207,
+      "jsd_bits_sd": 0.037435201216278156,
+      "cosine_divergence_mean": 0.028536503513654072
+    },
+    {
+      "layer": 34,
+      "jsd_bits_mean": 0.049391057807952166,
+      "jsd_bits_sd": 0.03445747290582976,
+      "cosine_divergence_mean": 0.02994137505690257
+    },
+    {
+      "layer": 35,
+      "jsd_bits_mean": 0.050490570875505604,
+      "jsd_bits_sd": 0.04034795836702993,
+      "cosine_divergence_mean": 0.028036336104075115
+    },
+    {
+      "layer": 36,
+      "jsd_bits_mean": 0.0610562110474954,
+      "jsd_bits_sd": 0.064300838107483,
+      "cosine_divergence_mean": 0.027681733171145122
+    },
+    {
+      "layer": 37,
+      "jsd_bits_mean": 0.04672168490166465,
+      "jsd_bits_sd": 0.044175956562749995,
+      "cosine_divergence_mean": 0.026614477237065632
+    },
+    {
+      "layer": 38,
+      "jsd_bits_mean": 0.038184478568534054,
+      "jsd_bits_sd": 0.03230961558891209,
+      "cosine_divergence_mean": 0.025892630219459534
+    },
+    {
+      "layer": 39,
+      "jsd_bits_mean": 0.045604669488966465,
+      "jsd_bits_sd": 0.035899262765883025,
+      "cosine_divergence_mean": 0.024109994371732075
+    },
+    {
+      "layer": 40,
+      "jsd_bits_mean": 0.04370722329864899,
+      "jsd_bits_sd": 0.0351371330951542,
+      "cosine_divergence_mean": 0.022050509850184124
+    },
+    {
+      "layer": 41,
+      "jsd_bits_mean": 0.041211148141883314,
+      "jsd_bits_sd": 0.04369549856482957,
+      "cosine_divergence_mean": 0.015364319086074829
+    },
+    {
+      "layer": 42,
+      "jsd_bits_mean": 0.03534417071690162,
+      "jsd_bits_sd": 0.02725034412280157,
+      "cosine_divergence_mean": 0.028697893023490906
+    }
+  ],
+  "selected_before_any_validation_run": true,
+  "runtime_s": 19.4,
+  "peak_gpu_gib": 20.66
+}

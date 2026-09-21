@@ -1,0 +1,36 @@
+# ============================================================================
+# PHASE 2F — Jacobian lens, Llama-3.1-8B-Instruct. One GPU.
+# ============================================================================
+# A readout, not an intervention: the gradient of a differentiable expected
+# score with respect to the residual state, projected onto the train-fitted
+# prior-score direction at each layer and each aligned span position.
+#
+# Every layer is measured uniformly. L14 and the L11-L17 band matter to Phases
+# 2C and 2E, so they are marked in the figure, but nothing here selects or
+# weights a layer, and no layer chosen from this result may be fed back into an
+# intervention.
+#
+# The span is the same 300 aligned rubric/instruction/schema tokens, gated by
+# scripts/verify_span_alignment.py (54/54 pairs identical, sha256
+# 4d9e84c0f225c87b). Positions are never pooled, following Phase 2E.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+jacobian:
+  name: PHASE2F_jacobian_lens_llama_arenahard
+  judge_model: llama8b
+  source_glob: results/arenahard/judge/*/records.jsonl
+  split: results/phase2a_split.json
+  alignment_gate: results/phase2e/alignment_gate.json
+  out_dir: results/phase2f
+  history_template: dyadic_anon_prior_round
+  low_condition: score_1
+  high_condition: score_10
+  span: rubric_instruction
+  n_draws: 20               # per control family: permuted, random, sign-flipped
+  seed: 42
+  # Marked in reporting only; never used to select or weight a layer.
+  trace_band: [11, 17]
+  late_band: [23, 30]

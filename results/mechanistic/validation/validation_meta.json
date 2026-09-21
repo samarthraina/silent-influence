@@ -1,0 +1,16 @@
+{
+  "stage": "HELD-OUT VALIDATION",
+  "window": [
+    23,
+    24,
+    25
+  ],
+  "selected_layer": 24,
+  "early_control_layer": 2,
+  "n_tasks": 24,
+  "n_calls": 624,
+  "position": "final_input",
+  "layer_selected_before_validation": true,
+  "runtime_s": 7018.2,
+  "peak_gpu_gib": 15.9
+}

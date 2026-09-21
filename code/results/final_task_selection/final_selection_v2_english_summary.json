@@ -1,0 +1,90 @@
+{
+  "manifest_version": 2,
+  "scope": "english_only",
+  "supersedes_v1_sha256": "b3e3f49d6940026790e10313ba0ae7018a741cdd837584f8cd35e65df3475ea9",
+  "n_selected_total": 578,
+  "per_dataset": {
+    "mtbench": 78,
+    "arena_hard": 250,
+    "wildbench": 250
+  },
+  "n_previously_used": 74,
+  "n_held_out": 504,
+  "english_frames": {
+    "mtbench": 78,
+    "arena_hard": 417,
+    "wildbench": 649
+  },
+  "exclusion_counts": {
+    "mtbench": {
+      "structural": 2,
+      "previously_used": 0,
+      "corrupted": 0,
+      "near_duplicate": 0,
+      "non_english": 0
+    },
+    "arena_hard": {
+      "structural": 61,
+      "previously_used": 60,
+      "corrupted": 3,
+      "near_duplicate": 0,
+      "non_english": 209
+    },
+    "wildbench": {
+      "structural": 327,
+      "previously_used": 42,
+      "corrupted": 1,
+      "near_duplicate": 1,
+      "non_english": 4
+    }
+  },
+  "categories_selected": {
+    "mtbench": {
+      "coding": 10,
+      "extraction": 8,
+      "humanities": 10,
+      "math": 10,
+      "reasoning": 10,
+      "roleplay": 10,
+      "stem": 10,
+      "writing": 10
+    },
+    "arena_hard": {
+      "coding": 105,
+      "creative_writing": 73,
+      "math": 72
+    },
+    "wildbench": {
+      "Advice seeking": 3,
+      "Brainstorming": 7,
+      "Coding & Debugging": 55,
+      "Creative Writing": 45,
+      "Data Analysis": 7,
+      "Editing": 17,
+      "Information seeking": 33,
+      "Math": 23,
+      "Planning": 27,
+      "Reasoning": 29,
+      "Role playing": 4
+    }
+  },
+  "validation_problems": [],
+  "validation_passed": true,
+  "sources": {
+    "mtbench": {
+      "repo": "HuggingFaceH4/mt_bench_prompts",
+      "revision": "e3a795c5e9a82ee40611c416b8a7786c73198991",
+      "file_sha256": "420ae1d63cbf0f499d8afc3b28d86714e77f13e44c133eedf942ed16c544dd34"
+    },
+    "arena_hard": {
+      "repo": "lmarena/arena-hard-auto",
+      "revision": "196f6b826783b3da7310e361a805fa36f0be83f3",
+      "file_sha256": "a75cef6623db6b27aec810497b059f0659705d7ff48dcbccc5bd5b130728ac73"
+    },
+    "wildbench": {
+      "repo": "allenai/WildBench",
+      "revision": "26c49eb39d7d5ce2099b0bbafed5a88dcce954ec",
+      "file_sha256": "e1fbdc5d46deca34e77f92991c23b0476860e26adf2bf28379a3bb3bf00d3ed6"
+    }
+  }
+}

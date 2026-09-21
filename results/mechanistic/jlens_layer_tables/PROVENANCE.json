@@ -1,0 +1,65 @@
+{
+  "generated_from": "archived Jacobian delta tensors; no recomputation, no model, no GPU",
+  "tensor_meta": {
+    "instrument": "official jacobian-lens: lens.transport(h, i) then model.unembed",
+    "is_logit_lens": false,
+    "quantity": "log P_A(token) - log P_B(token) at final_input",
+    "sign_convention": "positive for A_minus_B => token MORE PROMOTED under condition A",
+    "our_layers_covered": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "vocab_size": 128256,
+    "n_tasks": 72,
+    "locked_layer": 24,
+    "locked_window": [
+      23,
+      24,
+      25
+    ]
+  },
+  "ranking": {
+    "promoted": "top 10 by mean signed delta",
+    "suppressed": "bottom 10 by mean signed delta",
+    "sign_consistency": "fraction of tasks matching the mean's sign",
+    "manual_selection": false
+  },
+  "vocab_repair": {
+    "problem": "the run-time dump used tok.vocab_size (128000) so ids 128000-128255 were unmapped and decoded as <unk> in 2 of 600 earlier CSV rows",
+    "fix": "added the 256 special/reserved token strings",
+    "source": "locally cached NousResearch/Meta-Llama-3.1-8B-Instruct tokenizer, loaded offline with clean_up_tokenization_spaces=False",
+    "equivalence_proof": "all 128000 base-vocab ids decode byte-identically to the archived dump; 0 mismatches",
+    "note": "the initial comparison showed 117 mismatches, all a stripped leading space before punctuation -- transformers 4.49 applies clean_up_tokenization_spaces while the 5.15 run-time ignored it for BPE. Disabling the flag reproduces the archived strings exactly, so the ARCHIVED strings are the faithful ones.",
+    "model_weights_downloaded": false,
+    "gpu_used": false
+  }
+}

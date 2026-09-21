@@ -1,0 +1,65 @@
+{
+  "record_id": "final_analysis_plan_A10_freeze_record",
+  "record_type": "amendment_freeze_record",
+  "frozen_at_utc": "2026-08-18T00:45:14+00:00",
+  "amendment": "A10 -- A100 becomes OLMo-32B-only; small-GPU scorers pinned to batch 1 with no cross-host verdict transfer and no re-calibration",
+  "prospective": true,
+  "non_destructive": true,
+  "overwrites_history": false,
+  "no_production_judgment_existed_when_adopted": true,
+  "a5_preserved": true,
+  "new_artifacts_sha256": {
+    "configs/final_analysis_plan_v2_10.json": "6465e0e363a00251db73601041888ae3ce7dbbbb33faffe0b706bd6cf46c6347",
+    "Code/research_notes/final_analysis_plan_amendment_A10.md": "4da3f4c209bcb1b538dd81a7acc9a27ab0ba60e12f93cc9e8930b1dd64bd6904",
+    "scripts/run_final_scoring.py": "3558f354c52fbf49694da3c6a45590b96b93af075e56a69cab39d4105cfc0cc6"
+  },
+  "supersedes_hashes": {
+    "scripts/run_final_scoring.py": {
+      "a9": "superseded",
+      "a10": "3558f354c52fbf49694da3c6a45590b96b93af075e56a69cab39d4105cfc0cc6"
+    }
+  },
+  "prior_artifacts_verified_unmodified_sha256": {
+    "configs/final_analysis_plan.json": "ea41c3d6f4af734605850896049d54952eec9f9450713881b24b2d52611cd52c",
+    "configs/final_analysis_plan_v2_1.json": "0d92256df8e71fa74bcd9fa378f4602a71c47fec43dee709fc4b44f8991455b0",
+    "configs/final_analysis_plan_v2_2.json": "9b202820df5d0d8837e22bd701a473e48eb5f726cd1baf854018ef16e828cbc3",
+    "configs/final_analysis_plan_v2_2_clarification_C1.json": "998e11461163c0b03a6490ef6c3e5c150f491f819d8d658acb3ea23bfb0c96e6",
+    "configs/final_analysis_plan_v2_3.json": "2d86b5df14f116b603159955468795af3530fc16e147f0df340f7d5383f1b86e",
+    "configs/final_analysis_plan_v2_4.json": "062cb165a626fbd81388b499550227853b1d6454dd93a2f5a27850cf05932771",
+    "configs/final_analysis_plan_v2_5.json": "756f7c4107108f6a9f30c50e0854f66f63a8706a9ada5cc18005fb9257019303",
+    "configs/final_analysis_plan_v2_6.json": "21edd4d12c4c553c84ef8958e89f182ac92407283fde6d68ec1708f4e11004d7",
+    "configs/final_analysis_plan_v2_7.json": "c945155148020eac433f2a2c3cdef1ca7d8407d98f0195e7cd7b64d415a67822",
+    "configs/final_analysis_plan_v2_8.json": "411a05377fad3c1c7c222316295d9931e64488dd2df07a0de016b3f903c79ea4",
+    "configs/final_analysis_plan_v2_9.json": "7d08aaac6a8f2c89a3c4380848aaaa82472fa1f3d735c0d0bbd52972e427d9dd",
+    "configs/scorer_olmo3_1_32b_pin.json": "0818438052f6ec33b62f5ec8d6ec1d5e5240b427824768a3c2ab329a98b5684f",
+    "data/prompts/final_tasks_v2_english_seed20260817.json": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+    "data/prompts/a9_scoring_tasks_seed20260818.json": "8deb5178ad53c5942afa00ac285eff620762027378aed67b93b33dd6c44cc11a",
+    "data/candidates/final_olmo_answers.json": "764807d63ae883ea5e713931a4938888faa993ac50dd6d7a88abe6ae22b1ca0a",
+    "results/final_task_selection/final_analysis_plan_A9_freeze_record.json": "77ed69a8a743054e40f59951c7f9687359956f4716bbad270f66f575ac315b31",
+    "src/silent_influence/output_validity.py": "f24057fd6542e5cdf51a4ed75b3bfa94363ceb87ec529b3bad14392f89c47184",
+    "src/silent_influence/exact_generation.py": "b4c5ec438d519e4be6071d6c986955ea357cb8588cada795884b59b6b2b309b4",
+    "src/silent_influence/scaled_conditions.py": "ef676689c8c3e673de64526fe1a9b26379632d1030d31e018fc6cbef42f94a64",
+    "src/silent_influence/scaled_parsing.py": "3a6a59caa666092fe49f13603364cb8222e894fe0c6c93855e54116cdd88ba78",
+    "scripts/generate_final_candidates.py": "63729fb6ff10a4b1f331b623b13d109205693940c3651d2eec9e13202276493b",
+    "scripts/run_olmo_batch2_gate.py": "89fe5a667d72238372c85df09809039f367e725f97c542fd2befc0dc652c7201",
+    "scripts/run_a8_calibration.py": "957feaf08a96b76082253f285c23aa66a1bbe33ed3833065f722c28126b9af90",
+    "scripts/select_a9_scoring_tasks.py": "f8bd8a291d5c9917e82413c2b0047716cfa703c311b26301534dddc51f978c29",
+    "Code/research_notes/final_analysis_plan_amendment_A9.md": "6effacc2e1f11fd1991e9034d8524b26bfdcc4006b43c05c064cacdddfd789be",
+    "Code/research_notes/OBSERVATIONS.md": "3052851cab7409e5be10ebd1f3ca4aadc74256a159588aa51d01456b40e47a4a",
+    "Code/research_notes/JOURNAL.md": "f27da7a2907ed7ad91024e87e90f889ec8550c039e28f835a171a9db7705acf7"
+  },
+  "chain": [
+    "v2.0",
+    "A1",
+    "A2",
+    "C1",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8",
+    "A9",
+    "A10"
+  ]
+}

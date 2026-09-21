@@ -1,0 +1,44 @@
+{
+  "record_id": "final_analysis_plan_A2_C1_freeze_record",
+  "record_type": "clarification_freeze_record",
+  "frozen_at_utc": "2026-08-17T10:37:29+00:00",
+  "clarification": "C1 to Amendment A2",
+  "prospective": true,
+  "non_destructive": true,
+  "prospective_evidence": {
+    "results/final_behavioral_study": false,
+    "results/final_behavioral_study_adjudicated": false,
+    "data/candidates/final_olmo_answers.json": false,
+    "interpretation": "all False => no study output existed when C1 was frozen"
+  },
+  "new_artifacts_sha256": {
+    "configs/final_analysis_plan_v2_2_clarification_C1.json": "998e11461163c0b03a6490ef6c3e5c150f491f819d8d658acb3ea23bfb0c96e6",
+    "Code/research_notes/final_analysis_plan_amendment_A2_clarification_C1.md": "6f557525c93857014103f63165bb9b0314201d79b69526a5e78ff1643f632cce"
+  },
+  "artifacts_verified_unmodified_sha256": {
+    "configs/final_analysis_plan_v2_2.json": "9b202820df5d0d8837e22bd701a473e48eb5f726cd1baf854018ef16e828cbc3",
+    "configs/scorer_olmo3_1_32b_pin.json": "0818438052f6ec33b62f5ec8d6ec1d5e5240b427824768a3c2ab329a98b5684f",
+    "results/final_task_selection/final_analysis_plan_A2_freeze_record.json": "21d9779761fc1d7206ec2e53388d539cbc857568ccf12116070727a0351b8fa8",
+    "configs/final_analysis_plan.json": "ea41c3d6f4af734605850896049d54952eec9f9450713881b24b2d52611cd52c",
+    "configs/final_analysis_plan_v2_1.json": "0d92256df8e71fa74bcd9fa378f4602a71c47fec43dee709fc4b44f8991455b0",
+    "configs/scorer_mistral_small_24b_pin.json": "3ad5fec336531bc625274835cf23391d3c1a5f54ab27ee7142e9bd83c480b19a",
+    "data/prompts/final_tasks_v2_english_seed20260817.json": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+    "src/silent_influence/scaled_conditions.py": "ef676689c8c3e673de64526fe1a9b26379632d1030d31e018fc6cbef42f94a64",
+    "src/silent_influence/scaled_parsing.py": "3a6a59caa666092fe49f13603364cb8222e894fe0c6c93855e54116cdd88ba78",
+    "results/scaled_silent_influence/raw_results.jsonl": "7761c065343c1407763abfa459b1b59b39f0b568947a9022be278a687093b348",
+    "Code/research_notes/final_analysis_plan_amendment_A2.md": "9b68f334d224f1d0925d90c497f638baa6ec8fa5b132122dabed41546644fc83"
+  },
+  "all_prior_artifacts_intact": true,
+  "clarification_summary": {
+    "C1_1": "S1 rationale corrected: an additive answer-family affinity cancels in the paired contrast because the answer is identical across conditions, but a scorer-family-by-condition interaction would not and could moderate the treatment effect. Withdrew 'cancels exactly', 'cannot manufacture or reverse a condition contrast', and the ceiling-compression conservatism claim. S1 tests whether the primary conclusion depends materially on including the OLMo scorer.",
+    "C1_2": "use_cache must be set explicitly on model.config AND passed to every generate() call; a 12-call cache-on vs cache-off token-ID equivalence check over all six conditions runs before the final run, exact equality required, hard stop and investigation on any discrepancy.",
+    "C1_3": "OLMo batch size 1 by default; any larger batch requires both exact token-ID equivalence and a measured memory preflight.",
+    "C1_4": "Withdrew the undocumented claim that the hypothesis predates the Playground interactions. They are described as exploratory evidence that informed model selection and motivated controlled validation, and remain excluded from the confirmatory dataset.",
+    "C1_5": "Character audit of 8 artifacts: 0 replacement characters, 0 mojibake markers, strict UTF-8 throughout. The corrupted console symbols were display encoding. One finding: the A2 freeze record carries CRLF line endings (67 CR); content unaffected and not corrected here because this record is non-destructive."
+  },
+  "statistical_content_changed": false,
+  "implementation_code_modified": false,
+  "weights_downloaded": false,
+  "gpu_used": false,
+  "models_run": false
+}

@@ -1,0 +1,130 @@
+{
+  "plan_id": "final_behavioral_study_sap_v2_amendment_A6",
+  "plan_version": "2.6",
+  "status": "pre-specified",
+  "amendment_type": "operational",
+  "prospective": true,
+  "prospective_evidence": {
+    "results/final_behavioral_study": false,
+    "results/final_behavioral_study_adjudicated": false,
+    "data/candidates/final_olmo_answers.json": false,
+    "generation_calls_executed": 0,
+    "scoring_calls_executed": 0,
+    "verified_on_hosts": [
+      "workstation",
+      "a100_instance_47940113"
+    ]
+  },
+  "amends": {
+    "plan_id": "final_behavioral_study_sap_v2_amendment_A5",
+    "path": "configs/final_analysis_plan_v2_5.json",
+    "sha256": "756f7c4107108f6a9f30c50e0854f66f63a8706a9ada5cc18005fb9257019303"
+  },
+  "amendment_narrative": "Code/research_notes/final_analysis_plan_amendment_A6.md",
+  "overwrites_history": false,
+  "non_destructive": true,
+  "statistical_content_changed": false,
+  "statistical_content_note": "operational only: freezes the batch policy that was already the default, pins the repaired batched implementation, and re-asserts the two living working documents",
+  "a5_validity_rule": {
+    "preserved_exactly": true,
+    "modified": false,
+    "bypassed": false
+  },
+  "accepted_batch_policy": {
+    "llama": 1,
+    "qwen": 1,
+    "gemma": 1,
+    "olmo32b": 1,
+    "status": "settled, not pending a smoke test",
+    "unchanged_from_default": true,
+    "batch_sizes_descended_through": [],
+    "why_no_descent": "the blocking condition is not batch-size-specific: batch 2 with zero padding already diverges from batch 1"
+  },
+  "batching_investigation": {
+    "hypothesis": "the 30/36 mismatch was caused by slicing batched generated tokens at each row's non-padding length instead of the common padded input width",
+    "verdict": "REFUTED",
+    "extraction_is_correct": true,
+    "evidence": [
+      {
+        "test": "6 ragged prompts, batch 6 vs 6x batch 1",
+        "real_lengths": [
+          98,
+          383,
+          506,
+          1037,
+          2259,
+          2466
+        ],
+        "padded_width": 2466,
+        "input_ids_identical": "6/6",
+        "generated_ids_identical": "0/6",
+        "text_identical": "0/6",
+        "parsed_score_identical": "6/6",
+        "a5_validity_identical": "6/6"
+      },
+      {
+        "test": "longest row, real length == padded width (zero padding)",
+        "result": "still diverged",
+        "first_differing_token_index": 187,
+        "significance": "for an unpadded row, per-row slicing and correct slicing are the same operation, so slicing cannot be the cause"
+      },
+      {
+        "test": "batch-of-1 through the batched code path vs generate_exact",
+        "result": "3/3 token-identical",
+        "significance": "the batched extraction, EOS trimming and decode are correct"
+      },
+      {
+        "test": "batch-of-2, both rows the same prompt, pad_cells=0",
+        "result": "2/3 diverge from batch 1; row0 == row1 in 3/3",
+        "significance": "no padding involved at all; the batch dimension alone suffices"
+      }
+    ],
+    "mechanism": "changing the batch dimension changes GEMM tiling and floating-point reduction order, perturbing logits enough to flip greedy argmax at near-ties; divergence then compounds autoregressively",
+    "exact_equivalence_attainable_for_batch_gt_1": false,
+    "pinned_stack": {
+      "torch": "2.12.0+cu126",
+      "transformers": "5.15.0",
+      "dtype": "bfloat16",
+      "attn_implementation": "sdpa"
+    },
+    "declined_speedup": {
+      "measured": "2.38x",
+      "detail": "44.0s -> 18.5s for six Llama calls",
+      "reason": "exact equivalence was not weakened to obtain a pass"
+    },
+    "exact_equivalence_weakened": false
+  },
+  "defect_repaired": {
+    "file": "src/silent_influence/exact_generation.py",
+    "function": "generate_exact_batch",
+    "defect": "referenced `terms`, bound only in the single-call path, so every batched call raised NameError; introduced by the A5 edit adding emitted_terminator",
+    "fix": "use the stop_set already bound in that scope",
+    "why_no_test_caught_it": "the stub batch path returns before reaching that line",
+    "affected_study_output": false,
+    "reason_no_impact": "the batched path is unreachable under the batch-1 policy and no production run had occurred",
+    "now_covered_by": "tests/test_batched_extraction.py"
+  },
+  "unchanged_by_A6": [
+    "the 2048 / 512 generation ceilings (A4)",
+    "A5 cap-aware validity, retention and recovery-routing behaviour",
+    "the frozen 578-task manifest and its hash",
+    "the six conditions and their exact added_context wording",
+    "the scoring prompt renderer and its wording",
+    "the frozen parser (scaled_parsing.py) and frozen recovery module (score_recovery.py)",
+    "the four-scorer panel and every pinned revision",
+    "deterministic decoding: do_sample=False, seed 42, use_cache=True",
+    "call IDs and the total of 13,872 scoring calls",
+    "the primary 8-cell estimand at 1/8 and the secondary 12-cell estimand at 1/12",
+    "the bootstrap plan (10,000 replicates, seed 20260818, task-clustered, dataset-stratified, shared draws)",
+    "the 7 diagnostic contrasts and the robustness suite R1-R5",
+    "S1_three_scorer_sensitivity"
+  ],
+  "explicit_non_claims": [
+    "NOT claimed that batched generation is numerically incorrect; it is internally deterministic and simply a different computation from the frozen one",
+    "NOT claimed that score-level agreement on six calls (scores 6/6, A5 validity 6/6 despite 0/6 token agreement) shows the divergence is harmless at 13,872 calls",
+    "NOT claimed that a different stack, kernel or batching strategy could not achieve equivalence; the finding is specific to the pinned environment"
+  ],
+  "unresolved_scientific_decisions": {
+    "count": 0
+  }
+}

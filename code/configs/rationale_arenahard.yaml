@@ -1,0 +1,30 @@
+# ============================================================================
+# PHASE 1B — post-decision rationale continuations, Arena-Hard 18-task subset.
+# ============================================================================
+# The judge is never asked to re-evaluate. Its original scoring exchange is replayed
+# verbatim from the behavioural records and one neutral follow-up turn is appended, so
+# the score is already committed in context before the rationale is produced.
+#
+# no_history is the negative control for spurious references to a prior interaction.
+#
+# Grid: 18 tasks x 3 judges x 3 conditions = 162 continuations.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+rationale:
+  name: PHASE1B_rationale_arenahard_v2_json
+  source_glob: results/arenahard/judge/*/records.jsonl
+  out_dir: results/phase1b/arenahard_v2
+  judge_models: [gemma9b, llama8b, qwen8b]
+  conditions: [no_history, score_1, score_10]
+  sanity_tasks: 1          # --limit: 1 task x ALL judges x all conditions = 9
+                           # all three architectures, because the v1 failure
+                           # was judge-dependent (qwen 40/54 unusable)
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 256
+  do_sample: false

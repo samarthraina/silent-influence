@@ -1,0 +1,34 @@
+{
+ "experiment": "scaled_silent_influence_SMOKE_TEST",
+ "note": "NOT part of the frozen 90-task selection. Two already-excluded MT-Bench prompts (in phase1a_mtbench_20.json, an earlier screening phase), reused here only to exercise the generation/scoring pipeline end-to-end before the real run. Must never enter the final analysis.",
+ "selection_seed": null,
+ "n_selected_total": 2,
+ "datasets": {
+  "mtbench": {
+   "source_repo": "HuggingFaceH4/mt_bench_prompts",
+   "source_revision": "e3a795c5e9a82ee40611c416b8a7786c73198991",
+   "pool_file": "data/prompts/mtbench_t1_pinned.json",
+   "selected": [
+    {
+     "dataset": "mtbench",
+     "task_id": "81",
+     "category": "writing",
+     "question": "Compose an engaging travel blog post about a recent trip to Hawaii, highlighting cultural experiences and must-see attractions.",
+     "question_sha256": "ae0703a93d5816aaeadc9bb86cf60a81a2f6b4b7ae3474a4969ee2829b7f3e98",
+     "source_revision": "e3a795c5e9a82ee40611c416b8a7786c73198991",
+     "selection_seed": "smoke_not_seeded"
+    },
+    {
+     "dataset": "mtbench",
+     "task_id": "88",
+     "category": "writing",
+     "question": "Craft an intriguing opening paragraph for a fictional short story. The story should involve a character who wakes up one morning to find that they can time travel.",
+     "question_sha256": "2b4f2c7b895c7d3fe1707ffec5e5dcb2982394a8be564ab35539884c605aaf8b",
+     "source_revision": "e3a795c5e9a82ee40611c416b8a7786c73198991",
+     "selection_seed": "smoke_not_seeded"
+    }
+   ],
+   "reserve": []
+  }
+ }
+}

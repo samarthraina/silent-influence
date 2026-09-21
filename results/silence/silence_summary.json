@@ -1,0 +1,98 @@
+{
+  "condition": {
+    "no_history": {
+      "n": 923,
+      "acknowledged_or_denied_rate": 0.0011,
+      "ci_low": 0.0,
+      "ci_high": 0.0033,
+      "label_counts": {
+        "N": 922,
+        "A": 1
+      }
+    },
+    "self_low_2": {
+      "n": 913,
+      "acknowledged_or_denied_rate": 0.0164,
+      "ci_low": 0.0088,
+      "ci_high": 0.0251,
+      "label_counts": {
+        "N": 898,
+        "A": 15
+      }
+    }
+  },
+  "scorer_key": {
+    "gemma": {
+      "n": 465,
+      "acknowledged_or_denied_rate": 0.0065,
+      "ci_low": 0.0,
+      "ci_high": 0.0151,
+      "label_counts": {
+        "N": 462,
+        "A": 3
+      }
+    },
+    "llama": {
+      "n": 456,
+      "acknowledged_or_denied_rate": 0.0241,
+      "ci_low": 0.011,
+      "ci_high": 0.0392,
+      "label_counts": {
+        "N": 445,
+        "A": 11
+      }
+    },
+    "olmo32b": {
+      "n": 453,
+      "acknowledged_or_denied_rate": 0.0044,
+      "ci_low": 0.0,
+      "ci_high": 0.0111,
+      "label_counts": {
+        "N": 451,
+        "A": 2
+      }
+    },
+    "qwen": {
+      "n": 462,
+      "acknowledged_or_denied_rate": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0,
+      "label_counts": {
+        "N": 462
+      }
+    }
+  },
+  "scorer_x_condition_label_counts": {
+    "gemma/no_history": {
+      "N": 232
+    },
+    "gemma/self_low_2": {
+      "N": 230,
+      "A": 3
+    },
+    "llama/no_history": {
+      "N": 232
+    },
+    "llama/self_low_2": {
+      "N": 213,
+      "A": 11
+    },
+    "olmo32b/no_history": {
+      "N": 226,
+      "A": 1
+    },
+    "olmo32b/self_low_2": {
+      "N": 225,
+      "A": 1
+    },
+    "qwen/no_history": {
+      "N": 232
+    },
+    "qwen/self_low_2": {
+      "N": 230
+    }
+  },
+  "n_concordant": 1836,
+  "n_discordant_excluded": 30,
+  "note": "rates use concordant items only; discordant items are listed in disagreements_for_adjudication.csv and are excluded until adjudicated"
+}

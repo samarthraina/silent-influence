@@ -1,0 +1,39 @@
+# ============================================================================
+# MT-Bench first-turn HEALTH CHECK — no_history only. Not Phase 1A data.
+# ============================================================================
+# Question: does MT-Bench give a healthy, usable behavioural measurement range?
+# No score_1..score_10 arm exists here, so nothing in this run can be read as a
+# prior-score effect.
+#
+# One judge per config so the three run as separate processes, one per GPU,
+# with CUDA_VISIBLE_DEVICES selecting the device. No GPU sharing.
+#
+# Grid: 12 prompts x 1 candidate x 1 condition x K=1 = 12 units per judge.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidates:
+  path: data/candidates/screen_mtbench_v1.json
+
+experiment:
+  name: HEALTH_mtbench_nohistory_qwen8b
+  seed: 42
+  datasets: [mtbench_t1]
+  n_prompts: 12
+  judge_models: [qwen8b]
+  evaluated_models: [modelx_olmo3]
+  candidates_per_prompt: 1
+  exclude_self_judging: true
+  prior_context_conditions: [no_history]
+  rubric_variants: [grounded]
+  output_protocols: [score_only]
+  history_template: dyadic_anon_prior_round
+  replicates: 1
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

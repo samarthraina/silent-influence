@@ -1,0 +1,9 @@
+{
+  "n_replicates": 10000,
+  "seed": 20260818,
+  "method": "stratified task-cluster bootstrap, shared draws across every statistic",
+  "clustering": "resampling unit is (dataset, source_task_id); every scorer x condition row for a resampled task travels together",
+  "stratification": "independent resampling within each of mtbench/arena_hard/wildbench, drawing the same number of tasks as that stratum contains, every replicate, regardless of which estimand is being computed from it",
+  "ci": "2.5th/97.5th percentile of the replicate statistic",
+  "empty_cell_rule": "average over non-empty cells in that replicate; count of affected replicates is reported per estimand (E5)"
+}

@@ -1,0 +1,68 @@
+{
+  "record_id": "final_analysis_plan_A3_freeze_record",
+  "record_type": "amendment_freeze_record",
+  "frozen_at_utc": "2026-08-17T12:29:15+00:00",
+  "amendment": "A3 -- resolves the three findings from the first real (non-stub) A100 preflight",
+  "prospective": true,
+  "non_destructive": true,
+  "prospective_evidence": {
+    "results/final_behavioral_study": false,
+    "results/final_behavioral_study_adjudicated": false,
+    "data/candidates/final_olmo_answers.json": false,
+    "generation_calls_executed": 0,
+    "scoring_calls_executed": 0,
+    "interpretation": "all False / zero => no study output existed when A3 was frozen"
+  },
+  "new_artifacts_sha256": {
+    "configs/final_analysis_plan_v2_3.json": "2d86b5df14f116b603159955468795af3530fc16e147f0df340f7d5383f1b86e",
+    "Code/research_notes/final_analysis_plan_amendment_A3.md": "299d737b85af737476632c78fa91b271577112c13b6b23d9e0032a633107c7f7"
+  },
+  "prior_artifacts_verified_unmodified_sha256": {
+    "data/prompts/final_tasks_v2_english_seed20260817.json": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+    "data/prompts/final_tasks_seed20260817.json": "b3e3f49d6940026790e10313ba0ae7018a741cdd837584f8cd35e65df3475ea9",
+    "configs/final_analysis_plan.json": "ea41c3d6f4af734605850896049d54952eec9f9450713881b24b2d52611cd52c",
+    "configs/final_analysis_plan_v2_1.json": "0d92256df8e71fa74bcd9fa378f4602a71c47fec43dee709fc4b44f8991455b0",
+    "configs/final_analysis_plan_v2_2.json": "9b202820df5d0d8837e22bd701a473e48eb5f726cd1baf854018ef16e828cbc3",
+    "configs/final_analysis_plan_v2_2_clarification_C1.json": "998e11461163c0b03a6490ef6c3e5c150f491f819d8d658acb3ea23bfb0c96e6",
+    "configs/scorer_olmo3_1_32b_pin.json": "0818438052f6ec33b62f5ec8d6ec1d5e5240b427824768a3c2ab329a98b5684f",
+    "configs/scorer_mistral_small_24b_pin.json": "3ad5fec336531bc625274835cf23391d3c1a5f54ab27ee7142e9bd83c480b19a",
+    "src/silent_influence/scaled_conditions.py": "ef676689c8c3e673de64526fe1a9b26379632d1030d31e018fc6cbef42f94a64",
+    "src/silent_influence/scaled_parsing.py": "3a6a59caa666092fe49f13603364cb8222e894fe0c6c93855e54116cdd88ba78",
+    "src/silent_influence/score_recovery.py": "49d34c129d5ad20a7501cac232e745974dd3a04ecf4d002546de39e43a355d99",
+    "src/silent_influence/english_assessment.py": "2cf30c6a2ff0ff0b58cfc48dc9a7a070bfe43c50e9beda9786e7221d1493e1d2",
+    "src/silent_influence/language_decisions.py": "5e7f860ded4d27c7d63924df47bc5e7e7d0b27cd3d63cbbf4bf2ef791da066d5",
+    "results/scaled_silent_influence/raw_results.jsonl": "7761c065343c1407763abfa459b1b59b39f0b568947a9022be278a687093b348",
+    "results/final_task_selection/final_analysis_plan_A2_freeze_record.json": "21d9779761fc1d7206ec2e53388d539cbc857568ccf12116070727a0351b8fa8",
+    "results/final_task_selection/final_analysis_plan_A2_C1_freeze_record.json": "71eb08923e09db81f6e209425342337a3e8fd86f65dacb830e9aa3e7b814b0c6",
+    "Code/research_notes/final_analysis_plan.md": "9eecd39b4f8c6a60e32a1821f90b5b4e5415c993d894517f5876922b863e46ff",
+    "Code/research_notes/final_analysis_plan_amendment_A1.md": "6007e2a7723a84b24fa2a3d877ce62938b1d1f3794a33ddc1a0a3159a57633bb",
+    "Code/research_notes/final_analysis_plan_amendment_A2.md": "9b68f334d224f1d0925d90c497f638baa6ec8fa5b132122dabed41546644fc83",
+    "Code/research_notes/final_analysis_plan_amendment_A2_clarification_C1.md": "6f557525c93857014103f63165bb9b0314201d79b69526a5e78ff1643f632cce"
+  },
+  "all_prior_artifacts_intact": true,
+  "resolutions": {
+    "F1_llama31": "empty-system message REJECTED as empirically ineffective (template emits the date block unconditionally; empty-system renders byte-identically to user-only in 6/6 conditions). Resolution: keep user-only envelope and permit exactly one occurrence, at position 0, of the 134-byte literal sha256 1bcaed965fbd9c2aa99e9967fc4b2f05a9c07377f56790c9acc9372bd7be64d5, for llama only; zero OTHER residual content required; six render hashes frozen. Condition- and task-invariance measured; no suppression claimed.",
+    "F2_olmo_cache": "C1_2's cache-on/cache-off exact-equivalence clause SUPERSEDED. Both production settings retained as mandatory. Replaced by an 18-call production-path reproducibility gate (3 repetitions x 6 conditions, all use_cache=True) requiring identical generated token IDs, rendered inputs, input token IDs and generation kwargs, with a hard stop on any mismatch. The observed cache-on/cache-off divergence is recorded as a preflight engineering finding, not a study result; no equivalence between the two computational paths is claimed.",
+    "F3_gemma": "only the exact TERMINAL generation cue '<start_of_turn>model' is treated as expected control structure, required to occur exactly once as the terminal element. Arbitrary occurrences of the word 'model' are NOT whitelisted; any other occurrence is a residual-content failure. Frozen prompt verbatim and zero other residual semantic content required."
+  },
+  "preserved_unchanged": {
+    "n_tasks": 578,
+    "n_conditions": 6,
+    "n_scorers": 4,
+    "n_scoring_calls": 13872,
+    "frozen_answers": "untouched (none generated)",
+    "deterministic_production_decoding": true,
+    "retry_failure_policy": "unchanged",
+    "primary_cells": 8,
+    "primary_cell_weight": 0.125,
+    "secondary_cells": 12,
+    "secondary_cell_weight": 0.08333333333333333,
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260818,
+    "S1": "unchanged (6 cells @ 1/6 heldout, 9 cells @ 1/9 all-task, non-confirmatory)"
+  },
+  "implementation_code_modified": false,
+  "models_rerun": false,
+  "batching_smoke_run": false,
+  "study_started": false
+}

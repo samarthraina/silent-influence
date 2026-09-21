@@ -1,0 +1,36 @@
+# ============================================================================
+# PHASE 2C — distributed downstream causal tracing, Llama-3.1-8B-Instruct.
+# ============================================================================
+# Same model, same 18 Arena-Hard tasks and same matched endpoint pair as 2B.
+# The intervention is the difference: instead of one position, every token
+# state strictly after the prior-history sentence is patched, through the final
+# input token. The numeral and the history sentence are never touched, so the
+# target run still literally contains its own prior score and every patched
+# token is byte-identical between source and target.
+#
+# Layer indexing is unchanged: L0 = embed_tokens output, L>=1 = POST-block hook
+# on layers[L-1], i.e. exactly hidden_states[L]. L0 is therefore a no-op by
+# construction and is kept as a sanity control.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+trace:
+  name: PHASE2C_trace_distributed_llama_arenahard
+  judge_model: llama8b
+  source_glob: results/arenahard/judge/*/records.jsonl
+  out_dir: results/phase2c/trace_llama
+  history_template: dyadic_anon_prior_round
+  low_condition: score_1
+  high_condition: score_10
+  control_layer_step: 4      # controls on a reduced layer grid to bound cost
+  # Added after the broad sweep so the layers it flagged carry a specificity control.
+  # The main estimates were already fixed when these were chosen.
+  control_layers_extra: [11, 14, 15, 17]
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

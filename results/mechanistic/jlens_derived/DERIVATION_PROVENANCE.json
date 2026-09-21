@@ -1,0 +1,47 @@
+{
+  "derived_contrast": "self_high_10_minus_no_history",
+  "why": "supports main-paper Table 3, row 2; not stored directly",
+  "formula": "(self_high_10 - self_low_2) + (self_low_2 - no_history)",
+  "exactness": "difference of log-probabilities at identical position, layer, task and vocabulary index; self_low_2 cancels term by term",
+  "orientation": "positive favours self_high_10; negative favours no_history",
+  "layer": 24,
+  "position": "final_input",
+  "n_tasks": 72,
+  "vocab_size": 128256,
+  "aggregation": "arr.astype(float32).mean(axis=0), matching analyze_jlens_tokens.py",
+  "instrument": "official jacobian-lens: lens.transport(h, i) then model.unembed",
+  "is_logit_lens": false,
+  "source_tensors": [
+    {
+      "name": "delta_self_high_10_minus_self_low_2.npy",
+      "role": "self_high_10 - self_low_2",
+      "sha256": "af11d58b50ea5855c38cea7badd245a287b89b043ac57426edd3ab7f1d0343d7",
+      "shipped": false,
+      "archive": "mech_llama_full_archive_2026-08-18.tar.gz"
+    },
+    {
+      "name": "delta_self_low_2_minus_no_history.npy",
+      "role": "self_low_2 - no_history",
+      "sha256": "7cb7918b4fce4a0e799b41bfaeade34cb30094ad4d784be6ca4bbf1a0ad472ab",
+      "shipped": false,
+      "archive": "mech_llama_full_archive_2026-08-18.tar.gz"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "high_minus_no_history_L24_per_task.csv",
+      "sha256": "c3f24148c5fe18b9bb9d80eae0f0596abd971e0d41ea00a2b602f88f52e361d1"
+    },
+    {
+      "name": "high_minus_no_history_L24_summary.csv",
+      "sha256": "fd7624488e5e6b5dff23376329e4b77950060370ab13604a45edb01cdffa3820"
+    }
+  ],
+  "paper_table3_row2_reproduced": {
+    "brief": 4.98,
+    "excellent": 4.0,
+    "perfectly": 3.92,
+    "score": -1.39
+  },
+  "reverify": "python mechanistic/derive_high_minus_no_contrast.py --verify-only"
+}

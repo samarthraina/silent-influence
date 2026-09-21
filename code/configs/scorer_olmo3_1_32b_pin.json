@@ -1,0 +1,200 @@
+{
+  "pin_id": "scorer_olmo_3_1_32b_instruct",
+  "role": "fourth scorer for the final behavioral study (Amendment A2)",
+  "supersedes": {
+    "pin_id": "scorer_mistral_small_24b_instruct_2501",
+    "path": "configs/scorer_mistral_small_24b_pin.json",
+    "sha256": "3ad5fec336531bc625274835cf23391d3c1a5f54ab27ee7142e9bd83c480b19a",
+    "status": "preserved unmodified as a historical artifact; not used",
+    "note": "Mistral-Small-24B-Instruct-2501 was never run. No output exists for it and none will be generated."
+  },
+  "status": "pinned from repository metadata and small text artifacts only; NO model weights downloaded, no inference run, no GPU used",
+  "pinned_at_utc": "2026-08-17",
+
+  "model": {
+    "hf_id": "allenai/Olmo-3.1-32B-Instruct",
+    "revision": "ac0587e4a7744a551c059d8cd17ba220bc940dae",
+    "revision_source": "HuggingFace model-info API `sha` field for the repo main branch, resolved to an immutable commit",
+    "repo_last_modified": "2026-01-05T16:25:12.000Z",
+    "gated": false,
+    "private": false,
+    "disabled": false,
+    "library_name": "transformers",
+    "architecture": "Olmo3ForCausalLM",
+    "model_type": "olmo3",
+    "declared_dtype": "bfloat16",
+    "implied_params_billions": 32.23,
+    "implied_params_basis": "sum of the 14 safetensors shard sizes reported by the HF tree API divided by 2 bytes/param; weights were NOT downloaded",
+    "hidden_size": 5120,
+    "intermediate_size": 27648,
+    "num_hidden_layers": 64,
+    "num_attention_heads": 40,
+    "num_key_value_heads": 8,
+    "head_dim": 128,
+    "attention_pattern": "3 sliding_attention layers per 1 full_attention layer, repeated 16x (48 sliding, 16 full)",
+    "sliding_window": 4096,
+    "max_position_embeddings": 65536,
+    "rope_scaling": {"rope_type": "yarn", "factor": 8.0, "original_max_position_embeddings": 8192},
+    "model_max_length_tokenizer": 65536,
+    "vocab_size": 100278,
+    "eos_token_id": 100257,
+    "eos_token": "<|endoftext|>",
+    "pad_token_id": 100277,
+    "pad_token": "<|pad|>",
+    "pad_token_differs_from_eos": true
+  },
+
+  "artifact_integrity": {
+    "method": "each small text artifact was fetched at the pinned revision and its git blob OID recomputed locally as sha1('blob <len>\\0' + bytes); every OID reproduced the value the HF tree API reports for that path at that revision, which proves the bytes are exactly those in the pinned commit. The SHA-256 values below are computed from those verified bytes.",
+    "weights_downloaded": false,
+    "files_fetched": ["config.json", "generation_config.json", "chat_template.jinja",
+                      "tokenizer_config.json", "special_tokens_map.json"],
+    "byte_exactness_verified": true,
+    "git_blob_oid_at_revision": {
+      "config.json": "08af31cce7d59bd0f5ebc1dcbc6fb1566521548e",
+      "generation_config.json": "c08b12427df4164a4aa4646adea49d92415d9d88",
+      "chat_template.jinja": "2e7e29cbcf7f566614403ebe50630b7df203b699",
+      "tokenizer_config.json": "21fba94963449adef8ad2186d4b3fc3fb3d8b592",
+      "special_tokens_map.json": "9d133a8f4995ff315a8a3e68dbba03409d214a8e"
+    },
+    "file_sizes_bytes": {
+      "config.json": 2396, "generation_config.json": 207, "chat_template.jinja": 2748,
+      "tokenizer_config.json": 7103, "special_tokens_map.json": 581
+    }
+  },
+
+  "config_file_hashes_sha256": {
+    "note": "computed over the byte-verified files as served at the pinned revision; these are model and tokenizer CONFIGURATION hashes, not weight hashes",
+    "config.json": "d47a120cb2669cd46482d5c2da9488903b67759ca167cd85c1127b2e05755f95",
+    "generation_config.json": "9ca20766a58daf4a6e1bf5f6552d27dbe57733dba2c3af507dd9f4b12aacc0b0",
+    "chat_template.jinja": "49a944c9814e130bd3cc80a2420c55ff22e24a4e4ba97009aa60000909b5eac3",
+    "tokenizer_config.json": "80fbc2a161419760bb8a84ed1d3b9550a2d68b7abd07a72706b8f5977e044b8d",
+    "special_tokens_map.json": "78afb564e81264029b25f9caf24bda2521d5bdaeff5cd3fdbc01d3da2e8ce2f2"
+  },
+
+  "weight_shard_lfs_sha256_for_later_verification": {
+    "note": "recorded from the HF tree API so the downloaded weights can be verified on the GPU host WITHOUT having been downloaded here. 14 shards, 64467127296 bytes total.",
+    "model-00001-of-00014.safetensors": "76c4ff003d256af108eb106802d0a7d9c56e0aed971ad9833c42f9ff3d739658",
+    "model-00002-of-00014.safetensors": "61b212b654fbd42e3f0feac629efe40ab4f06c5aa6b8f63a53139d586565e3c4",
+    "model-00003-of-00014.safetensors": "a6adb4f3c8d0d66fe6ac59e9dc06d1c75e1aaddacbc9af4575a70bd4c854f031",
+    "model-00004-of-00014.safetensors": "916989c288fc54234702ad554e2da03e10557a9351b8767fd70deef1f6eac65d",
+    "model-00005-of-00014.safetensors": "ec1299445d7252628919ad972c4785431c687f918240161af3cd3d822f4a3b29",
+    "model-00006-of-00014.safetensors": "e3dbed4eecd007d825368445058e3bc1e598f7c828ed3fa51d8ffd75d6b6c22e",
+    "model-00007-of-00014.safetensors": "7425bb023430a8fd7a18311ae0d2740d5f65165d0f456ee07c1930020dbb6221",
+    "model-00008-of-00014.safetensors": "32a037059f6291bc46bc24fd231b91f92b06153e201eee5409f07fc9d60b4b8e",
+    "model-00009-of-00014.safetensors": "5c6f115eeaa8e9d5e77797d861183849085fa10a3b82b60b3e5863e975795964",
+    "model-00010-of-00014.safetensors": "682fe995d4caa2822c59bc222e8d459cb7872d83391a0233a22817add08d4e38",
+    "model-00011-of-00014.safetensors": "311cc3118f2f8f146b9739b8d480a20d02df623595a92a4b9a8414396dfa415a",
+    "model-00012-of-00014.safetensors": "f3ac88d5fb5faaef4f56a55bfd4a6f522be1647e393ea7f8636ccf93676a4db2",
+    "model-00013-of-00014.safetensors": "3a636d6dbb5330aa870e74d6d7b8d5acead97c217ae83b7e68814e77ab80228c",
+    "model-00014-of-00014.safetensors": "24f12c4a96797ac6a1199bf7a88b0b00cdb88d89572216d2f1a8c83196cc5f29"
+  },
+
+  "chat_template": {
+    "sha256": "49a944c9814e130bd3cc80a2420c55ff22e24a4e4ba97009aa60000909b5eac3",
+    "length_chars": 2748,
+    "primary_source": "chat_template.jinja (standalone file at the pinned revision)",
+    "also_embedded_in_tokenizer_config": true,
+    "embedded_copy_is_byte_identical": true,
+    "embedded_copy_verification": "sha256 of tokenizer_config.json['chat_template'] equals sha256 of chat_template.jinja, and both render byte-identically on the empty-system path; the transformers precedence rule between the two therefore cannot change what the model receives",
+    "use_official_template_unmodified": true,
+    "add_system_prompt": false,
+    "add_model_specific_evaluation_instructions": false,
+
+    "BLOCKING_PROPERTY_RESOLVED_IN_A2": {
+      "injects_default_system_message_when_none_supplied": true,
+      "trigger": "the template's first statement computes has_system = any message with role=='system'; when false it emits a default system block",
+      "default_system_message_content": "You are Olmo, a helpful AI assistant built by Ai2. Your date cutoff is December 2024, and your model weights are available at https://huggingface.co/allenai. You do not currently have access to any functions. <functions></functions>",
+      "leaks_under_user_only": ["persona ('You are Olmo')", "builder attribution ('Ai2')",
+                               "a knowledge cutoff ('date cutoff is December 2024')",
+                               "a weights URL", "a tool-availability statement",
+                               "an empty <functions></functions> element"],
+      "date_dependent": false,
+      "date_mechanism": "none; the cutoff is a hardcoded literal, NOT strftime_now, so unlike Mistral the render is stable across calendar days",
+      "difference_from_the_mistral_case": "Mistral injected today's date via strftime_now, making prompts non-reproducible across days. This template's date text is a fixed literal, so the reproducibility defect is absent here; the persona/instruction leak is the same class of problem and is resolved the same way.",
+      "resolution": "pass an explicit empty system message",
+      "resolution_verified_prospectively": true
+    }
+  },
+
+  "generation_config_trap": {
+    "shipped_defaults": {"do_sample": true, "temperature": 0.6, "top_p": 0.95,
+                         "max_new_tokens": 32768},
+    "risk": "this model ships with sampling ENABLED and a higher temperature than the superseded 24B scorer (0.6 vs 0.15); relying on generation_config defaults would produce nondeterministic scores",
+    "mitigation": "do_sample=False, max_new_tokens=512 and the fixed seed are passed explicitly on every call, AND silent_influence.exact_generation.reset_generation_config_for_determinism clears do_sample/temperature/top_p/top_k on the loaded config after load (Amendment A1 generation_determinism.how)",
+    "already_implemented": true,
+    "expected_benign_warning": "temperature/top_p set while do_sample=False"
+  },
+
+  "use_cache_trap": {
+    "config_value": false,
+    "risk": "config.json ships use_cache=false. If that value reaches generation, every new token re-runs the full forward pass over the whole sequence (O(n^2) instead of O(n)), which for a ~4600-token prompt and 512 new tokens would inflate runtime by roughly an order of magnitude and could make the run unaffordable rather than merely slow.",
+    "status": "OPEN -- must be asserted at preflight, not assumed",
+    "required_preflight_assertion": "confirm the effective generation-time use_cache is True (inspect model.generation_config.use_cache and model.config.use_cache, and set both explicitly to True), then confirm measured throughput is consistent with cached decoding on the small sample",
+    "note": "this is a throughput property only. It cannot change WHICH tokens are produced under greedy decoding, so it does not affect scientific validity -- only cost and feasibility."
+  },
+
+  "scoring_protocol": {
+    "identical_to_the_other_three_scorers": true,
+    "prompt": "user-message-only wording from silent_influence.scaled_conditions, unchanged and byte-identical to the 90-task run",
+    "messages": [{"role": "system", "content": ""}, {"role": "user", "content": "<frozen scoring prompt>"}],
+    "system_prompt_added_by_us": "none -- the system turn is deliberately EMPTY; it exists only to suppress the template's default persona block",
+    "model_specific_evaluation_instructions": "none",
+    "decoding": {
+      "do_sample": false, "temperature": 0, "seed": 42,
+      "seed_mechanism": "transformers.set_seed before every generate call",
+      "max_new_tokens": 512, "pad_token_id": "tokenizer.eos_token_id"
+    },
+    "decode": {"skip_special_tokens": true, "clean_up_tokenization_spaces": false},
+    "precision": "bfloat16",
+    "quantization": "none",
+    "attn_implementation": "sdpa",
+    "context_headroom": {
+      "worst_case_prompt_tokens_estimate": 4600,
+      "model_limit": 65536,
+      "truncation_risk": "none"
+    }
+  },
+
+  "hardware": {
+    "bf16_weight_size_gib": 60.04,
+    "bf16_weight_size_bytes": 64467127296,
+    "kv_cache_gib_batch1_worst_case": 1.25,
+    "kv_cache_basis": "64 layers x 5112 tokens x 4096 bytes/token/layer (2 x 8 kv_heads x 128 head_dim x 2 bytes); computed WITHOUT crediting the 4096-token sliding window, which would reduce it to 1.06 GiB",
+    "activations_logits_context_gib_allowance": 4.0,
+    "estimated_peak_vram_gib_batch1": 65.3,
+    "gpu_usable_gib_80gb_card": 79.2,
+    "estimated_headroom_gib_batch1": 13.9,
+    "fits_on_one_80gb_gpu_at_batch1": true,
+    "comparison": {
+      "superseded_mistral_24b": {"weights_gib": 43.90, "peak_gib": 48.0, "headroom_gib": 31.2},
+      "olmo_3_1_32b": {"weights_gib": 60.04, "peak_gib": 65.3, "headroom_gib": 13.9},
+      "implication": "headroom falls from ~31 GiB to ~14 GiB. Batch size 1 remains comfortable, but micro-batching is now genuinely marginal and must not be enabled without a measured memory preflight."
+    },
+    "device_map": {"": 0},
+    "automatic_device_mapping": "prohibited (device_map='auto' must never be used)",
+    "quantization": "prohibited",
+    "cpu_offload": "prohibited",
+    "disk_offload": "prohibited",
+    "gpu_requirement": "a single full 80 GB GPU (A100 80GB / H100 80GB or larger), exclusively available"
+  },
+
+  "batching": {
+    "default_batch_size": 1,
+    "micro_batching_permitted_only_after": "BOTH the frozen token-ID batch-equivalence smoke test AND a memory preflight pass for this model",
+    "memory_preflight_required_because": "each additional batch row adds ~1.25 GiB of KV cache plus activation growth against only ~13.9 GiB of headroom; batch 6 would add ~6.2 GiB of KV alone and is marginal rather than clearly safe",
+    "on_any_mismatch_or_oom": "this model runs the entire study at batch size 1",
+    "equivalence_is_per_model": true,
+    "never_inferred_across_models": true
+  },
+
+  "cross_check": {
+    "other_three_scorers_unchanged": true,
+    "llama": {"hf_id": "meta-llama/Llama-3.1-8B-Instruct", "revision": "0e9e39f249a16976918f6564b8830bc894c89659"},
+    "qwen": {"hf_id": "Qwen/Qwen3-8B", "revision": "b968826d9c46dd6066d109eabc6255188de91218"},
+    "gemma": {"hf_id": "google/gemma-2-9b-it", "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819"},
+    "generator_unchanged": {"hf_id": "allenai/Olmo-3-7B-Instruct", "revision": "6e5971d9eba42665f5bd5a0fcf047f299ce1dccc"},
+    "generator_and_fourth_scorer_share_a_lineage": true,
+    "lineage_note": "the frozen answers come from Olmo-3-7B-Instruct and the fourth scorer is Olmo-3.1-32B-Instruct: a different version and a different size, but the same model family. This is the sole reason for the prespecified three-scorer sensitivity analysis in Amendment A2; it is a robustness check, not a correction of a confound. See A2 S1_three_scorer_sensitivity."
+  }
+}

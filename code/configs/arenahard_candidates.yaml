@@ -1,0 +1,53 @@
+# ============================================================================
+# ARENA-HARD replication — stimulus set. Harder-setting replication of Phase 1A.
+# ============================================================================
+# 20 tasks from the pinned Arena-Hard 30, seed 42, stratified across
+# coding / math / creative_writing. Selection is a pure function of this config
+# and consults no no_history score, prior-score effect, or candidate quality.
+#
+# max_new_tokens is 4096 for ALL 20 — uniform, not per-item. Arena-Hard produced
+# 3/12 truncations at 2048 on substantial math/coding tasks; dropping those would
+# select out precisely the hardest items. Raising the cap uniformly is the only
+# option that does not select on outcomes. Non-truncated Arena-Hard answers had a
+# median of 1274 tokens, so 4096 is ~3x median with tail headroom.
+#
+# This breaks strict comparability with MT-Bench's 2048 cap. That is disclosed,
+# and is preferable to a task set filtered on the outcome.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidate_generation:
+  name: ARENAHARD_candidates_v1
+  model: modelx_olmo3
+  datasets: [arena_hard_v2]
+  n_prompts: 20
+  seed: 42
+  out_dir: results/arenahard/candidates
+  candidates_out: data/candidates/arenahard_20.json
+  candidate_response_id: modelx_olmo3_r0
+  evaluated_model_label: modelx_olmo3
+
+  subset_label: >-
+    18-task Arena-Hard replication SUBSET (not an unqualified full Arena-Hard
+    sample). Two of the pre-fixed 20 tasks failed to produce a complete Model X
+    response under the uniform 4096-token budget and were excluded before any
+    Arena-Hard prior-score judging was run, so the exclusion is independent of
+    the behavioural effect. Their generation records and truncation evidence are
+    preserved in results/arenahard/candidates/generation_records.jsonl.
+
+  # Structural, pre-judging. Both were part of the frozen 20-task selection.
+  exclude_prompts:
+    - dataset: arena_hard_v2
+      prompt_id: "3"
+      reason: "hit_token_cap at 4096 (also at 2048); large Arduino program spec, ends mid-function"
+    - dataset: arena_hard_v2
+      prompt_id: "28"
+      reason: "hit_token_cap at 4096 (also at 2048); does not terminate - deliberates in circles"
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 4096
+  do_sample: false

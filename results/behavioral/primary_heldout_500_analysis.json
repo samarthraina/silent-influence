@@ -1,0 +1,306 @@
+{
+  "measurement_basis": "complete_case",
+  "primary": {
+    "population": "500 fully held-out (arena_hard + wildbench)",
+    "contrast": "no_history_minus_self_low_2",
+    "n_cells": 8,
+    "cell_weight": 0.125,
+    "macro_average": 1.2418911089476092,
+    "n_empty_cells": 0,
+    "cell_means": {
+      "arena_hard|llama": 1.8293243243243245,
+      "arena_hard|qwen": 1.9407894736842106,
+      "arena_hard|gemma": 0.6153846153846154,
+      "arena_hard|olmo32b": 0.9957142857142858,
+      "wildbench|llama": 1.2098591549295776,
+      "wildbench|qwen": 1.7894736842105263,
+      "wildbench|gemma": 0.4066666666666667,
+      "wildbench|olmo32b": 1.1479166666666667
+    },
+    "cell_n": {
+      "arena_hard|llama": 74,
+      "arena_hard|qwen": 76,
+      "arena_hard|gemma": 78,
+      "arena_hard|olmo32b": 70,
+      "wildbench|llama": 71,
+      "wildbench|qwen": 76,
+      "wildbench|gemma": 75,
+      "wildbench|olmo32b": 72
+    },
+    "ci_95": {
+      "ci_low": 1.1566162509503384,
+      "ci_high": 1.3293547905385388,
+      "n_bootstrap_reps": 10000
+    },
+    "n_empty_cell_replicates": 0
+  },
+  "task_level_distribution_heldout_500": {
+    "overall": {
+      "n_tasks": 155,
+      "fraction_gt_0": 0.9483870967741935,
+      "fraction_eq_0": 0.01935483870967742,
+      "fraction_lt_0": 0.03225806451612903,
+      "fraction_ge_1": 0.6645161290322581,
+      "fraction_ge_2": 0.17419354838709677,
+      "min": -1.0,
+      "p25": 0.75,
+      "median": 1.25,
+      "p75": 1.75,
+      "max": 3.3333333333333335
+    },
+    "per_dataset": {
+      "arena_hard": {
+        "n_tasks": 78,
+        "fraction_gt_0": 0.9615384615384616,
+        "fraction_eq_0": 0.0,
+        "fraction_lt_0": 0.038461538461538464,
+        "fraction_ge_1": 0.7307692307692307,
+        "fraction_ge_2": 0.21794871794871795,
+        "min": -1.0,
+        "p25": 0.875,
+        "median": 1.25,
+        "p75": 1.75,
+        "max": 3.3333333333333335
+      },
+      "wildbench": {
+        "n_tasks": 77,
+        "fraction_gt_0": 0.935064935064935,
+        "fraction_eq_0": 0.03896103896103896,
+        "fraction_lt_0": 0.025974025974025976,
+        "fraction_ge_1": 0.5974025974025974,
+        "fraction_ge_2": 0.12987012987012986,
+        "min": -0.25,
+        "p25": 0.5,
+        "median": 1.125,
+        "p75": 1.5,
+        "max": 2.75
+      }
+    }
+  },
+  "robustness": {
+    "R1_trimmed_mean": {
+      "primary_8_cell": {
+        "macro_average": 1.1410687454573392,
+        "n_empty_cells": 0,
+        "cell_means": {
+          "arena_hard|llama": 1.6561666666666668,
+          "arena_hard|qwen": 1.935483870967742,
+          "arena_hard|gemma": 0.546875,
+          "arena_hard|olmo32b": 0.8964285714285715,
+          "wildbench|llama": 1.0456140350877192,
+          "wildbench|qwen": 1.6774193548387097,
+          "wildbench|gemma": 0.3524590163934426,
+          "wildbench|olmo32b": 1.018103448275862
+        },
+        "cell_n": {
+          "arena_hard|llama": 74,
+          "arena_hard|qwen": 76,
+          "arena_hard|gemma": 78,
+          "arena_hard|olmo32b": 70,
+          "wildbench|llama": 71,
+          "wildbench|qwen": 76,
+          "wildbench|gemma": 75,
+          "wildbench|olmo32b": 72
+        },
+        "ci_95": {
+          "ci_low": 1.0688290458238616,
+          "ci_high": 1.2387215670453744,
+          "n_bootstrap_reps": 10000
+        }
+      },
+      "secondary_12_cell": {
+        "macro_average": 1.1062506780818173,
+        "n_empty_cells": 0,
+        "cell_means": {
+          "mtbench|llama": 1.8476190476190477,
+          "mtbench|qwen": 1.3828125,
+          "mtbench|gemma": 0.20634920634920634,
+          "mtbench|olmo32b": 0.7096774193548387,
+          "arena_hard|llama": 1.6561666666666668,
+          "arena_hard|qwen": 1.935483870967742,
+          "arena_hard|gemma": 0.546875,
+          "arena_hard|olmo32b": 0.8964285714285715,
+          "wildbench|llama": 1.0456140350877192,
+          "wildbench|qwen": 1.6774193548387097,
+          "wildbench|gemma": 0.3524590163934426,
+          "wildbench|olmo32b": 1.018103448275862
+        },
+        "cell_n": {
+          "mtbench|llama": 77,
+          "mtbench|qwen": 78,
+          "mtbench|gemma": 77,
+          "mtbench|olmo32b": 76,
+          "arena_hard|llama": 74,
+          "arena_hard|qwen": 76,
+          "arena_hard|gemma": 78,
+          "arena_hard|olmo32b": 70,
+          "wildbench|llama": 71,
+          "wildbench|qwen": 76,
+          "wildbench|gemma": 75,
+          "wildbench|olmo32b": 72
+        },
+        "ci_95": {
+          "ci_low": 1.0482187296304535,
+          "ci_high": 1.1805033504991105,
+          "n_bootstrap_reps": 10000
+        }
+      },
+      "trim_fraction": 0.1
+    },
+    "R2_leave_one_task_out": {
+      "primary_500": {
+        "baseline_macro_average": 1.241891108947609,
+        "n_recomputations": 156,
+        "min_shift": -0.011460231345227001,
+        "max_shift": 0.011469865161403137,
+        "range_shift": 0.022930096506630138,
+        "ten_most_influential": [
+          {
+            "excluded_task_id": "4b9ba55ea5704f0d",
+            "dataset": "arena_hard",
+            "macro_average_excl": 1.2533609741090121,
+            "shift": 0.011469865161403137
+          },
+          {
+            "excluded_task_id": "ee6a697e2b39423e",
+            "dataset": "arena_hard",
+            "macro_average_excl": 1.230430877602382,
+            "shift": -0.011460231345227001
+          },
+          {
+            "excluded_task_id": "f41bb5bf57c8481c",
+            "dataset": "wildbench",
+            "macro_average_excl": 1.2304404149483839,
+            "shift": -0.011450693999225159
+          },
+          {
+            "excluded_task_id": "369827bfcf534e0a",
+            "dataset": "arena_hard",
+            "macro_average_excl": 1.253131864283044,
+            "shift": 0.011240755335435004
+          },
+          {
+            "excluded_task_id": "02cda0d324384da7",
+            "dataset": "wildbench",
+            "macro_average_excl": 1.2306507308981365,
+            "shift": -0.011240378049472532
+          },
+          {
+            "excluded_task_id": "f85200a0f1bd4543",
+            "dataset": "arena_hard",
+            "macro_average_excl": 1.2320085921253021,
+            "shift": -0.009882516822306897
+          },
+          {
+            "excluded_task_id": "6634578f233b44f9",
+            "dataset": "wildbench",
+            "macro_average_excl": 1.251502508228787,
+            "shift": 0.009611399281177935
+          },
+          {
+            "excluded_task_id": "b9ebb67820354dcd",
+            "dataset": "arena_hard",
+            "macro_average_excl": 1.2325883022702295,
+            "shift": -0.009302806677379483
+          },
+          {
+            "excluded_task_id": "7bb0b31e023f4a6e",
+            "dataset": "arena_hard",
+            "macro_average_excl": 1.2326723330399363,
+            "shift": -0.009218775907672727
+          },
+          {
+            "excluded_task_id": "2149588bda5a45f4",
+            "dataset": "wildbench",
+            "macro_average_excl": 1.2509919448485052,
+            "shift": 0.009100835900896165
+          }
+        ]
+      },
+      "secondary_578": {
+        "baseline_macro_average": 1.1699584012855417,
+        "n_recomputations": 234,
+        "min_shift": -0.008627220732483787,
+        "max_shift": 0.01557096412359571,
+        "range_shift": 0.024198184856079497,
+        "ten_most_influential": [
+          {
+            "excluded_task_id": "104",
+            "dataset": "mtbench",
+            "macro_average_excl": 1.1855293654091374,
+            "shift": 0.01557096412359571
+          },
+          {
+            "excluded_task_id": "140",
+            "dataset": "mtbench",
+            "macro_average_excl": 1.161331180553058,
+            "shift": -0.008627220732483787
+          },
+          {
+            "excluded_task_id": "108",
+            "dataset": "mtbench",
+            "macro_average_excl": 1.1776792476905986,
+            "shift": 0.00772084640505688
+          },
+          {
+            "excluded_task_id": "4b9ba55ea5704f0d",
+            "dataset": "arena_hard",
+            "macro_average_excl": 1.1776049780598103,
+            "shift": 0.00764657677426861
+          },
+          {
+            "excluded_task_id": "ee6a697e2b39423e",
+            "dataset": "arena_hard",
+            "macro_average_excl": 1.1623182470553903,
+            "shift": -0.007640154230151408
+          },
+          {
+            "excluded_task_id": "f41bb5bf57c8481c",
+            "dataset": "wildbench",
+            "macro_average_excl": 1.1623246052860583,
+            "shift": -0.007633795999483439
+          },
+          {
+            "excluded_task_id": "369827bfcf534e0a",
+            "dataset": "arena_hard",
+            "macro_average_excl": 1.1774522381758319,
+            "shift": 0.007493836890290151
+          },
+          {
+            "excluded_task_id": "02cda0d324384da7",
+            "dataset": "wildbench",
+            "macro_average_excl": 1.1624648159192266,
+            "shift": -0.00749358536631517
+          },
+          {
+            "excluded_task_id": "106",
+            "dataset": "mtbench",
+            "macro_average_excl": 1.176668577074665,
+            "shift": 0.006710175789123252
+          },
+          {
+            "excluded_task_id": "111",
+            "dataset": "mtbench",
+            "macro_average_excl": 1.176639717045805,
+            "shift": 0.006681315760263207
+          }
+        ]
+      }
+    },
+    "R4_prior_use_descriptive": {
+      "previously_used": {
+        "n": 74,
+        "mean_task_level_effect": 1.0503378378378379
+      },
+      "held_out": {
+        "n": 159,
+        "mean_task_level_effect": 1.2052201257861634
+      },
+      "CONFOUNDED_WITH_DATASET": true,
+      "confound_statement": "Previous-use status is completely confounded with MT-Bench and cannot receive a causal interpretation. All previously-used tasks are MT-Bench; only a handful of MT-Bench tasks are naive, so any group difference is indistinguishable from a MT-Bench vs other-datasets difference.",
+      "status": "descriptive_only",
+      "forbidden_claim": "no statement of the form 'prior exposure changes the effect' may be made from this comparison",
+      "design_level_answer": "the primary analysis, restricted to the 500 never-used tasks"
+    }
+  }
+}

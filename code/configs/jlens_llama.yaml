@@ -1,0 +1,48 @@
+# ============================================================================
+# PHASE 2F — official Jacobian Lens readout, Llama-3.1-8B-Instruct.
+# ============================================================================
+# Implementation: github.com/anthropics/jacobian-lens @ 581d398613e5602a5af361e1c34d3a92ea82ba8e
+#   Apache-2.0, companion code for "Verbalizable Representations Form a Global
+#   Workspace in Language Models" (transformer-circuits.pub/2026/workspace).
+#   Installed unmodified; no fork, no vendored copy, no third-party reimplementation.
+#
+# Lens: pre-fitted by Neuronpedia with that same official jlens code, on the
+#   corpus and configuration the reference walkthrough designates. Used in
+#   preference to fitting our own, as instructed. Provenance is recorded in
+#   results/phase2f/lens_provenance.json.
+#
+# The lens is a generic instrument: it was fitted on WikiText-103 only. None of
+# our tasks, prompts, conditions, splits or behavioural results touched it.
+#
+# LAYER INDEXING. jlens records the *output* of block i as layer i. Every other
+# phase here indexes hidden_states[L] = output of block L-1. So
+#       jlens layer i  ==  our L(i+1)
+# and the TRACE peak (our L14) is jlens layer 13; the TRACE band our L11-L17 is
+# jlens 10-16. Checked bitwise by scripts/jlens_sanity.py, not assumed.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+jlens:
+  name: PHASE2F_jacobian_lens_llama_arenahard
+  judge_model: llama8b
+  source_glob: results/arenahard/judge/*/records.jsonl
+  out_dir: results/phase2f
+  history_template: dyadic_anon_prior_round
+  conditions: [score_1, score_10, no_history]
+
+  lens_repo: neuronpedia/jacobian-lens
+  lens_file: llama3.1-8b-it/jlens/Salesforce-wikitext/Llama-3.1-8B-Instruct_jacobian_lens.pt
+  lens_revision: a4114d7752d11eb546e6cf372213d7e75526d3a1
+
+  # Our prompts run to 2830 tokens; the jlens default of 512 would silently
+  # truncate them and every frozen span index would be wrong.
+  max_seq_len: 8192
+  # The chat template already emits <|begin_of_text|>. force_bos would add a
+  # second one and shift every frozen span; the sanity check proves the encode
+  # matches our own tokenization byte for byte.
+  force_bos: false
+  top_n: 10
+  # Positions to keep full top-n readouts at, beyond the point positions.
+  candidate_stride: 8

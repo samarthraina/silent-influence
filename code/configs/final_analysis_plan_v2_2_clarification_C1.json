@@ -1,0 +1,195 @@
+{
+  "record_id": "final_behavioral_study_sap_A2_clarification_C1",
+  "record_type": "clarification",
+  "record_version": "C1",
+  "status": "pre-specified; no model output exists for any task in the frozen manifest",
+  "prospective": true,
+  "non_destructive": true,
+  "overwrites": "nothing",
+
+  "clarifies": {
+    "plan_id": "final_behavioral_study_sap_v2_amendment_A2",
+    "machine_readable_path": "configs/final_analysis_plan_v2_2.json",
+    "machine_readable_sha256": "9b202820df5d0d8837e22bd701a473e48eb5f726cd1baf854018ef16e828cbc3",
+    "narrative_path": "Code/research_notes/final_analysis_plan_amendment_A2.md",
+    "narrative_sha256": "9b68f334d224f1d0925d90c497f638baa6ec8fa5b132122dabed41546644fc83",
+    "preserved_unmodified": true
+  },
+  "narrative": "Code/research_notes/final_analysis_plan_amendment_A2_clarification_C1.md",
+  "scope": "corrects one over-claimed rationale, tightens two execution requirements, removes one undocumented provenance assertion, and records a character-integrity audit. No estimand, population, weight, contrast, bootstrap parameter, condition, prompt or task changes.",
+  "statistical_content_changed": false,
+  "invariants_reaffirmed": {
+    "n_tasks": 578, "n_conditions": 6, "n_scorers": 4, "n_scoring_calls": 13872,
+    "scorers_equally_weighted": true,
+    "primary_cells": 8, "primary_cell_weight": 0.125,
+    "secondary_cells": 12, "secondary_cell_weight": 0.08333333333333333,
+    "bootstrap_replicates": 10000, "bootstrap_seed": 20260818,
+    "no_conditional_rule_changing_primary_from_observed_data": true
+  },
+
+  "C1_1_S1_rationale_correction": {
+    "target": "configs/final_analysis_plan_v2_2.json .S1_three_scorer_sensitivity.why_it_is_robustness_and_not_confound_correction, and the corresponding section of the A2 narrative",
+    "action": "the claims quoted below are WITHDRAWN as over-stated and replaced by the corrected statement. A2 itself is not edited; this record supersedes those specific clauses.",
+    "withdrawn_claims": [
+      "any family-affinity term is constant within a (task, scorer) cell across conditions and cancels exactly in the paired within-cell difference no_history - self_low_2",
+      "It cannot manufacture or reverse a condition contrast",
+      "A level shift matters only through a range/ceiling mechanism",
+      "Compression works against the hypothesis, so the direction is conservative",
+      "compression rather than inflation of the measured effect is the expected consequence"
+    ],
+    "why_withdrawn": "the cancellation argument is valid only for an ADDITIVE affinity term. It was stated unconditionally, which implicitly assumed away interaction effects. The ceiling-compression claim additionally asserted a direction of bias that is not established.",
+    "corrected_statement": {
+      "what_does_cancel": "Because the candidate answer for a given task is byte-identical across all six conditions, an ADDITIVE answer-family affinity -- one that shifts a (task, scorer) cell's score LEVEL uniformly across conditions -- cancels in the paired within-cell contrast.",
+      "what_does_not_cancel": "That covers the additive case only. A scorer-family-by-condition INTERACTION, in which the scorer's responsiveness to the injected history differs for same-family content, would NOT cancel and could moderate the treatment effect.",
+      "direction_of_any_interaction": "not established. No claim is made that such an interaction must attenuate rather than amplify the effect.",
+      "ceiling_and_floor_compression": "one candidate mechanism for such an interaction, but neither its occurrence nor its direction is established here, and it must not be presented as a reason the estimate is conservative.",
+      "purpose_of_S1_restated": "S1 tests whether the primary conclusion depends materially on including the OLMo scorer.",
+      "what_S1_does_not_establish": [
+        "that answer-family affinity is absent",
+        "that any scorer-family-by-condition interaction is absent",
+        "a direction or magnitude of bias in the four-scorer primary"
+      ],
+      "anonymity_and_identical_answer_facts_retained": {
+        "generator_identity_absent_from_the_prompt": true,
+        "answer_byte_identical_across_conditions": true,
+        "note": "both facts remain true and remain worth stating; they are what makes the additive component cancel. They do not by themselves rule out an interaction."
+      }
+    },
+    "unchanged_about_S1": {
+      "prespecified": true, "confirmatory": false,
+      "estimand_primary_population": {"scorers": ["llama", "qwen", "gemma"], "n_cells": 6,
+                                      "cell_weight": 0.16666666666666666,
+                                      "population": "the 500 fully held-out tasks"},
+      "estimand_secondary_population": {"scorers": ["llama", "qwen", "gemma"], "n_cells": 9,
+                                        "cell_weight": 0.1111111111111111,
+                                        "population": "all 578 tasks"},
+      "bootstrap": "the same shared resampled task-sets; no new draws",
+      "decision_rule": "NONE; S1 may never replace, override or become the primary",
+      "also_reported_on_complete_case_basis": true,
+      "fourth_scorer_cell_means_reported_separately": true
+    },
+    "reporting_requirement": "the write-up must state the additive/interaction distinction explicitly rather than asserting exact cancellation, and must not describe the primary estimate as conservative on the basis of a compression argument."
+  },
+
+  "C1_2_use_cache_requirement": {
+    "target": "configs/scorer_olmo3_1_32b_pin.json .use_cache_trap and configs/final_analysis_plan_v2_2.json .E9_resolution_olmo32b_hardware.additional_required_check",
+    "action": "tightened from 'assert the effective use_cache is True' to the explicit two-part setting plus a mandatory equivalence comparison.",
+    "implementation_requirements": [
+      "explicitly set model.config.use_cache = True after loading the OLMo scorer",
+      "explicitly pass use_cache=True to every generate() call for the OLMo scorer",
+      "do not rely on GenerationConfig defaults or on inheritance from config.json, which ships use_cache=false"
+    ],
+    "prerun_equivalence_check": {
+      "required": true,
+      "when": "before the final run, as part of preflight",
+      "set": "the canonical preflight task wildbench/00c7916a072b4947 with the standard placeholder candidate answer, rendered under all six frozen conditions",
+      "n_units": 6,
+      "n_calls": 12,
+      "n_calls_note": "6 units x 2 cache settings (cache-on and cache-off)",
+      "set_is_frozen": true,
+      "consumes_study_data": false,
+      "consumes_study_data_note": "the placeholder answer is not a frozen candidate answer, so this check touches no study observation",
+      "decoding": "deterministic: do_sample=False, transformers.set_seed(42), max_new_tokens=512, identical prompt and identical decoding config in both arms",
+      "comparison_target": "the generated TOKEN-ID sequence",
+      "criterion": "EXACT equality of generated token IDs between the cache-on and cache-off arms for all six conditions",
+      "on_any_discrepancy": "STOP and investigate; return for review. Do not silently proceed, do not prefer the faster arm, and do not treat a mismatch as acceptable numerical noise.",
+      "rationale": "under greedy decoding the output must be invariant to KV caching. A discrepancy indicates a numerical or implementation fault that would also threaten run-to-run reproducibility, so it must be understood before hours of compute are committed.",
+      "scope": "required for the OLMo scorer, which ships use_cache=false. Recommended but not required for the other three scorers, which do not."
+    },
+    "classification": "cost and correctness-verification requirement. Caching cannot change which tokens greedy decoding selects; the check exists to confirm that, not to choose between two acceptable outputs."
+  },
+
+  "C1_3_olmo_batching_reaffirmed": {
+    "default_batch_size": 1,
+    "binding": true,
+    "any_larger_batch_requires_both": [
+      "exact token-ID equivalence against the batch-1 path on the frozen 288-call smoke set",
+      "a measured memory preflight showing the intended batch size fits the measured headroom"
+    ],
+    "either_condition_unmet": "the OLMo scorer runs the entire study at batch size 1",
+    "on_mismatch_or_oom": "permanent fallback to batch size 1 for this model only; never inferred across models",
+    "headroom_context_gib": 13.9,
+    "kv_cost_per_additional_row_gib": 1.25
+  },
+
+  "C1_4_playground_provenance_correction": {
+    "target": "configs/final_analysis_plan_v2_2.json .exploratory_provenance.olmo_3_1_32b_playground_examples",
+    "action": "one assertion WITHDRAWN as undocumented; the description is simplified.",
+    "withdrawn_assertions": [
+      "The primary hypothesis and contrast predate this amendment and predate any OLMo-3.1-32B interaction",
+      "hypothesis_provenance: the primary hypothesis and contrast come from the 24-task pilot and the completed 90-task run, both of which are separate supporting experiments",
+      "no_hypothesis_derived_from_study_data: true"
+    ],
+    "why_withdrawn": "the Playground interactions carry no timestamped record, so their position relative to the formation of the hypothesis cannot be documented. The claim may well be true, but an undocumented temporal ordering must not be asserted in a pre-registration record. Withdrawing it costs nothing, because the confirmatory design does not depend on it.",
+    "corrected_description": "Exploratory evidence that informed the choice of scorer model and motivated controlled validation.",
+    "retained_and_still_binding": {
+      "prompts_entering_the_confirmatory_dataset": "none",
+      "outputs_entering_the_confirmatory_dataset": "none",
+      "contribute_any_score_or_record": false,
+      "in_confirmatory_dataset": false,
+      "not_comparable_to_study_data_because": [
+        "not produced under the frozen scoring prompt",
+        "not produced under deterministic decoding or a pinned revision",
+        "not produced against the frozen candidate answers",
+        "not produced under any of the six conditions"
+      ],
+      "citation_rule": "may be described as exploratory motivation for the scorer choice; must never be presented as a result, an effect size, or evidence for or against the hypothesis"
+    },
+    "note": "what protects the confirmatory analysis is that the manifest, conditions, prompts, estimands and decoding were all frozen and hashed before any study output existed -- a property that is documented -- not a claim about when an informal interaction occurred."
+  },
+
+  "C1_5_character_integrity_audit": {
+    "performed": true,
+    "files_audited": 8,
+    "checks": ["strict UTF-8 decodability", "U+FFFD replacement characters",
+               "disallowed control characters (anything below 0x20 other than tab and newline, plus 0x7F)",
+               "UTF-8 BOM", "lone CR", "cp1252 mojibake markers", "full non-ASCII inventory"],
+    "replacement_characters_found": 0,
+    "mojibake_markers_found": 0,
+    "strict_utf8_all_files": true,
+    "bom_found": 0,
+    "lone_cr_found": 0,
+    "conclusion_on_the_reported_corrupted_symbols": "display encoding only. The corrupted arrows and symbols seen in pasted console output are the terminal's cp1252 rendering of correctly-encoded UTF-8; no artifact on disk contains a replacement character.",
+    "legitimate_non_ascii_retained": {
+      "note": "present only in the two narrative markdown files; every JSON artifact is pure ASCII",
+      "final_analysis_plan_amendment_A2.md": ["U+2014 EM DASH x25", "U+2265 GREATER-THAN OR EQUAL TO x4",
+                                             "U+00B2 SUPERSCRIPT TWO x1", "U+2212 MINUS SIGN x1",
+                                             "U+00A7 SECTION SIGN x1"],
+      "final_analysis_plan_amendment_A1.md": ["U+2014 EM DASH x26", "U+00D7 MULTIPLICATION SIGN x5",
+                                              "U+2026 HORIZONTAL ELLIPSIS x4", "U+2013 EN DASH x3",
+                                              "U+2248 ALMOST EQUAL TO x2", "U+00A7 SECTION SIGN x1"],
+      "assessment": "intentional typography, valid UTF-8, not corruption"
+    },
+    "one_finding": {
+      "file": "results/final_task_selection/final_analysis_plan_A2_freeze_record.json",
+      "finding": "67 CRLF line terminators, i.e. 67 CR (0x0D) control characters",
+      "cause": "written through a Windows text-mode write, which applied newline translation; every other artifact in the chain is LF-only",
+      "stray_cr_not_part_of_a_crlf_pair": 0,
+      "content_affected": false,
+      "json_parses": true,
+      "severity": "line-ending style inconsistency, not content corruption",
+      "corrected_here": false,
+      "why_not_corrected": "it is an A2 artifact and this record is explicitly non-destructive. Rewriting it would change its published hash.",
+      "hash_as_it_exists_crlf": "21d9779761fc1d7206ec2e53388d539cbc857568ccf12116070727a0351b8fa8",
+      "hash_if_normalised_to_lf": "fb79c0d4db6e29d36213132173f90dbd097b75f61e40987ae507ab5e0740a52e",
+      "hash_if_normalised_note": "recorded for information only. The CRLF hash above remains the authoritative hash of the file as published.",
+      "residual_risk": "if the repository later applies text normalisation (for example a .gitattributes eol rule), this one file's hash would change while no other frozen artifact's would. Flagged so that a future hash mismatch on this file alone is recognised as this known line-ending issue rather than tampering.",
+      "recommended_follow_up": "normalise to LF only as a separate, explicitly authorised action, re-hashing and re-publishing the record at that point"
+    },
+    "this_clarification_records_written_lf_only": true
+  },
+
+  "implementation_changes_required_but_NOT_YET_MADE": {
+    "note": "carried forward from A2 unchanged, plus the two items below. No implementation code was modified by this clarification.",
+    "added_by_C1": [
+      "set model.config.use_cache = True and pass use_cache=True on every OLMo generate() call",
+      "add the 12-call cache-on vs cache-off token-ID equivalence check to the preflight, covering all six conditions, with exact equality required and a hard stop on any discrepancy",
+      "implement S1 with the corrected rationale text in the reporting layer, stating the additive/interaction distinction rather than exact cancellation"
+    ]
+  },
+
+  "unresolved_scientific_decisions": {
+    "count": 0,
+    "statement": "none. This record corrects the stated justification for a prespecified sensitivity analysis, tightens two execution requirements, withdraws one undocumented provenance claim, and reports a character-integrity audit. No estimand or design element changes."
+  }
+}

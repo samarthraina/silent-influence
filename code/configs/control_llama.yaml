@@ -1,0 +1,42 @@
+# ============================================================================
+# PHASE 2D CONTROL — necessity test, Llama-3.1-8B-Instruct.
+# ============================================================================
+# Layer and span are inherited from the Phase 2C TRACE result, not independently
+# pre-specified: L14 was the strongest layer of the broad downstream patch, and
+# the rubric/instruction/schema span carried 74% of that effect. Any claim from
+# this phase is conditional on that selection.
+#
+# Every direction is fitted on the 9 Phase 2A TRAIN tasks only. The 9 TEST tasks
+# are never used to fit anything; they are only intervened on.
+#
+# Layer indexing unchanged: L0 = embed_tokens output, L>=1 = POST-block hook on
+# layers[L-1], i.e. exactly hidden_states[L].
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+control:
+  name: PHASE2D_control_llama_arenahard
+  judge_model: llama8b
+  source_glob: results/arenahard/judge/*/records.jsonl
+  split: results/phase2a_split.json
+  out_dir: results/phase2d
+  direction_file: results/phase2d/directions.npz
+  history_template: dyadic_anon_prior_round
+  low_condition: score_1
+  high_condition: score_10
+  neutral_condition: no_history
+  span: rubric_instruction
+  layer: 14
+  late_layer: 28            # TRACE was null here; the same direction is applied as a control
+  alphas: [0.0, 0.5, 1.0]   # alpha=0 doubles as the zero-intervention hook control
+  n_random: 20
+  n_signflip: 20
+  seed: 42
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

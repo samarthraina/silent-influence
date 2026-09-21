@@ -1,0 +1,38 @@
+# ============================================================================
+# DATASET SUITABILITY SCREEN — candidate generation. Not Phase 1A data.
+# ============================================================================
+# One frozen Model X answer per task, across three candidate datasets, under the
+# finalized generation protocol. 12 tasks per dataset = 36 generations.
+#
+# The staged candidates_olmo3_v1 run is a separate debug artifact and is not
+# touched by this run.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidate_generation:
+  name: SCREEN_candidates_v1
+  model: modelx_olmo3
+  datasets: [mtbench_t1, alpaca_eval, arena_hard_v2]
+  n_prompts: 12                 # per dataset
+  seed: 42
+  out_dir: results/screen/candidates
+  candidates_out: data/candidates/screen_candidates_v1.json
+  candidate_response_id: modelx_olmo3_r0
+  evaluated_model_label: modelx_olmo3
+
+  # Kept as a generation record, dropped from the frozen set. Model X could not
+  # complete this task within the standardized 2048-token budget; accepting a
+  # truncated stimulus, or raising the budget for this item alone, would both
+  # break comparability. The truncation itself is a screen finding about the dataset.
+  exclude_prompts:
+    - dataset: arena_hard_v2
+      prompt_id: "17"
+      reason: "hit_token_cap at 2048 tokens (competitive-programming task)"
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 2048
+  do_sample: false

@@ -1,0 +1,103 @@
+{
+  "record_id": "final_analysis_plan_A8_freeze_record",
+  "record_type": "amendment_freeze_record",
+  "frozen_at_utc": "2026-08-17T18:10:25+00:00",
+  "amendment": "A8 -- freezes the safety-corrected execution scripts and replaces A7's unconditional small-scorer batch-6 policy with a pre-specified, direction-neutral calibration rule",
+  "prospective": true,
+  "non_destructive": true,
+  "overwrites_history": false,
+  "a7_overwritten": false,
+  "created_before_any_final_study_output": true,
+  "prospective_evidence": {
+    "results/final_behavioral_study": false,
+    "results/final_behavioral_study_adjudicated": false,
+    "data/candidates/final_olmo_answers.json": false,
+    "generation_calls_executed": 0,
+    "scoring_calls_executed": 0
+  },
+  "a5_preserved": true,
+  "frozen_batch_policy": {
+    "olmo3_generator": 6,
+    "olmo32b": 1,
+    "llama": "pending_calibration",
+    "qwen": "pending_calibration",
+    "gemma": "pending_calibration"
+  },
+  "calibration_thresholds": {
+    "max_abs_primary_delta_difference": 0.25,
+    "max_abs_task_positive_fraction_change": 0.05,
+    "min_batch6_a5_valid_rate": 0.95,
+    "max_abs_validity_rate_difference_no_history_vs_self_low_2": 0.02
+  },
+  "new_artifacts_sha256": {
+    "configs/final_analysis_plan_v2_8.json": "411a05377fad3c1c7c222316295d9931e64488dd2df07a0de016b3f903c79ea4",
+    "Code/research_notes/final_analysis_plan_amendment_A8.md": "2659598fe09420c671d77afd006831900902946d65ace8b47101012e16fd205d",
+    "scripts/run_final_scoring.py": "6e829ad32640c119b9dcf60ce0d5fba9ca7f5ca3a4a0667f4064369409ee5c30",
+    "scripts/generate_final_candidates.py": "63729fb6ff10a4b1f331b623b13d109205693940c3651d2eec9e13202276493b"
+  },
+  "supersedes_hashes_from_A7": {
+    "scripts/run_final_scoring.py": {
+      "a7": "db966c890ccf6048c5352ea562e78e1e44057c0bcf9b4c115ff20f24775164cd",
+      "a8": "6e829ad32640c119b9dcf60ce0d5fba9ca7f5ca3a4a0667f4064369409ee5c30"
+    },
+    "scripts/generate_final_candidates.py": {
+      "a7": "a2deabe65d83b7be5c39da22dd0a4c1ff07a4c05b581d60649d25402008da5df",
+      "a8": "63729fb6ff10a4b1f331b623b13d109205693940c3651d2eec9e13202276493b"
+    },
+    "reason": "A7 pinned them mid-repair; the safety corrections landed afterwards"
+  },
+  "prior_artifacts_verified_unmodified_sha256": {
+    "configs/final_analysis_plan.json": "ea41c3d6f4af734605850896049d54952eec9f9450713881b24b2d52611cd52c",
+    "configs/final_analysis_plan_v2_1.json": "0d92256df8e71fa74bcd9fa378f4602a71c47fec43dee709fc4b44f8991455b0",
+    "configs/final_analysis_plan_v2_2.json": "9b202820df5d0d8837e22bd701a473e48eb5f726cd1baf854018ef16e828cbc3",
+    "configs/final_analysis_plan_v2_2_clarification_C1.json": "998e11461163c0b03a6490ef6c3e5c150f491f819d8d658acb3ea23bfb0c96e6",
+    "configs/final_analysis_plan_v2_3.json": "2d86b5df14f116b603159955468795af3530fc16e147f0df340f7d5383f1b86e",
+    "configs/final_analysis_plan_v2_4.json": "062cb165a626fbd81388b499550227853b1d6454dd93a2f5a27850cf05932771",
+    "configs/final_analysis_plan_v2_5.json": "756f7c4107108f6a9f30c50e0854f66f63a8706a9ada5cc18005fb9257019303",
+    "configs/final_analysis_plan_v2_6.json": "21edd4d12c4c553c84ef8958e89f182ac92407283fde6d68ec1708f4e11004d7",
+    "configs/final_analysis_plan_v2_7.json": "c945155148020eac433f2a2c3cdef1ca7d8407d98f0195e7cd7b64d415a67822",
+    "configs/scorer_olmo3_1_32b_pin.json": "0818438052f6ec33b62f5ec8d6ec1d5e5240b427824768a3c2ab329a98b5684f",
+    "configs/scorer_mistral_small_24b_pin.json": "3ad5fec336531bc625274835cf23391d3c1a5f54ab27ee7142e9bd83c480b19a",
+    "data/prompts/final_tasks_seed20260817.json": "b3e3f49d6940026790e10313ba0ae7018a741cdd837584f8cd35e65df3475ea9",
+    "data/prompts/final_tasks_v2_english_seed20260817.json": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+    "results/final_task_selection/final_analysis_plan_A2_freeze_record.json": "21d9779761fc1d7206ec2e53388d539cbc857568ccf12116070727a0351b8fa8",
+    "results/final_task_selection/final_analysis_plan_A2_C1_freeze_record.json": "71eb08923e09db81f6e209425342337a3e8fd86f65dacb830e9aa3e7b814b0c6",
+    "results/final_task_selection/final_analysis_plan_A3_freeze_record.json": "663074863713dfed0604cd88e147f7096602c018f157904064a9ddffee2db8a8",
+    "results/final_task_selection/final_analysis_plan_A4_freeze_record.json": "b610a23e3511c84bae40a25516ba57fda9a15d0263e0133f7809c79a34022432",
+    "results/final_task_selection/final_analysis_plan_A5_freeze_record.json": "80fe52ce3b64d696837de33a594fb619b3b468b69ba3d941c50b5e5cbc54f4da",
+    "results/final_task_selection/final_analysis_plan_A6_freeze_record.json": "7aee749ec538a4629eaa2ab0d8b26b45efbc29f56e217c3a5f113ef9a2f2dc6c",
+    "results/final_task_selection/final_analysis_plan_A7_freeze_record.json": "56a53c515f0c47d0d95a6886d21893918793bbb7a8ae5d85a8ec056cf7f6b6e7",
+    "results/final_task_selection/manifest_v2_freeze_record.json": "d00e1d686f1325f7e77414c75789c31d0649db4744c6272f34469a99da6c170f",
+    "results/scaled_silent_influence/raw_results.jsonl": "7761c065343c1407763abfa459b1b59b39f0b568947a9022be278a687093b348",
+    "src/silent_influence/output_validity.py": "f24057fd6542e5cdf51a4ed75b3bfa94363ceb87ec529b3bad14392f89c47184",
+    "src/silent_influence/exact_generation.py": "b4c5ec438d519e4be6071d6c986955ea357cb8588cada795884b59b6b2b309b4",
+    "src/silent_influence/scaled_conditions.py": "ef676689c8c3e673de64526fe1a9b26379632d1030d31e018fc6cbef42f94a64",
+    "src/silent_influence/scaled_parsing.py": "3a6a59caa666092fe49f13603364cb8222e894fe0c6c93855e54116cdd88ba78",
+    "src/silent_influence/score_recovery.py": "49d34c129d5ad20a7501cac232e745974dd3a04ecf4d002546de39e43a355d99",
+    "src/silent_influence/english_assessment.py": "2cf30c6a2ff0ff0b58cfc48dc9a7a070bfe43c50e9beda9786e7221d1493e1d2",
+    "src/silent_influence/language_decisions.py": "5e7f860ded4d27c7d63924df47bc5e7e7d0b27cd3d63cbbf4bf2ef791da066d5",
+    "Code/research_notes/final_analysis_plan.md": "9eecd39b4f8c6a60e32a1821f90b5b4e5415c993d894517f5876922b863e46ff",
+    "Code/research_notes/final_analysis_plan_amendment_A1.md": "6007e2a7723a84b24fa2a3d877ce62938b1d1f3794a33ddc1a0a3159a57633bb",
+    "Code/research_notes/final_analysis_plan_amendment_A2.md": "9b68f334d224f1d0925d90c497f638baa6ec8fa5b132122dabed41546644fc83",
+    "Code/research_notes/final_analysis_plan_amendment_A2_clarification_C1.md": "6f557525c93857014103f63165bb9b0314201d79b69526a5e78ff1643f632cce",
+    "Code/research_notes/final_analysis_plan_amendment_A3.md": "299d737b85af737476632c78fa91b271577112c13b6b23d9e0032a633107c7f7",
+    "Code/research_notes/final_analysis_plan_amendment_A4.md": "61fba1a55c9f5eb884a46922bf04ba8f8ee74b36d4fa2260bd21264fa7824d07",
+    "Code/research_notes/final_analysis_plan_amendment_A5.md": "bb370989e07c074f5372ea8d986c7f7f364224699775e1acfbcdcaf886a32817",
+    "Code/research_notes/final_analysis_plan_amendment_A6.md": "41e1100ce0c5d3b82cd21f52d8da493f95f7a4c158c67c2263327f6590329a0b",
+    "Code/research_notes/final_analysis_plan_amendment_A7.md": "567b9111b4899d560b96150c81e3743badeb36dd7d8089b51208d8e40467ca41",
+    "Code/research_notes/OBSERVATIONS.md": "3052851cab7409e5be10ebd1f3ca4aadc74256a159588aa51d01456b40e47a4a",
+    "Code/research_notes/JOURNAL.md": "f27da7a2907ed7ad91024e87e90f889ec8550c039e28f835a171a9db7705acf7"
+  },
+  "chain": [
+    "v2.0",
+    "A1",
+    "A2",
+    "C1",
+    "A3",
+    "A4",
+    "A5",
+    "A6",
+    "A7",
+    "A8"
+  ]
+}

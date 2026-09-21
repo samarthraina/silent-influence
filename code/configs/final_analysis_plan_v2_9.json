@@ -1,0 +1,161 @@
+{
+  "plan_id": "final_behavioral_study_sap_v2_amendment_A9",
+  "plan_version": "2.9",
+  "status": "pre-specified",
+  "prospective": true,
+  "no_scoring_output_existed_when_adopted": true,
+  "prospective_evidence": {
+    "results/final_behavioral_study": false,
+    "results/final_behavioral_study_adjudicated": false,
+    "scoring_calls_executed": 0,
+    "generation_complete_and_verified": true,
+    "no_answer_content_or_outcome_informed_this_amendment": true
+  },
+  "amends": {
+    "plan_id": "final_behavioral_study_sap_v2_amendment_A8",
+    "path": "configs/final_analysis_plan_v2_8.json",
+    "sha256": "411a05377fad3c1c7c222316295d9931e64488dd2df07a0de016b3f903c79ea4"
+  },
+  "amendment_narrative": "Code/research_notes/final_analysis_plan_amendment_A9.md",
+  "overwrites_history": false,
+  "non_destructive": true,
+  "generation_integrity": {
+    "n_accepted": 578,
+    "n_permanently_failed": 0,
+    "substitutions": 0,
+    "unique_task_ids": 578,
+    "distribution": {
+      "mtbench": 78,
+      "arena_hard": 250,
+      "wildbench": 250
+    },
+    "answer_sha256_verified": "578/578",
+    "empty_answers": 0,
+    "hit_2048_ceiling": 38,
+    "candidates_sha256": "764807d63ae883ea5e713931a4938888faa993ac50dd6d7a88abe6ae22b1ca0a",
+    "all_578_preserved": true
+  },
+  "final_task_set": {
+    "n_scored_tasks": 234,
+    "per_dataset": {
+      "mtbench": 78,
+      "arena_hard": 78,
+      "wildbench": 78
+    },
+    "selection_seed": 20260818,
+    "selection_manifest": "data/prompts/a9_scoring_tasks_seed20260818.json",
+    "selection_manifest_sha256": "8deb5178ad53c5942afa00ac285eff620762027378aed67b93b33dd6c44cc11a",
+    "procedure": "same frozen metadata strata and allocation as the 250-task pools: stratify by frozen category, largest_remainder allocation, per-stratum sort by task id then shuffle with Random(sha256(seed|dataset|category)), take first k",
+    "mtbench_rule": "census-complete, no sampling, no seed used",
+    "inputs_used": [
+      "dataset",
+      "source_task_id",
+      "category"
+    ],
+    "never_consulted": [
+      "generated answer content",
+      "answer length",
+      "scores",
+      "rationales",
+      "parse behaviour",
+      "experimental outcomes"
+    ],
+    "unused_answers_preserved_as_audit_artifacts": 344,
+    "unused_answers_deleted_or_scored": false
+  },
+  "scoring_design": {
+    "llama": {
+      "conditions": "all six frozen",
+      "logical": 1404
+    },
+    "qwen": {
+      "conditions": "all six frozen",
+      "logical": 1404
+    },
+    "gemma": {
+      "conditions": "all six frozen",
+      "logical": 1404
+    },
+    "olmo32b": {
+      "conditions": [
+        "no_history",
+        "self_low_2"
+      ],
+      "logical": 468,
+      "role": "larger-model primary-effect replication"
+    },
+    "small_scorers_total": 4212,
+    "olmo32b_total": 468,
+    "overall_total": 4680
+  },
+  "batching": {
+    "small_scorer_calibration": {
+      "procedure": "frozen A8 direction-neutral calibration",
+      "hardware": "this A100 (now their production hardware)",
+      "thresholds": {
+        "max_abs_primary_delta_difference": 0.25,
+        "max_abs_task_positive_fraction_change": 0.05,
+        "min_batch6_a5_valid_rate": 0.95,
+        "max_abs_validity_rate_difference_no_history_vs_self_low_2": 0.02
+      },
+      "selection": "mechanical from the frozen criteria; batch 6 if all pass else batch 1",
+      "effect_direction_or_magnitude_considered": false
+    },
+    "olmo32b_batch2_gate": {
+      "template": "the actual frozen scoring template",
+      "inputs": "the longest selected prompt pairs",
+      "accept_only_if": [
+        "no OOM",
+        "no technical failure",
+        "A5-valid outputs",
+        "repeatable within batch 2",
+        "at least 10% GPU-memory headroom"
+      ],
+      "otherwise": "freeze batch 1",
+      "compared_against_batch_1": false,
+      "effect_sizes_inspected": false
+    },
+    "never_switch_or_fall_back_during_production": true,
+    "resume_uses_original_frozen_batch_composition": true
+  },
+  "analysis": {
+    "confirmatory_primary_contrast": "no_history - self_low_2",
+    "primary_scorers": [
+      "llama",
+      "qwen",
+      "gemma",
+      "olmo32b"
+    ],
+    "primary_datasets": [
+      "mtbench",
+      "arena_hard",
+      "wildbench"
+    ],
+    "primary_weighting": "each dataset equal, each scorer equal -> 12 cells at 1/12",
+    "diagnostic_scorers": [
+      "llama",
+      "qwen",
+      "gemma"
+    ],
+    "diagnostic_n_cells": 9,
+    "diagnostic_scope_statement": "diagnostic conditions and their contrasts are evaluated on llama/qwen/gemma ONLY; OLMo-3.1-32B is the larger-model primary-effect replication and did not run those conditions",
+    "retained": [
+      "task-clustered dataset-stratified bootstrap",
+      "A5 validity rules",
+      "complete-case primary analysis",
+      "parse audit",
+      "all previously frozen failure policies"
+    ],
+    "do_not_combine_with_90_task_study": true,
+    "90_task_study_role": "A8 calibration set only"
+  },
+  "explicit_non_claims": [
+    "NOT claimed that batch 6 and batch 1 are equivalent; calibration decides admissibility against frozen bounds, not equivalence",
+    "NOT claimed that the 234-task subset is interchangeable with the 578-task set",
+    "NOT claimed that OLMo-3.1-32B two-condition results support any diagnostic contrast",
+    "NOT claimed that the 344 unscored answers are uninformative; they are retained so the decision can be revisited transparently"
+  ],
+  "unresolved_scientific_decisions": {
+    "count": 0
+  }
+}

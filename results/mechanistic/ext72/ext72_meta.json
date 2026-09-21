@@ -1,0 +1,16 @@
+{
+  "stage": "72-TASK GENERALIZATION REPLICATION",
+  "specified_after_observing_24_task_control_result": true,
+  "preregistered_before_that_result": false,
+  "layer": 24,
+  "beta": 1.5,
+  "alpha": 1.0,
+  "early_layer": 2,
+  "random_seed": 20260818,
+  "n_tasks": 72,
+  "n_calls": 1224,
+  "reused_without_retuning": true,
+  "manifest_sha256_frozen_before_run": true,
+  "runtime_s": 11859.6,
+  "peak_gpu_gib": 16.27
+}

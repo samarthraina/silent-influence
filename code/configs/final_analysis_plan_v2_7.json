@@ -1,0 +1,145 @@
+{
+  "plan_id": "final_behavioral_study_sap_v2_amendment_A7",
+  "plan_version": "2.7",
+  "status": "pre-specified",
+  "amendment_type": "operational_final_inference_procedure",
+  "prospective": true,
+  "prospective_evidence": {
+    "results/final_behavioral_study": false,
+    "results/final_behavioral_study_adjudicated": false,
+    "data/candidates/final_olmo_answers.json": false,
+    "generation_calls_executed": 0,
+    "scoring_calls_executed": 0,
+    "verified_on_hosts": [
+      "workstation",
+      "a100_instance_47940113"
+    ],
+    "no_final_study_data_existed_when_A7_adopted": true
+  },
+  "amends": {
+    "plan_id": "final_behavioral_study_sap_v2_amendment_A6",
+    "path": "configs/final_analysis_plan_v2_6.json",
+    "sha256": "21edd4d12c4c553c84ef8958e89f182ac92407283fde6d68ec1708f4e11004d7"
+  },
+  "amendment_narrative": "Code/research_notes/final_analysis_plan_amendment_A7.md",
+  "overwrites_history": false,
+  "non_destructive": true,
+  "statistical_content_changed": false,
+  "final_batch_policy": {
+    "generator": {
+      "key": "olmo3",
+      "hf_id": "allenai/Olmo-3-7B-Instruct",
+      "batch_size": 6,
+      "max_new_tokens": 2048,
+      "order": "frozen manifest order",
+      "n_full_batches": 96,
+      "final_partial_batch_size": 2,
+      "n_physical_batches": 97,
+      "partial_batch_is_frozen_part_of_procedure": true
+    },
+    "scorers": {
+      "llama": 6,
+      "qwen": 6,
+      "gemma": 6,
+      "olmo32b": 1
+    },
+    "ceilings": {
+      "llama": 512,
+      "qwen": 512,
+      "gemma": 512,
+      "olmo32b": 2048
+    },
+    "small_scorer_batch_composition": "the six conditions of ONE task form exactly one batch, in the frozen canonical condition order",
+    "canonical_condition_order": [
+      "no_history",
+      "self_low_2",
+      "other_low_2",
+      "unrelated_low_2",
+      "verbal_negative",
+      "self_high_10"
+    ],
+    "every_response_is_a_separate_logical_record": true
+  },
+  "supersedes_A6_equivalence_requirement": {
+    "superseded": "A6's requirement that batch-6 output reproduce batch-1 output token-for-token",
+    "A6_established": "the batch dimension can change exact greedy generations: batch 6 vs 6x batch 1 gave input ids 6/6 identical but generated ids 0/6; a zero-padding row still diverged; batch-of-2 with two copies of one prompt still diverged. Extraction was proven correct.",
+    "A7_defines": "batch 6 as the prospective final inference procedure, for efficiency",
+    "agreement_with_batch_1": "neither required nor tested",
+    "what_IS_required": "same-configuration repeatability: identical batch, identical size, identical order must reproduce exactly",
+    "results_are_batch_6_artifacts": true,
+    "a_batch_1_rerun_is_not_a_replication": true,
+    "mechanistic_reproduction_requirement": "later mechanistic reproduction of a behavioral case must reconstruct the same six-condition scorer batch composition"
+  },
+  "decision_provenance": {
+    "no_final_study_data_existed": true,
+    "no_condition_contrast_informed_this": true,
+    "no_effect_cell_mean_or_estimand_consulted": true,
+    "inputs_used": [
+      "token-identity comparisons",
+      "timing",
+      "memory measurements"
+    ],
+    "measured_on": "condition-blind preflight, held-out tasks absent from the 578 manifest",
+    "motivation": "throughput; batch 6 measured 2.38x faster (44.0s -> 18.5s, six calls)"
+  },
+  "physical_execution_counts": {
+    "generator_logical_answers": 578,
+    "generator_physical_batches": 97,
+    "per_small_scorer_logical": 3468,
+    "per_small_scorer_physical_batches": 578,
+    "three_small_scorers_logical": 10404,
+    "three_small_scorers_physical_batches": 1734,
+    "olmo32b_logical": 3468,
+    "olmo32b_batch_size": 1,
+    "total_scoring_logical_evaluations": 13872
+  },
+  "reproducibility_and_resume_policy": {
+    "grouping_deterministic_from_frozen_manifests_only": true,
+    "no_cross_sequence_attention_in_the_batch_dimension": true,
+    "per_unit_retained": [
+      "unit_id",
+      "prompt hash",
+      "raw response",
+      "generated-token metadata",
+      "parsed score",
+      "A5 validity status"
+    ],
+    "atomic_batch_commit": true,
+    "on_technical_interruption": "rerun the COMPLETE original batch with identical composition and order",
+    "never_retry_one_member_at_a_different_batch_size": true,
+    "never_silently_fall_back_from_6_to_1": true,
+    "no_reserve_task_substitution": true
+  },
+  "preserved_unchanged": [
+    "all 578 tasks and their order",
+    "prompts, conditions and condition wording",
+    "model identities, revisions and dtypes",
+    "greedy decoding (do_sample=False, seed 42) and all token ceilings",
+    "A5 cap-aware validity -- unmodified and not bypassed",
+    "parsers, recovery rules, estimands and the bootstrap plan",
+    "13,872 logical scorer evaluations",
+    "the complete prior frozen-artifact chain"
+  ],
+  "a5_validity_rule": {
+    "preserved_exactly": true,
+    "modified": false,
+    "bypassed": false
+  },
+  "minimal_gates": [
+    "generator: one representative full batch of 6 run twice, exact repeatability",
+    "the final partial batch-of-2 configuration run twice, exact repeatability",
+    "generator batch-6 peak memory below the frozen safety threshold",
+    "local and remote CPU suites and the complete frozen-chain gate",
+    "no further loading of Llama, Qwen or Gemma on this A100",
+    "each small scorer: ONE repeated batch-of-6 repeatability test on its own final hardware before production there; not compared with batch 1"
+  ],
+  "explicit_non_claims": [
+    "NOT claimed that batch 6 and batch 1 produce the same tokens; A6 measured that they do not and A7 declines to test it further",
+    "NOT claimed that the divergence is harmless to the estimand; it is accepted as a procedural definition, applied uniformly across every task and condition within a scorer so no condition is advantaged by batching",
+    "NOT claimed that the six-call score-level agreement observed under A6 generalises",
+    "NOT claimed that a batch-1 re-run constitutes a replication of an A7 result"
+  ],
+  "unresolved_scientific_decisions": {
+    "count": 0
+  }
+}

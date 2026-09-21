@@ -1,0 +1,41 @@
+group,task_id,dataset,category,no_history_score,self_low_2_score,delta
+bottom_20,104,mtbench,reasoning,0.0,10.0,-10.0
+bottom_20,4b9ba55ea5704f0d,arena_hard,math,2.0,7.0,-5.0
+bottom_20,128,mtbench,coding,4.0,7.0,-3.0
+bottom_20,369827bfcf534e0a,arena_hard,math,4.0,6.0,-2.0
+bottom_20,99c1bf7021044b69,wildbench,Creative Writing,6.0,8.0,-2.0
+bottom_20,c360754ce6014514,arena_hard,math,2.0,3.0,-1.0
+bottom_20,102,mtbench,reasoning,7.0,8.0,-1.0
+bottom_20,106,mtbench,reasoning,0.0,1.0,-1.0
+bottom_20,116,mtbench,math,0.0,1.0,-1.0
+bottom_20,122,mtbench,coding,7.0,8.0,-1.0
+bottom_20,144,mtbench,stem,9.0,10.0,-1.0
+bottom_20,254002fea37a4755,wildbench,Coding & Debugging,3.0,4.0,-1.0
+bottom_20,6634578f233b44f9,wildbench,Coding & Debugging,8.0,9.0,-1.0
+bottom_20,9a5f5ec7ede84fc5,wildbench,Coding & Debugging,9.0,10.0,-1.0
+bottom_20,a4fb13fbc93f4eaa,arena_hard,coding,5.5,6.0,-0.5
+bottom_20,5ee139c109344637,wildbench,Creative Writing,9.0,9.3,-0.3000000000000007
+bottom_20,0275cb6eae1649c1,arena_hard,coding,8.0,8.0,0.0
+bottom_20,06add81598044afd,arena_hard,coding,3.0,3.0,0.0
+bottom_20,236ecfda72434b55,arena_hard,coding,3.0,3.0,0.0
+bottom_20,2da7e53308a547d6,arena_hard,coding,9.0,9.0,0.0
+top_20,f41bb5bf57c8481c,wildbench,Data Analysis,10.0,5.0,5.0
+top_20,2d4853074c7745db,wildbench,Planning,9.0,4.0,5.0
+top_20,40303f2127f04daa,arena_hard,coding,8.0,3.0,5.0
+top_20,05e420b7d62d4911,wildbench,Planning,9.5,5.0,4.5
+top_20,6313fcb6d9544faf,wildbench,Coding & Debugging,8.4,4.0,4.4
+top_20,0622b8b2a74a4363,wildbench,Coding & Debugging,7.0,3.0,4.0
+top_20,f85200a0f1bd4543,arena_hard,math,7.0,3.0,4.0
+top_20,ee6a697e2b39423e,arena_hard,creative_writing,8.0,4.0,4.0
+top_20,c90da77eb80240b3,arena_hard,coding,10.0,6.0,4.0
+top_20,76894809e0fe48d9,arena_hard,coding,8.0,4.0,4.0
+top_20,4c4458aad8034481,arena_hard,math,9.0,5.0,4.0
+top_20,eb57ead639294c64,wildbench,Math,7.0,4.0,3.0
+top_20,8706aea5150d4d8b,wildbench,Coding & Debugging,6.0,3.0,3.0
+top_20,7ae4e561d4b34e57,wildbench,Editing,8.0,5.0,3.0
+top_20,02cda0d324384da7,wildbench,Data Analysis,7.0,4.0,3.0
+top_20,99,mtbench,roleplay,7.0,4.0,3.0
+top_20,98,mtbench,roleplay,7.0,4.0,3.0
+top_20,87,mtbench,writing,9.0,6.0,3.0
+top_20,143,mtbench,stem,8.0,5.0,3.0
+top_20,b7825d0fc00e4d83,arena_hard,coding,6.0,3.0,3.0

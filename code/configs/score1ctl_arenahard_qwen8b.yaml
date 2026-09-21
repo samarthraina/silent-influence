@@ -1,0 +1,38 @@
+# ============================================================================
+# SAME-HARDWARE CONTROL — score_1 re-judged on the A6000 (arenahard, qwen8b).
+# ============================================================================
+# The frozen score_1..score_10 sweep ran on an RTX 6000 Ada; the exploratory
+# score_0 ran here on an A6000. Cross-hardware bf16 greedy divergence is a
+# documented effect in this project, so the score_1 - score_0 contrast must not
+# straddle two GPUs. This regenerates score_1 ONLY, on this machine, under the
+# byte-identical frozen protocol, purely as the matched arm for that contrast.
+# It does not touch, replace or reweight the frozen score_1 result.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidates:
+  path: data/candidates/arenahard_20.json
+
+experiment:
+  name: S1CTL_ARENAHARD_qwen8b
+  seed: 42
+  datasets: [arena_hard_v2]
+  n_prompts: 20
+  judge_models: [qwen8b]
+  evaluated_models: [modelx_olmo3]
+  candidates_per_prompt: 1
+  exclude_self_judging: true
+  prior_context_conditions:
+    - score_1
+  rubric_variants: [grounded]
+  output_protocols: [score_only]
+  history_template: dyadic_anon_prior_round
+  replicates: 1
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

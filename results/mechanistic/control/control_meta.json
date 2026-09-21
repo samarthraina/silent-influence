@@ -1,0 +1,14 @@
+{
+  "stage": "HELD-OUT CONTROL VALIDATION",
+  "layer": 24,
+  "beta": 1.5,
+  "alpha": 1.0,
+  "early_layer": 2,
+  "random_seed": 20260818,
+  "n_tasks": 24,
+  "n_calls": 240,
+  "position": "final_input",
+  "direction_and_coefficient_frozen_before_validation": true,
+  "runtime_s": 2377.3,
+  "peak_gpu_gib": 15.41
+}

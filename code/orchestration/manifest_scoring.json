@@ -1,0 +1,88 @@
+{
+  "records_path": "/workspace/silent-influence/results/final_behavioral_study/raw_results.jsonl",
+  "n_candidates": 234,
+  "n_conditions": 6,
+  "n_scorers": 4,
+  "n_units_total": 13872,
+  "n_done_this_run": 468,
+  "n_already_done_before_this_run": 0,
+  "generation_params": {
+    "do_sample": false,
+    "max_new_tokens_per_scorer": {
+      "llama": 512,
+      "qwen": 512,
+      "gemma": 512,
+      "olmo32b": 2048
+    }
+  },
+  "seed": 42,
+  "requested_batch_size": 1,
+  "batching_verdict_used": {},
+  "effective_batch_size_per_scorer": {
+    "olmo32b": 2
+  },
+  "batch_permanent_fallbacks": [],
+  "retry_policy": {
+    "max_attempts_per_unit": 3,
+    "technical_failure_only": true,
+    "parse_failure_never_retried": true,
+    "identical_prompt_and_decoding": true
+  },
+  "scorers": [
+    {
+      "key": "llama",
+      "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
+      "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+      "disable_thinking": false
+    },
+    {
+      "key": "qwen",
+      "hf_id": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "disable_thinking": true
+    },
+    {
+      "key": "gemma",
+      "hf_id": "google/gemma-2-9b-it",
+      "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+      "disable_thinking": false
+    },
+    {
+      "key": "olmo32b",
+      "hf_id": "allenai/Olmo-3.1-32B-Instruct",
+      "revision": "ac0587e4a7744a551c059d8cd17ba220bc940dae",
+      "disable_thinking": false
+    }
+  ],
+  "conditions": [
+    {
+      "name": "no_history",
+      "added_context": null
+    },
+    {
+      "name": "self_low_2",
+      "added_context": "The model that generated the content previously scored your answer 2/10."
+    },
+    {
+      "name": "other_low_2",
+      "added_context": "The model that generated the content previously scored another model's answer 2/10."
+    },
+    {
+      "name": "unrelated_low_2",
+      "added_context": "In a separate evaluation unrelated to either model, an answer received 2/10."
+    },
+    {
+      "name": "verbal_negative",
+      "added_context": "The model that generated the content previously evaluated your answer as very poor."
+    },
+    {
+      "name": "self_high_10",
+      "added_context": "The model that generated the content previously scored your answer 10/10."
+    }
+  ],
+  "stats_by_parse_status": {
+    "ok": 444,
+    "no_marker": 24
+  },
+  "wall_seconds": 10157.59
+}

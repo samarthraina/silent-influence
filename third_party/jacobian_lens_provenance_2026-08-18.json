@@ -1,0 +1,81 @@
+{
+  "record_id": "jacobian_lens_source_provenance",
+  "created_at_utc": "2026-08-18",
+  "purpose": "source provenance for the Jacobian-Lens token-delta component of the Llama mechanistic study",
+  "read_only_verification": true,
+  "no_model_loaded": true,
+  "no_gpu_used": true,
+  "no_outputs_recomputed": true,
+
+  "source_repository": {
+    "path_on_host": "/workspace/third-party/jacobian-lens",
+    "path_local_vendored": "Code/third-party/jacobian-lens",
+    "git_remote_url": "https://github.com/anthropics/jacobian-lens",
+    "git_rev_parse_HEAD": "581d398613e5602a5af361e1c34d3a92ea82ba8e",
+    "head_commit_date": "2026-07-02 09:07:51 +0000",
+    "head_commit_subject": "Initial release",
+    "pyproject_version": "0.1.0",
+    "installed_via_pip": false,
+    "install_note": "imported from path via PYTHONPATH; no pip distribution, so importlib.metadata reports no version and jlens exposes no __version__",
+    "jlens_dunder_version": null
+  },
+
+  "git_status_porcelain": {
+    "local_vendored_copy": {
+      "porcelain_line_count": 0,
+      "clean": true
+    },
+    "host_working_copy": {
+      "porcelain_line_count": 44,
+      "clean_as_reported_by_git": false,
+      "content_clean": true,
+      "explanation": "The host copy was shipped as a tar from Windows, which rewrote text files to CRLF. git therefore flags 44 files as modified with exactly 15952 insertions and 15952 deletions -- a symmetric per-line count, the signature of a line-ending change rather than an edit.",
+      "evidence": [
+        "git diff --ignore-cr-at-eol --stat returns 0 changed files",
+        "16 tracked text files carry CRLF in the host working tree, 9 of them inside the jlens package",
+        "all 9 jlens/*.py files are byte-identical between host and the clean local checkout (sha256 compared individually)"
+      ],
+      "conclusion": "No source modification. The executed package is byte-identical to the clean checkout at 581d398613e5602a5af361e1c34d3a92ea82ba8e."
+    },
+    "authoritative_copy_for_provenance": "local vendored copy (clean, porcelain empty)"
+  },
+
+  "jlens_package_file_sha256": {
+    "note": "identical on host and local; establishes that the code that ran is the code at HEAD",
+    "__init__.py": "7bbeb1a09bbb98a2",
+    "_logging.py": "37edfe1fc9b7de9f",
+    "examples.py": "73525b5b973f1d4a",
+    "fitting.py": "6b95b25c10adeef0",
+    "hf.py": "a204ce67332246e3",
+    "hooks.py": "dd6028a5c250ff2f",
+    "lens.py": "5d9cc3363aa5d01e",
+    "protocol.py": "559011c211929395",
+    "vis.py": "a35ea90fb83b13f2",
+    "truncation": "first 16 hex characters"
+  },
+
+  "pretrained_lens": {
+    "huggingface_repo": "neuronpedia/jacobian-lens",
+    "filename": "llama3.1-8b-it/jlens/Salesforce-wikitext/Llama-3.1-8B-Instruct_jacobian_lens.pt",
+    "pinned_revision": "a4114d7752d11eb546e6cf372213d7e75526d3a1",
+    "fitted_on": "Salesforce/wikitext only",
+    "independence": "no task, prompt, condition, split or behavioural result of this study contributed to fitting the lens"
+  },
+
+  "run_artifact_sha256": {
+    "run_jlens_tokens.py": "c0f5887add1e0459b12310c203fbc0798f4e5f03d6246f21571767fd5b3b85b8",
+    "jlens_tokens_meta.json": "9846af780f97a7fc0b19fd1bb962671b559ebe3c2a8e78dd8bd6cdcc9b628838"
+  },
+
+  "method_assertions_carried_in_the_run_metadata": {
+    "instrument": "official jacobian-lens: lens.transport(h, i) then model.unembed",
+    "is_logit_lens": false,
+    "unfitted_layers_skipped_not_logit_lensed": true,
+    "quantity": "log P_A(token) - log P_B(token) at final_input",
+    "sign_convention": "positive for A_minus_B => token MORE PROMOTED under condition A",
+    "layer_indexing": "jlens layer i == our L(i+1)",
+    "locked_layer": 24,
+    "locked_window": [23, 24, 25],
+    "layer_not_selected_from_token_results": true
+  }
+}

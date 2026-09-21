@@ -1,0 +1,34 @@
+# ============================================================================
+# PHASE 1A stimulus set — the immutable experimental input.
+# ============================================================================
+# 20 MT-Bench first-turn tasks, category-balanced, seed 42. Selection is fixed by
+# the config alone and does not consult any no_history score or expected
+# prior-score sensitivity.
+#
+# MT-Bench question_id 131 and 138 are excluded upstream at pin time
+# (scripts/prepare_dataset.py): those tasks require numeric rating output.
+#
+# Model X protocol is unchanged and frozen: pinned revision, finalized system
+# message, task text verbatim, greedy bf16, no quantization, 2048-token budget,
+# truncation gate active.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidate_generation:
+  name: PHASE1A_candidates_v1
+  model: modelx_olmo3
+  datasets: [mtbench_t1]
+  n_prompts: 20
+  seed: 42
+  out_dir: results/phase1a/candidates
+  candidates_out: data/candidates/phase1a_mtbench_20.json
+  candidate_response_id: modelx_olmo3_r0
+  evaluated_model_label: modelx_olmo3
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 2048
+  do_sample: false

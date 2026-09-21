@@ -1,0 +1,315 @@
+{
+  "_read_only": true,
+  "_nothing_rerun": true,
+  "_claim_separation": "the Llama case study and the cross-model replication are separate claims and must not be merged into one",
+  "llama_positive_case_study": {
+    "status": "exploratory; task selection was outcome-dependent throughout",
+    "discovery_tasks": 12,
+    "held_out_validation_tasks_24": 24,
+    "held_out_replication_tasks_72": 72,
+    "selection_instrument": "Jacobian Lens (Neuronpedia lens fitted for Llama-3.1-8B)",
+    "selected_layer": 24,
+    "descriptive_window": [
+      23,
+      24,
+      25
+    ],
+    "eligible_band": [
+      4,
+      27
+    ],
+    "layer_jsd_bits_at_L24": 0.3159,
+    "position": "final_input",
+    "patching_24_task": {
+      "self_low_2->no_history": {
+        "normalized_mean": 0.1699,
+        "ci95": [
+          0.0324,
+          0.3172
+        ],
+        "n_calls": 72
+      },
+      "no_history->self_low_2": {
+        "normalized_mean": 0.2328,
+        "ci95": [
+          0.0396,
+          0.4237
+        ],
+        "n_calls": 72
+      }
+    },
+    "patching_72_task_replication": {
+      "self_low_2->no_history": {
+        "normalized_mean": 0.2197,
+        "ci95": [
+          0.0597,
+          0.3963
+        ],
+        "raw_mean": -0.1014,
+        "n_tasks": 72
+      },
+      "no_history->self_low_2": {
+        "normalized_mean": 0.1889,
+        "ci95": [
+          0.086,
+          0.2998
+        ],
+        "raw_mean": 0.125,
+        "n_tasks": 72
+      }
+    },
+    "early_layer_L2_comparison": {
+      "self_low_2->no_history": {
+        "normalized_mean": -0.001,
+        "ci95": [
+          -0.0482,
+          0.0418
+        ],
+        "raw_mean": 0.0833,
+        "n_tasks": 72
+      },
+      "no_history->self_low_2": {
+        "normalized_mean": 0.0193,
+        "ci95": [
+          -0.0935,
+          0.1174
+        ],
+        "raw_mean": -0.0694,
+        "n_tasks": 72
+      },
+      "paired_L24_minus_L2": {
+        "patch_L24_vs_L2_lo2hi": {
+          "mean_difference_normalized": 0.2207,
+          "ci95": [
+            0.0665,
+            0.395
+          ],
+          "n_paired_tasks": 61,
+          "exceeds_control": true
+        },
+        "patch_L24_vs_L2_hi2lo": {
+          "mean_difference_normalized": 0.1696,
+          "ci95": [
+            0.0339,
+            0.3174
+          ],
+          "n_paired_tasks": 61,
+          "exceeds_control": true
+        }
+      }
+    },
+    "identity_controls": {
+      "24_task": {
+        "noop": 192,
+        "noop_n": 192,
+        "same_condition": 192,
+        "same_condition_n": 192
+      },
+      "72_task": {
+        "noop": "144/144",
+        "same_condition": "144/144"
+      }
+    },
+    "steering_null": {
+      "verdict": "NEGATIVE -- a single mean-difference direction is not a sufficient causal handle",
+      "beta_selected": 1.5,
+      "beta_grid": [
+        0.5,
+        1.0,
+        1.5,
+        2.0
+      ],
+      "ablation_alpha": 1.0,
+      "steer": {
+        "normalized_mean": 0.1354,
+        "ci95": [
+          -0.0032,
+          0.2732
+        ],
+        "raw_mean": 0.0889,
+        "n_tasks": 72
+      },
+      "ablate": {
+        "normalized_mean": 0.1105,
+        "ci95": [
+          -0.0178,
+          0.2374
+        ],
+        "raw_mean": 0.0556,
+        "n_tasks": 72
+      },
+      "vs_random_direction": {
+        "mean_difference_normalized": 0.108,
+        "ci95": [
+          -0.0764,
+          0.2891
+        ],
+        "exceeds_control": false
+      },
+      "vs_early_L2_steering": {
+        "mean_difference_normalized": -0.0047,
+        "ci95": [
+          -0.1785,
+          0.1868
+        ],
+        "exceeds_control": false
+      },
+      "specificity_raw_shift": {
+        "self_low_2": {
+          "equal_dataset_mean": 0.08888888888888889
+        },
+        "no_history": {
+          "equal_dataset_mean": 0.10277777777777776
+        },
+        "unrelated_low_2": {
+          "equal_dataset_mean": -0.3055555555555556
+        }
+      }
+    },
+    "provenance": {
+      "72_task_extension_specified_after_seeing_24_task_result": true,
+      "preregistered_relative_to_that_result": false
+    }
+  },
+  "cross_model_robustness": {
+    "verdict": "NEITHER Gemma-2-9B-IT NOR Qwen3-8B met either predeclared replication criterion, in either direction",
+    "SELECTION_INSTRUMENT_WARNING": "Gemma and Qwen layers were selected with a LOGIT lens (each model's own unembedding), NOT the Jacobian Lens used for Llama. No fitted Jacobian lens exists for these architectures and none was available offline. Layer numbers 24 / 36 / 27 are NOT comparable across the three models and must never be presented as though one instrument produced them.",
+    "predeclared_criteria": [
+      "normalized selected-layer movement 95% CI excludes zero",
+      "selected-layer minus L2 paired difference 95% CI excludes zero"
+    ],
+    "held_out_tasks": 72,
+    "discovery_tasks": 12,
+    "models": {
+      "gemma": {
+        "selected_layer": 36,
+        "n_layers": 42,
+        "eligible_band": [
+          5,
+          38
+        ],
+        "selection_metric": "logit-lens JSD at final_input (NOT Jacobian Lens)",
+        "directions": {
+          "self_low_2->no_history": {
+            "normalized_mean": 0.125,
+            "ci95": [
+              -0.0625,
+              0.375
+            ],
+            "raw_mean": -0.0915,
+            "toward_fraction": 0.0563,
+            "away_fraction": 0.0563,
+            "unchanged_fraction": 0.8873,
+            "n_zero_denominator": 39,
+            "paired_selected_minus_L2": {
+              "n_paired_tasks": 32,
+              "mean_difference_normalized": 0.0078,
+              "ci": [
+                -0.1562,
+                0.2109
+              ]
+            },
+            "criterion_1_passed": false,
+            "criterion_2_passed": false,
+            "both_criteria_passed": false
+          },
+          "no_history->self_low_2": {
+            "normalized_mean": 0.0573,
+            "ci95": [
+              -0.0833,
+              0.1875
+            ],
+            "raw_mean": -0.0141,
+            "toward_fraction": 0.0704,
+            "away_fraction": 0.0563,
+            "unchanged_fraction": 0.8732,
+            "n_zero_denominator": 39,
+            "paired_selected_minus_L2": {
+              "n_paired_tasks": 32,
+              "mean_difference_normalized": -0.0312,
+              "ci": [
+                -0.1406,
+                0.0625
+              ]
+            },
+            "criterion_1_passed": false,
+            "criterion_2_passed": false,
+            "both_criteria_passed": false
+          }
+        },
+        "identity_controls": {
+          "noop": "144/144",
+          "same_condition": "144/144",
+          "rate": 1.0
+        },
+        "within_host_baseline_reproduces_archived_percent": 100.0,
+        "baseline_reproduction_used_to_exclude_tasks": false
+      },
+      "qwen": {
+        "selected_layer": 27,
+        "n_layers": 36,
+        "eligible_band": [
+          5,
+          32
+        ],
+        "selection_metric": "logit-lens JSD at final_input (NOT Jacobian Lens)",
+        "directions": {
+          "self_low_2->no_history": {
+            "normalized_mean": 0.0575,
+            "ci95": [
+              -0.0149,
+              0.1431
+            ],
+            "raw_mean": -0.0139,
+            "toward_fraction": 0.1111,
+            "away_fraction": 0.0694,
+            "unchanged_fraction": 0.8194,
+            "n_zero_denominator": 14,
+            "paired_selected_minus_L2": {
+              "n_paired_tasks": 58,
+              "mean_difference_normalized": 0.0374,
+              "ci": [
+                -0.0362,
+                0.1144
+              ]
+            },
+            "criterion_1_passed": false,
+            "criterion_2_passed": false,
+            "both_criteria_passed": false
+          },
+          "no_history->self_low_2": {
+            "normalized_mean": 0.0709,
+            "ci95": [
+              -0.0086,
+              0.191
+            ],
+            "raw_mean": 0.0139,
+            "toward_fraction": 0.0972,
+            "away_fraction": 0.0556,
+            "unchanged_fraction": 0.8472,
+            "n_zero_denominator": 14,
+            "paired_selected_minus_L2": {
+              "n_paired_tasks": 58,
+              "mean_difference_normalized": -0.0299,
+              "ci": [
+                -0.0954,
+                0.0316
+              ]
+            },
+            "criterion_1_passed": false,
+            "criterion_2_passed": false,
+            "both_criteria_passed": false
+          }
+        },
+        "identity_controls": {
+          "noop": "144/144",
+          "same_condition": "144/144",
+          "rate": 1.0
+        },
+        "within_host_baseline_reproduces_archived_percent": 82.6,
+        "baseline_reproduction_used_to_exclude_tasks": false
+      }
+    },
+    "no_criterion_altered_after_seeing_results": true
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "record_id": "final_analysis_plan_A4_freeze_record",
+  "record_type": "amendment_freeze_record",
+  "frozen_at_utc": "2026-08-17T15:26:45+00:00",
+  "amendment": "A4 -- raises max_new_tokens 512 -> 2048 for allenai/Olmo-3.1-32B-Instruct only; llama, qwen and gemma remain at 512",
+  "prospective": true,
+  "non_destructive": true,
+  "overwrites_history": false,
+  "prospective_evidence": {
+    "results/final_behavioral_study": false,
+    "results/final_behavioral_study_adjudicated": false,
+    "data/candidates/final_olmo_answers.json": false,
+    "generation_calls_executed": 0,
+    "scoring_calls_executed": 0,
+    "interpretation": "all False / zero => no study output existed when A4 was frozen"
+  },
+  "what_changed": {
+    "parameter": "max_new_tokens",
+    "scorer": "olmo32b",
+    "from": 512,
+    "to": 2048,
+    "scorers_unchanged_at_512": [
+      "llama",
+      "qwen",
+      "gemma"
+    ],
+    "everything_else": "unchanged: tasks, answers, answer-generation settings, prompts, rendering, conditions, scorer panel, revisions, parser, recovery procedure, call IDs, call count (13,872), estimands, bootstrap, S1"
+  },
+  "trigger": {
+    "condition_blind": true,
+    "source": "36-call OLMo-32B parsing diagnostic at max_new_tokens=512, 6 held-out smoke tasks x 6 conditions, on held-out tasks absent from the 578-task manifest",
+    "experimental_contrasts_inspected": "NONE",
+    "parse_rate": "25/36",
+    "cap_hit_rate": "16/36",
+    "uncapped_responses_that_failed_to_parse": 0
+  },
+  "new_artifacts_sha256": {
+    "configs/final_analysis_plan_v2_4.json": "062cb165a626fbd81388b499550227853b1d6454dd93a2f5a27850cf05932771",
+    "Code/research_notes/final_analysis_plan_amendment_A4.md": "61fba1a55c9f5eb884a46922bf04ba8f8ee74b36d4fa2260bd21264fa7824d07",
+    "Code/research_notes/OBSERVATIONS.md": "e05b5446f7b6df31063f872db8079d8c45c89a10614c1c886229e75a68b41288",
+    "Code/research_notes/JOURNAL.md": "b799be51ab765c22a660b883e60f08a7030ecafdb0d0a5be61450d31939652c1"
+  },
+  "prior_artifacts_verified_unmodified_sha256": {
+    "configs/final_analysis_plan.json": "ea41c3d6f4af734605850896049d54952eec9f9450713881b24b2d52611cd52c",
+    "configs/final_analysis_plan_v2_1.json": "0d92256df8e71fa74bcd9fa378f4602a71c47fec43dee709fc4b44f8991455b0",
+    "configs/final_analysis_plan_v2_2.json": "9b202820df5d0d8837e22bd701a473e48eb5f726cd1baf854018ef16e828cbc3",
+    "configs/final_analysis_plan_v2_2_clarification_C1.json": "998e11461163c0b03a6490ef6c3e5c150f491f819d8d658acb3ea23bfb0c96e6",
+    "configs/final_analysis_plan_v2_3.json": "2d86b5df14f116b603159955468795af3530fc16e147f0df340f7d5383f1b86e",
+    "configs/scorer_olmo3_1_32b_pin.json": "0818438052f6ec33b62f5ec8d6ec1d5e5240b427824768a3c2ab329a98b5684f",
+    "configs/scorer_mistral_small_24b_pin.json": "3ad5fec336531bc625274835cf23391d3c1a5f54ab27ee7142e9bd83c480b19a",
+    "data/prompts/final_tasks_seed20260817.json": "b3e3f49d6940026790e10313ba0ae7018a741cdd837584f8cd35e65df3475ea9",
+    "data/prompts/final_tasks_v2_english_seed20260817.json": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+    "results/final_task_selection/final_analysis_plan_A2_freeze_record.json": "21d9779761fc1d7206ec2e53388d539cbc857568ccf12116070727a0351b8fa8",
+    "results/final_task_selection/final_analysis_plan_A2_C1_freeze_record.json": "71eb08923e09db81f6e209425342337a3e8fd86f65dacb830e9aa3e7b814b0c6",
+    "results/final_task_selection/final_analysis_plan_A3_freeze_record.json": "663074863713dfed0604cd88e147f7096602c018f157904064a9ddffee2db8a8",
+    "results/final_task_selection/manifest_v2_freeze_record.json": "d00e1d686f1325f7e77414c75789c31d0649db4744c6272f34469a99da6c170f",
+    "results/scaled_silent_influence/raw_results.jsonl": "7761c065343c1407763abfa459b1b59b39f0b568947a9022be278a687093b348",
+    "src/silent_influence/scaled_conditions.py": "ef676689c8c3e673de64526fe1a9b26379632d1030d31e018fc6cbef42f94a64",
+    "src/silent_influence/scaled_parsing.py": "3a6a59caa666092fe49f13603364cb8222e894fe0c6c93855e54116cdd88ba78",
+    "src/silent_influence/score_recovery.py": "49d34c129d5ad20a7501cac232e745974dd3a04ecf4d002546de39e43a355d99",
+    "src/silent_influence/english_assessment.py": "2cf30c6a2ff0ff0b58cfc48dc9a7a070bfe43c50e9beda9786e7221d1493e1d2",
+    "src/silent_influence/language_decisions.py": "5e7f860ded4d27c7d63924df47bc5e7e7d0b27cd3d63cbbf4bf2ef791da066d5",
+    "Code/research_notes/final_analysis_plan.md": "9eecd39b4f8c6a60e32a1821f90b5b4e5415c993d894517f5876922b863e46ff",
+    "Code/research_notes/final_analysis_plan_amendment_A1.md": "6007e2a7723a84b24fa2a3d877ce62938b1d1f3794a33ddc1a0a3159a57633bb",
+    "Code/research_notes/final_analysis_plan_amendment_A2.md": "9b68f334d224f1d0925d90c497f638baa6ec8fa5b132122dabed41546644fc83",
+    "Code/research_notes/final_analysis_plan_amendment_A2_clarification_C1.md": "6f557525c93857014103f63165bb9b0314201d79b69526a5e78ff1643f632cce",
+    "Code/research_notes/final_analysis_plan_amendment_A3.md": "299d737b85af737476632c78fa91b271577112c13b6b23d9e0032a633107c7f7"
+  },
+  "chain": [
+    "v2.0",
+    "A1",
+    "A2",
+    "C1",
+    "A3",
+    "A4"
+  ],
+  "acceptance_criteria_pending_validation": [
+    "36/36 parse with the unchanged frozen parser",
+    "zero responses reach the 2048 ceiling",
+    "previously-complete responses byte-identical",
+    "previously-capped responses: previous text is an exact prefix of the new text",
+    "nothing differs except max_new_tokens",
+    "no protected final target created"
+  ]
+}

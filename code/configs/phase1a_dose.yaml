@@ -1,0 +1,59 @@
+# Phase 1A — prior-score dose response over the full 1-10 sweep plus no-history.
+#
+# A clean replication on the three focal models of the original study, with the
+# confounds removed: the only thing that varies across score arms is the injected
+# numeral. No identity assertion, no competition framing, no label change, no rubric
+# or instruction change.
+#
+# Decoding is deterministic. do_sample: false means temperature and top_p are NOT
+# passed to generate() at all (see backends.HFBackend.generate) — they are recorded
+# at their greedy-equivalent values so the metadata is unambiguous. K=1: one
+# reproducible judgment per prompt x condition, so no stochastic decoding choice sits
+# underneath the primary behavioural claim.
+#
+# The T=0.3 sampled runs under results/diagnostics/ are calibration only and must not
+# be pooled with this.
+#
+# no_history is the baseline arm (analogous to the old blind condition). The clean
+# causal comparisons are within score_1 ... score_10.
+#
+# Grid: 20 prompts x 1 candidate x 11 conditions x 3 judges x K=1 = 660 units.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidates:
+  path: data/candidates/pinned_candidates_v1.json
+
+experiment:
+  name: phase1a_dose
+  seed: 42
+  datasets: [arena_hard_v2]
+  n_prompts: 20
+  judge_models: [gemma9b, llama8b, qwen8b]
+  evaluated_models: [gemma]
+  candidates_per_prompt: 1
+  exclude_self_judging: true
+  prior_context_conditions:
+    - no_history
+    - score_1
+    - score_2
+    - score_3
+    - score_4
+    - score_5
+    - score_6
+    - score_7
+    - score_8
+    - score_9
+    - score_10
+  rubric_variants: [grounded]
+  output_protocols: [score_only]
+  history_template: dyadic_anon_prior_round
+  replicates: 1
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

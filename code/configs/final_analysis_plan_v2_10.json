@@ -1,0 +1,98 @@
+{
+  "plan_id": "final_behavioral_study_sap_v2_amendment_A10",
+  "plan_version": "2.10",
+  "status": "pre-specified",
+  "amendment_type": "operational_hardware_assignment_and_execution_order",
+  "prospective": true,
+  "no_production_judgment_existed_when_adopted": true,
+  "amends": {
+    "plan_id": "final_behavioral_study_sap_v2_amendment_A9",
+    "path": "configs/final_analysis_plan_v2_9.json",
+    "sha256": "7d08aaac6a8f2c89a3c4380848aaaa82472fa1f3d735c0d0bbd52972e427d9dd"
+  },
+  "amendment_narrative": "Code/research_notes/final_analysis_plan_amendment_A10.md",
+  "overwrites_history": false,
+  "non_destructive": true,
+  "statistical_content_changed": false,
+  "hardware_assignment": {
+    "a100_instance_47940113": {
+      "scorers": [
+        "olmo32b"
+      ],
+      "batch_size": "2 if the frozen batch-2 gate passes, else 1"
+    },
+    "small_gpu_hosts": {
+      "scorers": [
+        "llama",
+        "qwen",
+        "gemma"
+      ],
+      "batch_size": 1,
+      "pinned_explicitly": true,
+      "recalibration": false
+    },
+    "llama_qwen_gemma_on_a100": "FORBIDDEN",
+    "wait_for_all_small_gpus_before_olmo": false
+  },
+  "batch_size_pinning": {
+    "mechanism": "--pin-batch-size on run_final_scoring",
+    "short_circuits_verdict_lookup": true,
+    "why": "a calibration verdict is valid only for the hardware it was measured on; the pin must prevent the lookup rather than override its result, so a foreign verdict is not reachable by any later code path",
+    "cross_host_verdict_transfer": "FORBIDDEN",
+    "recalibration_on_reassigned_hosts": "NOT PERFORMED (batch 1 needs none)"
+  },
+  "small_gpu_pre_production_requirements": [
+    "environment and hash verification",
+    "minimal model load",
+    "exactly one technical smoke call",
+    "no further audits, no repeated full CPU suite"
+  ],
+  "a100_calibration_outcome_recorded": {
+    "llama": {
+      "passed": false,
+      "batch6_a5_valid_rate": 0.9074,
+      "selected_on_a100": 1
+    },
+    "qwen": {
+      "passed": false,
+      "batch6_a5_valid_rate": 0.9093,
+      "selected_on_a100": 1
+    },
+    "gemma": {
+      "passed": true,
+      "batch6_a5_valid_rate": 0.9944,
+      "selected_on_a100": 6,
+      "note": "passed on the A100 but runs at batch 1 on its reassigned host; the verdict informs nothing there and the GPU time is not recovered"
+    },
+    "verdict_never_transferred_to_another_host": true
+  },
+  "interrupted_scoring_attempt": {
+    "scorer": "llama",
+    "started_utc": "2026-08-18T00:27:02+00:00",
+    "stopped_during": "model load, by the operational pauser",
+    "records_written": 0,
+    "raw_results_bytes": 0,
+    "contains_production_judgment": false,
+    "preserved_as_audit_artifact": true,
+    "deleted": false
+  },
+  "unchanged_by_A10": [
+    "the frozen 234-task design and its manifest",
+    "the two OLMo conditions (no_history, self_low_2)",
+    "model identities, revisions and dtypes",
+    "prompts, conditions and condition wording",
+    "greedy decoding and all token ceilings",
+    "A5 cap-aware validity",
+    "parsers, recovery rules, estimands, bootstrap and the analysis specification",
+    "4,680 logical judgments",
+    "the complete prior frozen-artifact chain"
+  ],
+  "explicit_non_claims": [
+    "NOT claimed that batch 1 and batch 6 are equivalent on any host",
+    "NOT claimed that Gemma's A100 batch-6 verdict says anything about its new hardware",
+    "NOT claimed that skipping re-calibration is safe in general; it is safe only because the pinned setting is batch 1, the setting calibration exists to guard departures from"
+  ],
+  "unresolved_scientific_decisions": {
+    "count": 0
+  }
+}

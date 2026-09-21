@@ -1,0 +1,37 @@
+{
+  "reason": "Credential-like strings in an upstream benchmark task are removed from public copies. No determination was made about whether the credentials are active.",
+  "dataset": "WildBench",
+  "source_task_id": "4e291c89184a4817",
+  "replacement_markers": [
+    "[REDACTED_AZURE_IOT_KEY]",
+    "[REDACTED_AZURE_FUNCTION_KEY]"
+  ],
+  "scope": "Two strings in one task, present in four earlier-stage prompt pools. This task is absent from the final 234-task scoring manifest and final merged behavioral records.",
+  "historical_hashes": "Original freeze records retain their historical hashes. They do not describe the redacted public bytes. Use ARTIFACT_MANIFEST.json for public release integrity.",
+  "files": [
+    {
+      "path": "code/data/prompts/final_tasks_seed20260817.json",
+      "historical_sha256": "b3e3f49d6940026790e10313ba0ae7018a741cdd837584f8cd35e65df3475ea9",
+      "public_sha256": "df58a10ec369c8d5da04818a269789c2c125a7933c53ce2560e856eaf66e14d9",
+      "replacements": 2
+    },
+    {
+      "path": "code/data/prompts/final_tasks_v2_english_seed20260817.json",
+      "historical_sha256": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+      "public_sha256": "fd99e9fe26a5b8274a63c7796a0531c998f636514dc8609114e0e4a39f6e6818",
+      "replacements": 2
+    },
+    {
+      "path": "code/data/prompts/scaled_tasks_seed20260816.json",
+      "historical_sha256": "f841c2e06d3be63f0b59a193d4d3d232c6961d92f62596a42fe4adaba461f866",
+      "public_sha256": "98815ac17f95167b029a072a4212126cc37e58f02f93813bba5bb1cc12a1bc9a",
+      "replacements": 2
+    },
+    {
+      "path": "code/data/prompts/wildbench_v2_pinned.json",
+      "historical_sha256": "1be74ad4f4020c13dbdd19c551ee97650b4aa1e663de73ca7e965269abe07654",
+      "public_sha256": "5795a2534b3448dbf2fc84e55893ffe7dbcd1544c95f6d32549fb6487143a34e",
+      "replacements": 2
+    }
+  ]
+}

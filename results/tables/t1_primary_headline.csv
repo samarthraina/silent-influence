@@ -1,0 +1,2 @@
+estimand,weighting,n_cells,cell_weight,macro_average,ci_low,ci_high,n_bootstrap,n_empty_cells
+no_history - self_low_2 (A9 confirmatory),equal dataset x equal scorer,12,0.083333,1.17,1.0993,1.2431,10000,0

@@ -1,0 +1,52 @@
+{
+  "record": "final_analysis_plan_amendment_A1_freeze",
+  "frozen_at_utc": "2026-08-17T08:10:38+00:00",
+  "status": "FROZEN",
+  "plan_version": "2.1",
+  "amends_plan_version": 2,
+  "history_preserved": true,
+  "new_artifacts": {
+    "amendment_A1_markdown": {
+      "path": "Code/research_notes/final_analysis_plan_amendment_A1.md",
+      "sha256": "6007e2a7723a84b24fa2a3d877ce62938b1d1f3794a33ddc1a0a3159a57633bb",
+      "bytes": 14355
+    },
+    "amendment_A1_config": {
+      "path": "configs/final_analysis_plan_v2_1.json",
+      "sha256": "0d92256df8e71fa74bcd9fa378f4602a71c47fec43dee709fc4b44f8991455b0",
+      "bytes": 14272
+    }
+  },
+  "preserved_artifacts": {
+    "plan_v2_md": "9eecd39b4f8c6a60e32a1821f90b5b4e5415c993d894517f5876922b863e46ff",
+    "plan_v2_json": "ea41c3d6f4af734605850896049d54952eec9f9450713881b24b2d52611cd52c",
+    "mistral_pin": "3ad5fec336531bc625274835cf23391d3c1a5f54ab27ee7142e9bd83c480b19a",
+    "manifest_v2": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+    "manifest_v1": "b3e3f49d6940026790e10313ba0ae7018a741cdd837584f8cd35e65df3475ea9"
+  },
+  "execution_constraints_locked": {
+    "mistral_messages": "explicit empty system message + frozen user message",
+    "mistral_template_modified": false,
+    "gpu": "single A100 80GB or faster 80GB",
+    "device_map": {
+      "": 0
+    },
+    "offload": "prohibited",
+    "quantization": "prohibited",
+    "full_gpu_residency": "required; preflight fails otherwise",
+    "do_sample": false,
+    "seed": 42,
+    "max_new_tokens": {
+      "scoring": 512,
+      "generation": 2048
+    },
+    "qwen_enable_thinking": false,
+    "default_batch_size": 1,
+    "micro_batching": "only after token-for-token equivalence on the 288-call smoke set",
+    "checkpoint_resume": "mandatory and must be exercised"
+  },
+  "unresolved_scientific_decisions": 0,
+  "no_models_run": true,
+  "no_weights_downloaded": true,
+  "no_gpu_used": true
+}

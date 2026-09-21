@@ -1,0 +1,2517 @@
+{
+  "sign_convention": "positive for A_minus_B => token MORE PROMOTED under A",
+  "instrument": "official jacobian-lens: lens.transport(h, i) then model.unembed",
+  "is_logit_lens": false,
+  "quantity": "log P_A(token) - log P_B(token) at final_input",
+  "locked_layer": 24,
+  "locked_window": [
+    23,
+    24,
+    25
+  ],
+  "layer_not_selected_here": true,
+  "ranking_criteria": {
+    "promoted": "largest mean signed delta, top 20",
+    "suppressed": "smallest mean signed delta, top 20",
+    "stability": "fraction of tasks with the mean's sign",
+    "heatmap_set": "30 L24 tokens by (stability, |mean|), mechanical"
+  },
+  "subword_caveat": "BPE tokenizer fragment, not a word or concept; may be a word piece or a leading-space variant",
+  "bootstrap": {
+    "unit": "task",
+    "n": 10000,
+    "seed": 20260818
+  },
+  "comparisons": {
+    "self_low_2_minus_no_history": {
+      "A": "self_low_2",
+      "B": "no_history",
+      "positive_means": "more promoted under self_low_2",
+      "negative_means": "more promoted under no_history",
+      "layers": {
+        "L2": {
+          "descriptive": true,
+          "csv": "tokens_self_low_2_minus_no_history_L2.csv",
+          "top_promoted": [
+            {
+              "token": "'\\xa0'",
+              "id": 4194,
+              "mean": 3.848804408335127e-05,
+              "sign_consistency": 0.5555555820465088
+            },
+            {
+              "token": "'\\xa0D'",
+              "id": 113661,
+              "mean": -0.011246800422668457,
+              "sign_consistency": 0.5555555820465088
+            },
+            {
+              "token": "'\\xa0F'",
+              "id": 117899,
+              "mean": -0.01124699879437685,
+              "sign_consistency": 0.5555555820465088
+            },
+            {
+              "token": "' ...\"\\n'",
+              "id": 95434,
+              "mean": -0.011409308761358261,
+              "sign_consistency": 0.4583333432674408
+            },
+            {
+              "token": "'\\xa0in'",
+              "id": 115235,
+              "mean": -0.01211435254663229,
+              "sign_consistency": 0.5277777910232544
+            },
+            {
+              "token": "'\\xa0n'",
+              "id": 109485,
+              "mean": -0.012114816345274448,
+              "sign_consistency": 0.5416666865348816
+            },
+            {
+              "token": "'\\xa0H'",
+              "id": 119493,
+              "mean": -0.01471825409680605,
+              "sign_consistency": 0.5277777910232544
+            },
+            {
+              "token": "'\\xa0t'",
+              "id": 108135,
+              "mean": -0.01471949927508831,
+              "sign_consistency": 0.5555555820465088
+            },
+            {
+              "token": "'\\xa0v'",
+              "id": 109279,
+              "mean": -0.01558711752295494,
+              "sign_consistency": 0.5555555820465088
+            },
+            {
+              "token": "'\\xa0d'",
+              "id": 108839,
+              "mean": -0.016454258933663368,
+              "sign_consistency": 0.5694444179534912
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "' {{'",
+              "id": 5991,
+              "mean": -0.13483548164367676,
+              "sign_consistency": 0.7777777910232544
+            },
+            {
+              "token": "'{{'",
+              "id": 3052,
+              "mean": -0.1332167237997055,
+              "sign_consistency": 0.75
+            },
+            {
+              "token": "' [['",
+              "id": 4416,
+              "mean": -0.13277189433574677,
+              "sign_consistency": 0.8055555820465088
+            },
+            {
+              "token": "' =='",
+              "id": 624,
+              "mean": -0.12452629208564758,
+              "sign_consistency": 0.8194444179534912
+            },
+            {
+              "token": "' \\n\\n'",
+              "id": 4815,
+              "mean": -0.12430787086486816,
+              "sign_consistency": 0.7777777910232544
+            },
+            {
+              "token": "' ='",
+              "id": 284,
+              "mean": -0.12071294337511063,
+              "sign_consistency": 0.8194444179534912
+            },
+            {
+              "token": "' ==='",
+              "id": 2093,
+              "mean": -0.12062064558267593,
+              "sign_consistency": 0.7916666865348816
+            },
+            {
+              "token": "'s'",
+              "id": 82,
+              "mean": -0.12061759829521179,
+              "sign_consistency": 0.8055555820465088
+            },
+            {
+              "token": "'[['",
+              "id": 15873,
+              "mean": -0.120184525847435,
+              "sign_consistency": 0.6805555820465088
+            },
+            {
+              "token": "':\\n\\n'",
+              "id": 1473,
+              "mean": -0.11995124816894531,
+              "sign_consistency": 0.6527777910232544
+            }
+          ]
+        },
+        "L12": {
+          "descriptive": true,
+          "csv": "tokens_self_low_2_minus_no_history_L12.csv",
+          "top_promoted": [
+            {
+              "token": "'.\\n'",
+              "id": 627,
+              "mean": 1.6201188564300537,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "','",
+              "id": 11,
+              "mean": 1.574386715888977,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "';'",
+              "id": 26,
+              "mean": 1.2968512773513794,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "'?\\n'",
+              "id": 5380,
+              "mean": 1.2364531755447388,
+              "sign_consistency": 0.9583333134651184
+            },
+            {
+              "token": "'!\\n'",
+              "id": 4999,
+              "mean": 1.2164857387542725,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "'.'",
+              "id": 13,
+              "mean": 1.2027231454849243,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' ONLY'",
+              "id": 27785,
+              "mean": 1.1897244453430176,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' wasn'",
+              "id": 5828,
+              "mean": 1.1724989414215088,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' weird'",
+              "id": 16682,
+              "mean": 1.1564992666244507,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'!!\\n'",
+              "id": 51447,
+              "mean": 1.1423323154449463,
+              "sign_consistency": 1.0
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "' \ufffd'",
+              "id": 103273,
+              "mean": -1.0209680795669556,
+              "sign_consistency": 0.9583333134651184
+            },
+            {
+              "token": "' nap\u0159\u00edklad'",
+              "id": 110048,
+              "mean": -1.0060086250305176,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' yaz\u0131l\u0131m'",
+              "id": 121364,
+              "mean": -0.9769694209098816,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' \u30fd'",
+              "id": 101698,
+              "mean": -0.9737184047698975,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' y\u0131'",
+              "id": 122231,
+              "mean": -0.9730709791183472,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'\u00fac'",
+              "id": 101439,
+              "mean": -0.9639613032341003,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "' \\n\\n'",
+              "id": 4815,
+              "mean": -0.9590488076210022,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'\"https'",
+              "id": 58657,
+              "mean": -0.9349757432937622,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "' linguistic'",
+              "id": 65767,
+              "mean": -0.9304182529449463,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'\uff1a\\n\\n'",
+              "id": 49543,
+              "mean": -0.928661584854126,
+              "sign_consistency": 0.9166666865348816
+            }
+          ]
+        },
+        "L23": {
+          "descriptive": true,
+          "csv": "tokens_self_low_2_minus_no_history_L23.csv",
+          "top_promoted": [
+            {
+              "token": "' neither'",
+              "id": 14188,
+              "mean": 3.191739320755005,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' brief'",
+              "id": 10015,
+              "mean": 2.891180992126465,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' despite'",
+              "id": 8994,
+              "mean": 2.8081393241882324,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' previous'",
+              "id": 3766,
+              "mean": 2.7988009452819824,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' feedback'",
+              "id": 11302,
+              "mean": 2.752516031265259,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' improvement'",
+              "id": 16048,
+              "mean": 2.731621742248535,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' failure'",
+              "id": 8060,
+              "mean": 2.675096273422241,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' criticism'",
+              "id": 19347,
+              "mean": 2.669175863265991,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' failing'",
+              "id": 22109,
+              "mean": 2.6636691093444824,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' disappointing'",
+              "id": 39223,
+              "mean": 2.6566739082336426,
+              "sign_consistency": 1.0
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "'Rnd'",
+              "id": 93553,
+              "mean": -2.3155643939971924,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'.scalablytyped'",
+              "id": 82000,
+              "mean": -2.205226421356201,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'a\u015f\u0131'",
+              "id": 116717,
+              "mean": -2.1972148418426514,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "\"'gc\"",
+              "id": 63075,
+              "mean": -2.1270573139190674,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'arov'",
+              "id": 95018,
+              "mean": -2.063582420349121,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "'methodName'",
+              "id": 59650,
+              "mean": -2.0602314472198486,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "'ondrous'",
+              "id": 94650,
+              "mean": -2.0293240547180176,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' RequestMethod'",
+              "id": 30657,
+              "mean": -2.011104106903076,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "'raig'",
+              "id": 73416,
+              "mean": -1.9813295602798462,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "'.calculate'",
+              "id": 45065,
+              "mean": -1.9740328788757324,
+              "sign_consistency": 0.9722222089767456
+            }
+          ]
+        },
+        "L24": {
+          "locked": true,
+          "csv": "tokens_self_low_2_minus_no_history_L24.csv",
+          "top_promoted": [
+            {
+              "token": "' brief'",
+              "id": 10015,
+              "mean": 5.594970703125,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' Brief'",
+              "id": 37618,
+              "mean": 4.61912727355957,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' briefly'",
+              "id": 27851,
+              "mean": 4.615166664123535,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'brief'",
+              "id": 6796,
+              "mean": 4.544745445251465,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' despite'",
+              "id": 8994,
+              "mean": 4.534939289093018,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'Brief'",
+              "id": 87084,
+              "mean": 4.195407390594482,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' neither'",
+              "id": 14188,
+              "mean": 4.10490608215332,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' poorly'",
+              "id": 31555,
+              "mean": 3.8790283203125,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' failure'",
+              "id": 8060,
+              "mean": 3.798895835876465,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' unfortunately'",
+              "id": 26907,
+              "mean": 3.77956485748291,
+              "sign_consistency": 1.0
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "' score'",
+              "id": 5573,
+              "mean": -1.7388101816177368,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "'score'",
+              "id": 12618,
+              "mean": -1.7153829336166382,
+              "sign_consistency": 0.9444444179534912
+            },
+            {
+              "token": "' Score'",
+              "id": 18607,
+              "mean": -1.6502532958984375,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "'Score'",
+              "id": 10793,
+              "mean": -1.5131242275238037,
+              "sign_consistency": 0.9444444179534912
+            },
+            {
+              "token": "'.score'",
+              "id": 22264,
+              "mean": -1.345999836921692,
+              "sign_consistency": 0.9305555820465088
+            },
+            {
+              "token": "'scores'",
+              "id": 47795,
+              "mean": -1.1784199476242065,
+              "sign_consistency": 0.9027777910232544
+            },
+            {
+              "token": "' scores'",
+              "id": 12483,
+              "mean": -1.174977421760559,
+              "sign_consistency": 0.875
+            },
+            {
+              "token": "'.scalablytyped'",
+              "id": 82000,
+              "mean": -1.1646034717559814,
+              "sign_consistency": 0.8888888955116272
+            },
+            {
+              "token": "'_score'",
+              "id": 10622,
+              "mean": -1.1129125356674194,
+              "sign_consistency": 0.9027777910232544
+            },
+            {
+              "token": "'SCORE'",
+              "id": 82360,
+              "mean": -1.1090092658996582,
+              "sign_consistency": 0.9027777910232544
+            }
+          ]
+        },
+        "L25": {
+          "descriptive": true,
+          "csv": "tokens_self_low_2_minus_no_history_L25.csv",
+          "top_promoted": [
+            {
+              "token": "' brief'",
+              "id": 10015,
+              "mean": 3.867173910140991,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' Brief'",
+              "id": 37618,
+              "mean": 2.9628262519836426,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'brief'",
+              "id": 6796,
+              "mean": 2.75669002532959,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' briefly'",
+              "id": 27851,
+              "mean": 2.6569268703460693,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'Brief'",
+              "id": 87084,
+              "mean": 2.562715768814087,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' briefing'",
+              "id": 43636,
+              "mean": 1.8092893362045288,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "' despite'",
+              "id": 8994,
+              "mean": 1.547977328300476,
+              "sign_consistency": 0.9027777910232544
+            },
+            {
+              "token": "' evaluation'",
+              "id": 16865,
+              "mean": 1.2187448740005493,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' briefed'",
+              "id": 86865,
+              "mean": 1.1811450719833374,
+              "sign_consistency": 0.8611111044883728
+            },
+            {
+              "token": "'rief'",
+              "id": 4462,
+              "mean": 1.0650190114974976,
+              "sign_consistency": 0.8611111044883728
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "'.scalablytyped'",
+              "id": 82000,
+              "mean": -4.10633659362793,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'explode'",
+              "id": 55942,
+              "mean": -3.614183187484741,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'Accuracy'",
+              "id": 46922,
+              "mean": -3.5722994804382324,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "\"'gc\"",
+              "id": 63075,
+              "mean": -3.567030191421509,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'methodName'",
+              "id": 59650,
+              "mean": -3.522169351577759,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'Excellent'",
+              "id": 50755,
+              "mean": -3.516728639602661,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' Accuracy'",
+              "id": 51275,
+              "mean": -3.445794105529785,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' Calculator'",
+              "id": 37128,
+              "mean": -3.426703453063965,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'annon'",
+              "id": 17893,
+              "mean": -3.413275718688965,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'ortho'",
+              "id": 91924,
+              "mean": -3.4099223613739014,
+              "sign_consistency": 1.0
+            }
+          ]
+        }
+      },
+      "heatmap_tokens": [
+        {
+          "id": 10015,
+          "token": "' brief'",
+          "L24_mean": 5.594970703125,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 37618,
+          "token": "' Brief'",
+          "L24_mean": 4.61912727355957,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 27851,
+          "token": "' briefly'",
+          "L24_mean": 4.615166664123535,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 6796,
+          "token": "'brief'",
+          "L24_mean": 4.544745445251465,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 8994,
+          "token": "' despite'",
+          "L24_mean": 4.534939289093018,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 87084,
+          "token": "'Brief'",
+          "L24_mean": 4.195407390594482,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 14188,
+          "token": "' neither'",
+          "L24_mean": 4.10490608215332,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 31555,
+          "token": "' poorly'",
+          "L24_mean": 3.8790283203125,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 8060,
+          "token": "' failure'",
+          "L24_mean": 3.798895835876465,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 26907,
+          "token": "' unfortunately'",
+          "L24_mean": 3.77956485748291,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 39223,
+          "token": "' disappointing'",
+          "L24_mean": 3.750678062438965,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 22109,
+          "token": "' failing'",
+          "L24_mean": 3.737413167953491,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 7347,
+          "token": "' limited'",
+          "L24_mean": 3.7362060546875,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 3766,
+          "token": "' previous'",
+          "L24_mean": 3.703545570373535,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 20426,
+          "token": "' unlike'",
+          "L24_mean": 3.70263671875,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 8051,
+          "token": "' although'",
+          "L24_mean": 3.6943392753601074,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 20444,
+          "token": "' whereas'",
+          "L24_mean": 3.659844398498535,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 73021,
+          "token": "' shortcomings'",
+          "L24_mean": 3.651502847671509,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 16048,
+          "token": "' improvement'",
+          "L24_mean": 3.6119384765625,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 43636,
+          "token": "' briefing'",
+          "L24_mean": 3.6083171367645264,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 5573,
+          "token": "' score'",
+          "L24_mean": -1.7388101816177368,
+          "L24_sign_consistency": 0.9722222089767456
+        },
+        {
+          "id": 18607,
+          "token": "' Score'",
+          "L24_mean": -1.6502532958984375,
+          "L24_sign_consistency": 0.9722222089767456
+        },
+        {
+          "id": 12618,
+          "token": "'score'",
+          "L24_mean": -1.7153829336166382,
+          "L24_sign_consistency": 0.9444444179534912
+        },
+        {
+          "id": 10793,
+          "token": "'Score'",
+          "L24_mean": -1.5131242275238037,
+          "L24_sign_consistency": 0.9444444179534912
+        },
+        {
+          "id": 22264,
+          "token": "'.score'",
+          "L24_mean": -1.345999836921692,
+          "L24_sign_consistency": 0.9305555820465088
+        },
+        {
+          "id": 70354,
+          "token": "' SCORE'",
+          "L24_mean": -1.0881695747375488,
+          "L24_sign_consistency": 0.9305555820465088
+        },
+        {
+          "id": 47795,
+          "token": "'scores'",
+          "L24_mean": -1.1784199476242065,
+          "L24_sign_consistency": 0.9027777910232544
+        },
+        {
+          "id": 10622,
+          "token": "'_score'",
+          "L24_mean": -1.1129125356674194,
+          "L24_sign_consistency": 0.9027777910232544
+        },
+        {
+          "id": 82360,
+          "token": "'SCORE'",
+          "L24_mean": -1.1090092658996582,
+          "L24_sign_consistency": 0.9027777910232544
+        },
+        {
+          "id": 35580,
+          "token": "'(score'",
+          "L24_mean": -1.067747950553894,
+          "L24_sign_consistency": 0.9027777910232544
+        }
+      ]
+    },
+    "self_low_2_minus_unrelated_low_2": {
+      "A": "self_low_2",
+      "B": "unrelated_low_2",
+      "positive_means": "more promoted under self_low_2",
+      "negative_means": "more promoted under unrelated_low_2",
+      "layers": {
+        "L2": {
+          "descriptive": true,
+          "csv": "tokens_self_low_2_minus_unrelated_low_2_L2.csv",
+          "top_promoted": [
+            {
+              "token": "'\\xa0'",
+              "id": 4194,
+              "mean": 4.713237285614014e-05,
+              "sign_consistency": 0.625
+            },
+            {
+              "token": "'\\xa0 '",
+              "id": 109110,
+              "mean": -0.011238879524171352,
+              "sign_consistency": 0.5138888955116272
+            },
+            {
+              "token": "'\\xa0\\n'",
+              "id": 52050,
+              "mean": -0.012755314819514751,
+              "sign_consistency": 0.5833333134651184
+            },
+            {
+              "token": "'\\xa0n'",
+              "id": 109485,
+              "mean": -0.015578667633235455,
+              "sign_consistency": 0.5833333134651184
+            },
+            {
+              "token": "'\\xa0P'",
+              "id": 112738,
+              "mean": -0.016446193680167198,
+              "sign_consistency": 0.5277777910232544
+            },
+            {
+              "token": "'\\xa0t'",
+              "id": 108135,
+              "mean": -0.016446245834231377,
+              "sign_consistency": 0.5833333134651184
+            },
+            {
+              "token": "'\\xa0ob'",
+              "id": 124531,
+              "mean": -0.016881069168448448,
+              "sign_consistency": 0.5555555820465088
+            },
+            {
+              "token": "'\\xa0d'",
+              "id": 108839,
+              "mean": -0.01731480471789837,
+              "sign_consistency": 0.5833333134651184
+            },
+            {
+              "token": "'\\xa0in'",
+              "id": 115235,
+              "mean": -0.017315255478024483,
+              "sign_consistency": 0.5833333134651184
+            },
+            {
+              "token": "'\\xa0c'",
+              "id": 117155,
+              "mean": -0.017315996810793877,
+              "sign_consistency": 0.5972222089767456
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "'@'",
+              "id": 31,
+              "mean": -0.10141030699014664,
+              "sign_consistency": 0.8333333134651184
+            },
+            {
+              "token": "' @'",
+              "id": 571,
+              "mean": -0.10010753571987152,
+              "sign_consistency": 0.8194444179534912
+            },
+            {
+              "token": "'{{'",
+              "id": 3052,
+              "mean": -0.09728816151618958,
+              "sign_consistency": 0.8194444179534912
+            },
+            {
+              "token": "'@['",
+              "id": 41260,
+              "mean": -0.09674371778964996,
+              "sign_consistency": 0.8194444179534912
+            },
+            {
+              "token": "'@\"'",
+              "id": 3761,
+              "mean": -0.09561737626791,
+              "sign_consistency": 0.8333333134651184
+            },
+            {
+              "token": "'(@'",
+              "id": 6084,
+              "mean": -0.0933542549610138,
+              "sign_consistency": 0.8055555820465088
+            },
+            {
+              "token": "'[@'",
+              "id": 12606,
+              "mean": -0.09197047352790833,
+              "sign_consistency": 0.7916666865348816
+            },
+            {
+              "token": "'{\"'",
+              "id": 5018,
+              "mean": -0.0906660258769989,
+              "sign_consistency": 0.8194444179534912
+            },
+            {
+              "token": "'http'",
+              "id": 1277,
+              "mean": -0.090327687561512,
+              "sign_consistency": 0.8333333134651184
+            },
+            {
+              "token": "'@example'",
+              "id": 36587,
+              "mean": -0.09026101231575012,
+              "sign_consistency": 0.8055555820465088
+            }
+          ]
+        },
+        "L12": {
+          "descriptive": true,
+          "csv": "tokens_self_low_2_minus_unrelated_low_2_L12.csv",
+          "top_promoted": [
+            {
+              "token": "'!\\n'",
+              "id": 4999,
+              "mean": 0.9570742845535278,
+              "sign_consistency": 0.9444444179534912
+            },
+            {
+              "token": "'...\\n'",
+              "id": 9522,
+              "mean": 0.9536268711090088,
+              "sign_consistency": 0.9583333134651184
+            },
+            {
+              "token": "'\u2026\\n'",
+              "id": 90578,
+              "mean": 0.9527342319488525,
+              "sign_consistency": 0.9583333134651184
+            },
+            {
+              "token": "' ...\\n'",
+              "id": 12515,
+              "mean": 0.9492869973182678,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' \u2026\\n'",
+              "id": 117054,
+              "mean": 0.8702799677848816,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'\u2026\\n\\n'",
+              "id": 5551,
+              "mean": 0.861811101436615,
+              "sign_consistency": 0.9583333134651184
+            },
+            {
+              "token": "'.\\n'",
+              "id": 627,
+              "mean": 0.829499363899231,
+              "sign_consistency": 0.9027777910232544
+            },
+            {
+              "token": "' \\\\\\\\\\n'",
+              "id": 91255,
+              "mean": 0.8092871904373169,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "';\\n'",
+              "id": 280,
+              "mean": 0.8077710270881653,
+              "sign_consistency": 0.9583333134651184
+            },
+            {
+              "token": "'?\\n'",
+              "id": 5380,
+              "mean": 0.8060432076454163,
+              "sign_consistency": 0.9444444179534912
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "'<unk>'",
+              "id": 128001,
+              "mean": -1.446523904800415,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'.Binding'",
+              "id": 37122,
+              "mean": -0.9330503940582275,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "\"').'\"",
+              "id": 57604,
+              "mean": -0.8918497562408447,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'\ufffd\uc7a5'",
+              "id": 55570,
+              "mean": -0.8760901689529419,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "'reinterpret'",
+              "id": 53621,
+              "mean": -0.8698482513427734,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'TestClass'",
+              "id": 61200,
+              "mean": -0.8645985722541809,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'\\x0c\\n'",
+              "id": 69862,
+              "mean": -0.8639026284217834,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'.TabStop'",
+              "id": 26779,
+              "mean": -0.8610585331916809,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'_Float'",
+              "id": 90167,
+              "mean": -0.8589019775390625,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'orsch'",
+              "id": 81085,
+              "mean": -0.8587527871131897,
+              "sign_consistency": 1.0
+            }
+          ]
+        },
+        "L23": {
+          "descriptive": true,
+          "csv": "tokens_self_low_2_minus_unrelated_low_2_L23.csv",
+          "top_promoted": [
+            {
+              "token": "' feedback'",
+              "id": 11302,
+              "mean": 2.019536018371582,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "' Feedback'",
+              "id": 37957,
+              "mean": 1.7200876474380493,
+              "sign_consistency": 0.9166666865348816
+            },
+            {
+              "token": "' criticism'",
+              "id": 19347,
+              "mean": 1.681021809577942,
+              "sign_consistency": 0.9166666865348816
+            },
+            {
+              "token": "'feedback'",
+              "id": 21674,
+              "mean": 1.660626769065857,
+              "sign_consistency": 0.9166666865348816
+            },
+            {
+              "token": "' recent'",
+              "id": 3293,
+              "mean": 1.6145930290222168,
+              "sign_consistency": 0.9166666865348816
+            },
+            {
+              "token": "' criticisms'",
+              "id": 63836,
+              "mean": 1.5933600664138794,
+              "sign_consistency": 0.9166666865348816
+            },
+            {
+              "token": "' YOUR'",
+              "id": 21592,
+              "mean": 1.5854085683822632,
+              "sign_consistency": 0.9027777910232544
+            },
+            {
+              "token": "' yours'",
+              "id": 18821,
+              "mean": 1.5453572273254395,
+              "sign_consistency": 0.8888888955116272
+            },
+            {
+              "token": "' critique'",
+              "id": 43665,
+              "mean": 1.4717873334884644,
+              "sign_consistency": 0.9027777910232544
+            },
+            {
+              "token": "' previous'",
+              "id": 3766,
+              "mean": 1.4373160600662231,
+              "sign_consistency": 0.9305555820465088
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "'onders'",
+              "id": 28413,
+              "mean": -1.5343266725540161,
+              "sign_consistency": 0.9583333134651184
+            },
+            {
+              "token": "' Overall'",
+              "id": 28993,
+              "mean": -1.428497314453125,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'Rnd'",
+              "id": 93553,
+              "mean": -1.4231600761413574,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'Overall'",
+              "id": 28589,
+              "mean": -1.3981356620788574,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' overall'",
+              "id": 8244,
+              "mean": -1.3968064785003662,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'SetTitle'",
+              "id": 75773,
+              "mean": -1.3688138723373413,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'olini'",
+              "id": 95894,
+              "mean": -1.3059332370758057,
+              "sign_consistency": 0.9166666865348816
+            },
+            {
+              "token": "' [\u2026]'",
+              "id": 28624,
+              "mean": -1.3008828163146973,
+              "sign_consistency": 0.9305555820465088
+            },
+            {
+              "token": "'overall'",
+              "id": 75555,
+              "mean": -1.2943826913833618,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'arov'",
+              "id": 95018,
+              "mean": -1.2508201599121094,
+              "sign_consistency": 0.9583333134651184
+            }
+          ]
+        },
+        "L24": {
+          "locked": true,
+          "csv": "tokens_self_low_2_minus_unrelated_low_2_L24.csv",
+          "top_promoted": [
+            {
+              "token": "' feedback'",
+              "id": 11302,
+              "mean": 1.9445596933364868,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' YOUR'",
+              "id": 21592,
+              "mean": 1.7738494873046875,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' recent'",
+              "id": 3293,
+              "mean": 1.717877745628357,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "' your'",
+              "id": 701,
+              "mean": 1.6955091953277588,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'your'",
+              "id": 22479,
+              "mean": 1.681435465812683,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' criticism'",
+              "id": 19347,
+              "mean": 1.6810946464538574,
+              "sign_consistency": 0.9583333134651184
+            },
+            {
+              "token": "' Feedback'",
+              "id": 37957,
+              "mean": 1.6802656650543213,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "' yours'",
+              "id": 18821,
+              "mean": 1.6469467878341675,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'feedback'",
+              "id": 21674,
+              "mean": 1.643796682357788,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "' _'",
+              "id": 721,
+              "mean": 1.6410996913909912,
+              "sign_consistency": 1.0
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "' overall'",
+              "id": 8244,
+              "mean": -1.1256890296936035,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' Overall'",
+              "id": 28993,
+              "mean": -1.1026734113693237,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'Overall'",
+              "id": 28589,
+              "mean": -1.067086935043335,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'SetTitle'",
+              "id": 75773,
+              "mean": -1.0620417594909668,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'IEnumerator'",
+              "id": 59701,
+              "mean": -1.054818034172058,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'Rnd'",
+              "id": 93553,
+              "mean": -1.0532853603363037,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'DMETHOD'",
+              "id": 33072,
+              "mean": -1.0322774648666382,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' method'",
+              "id": 1749,
+              "mean": -1.029624581336975,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'idor'",
+              "id": 29856,
+              "mean": -1.0147731304168701,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "'olini'",
+              "id": 95894,
+              "mean": -1.0058413743972778,
+              "sign_consistency": 0.9444444179534912
+            }
+          ]
+        },
+        "L25": {
+          "descriptive": true,
+          "csv": "tokens_self_low_2_minus_unrelated_low_2_L25.csv",
+          "top_promoted": [
+            {
+              "token": "' evaluation'",
+              "id": 16865,
+              "mean": 0.7139205932617188,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' Evaluation'",
+              "id": 40388,
+              "mean": 0.37799930572509766,
+              "sign_consistency": 0.6805555820465088
+            },
+            {
+              "token": "' evaluations'",
+              "id": 56181,
+              "mean": 0.3762925863265991,
+              "sign_consistency": 0.7777777910232544
+            },
+            {
+              "token": "' Eval'",
+              "id": 59339,
+              "mean": 0.2590826749801636,
+              "sign_consistency": 0.6527777910232544
+            },
+            {
+              "token": "' eval'",
+              "id": 5720,
+              "mean": 0.23087745904922485,
+              "sign_consistency": 0.6111111044883728
+            },
+            {
+              "token": "' evalu'",
+              "id": 19886,
+              "mean": 0.22697629034519196,
+              "sign_consistency": 0.6111111044883728
+            },
+            {
+              "token": "'evaluation'",
+              "id": 75114,
+              "mean": 0.17056483030319214,
+              "sign_consistency": 0.5
+            },
+            {
+              "token": "'Evaluation'",
+              "id": 83463,
+              "mean": 0.14191627502441406,
+              "sign_consistency": 0.5
+            },
+            {
+              "token": "'\u8bc4'",
+              "id": 64479,
+              "mean": 0.1123872846364975,
+              "sign_consistency": 0.5
+            },
+            {
+              "token": "' Ev'",
+              "id": 10641,
+              "mean": 0.09735783189535141,
+              "sign_consistency": 0.5138888955116272
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "'SetTitle'",
+              "id": 75773,
+              "mean": -3.183119058609009,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' based'",
+              "id": 3196,
+              "mean": -3.0535480976104736,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'idor'",
+              "id": 29856,
+              "mean": -2.95263671875,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'DMETHOD'",
+              "id": 33072,
+              "mean": -2.949354410171509,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'\u307e\u305a'",
+              "id": 126843,
+              "mean": -2.935675621032715,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'/gpl'",
+              "id": 39058,
+              "mean": -2.928595542907715,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'/gtest'",
+              "id": 71711,
+              "mean": -2.920355796813965,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' overall'",
+              "id": 8244,
+              "mean": -2.9197049140930176,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' technique'",
+              "id": 15105,
+              "mean": -2.908576011657715,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' method'",
+              "id": 1749,
+              "mean": -2.9043917655944824,
+              "sign_consistency": 1.0
+            }
+          ]
+        }
+      },
+      "heatmap_tokens": [
+        {
+          "id": 721,
+          "token": "' _'",
+          "L24_mean": 1.6410996913909912,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 8244,
+          "token": "' overall'",
+          "L24_mean": -1.1256890296936035,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 28993,
+          "token": "' Overall'",
+          "L24_mean": -1.1026734113693237,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 28589,
+          "token": "'Overall'",
+          "L24_mean": -1.067086935043335,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 59701,
+          "token": "'IEnumerator'",
+          "L24_mean": -1.054818034172058,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 93553,
+          "token": "'Rnd'",
+          "L24_mean": -1.0532853603363037,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 1749,
+          "token": "' method'",
+          "L24_mean": -1.029624581336975,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 15105,
+          "token": "' technique'",
+          "L24_mean": -0.9634286165237427,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 11302,
+          "token": "' feedback'",
+          "L24_mean": 1.9445596933364868,
+          "L24_sign_consistency": 0.9861111044883728
+        },
+        {
+          "id": 21592,
+          "token": "' YOUR'",
+          "L24_mean": 1.7738494873046875,
+          "L24_sign_consistency": 0.9861111044883728
+        },
+        {
+          "id": 701,
+          "token": "' your'",
+          "L24_mean": 1.6955091953277588,
+          "L24_sign_consistency": 0.9861111044883728
+        },
+        {
+          "id": 22479,
+          "token": "'your'",
+          "L24_mean": 1.681435465812683,
+          "L24_sign_consistency": 0.9861111044883728
+        },
+        {
+          "id": 18821,
+          "token": "' yours'",
+          "L24_mean": 1.6469467878341675,
+          "L24_sign_consistency": 0.9861111044883728
+        },
+        {
+          "id": 75773,
+          "token": "'SetTitle'",
+          "L24_mean": -1.0620417594909668,
+          "L24_sign_consistency": 0.9861111044883728
+        },
+        {
+          "id": 33072,
+          "token": "'DMETHOD'",
+          "L24_mean": -1.0322774648666382,
+          "L24_sign_consistency": 0.9861111044883728
+        },
+        {
+          "id": 75555,
+          "token": "'overall'",
+          "L24_mean": -1.0028623342514038,
+          "L24_sign_consistency": 0.9861111044883728
+        },
+        {
+          "id": 6872,
+          "token": "' Method'",
+          "L24_mean": -0.9994948506355286,
+          "L24_sign_consistency": 0.9861111044883728
+        },
+        {
+          "id": 38152,
+          "token": "' methodology'",
+          "L24_mean": -0.9861441850662231,
+          "L24_sign_consistency": 0.9861111044883728
+        },
+        {
+          "id": 3293,
+          "token": "' recent'",
+          "L24_mean": 1.717877745628357,
+          "L24_sign_consistency": 0.9722222089767456
+        },
+        {
+          "id": 37957,
+          "token": "' Feedback'",
+          "L24_mean": 1.6802656650543213,
+          "L24_sign_consistency": 0.9722222089767456
+        },
+        {
+          "id": 21674,
+          "token": "'feedback'",
+          "L24_mean": 1.643796682357788,
+          "L24_sign_consistency": 0.9722222089767456
+        },
+        {
+          "id": 23515,
+          "token": "' retry'",
+          "L24_mean": 1.4236369132995605,
+          "L24_sign_consistency": 0.9722222089767456
+        },
+        {
+          "id": 43517,
+          "token": "'usercontent'",
+          "L24_mean": 1.4206957817077637,
+          "L24_sign_consistency": 0.9722222089767456
+        },
+        {
+          "id": 29856,
+          "token": "'idor'",
+          "L24_mean": -1.0147731304168701,
+          "L24_sign_consistency": 0.9722222089767456
+        },
+        {
+          "id": 59650,
+          "token": "'methodName'",
+          "L24_mean": -1.0053473711013794,
+          "L24_sign_consistency": 0.9722222089767456
+        },
+        {
+          "id": 76748,
+          "token": "'MethodName'",
+          "L24_mean": -1.003028154373169,
+          "L24_sign_consistency": 0.9722222089767456
+        },
+        {
+          "id": 19347,
+          "token": "' criticism'",
+          "L24_mean": 1.6810946464538574,
+          "L24_sign_consistency": 0.9583333134651184
+        },
+        {
+          "id": 63836,
+          "token": "' criticisms'",
+          "L24_mean": 1.591705083847046,
+          "L24_sign_consistency": 0.9583333134651184
+        },
+        {
+          "id": 43665,
+          "token": "' critique'",
+          "L24_mean": 1.5722113847732544,
+          "L24_sign_consistency": 0.9583333134651184
+        },
+        {
+          "id": 16048,
+          "token": "' improvement'",
+          "L24_mean": 1.4896994829177856,
+          "L24_sign_consistency": 0.9583333134651184
+        }
+      ]
+    },
+    "self_high_10_minus_self_low_2": {
+      "A": "self_high_10",
+      "B": "self_low_2",
+      "positive_means": "more promoted under self_high_10",
+      "negative_means": "more promoted under self_low_2",
+      "layers": {
+        "L2": {
+          "descriptive": true,
+          "csv": "tokens_self_high_10_minus_self_low_2_L2.csv",
+          "top_promoted": [
+            {
+              "token": "' [\u2026]\\n'",
+              "id": 126459,
+              "mean": 0.006570471450686455,
+              "sign_consistency": 0.5416666865348816
+            },
+            {
+              "token": "'\\xa0\u0915'",
+              "id": 126485,
+              "mean": 0.004345602355897427,
+              "sign_consistency": 0.4166666567325592
+            },
+            {
+              "token": "' ##\\n'",
+              "id": 48826,
+              "mean": 0.0043451520614326,
+              "sign_consistency": 0.3611111044883728
+            },
+            {
+              "token": "'\\xa0v'",
+              "id": 109279,
+              "mean": 0.0034774409141391516,
+              "sign_consistency": 0.375
+            },
+            {
+              "token": "'\"\\n'",
+              "id": 702,
+              "mean": 0.00347720249556005,
+              "sign_consistency": 0.375
+            },
+            {
+              "token": "'\\xa0H'",
+              "id": 119493,
+              "mean": 0.003477162681519985,
+              "sign_consistency": 0.4027777910232544
+            },
+            {
+              "token": "' [='",
+              "id": 88176,
+              "mean": 0.0034771496430039406,
+              "sign_consistency": 0.375
+            },
+            {
+              "token": "'\\xa0s'",
+              "id": 109403,
+              "mean": 0.0034765799064189196,
+              "sign_consistency": 0.3888888955116272
+            },
+            {
+              "token": "'\\xa0b'",
+              "id": 115648,
+              "mean": 0.0034765733871608973,
+              "sign_consistency": 0.4027777910232544
+            },
+            {
+              "token": "'\\xa0in'",
+              "id": 115235,
+              "mean": 0.0034765666350722313,
+              "sign_consistency": 0.375
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "'ebe'",
+              "id": 109977,
+              "mean": -0.013884995132684708,
+              "sign_consistency": 0.7222222089767456
+            },
+            {
+              "token": "'yro'",
+              "id": 67910,
+              "mean": -0.01366506703197956,
+              "sign_consistency": 0.7222222089767456
+            },
+            {
+              "token": "'eck'",
+              "id": 101458,
+              "mean": -0.013016383163630962,
+              "sign_consistency": 0.6388888955116272
+            },
+            {
+              "token": "' \u00d4'",
+              "id": 111667,
+              "mean": -0.01301633007824421,
+              "sign_consistency": 0.6666666865348816
+            },
+            {
+              "token": "'o'",
+              "id": 78,
+              "mean": -0.013015614822506905,
+              "sign_consistency": 0.6527777910232544
+            },
+            {
+              "token": "' {!'",
+              "id": 31444,
+              "mean": -0.012802415527403355,
+              "sign_consistency": 0.6805555820465088
+            },
+            {
+              "token": "'\u0942\u091c'",
+              "id": 107440,
+              "mean": -0.012799633666872978,
+              "sign_consistency": 0.7222222089767456
+            },
+            {
+              "token": "'_UNDEFINED'",
+              "id": 77963,
+              "mean": -0.01271989569067955,
+              "sign_consistency": 0.75
+            },
+            {
+              "token": "' tackles'",
+              "id": 43581,
+              "mean": -0.012583096511662006,
+              "sign_consistency": 0.6944444179534912
+            },
+            {
+              "token": "' -->\\n\\n'",
+              "id": 16508,
+              "mean": -0.012582885101437569,
+              "sign_consistency": 0.6666666865348816
+            }
+          ]
+        },
+        "L12": {
+          "descriptive": true,
+          "csv": "tokens_self_high_10_minus_self_low_2_L12.csv",
+          "top_promoted": [
+            {
+              "token": "' \\n\\n'",
+              "id": 4815,
+              "mean": 0.5018259882926941,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' elegant'",
+              "id": 26861,
+              "mean": 0.49232017993927,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' beautifully'",
+              "id": 32719,
+              "mean": 0.448926717042923,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' \u0634\u0631\u0643\u0629'",
+              "id": 106939,
+              "mean": 0.43371835350990295,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' perfect'",
+              "id": 4832,
+              "mean": 0.4316118061542511,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "'ideal'",
+              "id": 64053,
+              "mean": 0.4181632995605469,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "' ensures'",
+              "id": 26420,
+              "mean": 0.41653144359588623,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' impeccable'",
+              "id": 89646,
+              "mean": 0.40981292724609375,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' delicious'",
+              "id": 18406,
+              "mean": 0.40935051441192627,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' delightful'",
+              "id": 50189,
+              "mean": 0.4050356447696686,
+              "sign_consistency": 0.9861111044883728
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "'<unk>'",
+              "id": 128001,
+              "mean": -0.5622223615646362,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "' allegedly'",
+              "id": 19755,
+              "mean": -0.5223202109336853,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' worse'",
+              "id": 11201,
+              "mean": -0.4403533935546875,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' ONLY'",
+              "id": 27785,
+              "mean": -0.4393022358417511,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' ^{['",
+              "id": 110710,
+              "mean": -0.42840152978897095,
+              "sign_consistency": 0.9583333134651184
+            },
+            {
+              "token": "' ghetto'",
+              "id": 99421,
+              "mean": -0.4172464907169342,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' supposedly'",
+              "id": 33828,
+              "mean": -0.4139110743999481,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' homeless'",
+              "id": 23855,
+              "mean": -0.41112858057022095,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' alleged'",
+              "id": 10711,
+              "mean": -0.38430702686309814,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' \u2010'",
+              "id": 113287,
+              "mean": -0.38212019205093384,
+              "sign_consistency": 0.9722222089767456
+            }
+          ]
+        },
+        "L23": {
+          "descriptive": true,
+          "csv": "tokens_self_high_10_minus_self_low_2_L23.csv",
+          "top_promoted": [
+            {
+              "token": "' excellent'",
+              "id": 9250,
+              "mean": 4.295328617095947,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' perfectly'",
+              "id": 14268,
+              "mean": 3.899644613265991,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'Excellent'",
+              "id": 50755,
+              "mean": 3.8565266132354736,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' Excellent'",
+              "id": 37866,
+              "mean": 3.6433377265930176,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' impeccable'",
+              "id": 89646,
+              "mean": 3.4491169452667236,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' excelente'",
+              "id": 96507,
+              "mean": 3.3937785625457764,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' perfect'",
+              "id": 4832,
+              "mean": 3.364800453186035,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' excell'",
+              "id": 8414,
+              "mean": 3.353827476501465,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' beautifully'",
+              "id": 32719,
+              "mean": 3.304694175720215,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' impecc'",
+              "id": 75719,
+              "mean": 3.176710367202759,
+              "sign_consistency": 1.0
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "' inadequate'",
+              "id": 46579,
+              "mean": -2.202521324157715,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' disappointing'",
+              "id": 39223,
+              "mean": -2.1304829120635986,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' lack'",
+              "id": 6996,
+              "mean": -2.0719985961914062,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' deficiencies'",
+              "id": 72946,
+              "mean": -2.023267984390259,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' failure'",
+              "id": 8060,
+              "mean": -1.9991819858551025,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' regret'",
+              "id": 23023,
+              "mean": -1.9907599687576294,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' criticized'",
+              "id": 32614,
+              "mean": -1.9655693769454956,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' insufficient'",
+              "id": 39413,
+              "mean": -1.9244986772537231,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' unfortunately'",
+              "id": 26907,
+              "mean": -1.9044312238693237,
+              "sign_consistency": 0.9861111044883728
+            },
+            {
+              "token": "' failing'",
+              "id": 22109,
+              "mean": -1.8985282182693481,
+              "sign_consistency": 0.9722222089767456
+            }
+          ]
+        },
+        "L24": {
+          "locked": true,
+          "csv": "tokens_self_high_10_minus_self_low_2_L24.csv",
+          "top_promoted": [
+            {
+              "token": "' excellent'",
+              "id": 9250,
+              "mean": 3.959906578063965,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'Excellent'",
+              "id": 50755,
+              "mean": 3.5519206523895264,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' perfectly'",
+              "id": 14268,
+              "mean": 3.490370035171509,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' Excellent'",
+              "id": 37866,
+              "mean": 3.3157620429992676,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' perfect'",
+              "id": 4832,
+              "mean": 3.1053466796875,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' beautifully'",
+              "id": 32719,
+              "mean": 3.053605794906616,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' excelente'",
+              "id": 96507,
+              "mean": 3.0362751483917236,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' impeccable'",
+              "id": 89646,
+              "mean": 3.026441812515259,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' superb'",
+              "id": 33689,
+              "mean": 3.0234951972961426,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' excell'",
+              "id": 8414,
+              "mean": 3.016119956970215,
+              "sign_consistency": 1.0
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "' disappointing'",
+              "id": 39223,
+              "mean": -2.251145362854004,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' failure'",
+              "id": 8060,
+              "mean": -2.186506509780884,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' inadequate'",
+              "id": 46579,
+              "mean": -2.1398401260375977,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' unfortunately'",
+              "id": 26907,
+              "mean": -2.099278450012207,
+              "sign_consistency": 0.9722222089767456
+            },
+            {
+              "token": "' regret'",
+              "id": 23023,
+              "mean": -2.0478837490081787,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' lack'",
+              "id": 6996,
+              "mean": -2.0471725463867188,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' unhappy'",
+              "id": 43251,
+              "mean": -2.0444631576538086,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' failing'",
+              "id": 22109,
+              "mean": -2.00333571434021,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' failed'",
+              "id": 4745,
+              "mean": -1.993295431137085,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' criticized'",
+              "id": 32614,
+              "mean": -1.9513821601867676,
+              "sign_consistency": 1.0
+            }
+          ]
+        },
+        "L25": {
+          "descriptive": true,
+          "csv": "tokens_self_high_10_minus_self_low_2_L25.csv",
+          "top_promoted": [
+            {
+              "token": "' excellent'",
+              "id": 9250,
+              "mean": 5.43250846862793,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "'Excellent'",
+              "id": 50755,
+              "mean": 5.166449546813965,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' Excellent'",
+              "id": 37866,
+              "mean": 4.95836067199707,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' perfectly'",
+              "id": 14268,
+              "mean": 4.612033367156982,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' excelente'",
+              "id": 96507,
+              "mean": 4.421196937561035,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' superb'",
+              "id": 33689,
+              "mean": 4.38075065612793,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' perfect'",
+              "id": 4832,
+              "mean": 4.36314582824707,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' impeccable'",
+              "id": 89646,
+              "mean": 4.334689617156982,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' excell'",
+              "id": 8414,
+              "mean": 4.307074546813965,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' fantastic'",
+              "id": 14964,
+              "mean": 4.22021484375,
+              "sign_consistency": 1.0
+            }
+          ],
+          "top_suppressed": [
+            {
+              "token": "' failure'",
+              "id": 8060,
+              "mean": -0.7491784691810608,
+              "sign_consistency": 0.7361111044883728
+            },
+            {
+              "token": "' disappointing'",
+              "id": 39223,
+              "mean": -0.6522738337516785,
+              "sign_consistency": 0.7638888955116272
+            },
+            {
+              "token": "' evaluation'",
+              "id": 16865,
+              "mean": -0.5871403813362122,
+              "sign_consistency": 1.0
+            },
+            {
+              "token": "' inadequate'",
+              "id": 46579,
+              "mean": -0.5811952948570251,
+              "sign_consistency": 0.7361111044883728
+            },
+            {
+              "token": "' unfortunately'",
+              "id": 26907,
+              "mean": -0.5701245069503784,
+              "sign_consistency": 0.7777777910232544
+            },
+            {
+              "token": "' failing'",
+              "id": 22109,
+              "mean": -0.5626131892204285,
+              "sign_consistency": 0.6805555820465088
+            },
+            {
+              "token": "' deficiencies'",
+              "id": 72946,
+              "mean": -0.5153225660324097,
+              "sign_consistency": 0.6944444179534912
+            },
+            {
+              "token": "' regret'",
+              "id": 23023,
+              "mean": -0.4513925313949585,
+              "sign_consistency": 0.6527777910232544
+            },
+            {
+              "token": "' failed'",
+              "id": 4745,
+              "mean": -0.44609981775283813,
+              "sign_consistency": 0.6111111044883728
+            },
+            {
+              "token": "' lack'",
+              "id": 6996,
+              "mean": -0.4282621741294861,
+              "sign_consistency": 0.6388888955116272
+            }
+          ]
+        }
+      },
+      "heatmap_tokens": [
+        {
+          "id": 9250,
+          "token": "' excellent'",
+          "L24_mean": 3.959906578063965,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 50755,
+          "token": "'Excellent'",
+          "L24_mean": 3.5519206523895264,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 14268,
+          "token": "' perfectly'",
+          "L24_mean": 3.490370035171509,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 37866,
+          "token": "' Excellent'",
+          "L24_mean": 3.3157620429992676,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 4832,
+          "token": "' perfect'",
+          "L24_mean": 3.1053466796875,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 32719,
+          "token": "' beautifully'",
+          "L24_mean": 3.053605794906616,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 96507,
+          "token": "' excelente'",
+          "L24_mean": 3.0362751483917236,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 89646,
+          "token": "' impeccable'",
+          "L24_mean": 3.026441812515259,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 33689,
+          "token": "' superb'",
+          "L24_mean": 3.0234951972961426,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 8414,
+          "token": "' excell'",
+          "L24_mean": 3.016119956970215,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 11364,
+          "token": "' wonderful'",
+          "L24_mean": 2.8184728622436523,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 14964,
+          "token": "' fantastic'",
+          "L24_mean": 2.7937333583831787,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 19310,
+          "token": "' outstanding'",
+          "L24_mean": 2.684765338897705,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 20333,
+          "token": "' brilliant'",
+          "L24_mean": 2.61537504196167,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 25363,
+          "token": "' exceptional'",
+          "L24_mean": 2.594067096710205,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 64185,
+          "token": "'perfect'",
+          "L24_mean": 2.4923095703125,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 48298,
+          "token": "' exceptionally'",
+          "L24_mean": 2.4901156425476074,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 39223,
+          "token": "' disappointing'",
+          "L24_mean": -2.251145362854004,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 8060,
+          "token": "' failure'",
+          "L24_mean": -2.186506509780884,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 46579,
+          "token": "' inadequate'",
+          "L24_mean": -2.1398401260375977,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 23023,
+          "token": "' regret'",
+          "L24_mean": -2.0478837490081787,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 6996,
+          "token": "' lack'",
+          "L24_mean": -2.0471725463867188,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 43251,
+          "token": "' unhappy'",
+          "L24_mean": -2.0444631576538086,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 22109,
+          "token": "' failing'",
+          "L24_mean": -2.00333571434021,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 4745,
+          "token": "' failed'",
+          "L24_mean": -1.993295431137085,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 32614,
+          "token": "' criticized'",
+          "L24_mean": -1.9513821601867676,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 41086,
+          "token": "' improper'",
+          "L24_mean": -1.876425862312317,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 33360,
+          "token": "' Failure'",
+          "L24_mean": -1.8749414682388306,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 22092,
+          "token": "' Failed'",
+          "L24_mean": -1.8375134468078613,
+          "L24_sign_consistency": 1.0
+        },
+        {
+          "id": 39413,
+          "token": "' insufficient'",
+          "L24_mean": -1.8312064409255981,
+          "L24_sign_consistency": 1.0
+        }
+      ]
+    }
+  }
+}

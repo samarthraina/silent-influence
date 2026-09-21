@@ -1,0 +1,63 @@
+{
+  "stage": "DISCOVERY -- direction and coefficient frozen before validation",
+  "layer": 24,
+  "window_descriptive": [
+    23,
+    24,
+    25
+  ],
+  "position": "final_input",
+  "direction_source": "mean over the 12 discovery tasks of h[no_history] - h[self_low_2]",
+  "direction_norm": 4.770003795623779,
+  "per_task_cosine_to_mean": {
+    "mean": 0.8928589820861816,
+    "sd": 0.05640283226966858,
+    "min": 0.7561414241790771
+  },
+  "beta_grid_declared": [
+    0.5,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "beta_selected": 1.5,
+  "beta_grid_results_discovery_only": [
+    {
+      "beta": 0.5,
+      "n": 12,
+      "normalized_mean": -0.12222222222222223,
+      "raw_mean": -0.20000000000000004
+    },
+    {
+      "beta": 1.0,
+      "n": 12,
+      "normalized_mean": 0.1638888888888889,
+      "raw_mean": 0.5333333333333333
+    },
+    {
+      "beta": 1.5,
+      "n": 12,
+      "normalized_mean": 0.1861111111111111,
+      "raw_mean": 0.6
+    },
+    {
+      "beta": 2.0,
+      "n": 12,
+      "normalized_mean": 0.06111111111111109,
+      "raw_mean": 0.4333333333333333
+    }
+  ],
+  "ablation_alpha": 1.0,
+  "random_direction_seed": 20260818,
+  "success_criteria": {
+    "primary": "steering self_low_2 toward no_history at L24 produces mean normalized movement > 0 with a task-bootstrap 95% CI excluding 0",
+    "control_1": "learned-direction normalized movement exceeds the early-layer L2 arm",
+    "control_2": "learned-direction normalized movement exceeds the norm-matched random-direction arm",
+    "specificity": "shifts induced under no_history and unrelated_low_2 are reported; if they match the self_low_2 shift the intervention is nonspecific and the primary result does not support a score-specific mechanism",
+    "declared_before_validation": true
+  },
+  "validation_tasks_untouched_here": true,
+  "layer_not_searched": true,
+  "runtime_s": 597.6,
+  "peak_gpu_gib": 16.12
+}

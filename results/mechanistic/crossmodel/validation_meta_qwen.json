@@ -1,0 +1,11 @@
+{
+  "scorer": "qwen",
+  "stage": "VALIDATION",
+  "selected_layer": 27,
+  "early_layer": 2,
+  "n_tasks": 72,
+  "n_calls": 720,
+  "layer_frozen_before_validation": true,
+  "runtime_s": 4720.0,
+  "peak_gpu_gib": 16.77
+}

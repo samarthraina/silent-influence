@@ -1,0 +1,146 @@
+{
+  "total_records": 4680,
+  "total_expected": 4680,
+  "unique_unit_ids": 4680,
+  "duplicate_unit_ids": 0,
+  "technical_failures": 0,
+  "scorers_present": [
+    "gemma",
+    "llama",
+    "olmo32b",
+    "qwen"
+  ],
+  "per_scorer": {
+    "olmo32b": {
+      "records": 468,
+      "records_expected": 468,
+      "records_ok": true,
+      "n_conditions": 2,
+      "n_conditions_expected": 2,
+      "conditions": [
+        "no_history",
+        "self_low_2"
+      ],
+      "condition_set_exact": true,
+      "per_condition": {
+        "no_history": 234,
+        "self_low_2": 234
+      },
+      "per_condition_uniform_234": true,
+      "distinct_tasks": 234,
+      "tasks_ok": true,
+      "per_dataset": {
+        "arena_hard": 156,
+        "mtbench": 156,
+        "wildbench": 156
+      },
+      "dataset_set_exact": true,
+      "per_dataset_uniform": true
+    },
+    "llama": {
+      "records": 1404,
+      "records_expected": 1404,
+      "records_ok": true,
+      "n_conditions": 6,
+      "n_conditions_expected": 6,
+      "conditions": [
+        "no_history",
+        "other_low_2",
+        "self_high_10",
+        "self_low_2",
+        "unrelated_low_2",
+        "verbal_negative"
+      ],
+      "condition_set_exact": true,
+      "per_condition": {
+        "no_history": 234,
+        "other_low_2": 234,
+        "self_high_10": 234,
+        "self_low_2": 234,
+        "unrelated_low_2": 234,
+        "verbal_negative": 234
+      },
+      "per_condition_uniform_234": true,
+      "distinct_tasks": 234,
+      "tasks_ok": true,
+      "per_dataset": {
+        "arena_hard": 468,
+        "mtbench": 468,
+        "wildbench": 468
+      },
+      "dataset_set_exact": true,
+      "per_dataset_uniform": true
+    },
+    "qwen": {
+      "records": 1404,
+      "records_expected": 1404,
+      "records_ok": true,
+      "n_conditions": 6,
+      "n_conditions_expected": 6,
+      "conditions": [
+        "no_history",
+        "other_low_2",
+        "self_high_10",
+        "self_low_2",
+        "unrelated_low_2",
+        "verbal_negative"
+      ],
+      "condition_set_exact": true,
+      "per_condition": {
+        "no_history": 234,
+        "other_low_2": 234,
+        "self_high_10": 234,
+        "self_low_2": 234,
+        "unrelated_low_2": 234,
+        "verbal_negative": 234
+      },
+      "per_condition_uniform_234": true,
+      "distinct_tasks": 234,
+      "tasks_ok": true,
+      "per_dataset": {
+        "arena_hard": 468,
+        "mtbench": 468,
+        "wildbench": 468
+      },
+      "dataset_set_exact": true,
+      "per_dataset_uniform": true
+    },
+    "gemma": {
+      "records": 1404,
+      "records_expected": 1404,
+      "records_ok": true,
+      "n_conditions": 6,
+      "n_conditions_expected": 6,
+      "conditions": [
+        "no_history",
+        "other_low_2",
+        "self_high_10",
+        "self_low_2",
+        "unrelated_low_2",
+        "verbal_negative"
+      ],
+      "condition_set_exact": true,
+      "per_condition": {
+        "no_history": 234,
+        "other_low_2": 234,
+        "self_high_10": 234,
+        "self_low_2": 234,
+        "unrelated_low_2": 234,
+        "verbal_negative": 234
+      },
+      "per_condition_uniform_234": true,
+      "distinct_tasks": 234,
+      "tasks_ok": true,
+      "per_dataset": {
+        "arena_hard": 468,
+        "mtbench": 468,
+        "wildbench": 468
+      },
+      "dataset_set_exact": true,
+      "per_dataset_uniform": true
+    }
+  },
+  "identical_234_task_set_across_scorers": true,
+  "merged_sha256": "0efa8d7bb5a076ff08d3ef6f9db2f802c5ffe84a5b48a5ac2bab7af27bf5a8b6",
+  "MERGED_INTEGRITY_PASS": true
+}

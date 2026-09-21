@@ -1,0 +1,124 @@
+{
+  "plan_id": "final_behavioral_study_sap_v2_amendment_A8",
+  "plan_version": "2.8",
+  "status": "pre-specified",
+  "amendment_type": "operational_implementation_freeze_plus_pending_calibration",
+  "prospective": true,
+  "created_before_any_final_study_output": true,
+  "prospective_evidence": {
+    "results/final_behavioral_study": false,
+    "results/final_behavioral_study_adjudicated": false,
+    "data/candidates/final_olmo_answers.json": false,
+    "generation_calls_executed": 0,
+    "scoring_calls_executed": 0,
+    "verified_on_hosts": [
+      "workstation",
+      "a100_instance_47940113"
+    ]
+  },
+  "amends": {
+    "plan_id": "final_behavioral_study_sap_v2_amendment_A7",
+    "path": "configs/final_analysis_plan_v2_7.json",
+    "sha256": "c945155148020eac433f2a2c3cdef1ca7d8407d98f0195e7cd7b64d415a67822",
+    "a7_overwritten": false
+  },
+  "amendment_narrative": "Code/research_notes/final_analysis_plan_amendment_A8.md",
+  "overwrites_history": false,
+  "non_destructive": true,
+  "statistical_content_changed": false,
+  "purpose_1_frozen_implementation_hashes": {
+    "scripts/run_final_scoring.py": "6e829ad32640c119b9dcf60ce0d5fba9ca7f5ca3a4a0667f4064369409ee5c30",
+    "scripts/generate_final_candidates.py": "63729fb6ff10a4b1f331b623b13d109205693940c3651d2eec9e13202276493b",
+    "note": "A7 pinned these two scripts mid-repair, so its hashes were stale once the safety corrections landed. A8 supersedes those two hashes only."
+  },
+  "purpose_2_safety_corrections_preserved": {
+    "batch_level_resume": "batch composition derives only from the frozen manifests; a batch is skipped only when every unit in it is recorded",
+    "no_partial_batch_composition": "a partially complete batch is rerun in full; --limit is batch-granular as a consequence",
+    "no_batch6_to_batch1_fallback": "the previous BatchCallFailed handler dropped a scorer to batch 1 permanently and continued; now a hard stop",
+    "irrecoverable_exception_hard_stops": "a generator call that raises through all bounded identical-batch retries is a hard stop, not a permanent failure of its six batch-mates",
+    "successful_batch_retains_valid_rows": "when the call succeeds but one row is empty or invalid, only that row fails permanently under the frozen policy; batch-mates are accepted; no reserve substitution",
+    "stub_cannot_write_protected_targets": "the generator now calls the protected-path guard before loading any model; the earlier stub contamination is quarantined and verified stub-only",
+    "quarantined_file": "results/audit_preflight_artifacts/STUB_CONTAMINATION_quarantined_final_olmo_answers.json",
+    "quarantine_evidence": {
+      "n_answers": 578,
+      "all_exact_stub_form": true,
+      "distinct_answer_lengths": [
+        22
+      ],
+      "generation_seconds_all_zero": true,
+      "output_tokens_values": [
+        10
+      ]
+    }
+  },
+  "purpose_3_small_scorer_calibration": {
+    "supersedes": "A7's unconditional small-scorer batch-6 decision",
+    "state": "PENDING, direction-neutral",
+    "scorers": [
+      "llama",
+      "qwen",
+      "gemma"
+    ],
+    "no_production_scoring_until_resolved": true,
+    "absence_of_verdict_is_never_permission": true,
+    "failing_verdict_yields": 1,
+    "passing_verdict_yields": 6,
+    "calibration_set": "the existing 90-task study only; no final-study task is touched",
+    "per_scorer_independently": true,
+    "thresholds_frozen_before_calibration": {
+      "max_abs_primary_delta_difference": 0.25,
+      "max_abs_task_positive_fraction_change": 0.05,
+      "min_batch6_a5_valid_rate": 0.95,
+      "max_abs_validity_rate_difference_no_history_vs_self_low_2": 0.02
+    },
+    "applied_symmetrically": "bounds are absolute values and hold identically whether batching increases or decreases the effect; batching that enlarges the effect is not thereby acceptable",
+    "must_run_on": "the same hardware and software environment that will run that scorer's production outputs; a verdict from other hardware licenses nothing",
+    "why_frozen_now": "thresholds fixed before any calibration number exists cannot be chosen to suit an observed result"
+  },
+  "purpose_4_frozen_now": {
+    "olmo3_generator": {
+      "batch_size": 6,
+      "n_full_batches": 96,
+      "final_partial_batch_size": 2,
+      "n_physical_batches": 97,
+      "max_new_tokens": 2048,
+      "order": "frozen manifest order"
+    },
+    "olmo32b_scorer": {
+      "batch_size": 1,
+      "max_new_tokens": 2048
+    },
+    "small_scorers": {
+      "llama": "pending_calibration",
+      "qwen": "pending_calibration",
+      "gemma": "pending_calibration"
+    },
+    "a5_validity_rule": {
+      "preserved_exactly": true,
+      "modified": false,
+      "bypassed": false
+    }
+  },
+  "preserved_unchanged": [
+    "all 578 tasks and their order",
+    "prompts, conditions and condition wording",
+    "model identities, revisions and dtypes",
+    "greedy decoding (do_sample=False, seed 42) and all token ceilings",
+    "A5 cap-aware validity",
+    "parsers, recovery rules, estimands and the bootstrap plan",
+    "13,872 logical scorer evaluations",
+    "the complete A1-A7 history"
+  ],
+  "explicit_non_claims": [
+    "NOT claimed that batch 6 is equivalent to batch 1; A6 measured that it is not",
+    "NOT claimed that a passing calibration makes batch 6 and batch 1 interchangeable; it means the four frozen bounds were met on the 90-task set, nothing more",
+    "NOT claimed that the 90-task calibration set is representative of the 578-task study",
+    "NOT claimed that any small scorer will pass; the decision is pending and direction-neutral"
+  ],
+  "unresolved_scientific_decisions": {
+    "count": 1,
+    "items": [
+      "batch size for llama/qwen/gemma, resolved by the frozen calibration rule on each scorer's own production hardware"
+    ]
+  }
+}

@@ -1,0 +1,100 @@
+# Judge model registry (Phase 1E).
+#
+# The behavioral panel is five slots. Only the first three are used for calibration;
+# the two large slots are declared here so the panel is explicit, not implied.
+# Mechanistic depth is chosen separately and does not have to cover the panel.
+#
+# `smoke_*` entries exist for pipeline validation only. Their outputs are not evidence
+# about model behaviour, and `backend` is recorded on every record so they cannot be
+# confused with panel data.
+
+models:
+
+  # ---- Phase 1A focal panel: the three models the original study used ----
+  gemma9b:
+    hf_id: google/gemma-2-9b-it
+    revision: 11c9b309abf73637e4b6f9a3fa1e92e615547819
+    backend: hf
+    dtype: bfloat16
+    device: cuda
+    # Gemma-2 applies attention logit soft-capping (attn=50.0, final=30.0) only in
+    # eager_attention_forward; sdpa has no softcap path and silently differs.
+    attn_implementation: eager
+    panel_slot: "focal_gemma"
+
+  llama8b:
+    hf_id: meta-llama/Llama-3.1-8B-Instruct
+    revision: 0e9e39f249a16976918f6564b8830bc894c89659
+    backend: hf
+    dtype: bfloat16
+    device: cuda
+    panel_slot: "focal_llama"
+
+  qwen8b:
+    hf_id: Qwen/Qwen3-8B
+    revision: b968826d9c46dd6066d109eabc6255188de91218
+    backend: hf
+    dtype: bfloat16
+    device: cuda
+    panel_slot: "focal_qwen"
+    # Qwen3 templates default to thinking ON. Disabling pre-fills an empty
+    # <think></think> into the prompt, so the generation budget goes to the answer
+    # rather than a reasoning trace. Recorded on every record and part of the unit key.
+    chat_template_kwargs:
+      enable_thinking: false
+
+  # ---- Model X: the fixed external interacting agent ----
+  # Not a behavioural subject. Produces one frozen answer per task, which every judge
+  # scores identically. Deliberately outside the Gemma/Llama/Qwen judge trio, so no
+  # judge ever scores its own output. Plain instruction model, not the Think variant.
+  #
+  # Its chat template injects a "helpful function-calling AI assistant" system prompt
+  # whenever no system turn is supplied; candidate_gen always sends an explicit one.
+  modelx_olmo3:
+    hf_id: allenai/Olmo-3-7B-Instruct
+    revision: 6e5971d9eba42665f5bd5a0fcf047f299ce1dccc
+    backend: hf
+    dtype: bfloat16
+    device: cuda
+    panel_slot: "model_x"
+
+  # ---- registered but NOT part of Phase 1A ----
+  # The larger generalization/scale model is not chosen yet; these are placeholders
+  # kept from the earlier panel sketch and are used by no Phase 1A config.
+  qwen14b:
+    hf_id: Qwen/Qwen3-14B
+    backend: hf
+    dtype: bfloat16
+    device: cuda
+    panel_slot: "not_in_phase1a"
+    chat_template_kwargs:
+      enable_thinking: false
+
+  gemma27b:
+    hf_id: google/gemma-2-27b-it
+    backend: hf
+    dtype: bfloat16
+    device: cuda
+    attn_implementation: eager
+    panel_slot: "not_in_phase1a"
+
+  llama70b:
+    hf_id: meta-llama/Llama-3.3-70B-Instruct
+    backend: hf
+    dtype: bfloat16
+    device: cuda
+    panel_slot: "not_in_phase1a"
+
+  # ---- pipeline validation only ----
+  smoke_tiny:
+    hf_id: hf-internal-testing/tiny-random-LlamaForCausalLM
+    backend: hf
+    dtype: float32
+    device: cpu
+    local_files_only: true
+    note: "random weights; exercises the real transformers path, not model behaviour"
+
+  smoke_stub:
+    hf_id: "stub://deterministic"
+    backend: stub
+    note: "synthetic well-formed JSON; exercises parsing and analysis plumbing"

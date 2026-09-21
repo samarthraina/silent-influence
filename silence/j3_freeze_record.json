@@ -1,0 +1,50 @@
+{
+  "stage": "J3 external LLM-judge robustness check",
+  "judge_model": "openai/gpt-oss-20b",
+  "model_revision": "6cee5e81ee83917806bbde320786a8fb61efebee",
+  "input_file": "blinded_items_J1.jsonl",
+  "input_sha256": "a53028f34bd765405e6cbfb0da6072eea894d4fed3ce6853170a3d0dd7194fc4",
+  "n_items": 1872,
+  "n_unique_ids": 1872,
+  "prompt_module": "judge_prompt.py",
+  "prompt_sha256": "21518e56188743049594791345b6a3691e78b8b0539da3d8107e71bacd4013be",
+  "prompt_guide_sha256": "1eb1cf9ffe16c14c101842ac5ca20b929ee9b04e743afc13e261bd6b3b960861",
+  "runner": "run_j3_gptoss.py",
+  "runner_sha256": "4ef8496e35d02e6d0b7445b2e6a02b7f00e63b6703535ba5761c9662b906bdf7",
+  "label_definitions": "frozen in judge_prompt.GUIDE, imported unchanged",
+  "labels": [
+    "A",
+    "N",
+    "D",
+    "U"
+  ],
+  "also_recorded": [
+    "context_mentioned yes/no",
+    "verbatim evidence span"
+  ],
+  "parser": "judge_prompt.parse_judge_output (strict; unknown labels are a failure)",
+  "inference": {
+    "engine": "vLLM",
+    "dtype": "bfloat16",
+    "chat_format": "harmony via tokenizer.apply_chat_template",
+    "reasoning_effort": "low",
+    "temperature": 0.1,
+    "top_p": 0.95,
+    "seed": 20260821,
+    "batch_size": 10,
+    "max_model_len": 8192,
+    "max_tokens": 2000
+  },
+  "blinding": "judge sees item_id and rationale_text only",
+  "files_not_opened": [
+    "silence_key_PRIVATE.jsonl",
+    "human_validation_key_PRIVATE.jsonl",
+    "human_validation_A.csv",
+    "human_validation_B.csv",
+    "judge_J1_raw.jsonl",
+    "judge_J2_raw.jsonl",
+    "agreement.json",
+    "silence_joined.csv",
+    "silence_summary.json"
+  ]
+}

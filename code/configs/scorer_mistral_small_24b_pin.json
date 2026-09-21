@@ -1,0 +1,107 @@
+{
+  "pin_id": "scorer_mistral_small_24b_instruct_2501",
+  "role": "fourth scorer for the final behavioral study",
+  "status": "pinned from repository metadata only; no weights downloaded, no inference run",
+  "pinned_at_utc": "2026-08-17",
+
+  "model": {
+    "hf_id": "mistralai/Mistral-Small-24B-Instruct-2501",
+    "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+    "revision_source": "HuggingFace model-info API `sha` field for the repo main branch, resolved to an immutable commit",
+    "repo_last_modified": "2025-07-28T17:26:22.000Z",
+    "gated": false,
+    "private": false,
+    "license": "apache-2.0",
+    "architecture": "MistralForCausalLM",
+    "estimated_params_billions": 23.57,
+    "declared_torch_dtype": "bfloat16",
+    "max_position_embeddings": 32768,
+    "model_max_length_tokenizer": 32768,
+    "vocab_size": 131072,
+    "num_hidden_layers": 40,
+    "eos_token_id": 2,
+    "bos_token_id": 1
+  },
+
+  "config_file_hashes_sha256": {
+    "note": "computed over the files as served at the pinned revision; these are the model and tokenizer configuration hashes, not weight hashes",
+    "config.json": "ff5f8d1747db4e16def20db719d867e74d0b764330249357351b2b44520b8001",
+    "tokenizer_config.json": "85090a231c4b1432c95cf62d5857777df08c0939fc698bf89b91ccc96f92400e",
+    "generation_config.json": "ba3438ca12420844b39264cc665c93f8ce16232dff902837791eaf80799ca457",
+    "special_tokens_map.json": "5bc5d1c106bf86895473568ef5211f3fde8415e6fdee039223d6db8ca52cbe01",
+    "params.json": "2bc824a0e7adb9b27bb0932bdda1666e05b533b6a6446ca76ee711eefb06dbdc",
+    "SYSTEM_PROMPT.txt": "21f4ab18613657b4ed528ff3a97f9961b1c3a2e051370c0d773db9c2e466d1b8"
+  },
+
+  "chat_template": {
+    "sha256": "3934d199bfe5b6fab5cba1b5f8ee475e8d5738ac315f21cb09545b4e665cc005",
+    "length_chars": 1597,
+    "source": "chat_template field of tokenizer_config.json at the pinned revision",
+    "use_official_template_unmodified": true,
+    "add_system_prompt": false,
+    "add_model_specific_evaluation_instructions": false,
+    "BLOCKING_PROPERTIES": {
+      "injects_default_system_message_when_none_supplied": true,
+      "default_system_message_content": "You are Mistral Small 3, a Large Language Model (LLM) created by Mistral AI, a French startup headquartered in Paris. Your knowledge base was last updated on 2023-10-01. The current date is <TODAY>. When you're not sure about some information, you say that you don't have the information and don't make up anything. If the user's question is not clear, ambiguous, or does not provide enough context for you to accurately answer the question, you do not try to answer it right away and you rather ask the user to clarify their request (...)",
+      "date_dependent": true,
+      "date_mechanism": "strftime_now(\"%Y-%m-%d\") evaluated at render time",
+      "consequences": [
+        "A user-only message does NOT yield a system-prompt-free prompt: the template substitutes the Mistral Small 3 persona instead. 'Use the official template' and 'add no system prompt' are in direct conflict for this model.",
+        "The rendered prompt changes every calendar day, so scoring prompts are not byte-reproducible across days -- a reproducibility defect for a frozen confirmatory run.",
+        "The default persona instructs the model to ask for clarification rather than answer when a request is ambiguous, which for a scoring task could raise refusal/non-score rates on this scorer specifically."
+      ],
+      "resolution_required_before_run": "see open decision E1 in the analysis plan"
+    }
+  },
+
+  "generation_config_trap": {
+    "shipped_defaults": {"temperature": 0.15, "do_sample": true},
+    "risk": "the model ships with sampling ENABLED; relying on generation_config defaults would produce nondeterministic scores",
+    "mitigation": "do_sample=False is passed explicitly on every call by silent_influence.exact_generation, which overrides the shipped default; transformers may emit a benign 'temperature set while do_sample=False' warning",
+    "verified_in_code": true
+  },
+
+  "scoring_protocol": {
+    "identical_to_other_three_scorers": true,
+    "prompt": "user-message-only; wording from silent_influence.scaled_conditions, unchanged",
+    "system_prompt": "none added by us (see BLOCKING_PROPERTIES for what the template itself injects)",
+    "model_specific_evaluation_instructions": "none",
+    "decoding": {
+      "do_sample": false,
+      "temperature": 0,
+      "seed": 42,
+      "seed_mechanism": "transformers.set_seed before every generate call",
+      "max_new_tokens": 512,
+      "pad_token_id": "tokenizer.eos_token_id"
+    },
+    "decode": {"skip_special_tokens": true, "clean_up_tokenization_spaces": false},
+    "precision": "bfloat16",
+    "quantization": "none",
+    "attn_implementation": "sdpa",
+    "context_headroom": {
+      "worst_case_prompt_tokens_estimate": 4600,
+      "basis": "longest WildBench prompt ~5991 chars plus a 2048-token frozen answer plus template overhead",
+      "model_limit": 32768,
+      "truncation_risk": "none"
+    }
+  },
+
+  "hardware_blocker": {
+    "bf16_weight_size_gib": 43.9,
+    "estimated_total_vram_needed_gib": 48,
+    "current_instance_gpu": "NVIDIA RTX 5000 Ada, 32 GiB",
+    "fits_on_current_gpu": false,
+    "note": "Quantization is excluded by instruction, so the options are a single >=80 GiB GPU, or multi-GPU sharding totalling >=~55 GiB usable.",
+    "implementation_consequence": "silent_influence.exact_generation pins device_map={\"\": 0}, which forces one device and will OOM for this model; a 24B scorer needs device_map=\"auto\" (or a bigger single card). Flagged, not changed.",
+    "resolution_required_before_run": "see open decision E2 in the analysis plan"
+  },
+
+  "cross_check": {
+    "qwen_chat_template_sha256_refetched": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+    "qwen_chat_template_sha256_recorded_during_90task_run": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+    "match": true,
+    "significance": "an independent refetch of a pinned revision reproduces the template hash recorded during the actual GPU run, confirming the revision pins resolve to identical tokenizer configuration",
+    "llama_template_not_reverified": "meta-llama repo is gated (HTTP 401 without a token); template hash recorded during the run was e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+    "gemma_template_not_reverified": "fetch failed (connection reset); template hash recorded during the run was ecd6ae513fe103f0eb62e8ab5bfa8d0fe45c1074fa398b089c93a7e70c15cfd6"
+  }
+}

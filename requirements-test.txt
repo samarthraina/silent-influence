@@ -1,0 +1,5 @@
+# CPU tests include small PyTorch tensors, but load no model weights.
+-r requirements-analysis.txt
+torch>=2.4
+# The mock-generation tests call Transformers' seed helper; no weights are loaded.
+transformers==5.15.0

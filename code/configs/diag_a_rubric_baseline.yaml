@@ -1,0 +1,42 @@
+# ============================================================================
+# CALIBRATION ONLY — NOT Phase 1 data. Do not pool with any Phase 1 records.
+# ============================================================================
+# Diagnostic A: baseline score distribution under the two rubric variants.
+#
+# There is NO prior-score manipulation here: the only condition is no_history.
+# The question is evaluation grounding, dynamic range and ceiling behaviour --
+# how much of the 1-10 scale each rubric actually uses on a fixed candidate set.
+# It cannot and must not be used to pick a rubric by effect size.
+#
+# Prompt set is exactly the 20 intended for Phase 1A (same dataset, same seed,
+# same stratified sampler), so the baseline transfers.
+#
+# Grid: 20 prompts x 1 candidate x 1 condition x 2 rubrics x K=1 = 40 generations.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidates:
+  path: data/candidates/pinned_candidates_v1.json
+
+experiment:
+  name: CALIBRATION_diagA_rubric_baseline
+  seed: 42
+  datasets: [arena_hard_v2]
+  n_prompts: 20
+  judge_models: [qwen8b]
+  evaluated_models: [gemma]
+  candidates_per_prompt: 1
+  exclude_self_judging: true
+  prior_context_conditions: [no_history]
+  rubric_variants: [grounded, minimal]
+  output_protocols: [score_only]
+  history_template: dyadic_anon_prior_round
+  replicates: 1
+
+generation:
+  temperature: 0.3
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: true

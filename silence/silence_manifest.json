@@ -1,0 +1,38 @@
+{
+  "record_id": "silence_run_manifest",
+  "contrast": "no_history vs self_low_2",
+  "scorers": [
+    "gemma",
+    "llama",
+    "olmo32b",
+    "qwen"
+  ],
+  "n_items": 1872,
+  "n_judges": 2,
+  "total_calls": 3744,
+  "id_salt": "silent_influence_silence_run_20260819",
+  "shared_id_space": true,
+  "presentation_order_differs": true,
+  "blinded_fields_shown": [
+    "item_id",
+    "rationale_text"
+  ],
+  "withheld": [
+    "task id",
+    "condition",
+    "scorer identity",
+    "numerical contrast",
+    "behavioural score",
+    "expected direction"
+  ],
+  "by_scorer_condition": {
+    "gemma/no_history": 234,
+    "gemma/self_low_2": 234,
+    "llama/no_history": 234,
+    "llama/self_low_2": 234,
+    "olmo32b/no_history": 234,
+    "olmo32b/self_low_2": 234,
+    "qwen/no_history": 234,
+    "qwen/self_low_2": 234
+  }
+}

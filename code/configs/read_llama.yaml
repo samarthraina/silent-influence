@@ -1,0 +1,29 @@
+# ============================================================================
+# PHASE 2A READ — Llama-3.1-8B-Instruct, Arena-Hard 18-task subset.
+# ============================================================================
+# Forward passes only. No generation, no patching, no steering, no ablation.
+# Prompts are taken verbatim from the completed behavioural records, so the model
+# sees exactly the context that produced the frozen scores.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+read:
+  name: PHASE2A_read_llama_arenahard
+  judge_model: llama8b
+  source_glob: results/arenahard/judge/*/records.jsonl
+  out_dir: results/phase2a/read_llama
+  history_template: dyadic_anon_prior_round
+  conditions:
+    - no_history          # reference only; not a numeric score condition
+    - score_1
+    - score_2
+    - score_3
+    - score_4
+    - score_5
+    - score_6
+    - score_7
+    - score_8
+    - score_9
+    - score_10

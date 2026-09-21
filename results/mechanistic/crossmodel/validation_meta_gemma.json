@@ -1,0 +1,11 @@
+{
+  "scorer": "gemma",
+  "stage": "VALIDATION",
+  "selected_layer": 36,
+  "early_layer": 2,
+  "n_tasks": 72,
+  "n_calls": 720,
+  "layer_frozen_before_validation": true,
+  "runtime_s": 6104.9,
+  "peak_gpu_gib": 21.01
+}

@@ -1,0 +1,30 @@
+# Pre-flight smoke test. Pipeline validation only — not science.
+# 2 prompts x 3 conditions x 1 candidate x K=1 x 1 judge = 6 units.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidates:
+  path: data/candidates/pinned_candidates_v1.json
+
+experiment:
+  name: phase1_smoke
+  seed: 42
+  datasets: [arena_hard_v2]
+  n_prompts: 2
+  judge_models: [smoke_tiny]
+  evaluated_models: [gemma]
+  candidates_per_prompt: 1
+  exclude_self_judging: true
+  prior_context_conditions: [no_history, score_1, score_10]
+  rubric_variants: [grounded]
+  output_protocols: [score_then_justification]
+  history_template: dyadic_anon_prior_round
+  replicates: 1
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

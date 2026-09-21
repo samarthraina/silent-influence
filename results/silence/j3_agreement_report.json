@@ -1,0 +1,388 @@
+{
+  "inputs": {
+    "J3_file": "judge_J3_gptoss_raw.jsonl",
+    "J3_sha256": "4b94e4c18ef1121d835c8e88d67d7e06ab093e70c0787146c25eac86ffde0a25",
+    "items_sha256": "a53028f34bd765405e6cbfb0da6072eea894d4fed3ce6853170a3d0dd7194fc4"
+  },
+  "integrity": {
+    "expected_items": 1872,
+    "rows_written": 1872,
+    "unique_ids": 1872,
+    "duplicate_rows": 0,
+    "missing_ids": [],
+    "n_missing": 0,
+    "unexpected_ids": [],
+    "n_unexpected": 0,
+    "parse_ok": 1869,
+    "parse_failures": 3,
+    "parse_success_rate": 0.998397,
+    "parse_failure_status_counts": {
+      "bad_json": 3
+    },
+    "consistency_flags": 0,
+    "model_revisions_seen": [
+      "6cee5e81ee83917806bbde320786a8fb61efebee"
+    ],
+    "non_N_predictions": 18,
+    "non_N_with_evidence_span": 18
+  },
+  "label_distribution": {
+    "J3": {
+      "N": 1851,
+      "A": 18
+    },
+    "J1": {
+      "N": 1845,
+      "D": 3,
+      "A": 23
+    },
+    "J2": {
+      "N": 1824,
+      "A": 37,
+      "D": 5
+    },
+    "J3_context_mentioned": {
+      "no": 1851,
+      "yes": 18
+    }
+  },
+  "pairwise": {
+    "J1_vs_J2": {
+      "pair": "J1 (Qwen3-8B) vs J2 (gemma-2-9b-it)",
+      "n_common": 1872,
+      "n_both_parsed": 1866,
+      "four_way_label": {
+        "percent_agreement": 0.9839,
+        "cohens_kappa": 0.5318,
+        "confusion_rows_first_cols_second": {
+          "A": {
+            "A": 16,
+            "N": 4,
+            "D": 0,
+            "U": 0
+          },
+          "N": {
+            "A": 18,
+            "N": 1820,
+            "D": 5,
+            "U": 0
+          },
+          "D": {
+            "A": 3,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          },
+          "U": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          }
+        }
+      },
+      "binary_acknowledgment_A_vs_rest": {
+        "percent_agreement": 0.9866,
+        "cohens_kappa": 0.5552,
+        "confusion": {
+          "A": {
+            "A": 16,
+            "not_A": 4
+          },
+          "not_A": {
+            "A": 21,
+            "not_A": 1825
+          }
+        }
+      },
+      "binary_reference_present_A_or_D": {
+        "percent_agreement": 0.9855,
+        "cohens_kappa": 0.5779
+      },
+      "binary_context_mentioned": {
+        "percent_agreement": 0.9845,
+        "cohens_kappa": 0.56,
+        "confusion": {
+          "yes": {
+            "yes": 19,
+            "no": 4
+          },
+          "no": {
+            "yes": 25,
+            "no": 1818
+          }
+        }
+      }
+    },
+    "J3_vs_J1": {
+      "pair": "J3 (gpt-oss-20b) vs J1 (Qwen3-8B)",
+      "n_common": 1872,
+      "n_both_parsed": 1868,
+      "four_way_label": {
+        "percent_agreement": 0.993,
+        "cohens_kappa": 0.7013,
+        "confusion_rows_first_cols_second": {
+          "A": {
+            "A": 14,
+            "N": 1,
+            "D": 3,
+            "U": 0
+          },
+          "N": {
+            "A": 9,
+            "N": 1841,
+            "D": 0,
+            "U": 0
+          },
+          "D": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          },
+          "U": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          }
+        }
+      },
+      "binary_acknowledgment_A_vs_rest": {
+        "percent_agreement": 0.993,
+        "cohens_kappa": 0.6795,
+        "confusion": {
+          "A": {
+            "A": 14,
+            "not_A": 4
+          },
+          "not_A": {
+            "A": 9,
+            "not_A": 1841
+          }
+        }
+      },
+      "binary_reference_present_A_or_D": {
+        "percent_agreement": 0.9946,
+        "cohens_kappa": 0.7701
+      },
+      "binary_context_mentioned": {
+        "percent_agreement": 0.9946,
+        "cohens_kappa": 0.7701,
+        "confusion": {
+          "yes": {
+            "yes": 17,
+            "no": 1
+          },
+          "no": {
+            "yes": 9,
+            "no": 1841
+          }
+        }
+      }
+    },
+    "J3_vs_J2": {
+      "pair": "J3 (gpt-oss-20b) vs J2 (gemma-2-9b-it)",
+      "n_common": 1872,
+      "n_both_parsed": 1863,
+      "four_way_label": {
+        "percent_agreement": 0.9855,
+        "cohens_kappa": 0.5367,
+        "confusion_rows_first_cols_second": {
+          "A": {
+            "A": 16,
+            "N": 1,
+            "D": 0,
+            "U": 0
+          },
+          "N": {
+            "A": 21,
+            "N": 1820,
+            "D": 5,
+            "U": 0
+          },
+          "D": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          },
+          "U": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          }
+        }
+      },
+      "binary_acknowledgment_A_vs_rest": {
+        "percent_agreement": 0.9882,
+        "cohens_kappa": 0.5874,
+        "confusion": {
+          "A": {
+            "A": 16,
+            "not_A": 1
+          },
+          "not_A": {
+            "A": 21,
+            "not_A": 1825
+          }
+        }
+      },
+      "binary_reference_present_A_or_D": {
+        "percent_agreement": 0.9855,
+        "cohens_kappa": 0.5363
+      },
+      "binary_context_mentioned": {
+        "percent_agreement": 0.9844,
+        "cohens_kappa": 0.5182,
+        "confusion": {
+          "yes": {
+            "yes": 16,
+            "no": 1
+          },
+          "no": {
+            "yes": 28,
+            "no": 1818
+          }
+        }
+      }
+    }
+  },
+  "three_judge": {
+    "n_all_three_parsed": 1863,
+    "unanimous": 1829,
+    "two_of_three": 34,
+    "all_three_differ": 0,
+    "fleiss_kappa_4cat": 0.5797
+  },
+  "vs_frozen_J1_J2_consensus": {
+    "consensus_definition": "J1 and J2 assigned the same acknowledgment_label (merge_silence.py); discordant items remain excluded",
+    "n_consensus_items": 1836,
+    "n_also_parsed_by_J3": 1833,
+    "four_way_label": {
+      "percent_agreement": 0.9978,
+      "cohens_kappa": 0.8656,
+      "confusion_rows_consensus_cols_J3": {
+        "A": {
+          "A": 13,
+          "N": 3,
+          "D": 0,
+          "U": 0
+        },
+        "N": {
+          "A": 1,
+          "N": 1816,
+          "D": 0,
+          "U": 0
+        },
+        "D": {
+          "A": 0,
+          "N": 0,
+          "D": 0,
+          "U": 0
+        },
+        "U": {
+          "A": 0,
+          "N": 0,
+          "D": 0,
+          "U": 0
+        }
+      }
+    },
+    "binary_acknowledgment_A_vs_rest": {
+      "percent_agreement": 0.9978,
+      "cohens_kappa": 0.8656
+    },
+    "J3_labels_on_the_J1_J2_discordant_items": {
+      "N": 27,
+      "A": 3
+    }
+  },
+  "human_validation": {
+    "annotator_A": {
+      "file": "human_validation_A.csv",
+      "exists": false,
+      "n_rows": 0,
+      "label_column": null,
+      "n_labelled": 0,
+      "sha256": null
+    },
+    "annotator_B": {
+      "file": "human_validation_B.csv",
+      "exists": false,
+      "n_rows": 0,
+      "label_column": null,
+      "n_labelled": 0,
+      "sha256": null
+    },
+    "comparison_possible": false,
+    "note": "Not produced. The 120-item human-validation files exist but carry no labels, so GPT-OSS vs each annotator and GPT-OSS vs human consensus cannot be computed. Both files were read only to count labels and are unchanged."
+  },
+  "unblinded_rates": {
+    "note": "computed after every agreement statistic above",
+    "condition": {
+      "no_history": {
+        "n": 934,
+        "label_counts": {
+          "N": 933,
+          "A": 1
+        },
+        "acknowledged_A_rate": 0.0011,
+        "acknowledged_or_denied_rate": 0.0011,
+        "context_mentioned_yes_rate": 0.0011
+      },
+      "self_low_2": {
+        "n": 935,
+        "label_counts": {
+          "N": 918,
+          "A": 17
+        },
+        "acknowledged_A_rate": 0.0182,
+        "acknowledged_or_denied_rate": 0.0182,
+        "context_mentioned_yes_rate": 0.0182
+      }
+    },
+    "scorer_key": {
+      "gemma": {
+        "n": 467,
+        "label_counts": {
+          "N": 464,
+          "A": 3
+        },
+        "acknowledged_A_rate": 0.0064,
+        "acknowledged_or_denied_rate": 0.0064,
+        "context_mentioned_yes_rate": 0.0064
+      },
+      "llama": {
+        "n": 467,
+        "label_counts": {
+          "N": 456,
+          "A": 11
+        },
+        "acknowledged_A_rate": 0.0236,
+        "acknowledged_or_denied_rate": 0.0236,
+        "context_mentioned_yes_rate": 0.0236
+      },
+      "olmo32b": {
+        "n": 467,
+        "label_counts": {
+          "N": 463,
+          "A": 4
+        },
+        "acknowledged_A_rate": 0.0086,
+        "acknowledged_or_denied_rate": 0.0086,
+        "context_mentioned_yes_rate": 0.0086
+      },
+      "qwen": {
+        "n": 468,
+        "label_counts": {
+          "N": 468
+        },
+        "acknowledged_A_rate": 0.0,
+        "acknowledged_or_denied_rate": 0.0,
+        "context_mentioned_yes_rate": 0.0
+      }
+    }
+  }
+}

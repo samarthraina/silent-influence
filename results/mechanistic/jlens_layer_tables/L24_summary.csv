@@ -1,0 +1,61 @@
+contrast,role,rank,token_id,token_repr,mean_delta_logprob,median_delta_logprob,sign_consistency
+self_low_2_minus_no_history,promoted,1,10015,' brief',5.594971,5.650391,1.0
+self_low_2_minus_no_history,promoted,2,37618,' Brief',4.619127,4.611328,1.0
+self_low_2_minus_no_history,promoted,3,27851,' briefly',4.615167,4.640625,1.0
+self_low_2_minus_no_history,promoted,4,6796,'brief',4.544745,4.607422,1.0
+self_low_2_minus_no_history,promoted,5,8994,' despite',4.534939,4.746094,1.0
+self_low_2_minus_no_history,promoted,6,87084,'Brief',4.195407,4.179688,1.0
+self_low_2_minus_no_history,promoted,7,14188,' neither',4.104906,4.032227,1.0
+self_low_2_minus_no_history,promoted,8,31555,' poorly',3.879028,3.669922,1.0
+self_low_2_minus_no_history,promoted,9,8060,' failure',3.798896,3.686523,1.0
+self_low_2_minus_no_history,promoted,10,26907,' unfortunately',3.779565,3.770508,1.0
+self_low_2_minus_no_history,suppressed,1,5573,' score',-1.73881,-1.705078,0.9722
+self_low_2_minus_no_history,suppressed,2,12618,'score',-1.715383,-1.797852,0.9444
+self_low_2_minus_no_history,suppressed,3,18607,' Score',-1.650253,-1.581055,0.9722
+self_low_2_minus_no_history,suppressed,4,10793,'Score',-1.513124,-1.503418,0.9444
+self_low_2_minus_no_history,suppressed,5,22264,'.score',-1.346,-1.322754,0.9306
+self_low_2_minus_no_history,suppressed,6,47795,'scores',-1.17842,-1.308105,0.9028
+self_low_2_minus_no_history,suppressed,7,12483,' scores',-1.174977,-1.126465,0.875
+self_low_2_minus_no_history,suppressed,8,82000,'.scalablytyped',-1.164603,-1.34375,0.8889
+self_low_2_minus_no_history,suppressed,9,10622,'_score',-1.112913,-1.116211,0.9028
+self_low_2_minus_no_history,suppressed,10,82360,'SCORE',-1.109009,-1.108887,0.9028
+self_high_10_minus_self_low_2,promoted,1,9250,' excellent',3.959907,4.017578,1.0
+self_high_10_minus_self_low_2,promoted,2,50755,'Excellent',3.551921,3.663086,1.0
+self_high_10_minus_self_low_2,promoted,3,14268,' perfectly',3.49037,3.484375,1.0
+self_high_10_minus_self_low_2,promoted,4,37866,' Excellent',3.315762,3.446289,1.0
+self_high_10_minus_self_low_2,promoted,5,4832,' perfect',3.105347,3.149414,1.0
+self_high_10_minus_self_low_2,promoted,6,32719,' beautifully',3.053606,3.138672,1.0
+self_high_10_minus_self_low_2,promoted,7,96507,' excelente',3.036275,3.048828,1.0
+self_high_10_minus_self_low_2,promoted,8,89646,' impeccable',3.026442,3.115234,1.0
+self_high_10_minus_self_low_2,promoted,9,33689,' superb',3.023495,3.076172,1.0
+self_high_10_minus_self_low_2,promoted,10,8414,' excell',3.01612,3.124023,1.0
+self_high_10_minus_self_low_2,suppressed,1,39223,' disappointing',-2.251145,-2.28125,1.0
+self_high_10_minus_self_low_2,suppressed,2,8060,' failure',-2.186507,-2.110352,1.0
+self_high_10_minus_self_low_2,suppressed,3,46579,' inadequate',-2.13984,-2.070312,1.0
+self_high_10_minus_self_low_2,suppressed,4,26907,' unfortunately',-2.099278,-2.036133,0.9722
+self_high_10_minus_self_low_2,suppressed,5,23023,' regret',-2.047884,-2.001953,1.0
+self_high_10_minus_self_low_2,suppressed,6,6996,' lack',-2.047173,-1.881836,1.0
+self_high_10_minus_self_low_2,suppressed,7,43251,' unhappy',-2.044463,-2.071289,1.0
+self_high_10_minus_self_low_2,suppressed,8,22109,' failing',-2.003336,-2.033203,1.0
+self_high_10_minus_self_low_2,suppressed,9,4745,' failed',-1.993295,-1.975098,1.0
+self_high_10_minus_self_low_2,suppressed,10,32614,' criticized',-1.951382,-1.891602,1.0
+self_low_2_minus_unrelated_low_2,promoted,1,11302,' feedback',1.94456,2.066406,0.9861
+self_low_2_minus_unrelated_low_2,promoted,2,21592,' YOUR',1.773849,1.884766,0.9861
+self_low_2_minus_unrelated_low_2,promoted,3,3293,' recent',1.717878,1.80957,0.9722
+self_low_2_minus_unrelated_low_2,promoted,4,701,' your',1.695509,1.775879,0.9861
+self_low_2_minus_unrelated_low_2,promoted,5,22479,'your',1.681435,1.770508,0.9861
+self_low_2_minus_unrelated_low_2,promoted,6,19347,' criticism',1.681095,1.750488,0.9583
+self_low_2_minus_unrelated_low_2,promoted,7,37957,' Feedback',1.680266,1.728027,0.9722
+self_low_2_minus_unrelated_low_2,promoted,8,18821,' yours',1.646947,1.773926,0.9861
+self_low_2_minus_unrelated_low_2,promoted,9,21674,'feedback',1.643797,1.692383,0.9722
+self_low_2_minus_unrelated_low_2,promoted,10,721,' _',1.6411,1.637695,1.0
+self_low_2_minus_unrelated_low_2,suppressed,1,8244,' overall',-1.125689,-1.050781,1.0
+self_low_2_minus_unrelated_low_2,suppressed,2,28993,' Overall',-1.102673,-0.908691,1.0
+self_low_2_minus_unrelated_low_2,suppressed,3,28589,'Overall',-1.067087,-0.90332,1.0
+self_low_2_minus_unrelated_low_2,suppressed,4,75773,'SetTitle',-1.062042,-1.019043,0.9861
+self_low_2_minus_unrelated_low_2,suppressed,5,59701,'IEnumerator',-1.054818,-1.04248,1.0
+self_low_2_minus_unrelated_low_2,suppressed,6,93553,'Rnd',-1.053285,-0.968018,1.0
+self_low_2_minus_unrelated_low_2,suppressed,7,33072,'DMETHOD',-1.032277,-0.97998,0.9861
+self_low_2_minus_unrelated_low_2,suppressed,8,1749,' method',-1.029625,-1.026855,1.0
+self_low_2_minus_unrelated_low_2,suppressed,9,29856,'idor',-1.014773,-0.951172,0.9722
+self_low_2_minus_unrelated_low_2,suppressed,10,95894,'olini',-1.005841,-0.956543,0.9444

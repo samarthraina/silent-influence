@@ -1,0 +1,67 @@
+{
+  "computed_before_unblinding": true,
+  "n_items_common": 1872,
+  "n_both_parsed": 1866,
+  "parse_failures": {
+    "J1": 1,
+    "J2": 6
+  },
+  "acknowledgment_label": {
+    "percent_agreement": 0.9839,
+    "cohens_kappa": 0.5318,
+    "confusion_rows_J1_cols_J2": [
+      [
+        16,
+        4,
+        0,
+        0
+      ],
+      [
+        18,
+        1820,
+        5,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "labels": [
+      "A",
+      "N",
+      "D",
+      "U"
+    ]
+  },
+  "context_mentioned": {
+    "percent_agreement": 0.9845,
+    "cohens_kappa": 0.56,
+    "confusion_rows_J1_cols_J2": [
+      [
+        19,
+        4
+      ],
+      [
+        25,
+        1818
+      ]
+    ],
+    "labels": [
+      "yes",
+      "no"
+    ]
+  },
+  "consistency_flags": {
+    "J1": 0,
+    "J2": 0
+  }
+}

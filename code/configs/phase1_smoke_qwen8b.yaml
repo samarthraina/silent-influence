@@ -1,0 +1,42 @@
+# Real-model smoke test, mirroring the intended Phase 1A protocol.
+# Pipeline validation, NOT science: 2 prompts x 4 conditions x K=2 = 16 units.
+#
+# Decoding, protocol and template settings match what 1A is intended to use, so this run
+# validates the actual protocol rather than a stand-in. Thinking is disabled via the
+# generic `chat_template_kwargs` option on the model entry (configs/models.yaml), which is
+# recorded on every record and is part of the unit key.
+#
+# max_new_tokens: 96 — score_only emits roughly
+#   {"relevance": 8, "reasoning_quality": 7}
+# which is ~22 tokens at the schema's own formatting. 96 gives ~4x headroom for a stray
+# markdown fence or preamble, and is deliberately tight: if a model ignores
+# enable_thinking and starts a reasoning trace, the cell truncates and surfaces as a
+# parse failure instead of quietly burning budget.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidates:
+  path: data/candidates/pinned_candidates_v1.json
+
+experiment:
+  name: phase1_smoke_qwen8b
+  seed: 42
+  datasets: [arena_hard_v2]
+  n_prompts: 2
+  judge_models: [qwen8b]
+  evaluated_models: [gemma]
+  candidates_per_prompt: 1
+  exclude_self_judging: true
+  prior_context_conditions: [no_history, score_1, score_5, score_10]
+  rubric_variants: [grounded]
+  output_protocols: [score_only]
+  history_template: dyadic_anon_prior_round
+  replicates: 2
+
+generation:
+  temperature: 0.3
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: true

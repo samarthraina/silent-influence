@@ -1,0 +1,425 @@
+{
+  "stage": "HELD-OUT VALIDATION",
+  "window": [
+    23,
+    24,
+    25
+  ],
+  "selected_layer": 24,
+  "layer_selected_before_validation": true,
+  "normalization": "(patched - target_baseline) / (source_baseline - target_baseline)",
+  "bootstrap": {
+    "unit": "task",
+    "n": 10000,
+    "seed": 20260818
+  },
+  "integrity": {
+    "n_calls": 624,
+    "parse_ok": 623,
+    "parse_ok_rate": 0.9984,
+    "a5_valid": 624,
+    "a5_valid_rate": 1.0,
+    "noop_identity": {
+      "n": 192,
+      "n_identical_to_baseline": 192,
+      "rate": 1.0
+    },
+    "same_condition_identity": {
+      "n": 192,
+      "n_identical_to_baseline": 192,
+      "rate": 1.0
+    },
+    "baseline_matches_frozen_behavioural": {
+      "n": 48,
+      "n_match": 48
+    }
+  },
+  "by_layer_direction": [
+    {
+      "label": "transfer L23 self_low_2->no_history",
+      "n_calls": 24,
+      "n_tasks": 24,
+      "raw_movement_mean": -0.26666666666666666,
+      "raw_ci": [
+        -0.47500000000000003,
+        -0.05833333333333335
+      ],
+      "raw_median": 0.0,
+      "normalized_mean": 0.17911877394636014,
+      "normalized_ci": [
+        0.03879310344827588,
+        0.3298611111111111
+      ],
+      "n_excluded_no_denominator": 0,
+      "positive_direction_fraction": 0.4166666666666667,
+      "positive_ci": [
+        0.20833333333333334,
+        0.625
+      ],
+      "kind": "transfer",
+      "layer": 23,
+      "direction": "self_low_2->no_history"
+    },
+    {
+      "label": "transfer L23 no_history->self_low_2",
+      "n_calls": 24,
+      "n_tasks": 24,
+      "raw_movement_mean": 0.5666666666666668,
+      "raw_ci": [
+        0.13750000000000004,
+        1.0791666666666668
+      ],
+      "raw_median": 0.0,
+      "normalized_mean": 0.22812500000000002,
+      "normalized_ci": [
+        0.030208333333333354,
+        0.4260416666666667
+      ],
+      "n_excluded_no_denominator": 0,
+      "positive_direction_fraction": 0.2916666666666667,
+      "positive_ci": [
+        0.125,
+        0.4583333333333333
+      ],
+      "kind": "transfer",
+      "layer": 23,
+      "direction": "no_history->self_low_2"
+    },
+    {
+      "label": "transfer L24 self_low_2->no_history",
+      "n_calls": 24,
+      "n_tasks": 24,
+      "raw_movement_mean": -0.28750000000000003,
+      "raw_ci": [
+        -0.5,
+        -0.07500000000000002
+      ],
+      "raw_median": 0.0,
+      "normalized_mean": 0.17217432950191572,
+      "normalized_ci": [
+        0.033285440613026816,
+        0.3194444444444444
+      ],
+      "n_excluded_no_denominator": 0,
+      "positive_direction_fraction": 0.4166666666666667,
+      "positive_ci": [
+        0.25,
+        0.625
+      ],
+      "kind": "transfer",
+      "layer": 24,
+      "direction": "self_low_2->no_history"
+    },
+    {
+      "label": "transfer L24 no_history->self_low_2",
+      "n_calls": 24,
+      "n_tasks": 24,
+      "raw_movement_mean": 0.65,
+      "raw_ci": [
+        0.20833333333333334,
+        1.1625
+      ],
+      "raw_median": 0.0,
+      "normalized_mean": 0.2559027777777778,
+      "normalized_ci": [
+        0.054166666666666696,
+        0.45625868055555546
+      ],
+      "n_excluded_no_denominator": 0,
+      "positive_direction_fraction": 0.3333333333333333,
+      "positive_ci": [
+        0.16666666666666666,
+        0.5416666666666666
+      ],
+      "kind": "transfer",
+      "layer": 24,
+      "direction": "no_history->self_low_2"
+    },
+    {
+      "label": "transfer L25 self_low_2->no_history",
+      "n_calls": 24,
+      "n_tasks": 24,
+      "raw_movement_mean": -0.24583333333333335,
+      "raw_ci": [
+        -0.45416666666666666,
+        -0.03750000000000001
+      ],
+      "raw_median": 0.0,
+      "normalized_mean": 0.15828544061302682,
+      "normalized_ci": [
+        0.020833333333333332,
+        0.3081896551724138
+      ],
+      "n_excluded_no_denominator": 0,
+      "positive_direction_fraction": 0.375,
+      "positive_ci": [
+        0.20833333333333334,
+        0.5833333333333334
+      ],
+      "kind": "transfer",
+      "layer": 25,
+      "direction": "self_low_2->no_history"
+    },
+    {
+      "label": "transfer L25 no_history->self_low_2",
+      "n_calls": 24,
+      "n_tasks": 24,
+      "raw_movement_mean": 0.5666666666666668,
+      "raw_ci": [
+        0.13750000000000004,
+        1.0750000000000002
+      ],
+      "raw_median": 0.0,
+      "normalized_mean": 0.21423611111111115,
+      "normalized_ci": [
+        0.023958333333333342,
+        0.40556423611111103
+      ],
+      "n_excluded_no_denominator": 0,
+      "positive_direction_fraction": 0.2916666666666667,
+      "positive_ci": [
+        0.125,
+        0.5
+      ],
+      "kind": "transfer",
+      "layer": 25,
+      "direction": "no_history->self_low_2"
+    },
+    {
+      "label": "early_control L2 self_low_2->no_history",
+      "n_calls": 23,
+      "n_tasks": 23,
+      "raw_movement_mean": -0.10434782608695654,
+      "raw_ci": [
+        -0.2305434782608695,
+        0.0
+      ],
+      "raw_median": 0.0,
+      "normalized_mean": 0.03885557221389306,
+      "normalized_ci": [
+        0.0,
+        0.08395802098950524
+      ],
+      "n_excluded_no_denominator": 0,
+      "positive_direction_fraction": 0.13043478260869565,
+      "positive_ci": [
+        0.0,
+        0.2608695652173913
+      ],
+      "kind": "early_control",
+      "layer": 2,
+      "direction": "self_low_2->no_history"
+    },
+    {
+      "label": "early_control L2 no_history->self_low_2",
+      "n_calls": 24,
+      "n_tasks": 24,
+      "raw_movement_mean": 0.041666666666666664,
+      "raw_ci": [
+        -0.16666666666666666,
+        0.2916666666666667
+      ],
+      "raw_median": 0.0,
+      "normalized_mean": -0.041666666666666664,
+      "normalized_ci": [
+        -0.20833333333333334,
+        0.125
+      ],
+      "n_excluded_no_denominator": 0,
+      "positive_direction_fraction": 0.125,
+      "positive_ci": [
+        0.0,
+        0.2916666666666667
+      ],
+      "kind": "early_control",
+      "layer": 2,
+      "direction": "no_history->self_low_2"
+    }
+  ],
+  "window_pooled": {
+    "self_low_2->no_history": {
+      "label": "window [23, 24, 25] self_low_2->no_history",
+      "n_calls": 72,
+      "n_tasks": 24,
+      "raw_movement_mean": -0.2666666666666667,
+      "raw_ci": [
+        -0.47500000000000003,
+        -0.05833333333333335
+      ],
+      "raw_median": 0.0,
+      "normalized_mean": 0.1698595146871009,
+      "normalized_ci": [
+        0.032407407407407406,
+        0.3171515804597698
+      ],
+      "n_excluded_no_denominator": 0,
+      "positive_direction_fraction": 0.4027777777777778,
+      "positive_ci": [
+        0.2222222222222222,
+        0.5972222222222222
+      ]
+    },
+    "no_history->self_low_2": {
+      "label": "window [23, 24, 25] no_history->self_low_2",
+      "n_calls": 72,
+      "n_tasks": 24,
+      "raw_movement_mean": 0.5944444444444446,
+      "raw_ci": [
+        0.1791666666666667,
+        1.0916666666666668
+      ],
+      "raw_median": 0.0,
+      "normalized_mean": 0.23275462962962962,
+      "normalized_ci": [
+        0.03958333333333338,
+        0.4237384259259258
+      ],
+      "n_excluded_no_denominator": 0,
+      "positive_direction_fraction": 0.3055555555555556,
+      "positive_ci": [
+        0.1388888888888889,
+        0.4861111111111111
+      ]
+    }
+  },
+  "by_dataset_DESCRIPTIVE": {
+    "arena_hard": {
+      "self_low_2->no_history": {
+        "label": "arena_hard self_low_2->no_history",
+        "n_calls": 24,
+        "n_tasks": 8,
+        "raw_movement_mean": -0.5625,
+        "raw_ci": [
+          -0.875,
+          -0.1875
+        ],
+        "raw_median": -0.75,
+        "normalized_mean": 0.3229166666666667,
+        "normalized_ci": [
+          0.03125,
+          0.59375
+        ],
+        "n_excluded_no_denominator": 0,
+        "positive_direction_fraction": 0.75,
+        "positive_ci": [
+          0.375,
+          1.0
+        ]
+      },
+      "no_history->self_low_2": {
+        "label": "arena_hard no_history->self_low_2",
+        "n_calls": 24,
+        "n_tasks": 8,
+        "raw_movement_mean": 0.3291666666666668,
+        "raw_ci": [
+          0.0,
+          0.816666666666667
+        ],
+        "raw_median": 0.0,
+        "normalized_mean": 0.1368055555555556,
+        "normalized_ci": [
+          0.0,
+          0.3250000000000002
+        ],
+        "n_excluded_no_denominator": 0,
+        "positive_direction_fraction": 0.20833333333333334,
+        "positive_ci": [
+          0.0,
+          0.5
+        ]
+      }
+    },
+    "mtbench": {
+      "self_low_2->no_history": {
+        "label": "mtbench self_low_2->no_history",
+        "n_calls": 24,
+        "n_tasks": 8,
+        "raw_movement_mean": 0.09583333333333328,
+        "raw_ci": [
+          -0.11250000000000004,
+          0.38749999999999996
+        ],
+        "raw_median": 0.0,
+        "normalized_mean": -0.0529214559386973,
+        "normalized_ci": [
+          -0.1918103448275862,
+          0.03735632183908047
+        ],
+        "n_excluded_no_denominator": 0,
+        "positive_direction_fraction": 0.041666666666666664,
+        "positive_ci": [
+          0.0,
+          0.125
+        ]
+      },
+      "no_history->self_low_2": {
+        "label": "mtbench no_history->self_low_2",
+        "n_calls": 24,
+        "n_tasks": 8,
+        "raw_movement_mean": 0.7916666666666666,
+        "raw_ci": [
+          0.16666666666666666,
+          1.625
+        ],
+        "raw_median": 0.0,
+        "normalized_mean": 0.3020833333333333,
+        "normalized_ci": [
+          0.08333333333333333,
+          0.59375
+        ],
+        "n_excluded_no_denominator": 0,
+        "positive_direction_fraction": 0.3333333333333333,
+        "positive_ci": [
+          0.08333333333333333,
+          0.6666666666666666
+        ]
+      }
+    },
+    "wildbench": {
+      "self_low_2->no_history": {
+        "label": "wildbench self_low_2->no_history",
+        "n_calls": 24,
+        "n_tasks": 8,
+        "raw_movement_mean": -0.3333333333333333,
+        "raw_ci": [
+          -0.6458333333333334,
+          -0.0625
+        ],
+        "raw_median": 0.0,
+        "normalized_mean": 0.23958333333333334,
+        "normalized_ci": [
+          0.041666666666666664,
+          0.5
+        ],
+        "n_excluded_no_denominator": 0,
+        "positive_direction_fraction": 0.4166666666666667,
+        "positive_ci": [
+          0.125,
+          0.75
+        ]
+      },
+      "no_history->self_low_2": {
+        "label": "wildbench no_history->self_low_2",
+        "n_calls": 24,
+        "n_tasks": 8,
+        "raw_movement_mean": 0.6625000000000001,
+        "raw_ci": [
+          -0.125,
+          1.8625
+        ],
+        "raw_median": 0.0,
+        "normalized_mean": 0.259375,
+        "normalized_ci": [
+          -0.25,
+          0.7502343749999966
+        ],
+        "n_excluded_no_denominator": 0,
+        "positive_direction_fraction": 0.375,
+        "positive_ci": [
+          0.125,
+          0.75
+        ]
+      }
+    }
+  }
+}

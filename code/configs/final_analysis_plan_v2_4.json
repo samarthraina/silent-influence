@@ -1,0 +1,204 @@
+{
+  "plan_id": "final_behavioral_study_sap_v2_amendment_A4",
+  "plan_version": "2.4",
+  "status": "pre-specified",
+  "prospective": true,
+  "prospective_evidence": {
+    "results/final_behavioral_study": false,
+    "results/final_behavioral_study_adjudicated": false,
+    "data/candidates/final_olmo_answers.json": false,
+    "generation_calls_executed": 0,
+    "scoring_calls_executed": 0,
+    "verified_on_hosts": [
+      "workstation",
+      "a100_instance_47940113"
+    ],
+    "interpretation": "all False / zero => no study output existed when A4 was frozen"
+  },
+  "amends": {
+    "plan_id": "final_behavioral_study_sap_v2_amendment_A3",
+    "path": "configs/final_analysis_plan_v2_3.json",
+    "sha256": "2d86b5df14f116b603159955468795af3530fc16e147f0df340f7d5383f1b86e"
+  },
+  "amendment_chain": [
+    {
+      "version": "2.0",
+      "path": "configs/final_analysis_plan.json",
+      "sha256": "ea41c3d6f4af734605850896049d54952eec9f9450713881b24b2d52611cd52c"
+    },
+    {
+      "version": "2.1",
+      "label": "A1",
+      "path": "configs/final_analysis_plan_v2_1.json",
+      "sha256": "0d92256df8e71fa74bcd9fa378f4602a71c47fec43dee709fc4b44f8991455b0"
+    },
+    {
+      "version": "2.2",
+      "label": "A2",
+      "path": "configs/final_analysis_plan_v2_2.json",
+      "sha256": "9b202820df5d0d8837e22bd701a473e48eb5f726cd1baf854018ef16e828cbc3"
+    },
+    {
+      "version": "2.2-C1",
+      "label": "C1",
+      "path": "configs/final_analysis_plan_v2_2_clarification_C1.json",
+      "sha256": "998e11461163c0b03a6490ef6c3e5c150f491f819d8d658acb3ea23bfb0c96e6"
+    },
+    {
+      "version": "2.3",
+      "label": "A3",
+      "path": "configs/final_analysis_plan_v2_3.json",
+      "sha256": "2d86b5df14f116b603159955468795af3530fc16e147f0df340f7d5383f1b86e"
+    },
+    {
+      "version": "2.4",
+      "label": "A4",
+      "path": "configs/final_analysis_plan_v2_4.json",
+      "sha256": "self"
+    }
+  ],
+  "amendment_narrative": "Code/research_notes/final_analysis_plan_amendment_A4.md",
+  "overwrites_history": false,
+  "non_destructive": true,
+  "statistical_content_changed": false,
+  "statistical_content_note": "no estimand, weight, population, contrast, bootstrap parameter, measurement basis or failure policy changes. A4 raises one decoding ceiling for one scorer.",
+  "the_change": {
+    "scorer_key": "olmo32b",
+    "hf_id": "allenai/Olmo-3.1-32B-Instruct",
+    "revision": "ac0587e4a7744a551c059d8cd17ba220bc940dae",
+    "revision_changed": false,
+    "parameter": "max_new_tokens",
+    "from": 512,
+    "to": 2048,
+    "applies_to_scorers": [
+      "olmo32b"
+    ],
+    "unchanged_at_512": [
+      "llama",
+      "qwen",
+      "gemma"
+    ],
+    "rationale_for_2048": "not fitted to the data: it is the value the answer generator already uses (generate_final_candidates.MAX_NEW_TOKENS = 2048), a pre-existing constant of this project",
+    "will_not_be_tuned_again": true
+  },
+  "unchanged_by_A4": [
+    "the frozen 578-task manifest and its hash",
+    "the six conditions and their exact added_context wording",
+    "the scoring prompt renderer and its wording",
+    "chat-template rendering and all twelve frozen render hashes",
+    "the four-scorer panel and every pinned revision",
+    "the automatic parser and every recovery rule",
+    "do_sample=False, seed 42, use_cache=True",
+    "answer generation (OLMo-3-7B, max_new_tokens=2048, seed 42) -- already 2048, not altered",
+    "batch size 1 (forced for all scorers by the 288-call batching-equivalence smoke)",
+    "call IDs and the total of 13,872 scoring calls",
+    "the primary 8-cell estimand at 1/8 and the secondary 12-cell estimand at 1/12",
+    "the bootstrap plan (10,000 replicates, seed 20260818, task-clustered, dataset-stratified, shared draws)",
+    "the 7 diagnostic contrasts and the robustness suite R1-R5",
+    "S1_three_scorer_sensitivity (6 cells at 1/6, 9 cells at 1/9, non-confirmatory)",
+    "the retry / technical-failure / parse-failure policy and the no-reserve-substitution rule"
+  ],
+  "trigger_evidence_condition_blind": {
+    "measured_at_utc": "2026-08-17",
+    "n_calls": 36,
+    "n_tasks": 6,
+    "n_conditions": 6,
+    "batch_size": 1,
+    "max_new_tokens_at_measurement": 512,
+    "n_parsed": 25,
+    "parse_rate": 0.6944,
+    "n_failed": 11,
+    "failure_rate": 0.3056,
+    "failure_statuses": {
+      "no_marker": 11
+    },
+    "n_cap_hit": 16,
+    "cap_hit_rate": 0.4444,
+    "cross_tab": {
+      "cap_not_reached": {
+        "n": 20,
+        "parsed": 20,
+        "parse_rate": 1.0
+      },
+      "cap_reached": {
+        "n": 16,
+        "parsed": 5,
+        "parse_rate": 0.3125
+      }
+    },
+    "all_failures_were_capped": true,
+    "uncapped_failures": 0,
+    "all_successes_used_parser_tier": 1,
+    "failures_read_in_full": 11,
+    "explicit_numeric_score_found_anywhere_in_failures": 0,
+    "no_score_was_inferred": true,
+    "parse_rate_by_condition": {
+      "no_history": "4/6",
+      "self_low_2": "4/6",
+      "other_low_2": "4/6",
+      "unrelated_low_2": "4/6",
+      "verbal_negative": "4/6",
+      "self_high_10": "5/6"
+    },
+    "condition_blind": "parse rate flat across conditions; failure is task-driven, not condition-driven",
+    "experimental_contrasts_inspected": "NONE",
+    "quantities_examined": [
+      "parse status",
+      "generated token counts",
+      "ceiling hits",
+      "generation seconds",
+      "text of failed responses"
+    ],
+    "projection_3468_calls": {
+      "point": 1060,
+      "wilson_95ci_calls_independent": [
+        624,
+        1625
+      ],
+      "task_clustered_95ci": [
+        162,
+        1957
+      ],
+      "honest_interval": "task_clustered; the 6 tasks were chosen to span the char range"
+    }
+  },
+  "determinism_argument": {
+    "max_new_tokens_is_an_upper_bound_not_a_target": true,
+    "raising_it_forces_longer_output": false,
+    "first_512_generated_tokens_unchanged": true,
+    "why": "under do_sample=False with a fixed seed and use_cache=True, token t depends only on tokens 0..t-1, so a higher upper bound cannot alter any token the 512-token run already produced; it only removes the stopping point",
+    "therefore_previously_complete_responses_must_be": "byte-identical",
+    "therefore_previously_truncated_responses_must_have": "the entire old text as an exact prefix"
+  },
+  "acceptance_criteria": {
+    "validation_set": "the same 6 frozen smoke tasks x all 6 frozen conditions",
+    "n_calls": 36,
+    "batch_size": 1,
+    "use_cache": true,
+    "isolated_output_directory": true,
+    "criteria": [
+      "36/36 parse with the unchanged frozen parser",
+      "zero responses reach the 2048 ceiling",
+      "previously-complete responses byte-identical",
+      "previously-capped responses: entire previous text is an exact prefix of the new text",
+      "identical prompts, rendered inputs, input token IDs, conditions and all other generation parameters",
+      "no protected final target created"
+    ],
+    "on_any_failure": "HARD STOP, return for review. Do not tune the ceiling again, do not modify the prompt or parser, do not start the study."
+  },
+  "explicit_non_claims": [
+    "NOT claimed that the raised ceiling eliminates missingness -- validation pending; any residual unparsed responses are reported, never imputed",
+    "NOT claimed that the missingness observed at 512 was ignorable or biased the estimate in a known direction",
+    "NOT claimed that OLMo score levels are comparable to the other three scorers; S1 remains the prespecified panel-composition sensitivity analysis, untouched by A4",
+    "NOT claimed that 30.6% is the production failure rate (n=6 tasks, non-random)"
+  ],
+  "carried_forward_findings": {
+    "batching": "all four scorers failed batch-1 token equivalence at batch 6 (llama/qwen/gemma 30/36 mismatches, olmo32b 33/36); batch size 1 for the whole study, which was already the frozen default. Memory preflight PASSED for all four.",
+    "peak_vram_batch1_gib": 62.7,
+    "recorded_as": "preflight engineering findings, never study results"
+  },
+  "unresolved_scientific_decisions": {
+    "count": 0,
+    "note": "A4 resolves one execution parameter; validation and the start decision remain"
+  }
+}

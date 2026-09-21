@@ -1,0 +1,503 @@
+{
+  "self_low_2_minus_no_history": {
+    "positive_means_more_promoted_under": "self_low_2",
+    "promoted": [
+      {
+        "rank": 1,
+        "token": "' brief'",
+        "id": 10015,
+        "mean": 5.594971,
+        "median": 5.650391,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 2,
+        "token": "' Brief'",
+        "id": 37618,
+        "mean": 4.619127,
+        "median": 4.611328,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 3,
+        "token": "' briefly'",
+        "id": 27851,
+        "mean": 4.615167,
+        "median": 4.640625,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 4,
+        "token": "'brief'",
+        "id": 6796,
+        "mean": 4.544745,
+        "median": 4.607422,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 5,
+        "token": "' despite'",
+        "id": 8994,
+        "mean": 4.534939,
+        "median": 4.746094,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 6,
+        "token": "'Brief'",
+        "id": 87084,
+        "mean": 4.195407,
+        "median": 4.179688,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 7,
+        "token": "' neither'",
+        "id": 14188,
+        "mean": 4.104906,
+        "median": 4.032227,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 8,
+        "token": "' poorly'",
+        "id": 31555,
+        "mean": 3.879028,
+        "median": 3.669922,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 9,
+        "token": "' failure'",
+        "id": 8060,
+        "mean": 3.798896,
+        "median": 3.686523,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 10,
+        "token": "' unfortunately'",
+        "id": 26907,
+        "mean": 3.779565,
+        "median": 3.770508,
+        "sign_consistency": 1.0
+      }
+    ],
+    "suppressed": [
+      {
+        "rank": 1,
+        "token": "' score'",
+        "id": 5573,
+        "mean": -1.73881,
+        "median": -1.705078,
+        "sign_consistency": 0.9722
+      },
+      {
+        "rank": 2,
+        "token": "'score'",
+        "id": 12618,
+        "mean": -1.715383,
+        "median": -1.797852,
+        "sign_consistency": 0.9444
+      },
+      {
+        "rank": 3,
+        "token": "' Score'",
+        "id": 18607,
+        "mean": -1.650253,
+        "median": -1.581055,
+        "sign_consistency": 0.9722
+      },
+      {
+        "rank": 4,
+        "token": "'Score'",
+        "id": 10793,
+        "mean": -1.513124,
+        "median": -1.503418,
+        "sign_consistency": 0.9444
+      },
+      {
+        "rank": 5,
+        "token": "'.score'",
+        "id": 22264,
+        "mean": -1.346,
+        "median": -1.322754,
+        "sign_consistency": 0.9306
+      },
+      {
+        "rank": 6,
+        "token": "'scores'",
+        "id": 47795,
+        "mean": -1.17842,
+        "median": -1.308105,
+        "sign_consistency": 0.9028
+      },
+      {
+        "rank": 7,
+        "token": "' scores'",
+        "id": 12483,
+        "mean": -1.174977,
+        "median": -1.126465,
+        "sign_consistency": 0.875
+      },
+      {
+        "rank": 8,
+        "token": "'.scalablytyped'",
+        "id": 82000,
+        "mean": -1.164603,
+        "median": -1.34375,
+        "sign_consistency": 0.8889
+      },
+      {
+        "rank": 9,
+        "token": "'_score'",
+        "id": 10622,
+        "mean": -1.112913,
+        "median": -1.116211,
+        "sign_consistency": 0.9028
+      },
+      {
+        "rank": 10,
+        "token": "'SCORE'",
+        "id": 82360,
+        "mean": -1.109009,
+        "median": -1.108887,
+        "sign_consistency": 0.9028
+      }
+    ]
+  },
+  "self_high_10_minus_self_low_2": {
+    "positive_means_more_promoted_under": "self_high_10",
+    "promoted": [
+      {
+        "rank": 1,
+        "token": "' excellent'",
+        "id": 9250,
+        "mean": 3.959907,
+        "median": 4.017578,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 2,
+        "token": "'Excellent'",
+        "id": 50755,
+        "mean": 3.551921,
+        "median": 3.663086,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 3,
+        "token": "' perfectly'",
+        "id": 14268,
+        "mean": 3.49037,
+        "median": 3.484375,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 4,
+        "token": "' Excellent'",
+        "id": 37866,
+        "mean": 3.315762,
+        "median": 3.446289,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 5,
+        "token": "' perfect'",
+        "id": 4832,
+        "mean": 3.105347,
+        "median": 3.149414,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 6,
+        "token": "' beautifully'",
+        "id": 32719,
+        "mean": 3.053606,
+        "median": 3.138672,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 7,
+        "token": "' excelente'",
+        "id": 96507,
+        "mean": 3.036275,
+        "median": 3.048828,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 8,
+        "token": "' impeccable'",
+        "id": 89646,
+        "mean": 3.026442,
+        "median": 3.115234,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 9,
+        "token": "' superb'",
+        "id": 33689,
+        "mean": 3.023495,
+        "median": 3.076172,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 10,
+        "token": "' excell'",
+        "id": 8414,
+        "mean": 3.01612,
+        "median": 3.124023,
+        "sign_consistency": 1.0
+      }
+    ],
+    "suppressed": [
+      {
+        "rank": 1,
+        "token": "' disappointing'",
+        "id": 39223,
+        "mean": -2.251145,
+        "median": -2.28125,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 2,
+        "token": "' failure'",
+        "id": 8060,
+        "mean": -2.186507,
+        "median": -2.110352,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 3,
+        "token": "' inadequate'",
+        "id": 46579,
+        "mean": -2.13984,
+        "median": -2.070312,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 4,
+        "token": "' unfortunately'",
+        "id": 26907,
+        "mean": -2.099278,
+        "median": -2.036133,
+        "sign_consistency": 0.9722
+      },
+      {
+        "rank": 5,
+        "token": "' regret'",
+        "id": 23023,
+        "mean": -2.047884,
+        "median": -2.001953,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 6,
+        "token": "' lack'",
+        "id": 6996,
+        "mean": -2.047173,
+        "median": -1.881836,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 7,
+        "token": "' unhappy'",
+        "id": 43251,
+        "mean": -2.044463,
+        "median": -2.071289,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 8,
+        "token": "' failing'",
+        "id": 22109,
+        "mean": -2.003336,
+        "median": -2.033203,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 9,
+        "token": "' failed'",
+        "id": 4745,
+        "mean": -1.993295,
+        "median": -1.975098,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 10,
+        "token": "' criticized'",
+        "id": 32614,
+        "mean": -1.951382,
+        "median": -1.891602,
+        "sign_consistency": 1.0
+      }
+    ]
+  },
+  "self_low_2_minus_unrelated_low_2": {
+    "positive_means_more_promoted_under": "self_low_2",
+    "promoted": [
+      {
+        "rank": 1,
+        "token": "' feedback'",
+        "id": 11302,
+        "mean": 1.94456,
+        "median": 2.066406,
+        "sign_consistency": 0.9861
+      },
+      {
+        "rank": 2,
+        "token": "' YOUR'",
+        "id": 21592,
+        "mean": 1.773849,
+        "median": 1.884766,
+        "sign_consistency": 0.9861
+      },
+      {
+        "rank": 3,
+        "token": "' recent'",
+        "id": 3293,
+        "mean": 1.717878,
+        "median": 1.80957,
+        "sign_consistency": 0.9722
+      },
+      {
+        "rank": 4,
+        "token": "' your'",
+        "id": 701,
+        "mean": 1.695509,
+        "median": 1.775879,
+        "sign_consistency": 0.9861
+      },
+      {
+        "rank": 5,
+        "token": "'your'",
+        "id": 22479,
+        "mean": 1.681435,
+        "median": 1.770508,
+        "sign_consistency": 0.9861
+      },
+      {
+        "rank": 6,
+        "token": "' criticism'",
+        "id": 19347,
+        "mean": 1.681095,
+        "median": 1.750488,
+        "sign_consistency": 0.9583
+      },
+      {
+        "rank": 7,
+        "token": "' Feedback'",
+        "id": 37957,
+        "mean": 1.680266,
+        "median": 1.728027,
+        "sign_consistency": 0.9722
+      },
+      {
+        "rank": 8,
+        "token": "' yours'",
+        "id": 18821,
+        "mean": 1.646947,
+        "median": 1.773926,
+        "sign_consistency": 0.9861
+      },
+      {
+        "rank": 9,
+        "token": "'feedback'",
+        "id": 21674,
+        "mean": 1.643797,
+        "median": 1.692383,
+        "sign_consistency": 0.9722
+      },
+      {
+        "rank": 10,
+        "token": "' _'",
+        "id": 721,
+        "mean": 1.6411,
+        "median": 1.637695,
+        "sign_consistency": 1.0
+      }
+    ],
+    "suppressed": [
+      {
+        "rank": 1,
+        "token": "' overall'",
+        "id": 8244,
+        "mean": -1.125689,
+        "median": -1.050781,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 2,
+        "token": "' Overall'",
+        "id": 28993,
+        "mean": -1.102673,
+        "median": -0.908691,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 3,
+        "token": "'Overall'",
+        "id": 28589,
+        "mean": -1.067087,
+        "median": -0.90332,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 4,
+        "token": "'SetTitle'",
+        "id": 75773,
+        "mean": -1.062042,
+        "median": -1.019043,
+        "sign_consistency": 0.9861
+      },
+      {
+        "rank": 5,
+        "token": "'IEnumerator'",
+        "id": 59701,
+        "mean": -1.054818,
+        "median": -1.04248,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 6,
+        "token": "'Rnd'",
+        "id": 93553,
+        "mean": -1.053285,
+        "median": -0.968018,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 7,
+        "token": "'DMETHOD'",
+        "id": 33072,
+        "mean": -1.032277,
+        "median": -0.97998,
+        "sign_consistency": 0.9861
+      },
+      {
+        "rank": 8,
+        "token": "' method'",
+        "id": 1749,
+        "mean": -1.029625,
+        "median": -1.026855,
+        "sign_consistency": 1.0
+      },
+      {
+        "rank": 9,
+        "token": "'idor'",
+        "id": 29856,
+        "mean": -1.014773,
+        "median": -0.951172,
+        "sign_consistency": 0.9722
+      },
+      {
+        "rank": 10,
+        "token": "'olini'",
+        "id": 95894,
+        "mean": -1.005841,
+        "median": -0.956543,
+        "sign_consistency": 0.9444
+      }
+    ]
+  }
+}

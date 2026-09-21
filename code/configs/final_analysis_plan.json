@@ -1,0 +1,378 @@
+{
+  "plan_id": "final_behavioral_study_sap_v2",
+  "plan_version": 2,
+  "supersedes": "final_behavioral_study_sap_v1",
+  "status": "pre-specified; written before any data for this study exists",
+  "narrative_companion": "Code/research_notes/final_analysis_plan.md (local, not in repo)",
+
+  "no_decision_gate": true,
+  "no_stopping_rule": true,
+  "no_success_threshold": true,
+  "no_conditional_rule_changing_primary_from_observed_data": true,
+  "removed_in_v2": [
+    "the differential-attrition tripwire that switched the primary analysis based on observed parse-failure spread (v1 parse_failure_policy.differential_attrition_tripwire)"
+  ],
+
+  "data_collection": {
+    "output_dir": "results/final_behavioral_study",
+    "fresh_run": true,
+    "merge_with_earlier_90task_run": false,
+    "task_manifest": {
+      "path": "data/prompts/final_tasks_v2_english_seed20260817.json",
+      "sha256": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+      "manifest_version": 2,
+      "scope": "english_language_tasks_only",
+      "n_tasks": 578,
+      "per_dataset": {"mtbench": 78, "arena_hard": 250, "wildbench": 250},
+      "arena_hard_category_allocation": {"coding": 105, "creative_writing": 73, "math": 72},
+      "arena_hard_allocation_note": "as built; explicitly unchanged",
+      "superseded_v1": {
+        "path": "data/prompts/final_tasks_seed20260817.json",
+        "sha256": "b3e3f49d6940026790e10313ba0ae7018a741cdd837584f8cd35e65df3475ea9",
+        "status": "preserved unmodified; multilingual; not used"
+      }
+    },
+    "n_generation_calls": 578,
+    "n_scoring_calls": 13872,
+    "call_grid": "578 tasks x 6 conditions x 4 scorers",
+    "generator": {
+      "hf_id": "allenai/Olmo-3-7B-Instruct",
+      "revision": "6e5971d9eba42665f5bd5a0fcf047f299ce1dccc",
+      "max_new_tokens": 2048
+    },
+    "scorers": [
+      {"key": "llama", "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
+       "revision": "0e9e39f249a16976918f6564b8830bc894c89659", "disable_thinking": false,
+       "chat_template_sha256_from_run": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65"},
+      {"key": "qwen", "hf_id": "Qwen/Qwen3-8B",
+       "revision": "b968826d9c46dd6066d109eabc6255188de91218", "disable_thinking": true,
+       "chat_template_sha256_from_run": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+       "template_reverified_independently": true},
+      {"key": "gemma", "hf_id": "google/gemma-2-9b-it",
+       "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819", "disable_thinking": false,
+       "chat_template_sha256_from_run": "ecd6ae513fe103f0eb62e8ab5bfa8d0fe45c1074fa398b089c93a7e70c15cfd6"},
+      {"key": "mistral", "hf_id": "mistralai/Mistral-Small-24B-Instruct-2501",
+       "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+       "chat_template_sha256": "3934d199bfe5b6fab5cba1b5f8ee475e8d5738ac315f21cb09545b4e665cc005",
+       "config_pin_file": "configs/scorer_mistral_small_24b_pin.json",
+       "new_in_v2": true,
+       "blocking_open_decisions": ["E1", "E2"]}
+    ],
+    "conditions": ["no_history", "self_low_2", "other_low_2", "unrelated_low_2",
+                   "verbal_negative", "self_high_10"],
+    "decoding": {
+      "temperature": 0, "do_sample": false, "seed": 42,
+      "seed_mechanism": "transformers.set_seed before every generate call",
+      "pad_token_id": "tokenizer.eos_token_id",
+      "scorer_max_new_tokens": 512,
+      "decode": {"skip_special_tokens": true, "clean_up_tokenization_spaces": false},
+      "identical_across_all_four_scorers": true
+    },
+    "prompt": {
+      "user_message_only": true,
+      "renderer": "silent_influence.scaled_conditions",
+      "renderer_sha256": "ef676689c8c3e673de64526fe1a9b26379632d1030d31e018fc6cbef42f94a64",
+      "system_prompt_added_by_us": false,
+      "model_specific_evaluation_instructions": false,
+      "official_chat_template_unmodified": true
+    },
+    "precision": {"dtype": "bfloat16", "quantization": "none"},
+    "runtime_estimate_hours": {"generation": 3.3, "three_small_scorers": 21.5,
+                               "mistral_24b": 19, "total": 44,
+                               "basis": "measured 20.38 s/generation and 7.45 s/scoring call on the 90-task run; 24B estimated ~20 s/call",
+                               "subject_to": "E2"}
+  },
+
+  "definitions": {
+    "score_range": [0, 10],
+    "imputation": "never",
+    "complete_pair": "a (task, scorer) triple contributes a paired difference for contrast A-B iff both A and B yielded a score for that task and scorer",
+    "cell": "(dataset, scorer) pair",
+    "n_cells_primary": 8,
+    "n_cells_secondary": 12,
+    "cell_mean": "unweighted mean of paired differences over tasks in that dataset with a complete pair for that scorer",
+    "task_level_effect": "mean of a task's paired differences across the scorers with a complete pair (1-4 values)",
+    "report_N_everywhere": true
+  },
+
+  "primary_analysis": {
+    "confirmatory": true,
+    "is_the_only_confirmatory_analysis": true,
+    "population": "the 500 fully held-out tasks (250 Arena-Hard + 250 WildBench); no prior use in any phase",
+    "population_rationale": "MT-Bench is excluded from the primary because 74 of its 78 tasks carry prior exposure",
+    "n_tasks": 500,
+    "contrast": {"a": "no_history", "b": "self_low_2", "name": "no_history_minus_self_low_2"},
+    "sign_convention": "positive means the injected low personal history reduced the scorer's current judgement",
+    "estimand": "equal_weighted_macro_average_over_8_cells",
+    "estimator": {
+      "method": "equal-weight mean of the 8 (dataset x scorer) cell means",
+      "cell_weight": 0.125,
+      "n_cells": 8,
+      "dataset_total_weight": 0.5,
+      "scorer_total_weight": 0.25
+    },
+    "measurement_basis": "blinded_adjudicated_scores",
+    "reported": ["macro_average", "ci_95", "eight_cell_means_with_N", "empty_cell_replicate_count"]
+  },
+
+  "key_secondary_analysis": {
+    "confirmatory": false,
+    "label": "complete 578-task result",
+    "population": "all 578 tasks",
+    "estimand": "equal_weighted_macro_average_over_12_cells",
+    "estimator": {
+      "method": "equal-weight mean of the 12 (dataset x scorer) cell means",
+      "cell_weight": 0.08333333333333333,
+      "n_cells": 12,
+      "dataset_total_weight": 0.3333333333333333,
+      "scorer_total_weight": 0.25
+    },
+    "measurement_basis": "blinded_adjudicated_scores",
+    "caveat": "places 1/3 of the dataset weight on MT-Bench, which is 95% previously used",
+    "reported": ["macro_average", "ci_95", "twelve_cell_means_with_N"]
+  },
+
+  "bootstrap": {
+    "n_replicates": 10000,
+    "seed": 20260818,
+    "resampling_unit": "task",
+    "cluster": "all scorer x condition records of a task travel together; a task drawn twice contributes its records twice",
+    "stratification": "by dataset; within each stratum draw with replacement the same number of tasks the stratum contains",
+    "stratum_sizes_primary": {"arena_hard": 250, "wildbench": 250},
+    "stratum_sizes_secondary": {"mtbench": 78, "arena_hard": 250, "wildbench": 250},
+    "ci_method": "percentile",
+    "ci_bounds": [2.5, 97.5],
+    "shared_draws": "one resampled task-set per replicate feeds every statistic in this plan",
+    "empty_cell_rule": {
+      "action": "average over the non-empty cells in that replicate",
+      "report": "count of replicates with any empty cell",
+      "decision_ref": "E5"
+    }
+  },
+
+  "secondary_summaries": [
+    {"name": "task_weighted_pooled",
+     "definition": "unweighted mean over tasks of the task-level effect; each task equal weight, scorers averaged within task first",
+     "populations": ["heldout_500", "full_578"],
+     "retained_per_instruction": true},
+    {"name": "pair_weighted_pooled",
+     "definition": "unweighted mean over all complete (task, scorer) pairs",
+     "note": "the only direct numerical comparator to the 90-task adjudicated 1.201"},
+    {"name": "dataset_wise", "definition": "per dataset, mean of its 4 scorer cell means"},
+    {"name": "scorer_wise", "definition": "per scorer, mean of its dataset cell means"},
+    {"name": "per_condition_levels",
+     "definition": "mean, SD, N per condition x scorer x dataset (descriptive)"}
+  ],
+
+  "task_level_distribution": {
+    "metric": "task_level_effect of the primary contrast",
+    "denominator": "tasks with at least one complete pair (N stated)",
+    "fractions": ["gt_0", "eq_0", "lt_0", "ge_1", "ge_2"],
+    "also": ["min", "p25", "median", "p75", "max", "full ranked per-task CSV"],
+    "populations": ["heldout_500", "full_578"],
+    "scopes": ["overall", "per_dataset"]
+  },
+
+  "measurement_and_adjudication": {
+    "primary_measurement": "blinded_adjudicated_scores",
+    "principal_sensitivity": "automatic_parser_complete_cases",
+    "both_reported_for_every_estimand": true,
+    "automatic_parser": {
+      "module": "silent_influence.scaled_parsing",
+      "sha256": "3a6a59caa666092fe49f13603364cb8222e894fe0c6c93855e54116cdd88ba78"
+    },
+    "recovery_rules": {
+      "module": "silent_influence.score_recovery",
+      "sha256": "49d34c129d5ad20a7501cac232e745974dd3a04ecf4d002546de39e43a355d99"
+    },
+    "rules": [
+      "recover only an explicitly stated score: a score-meaning label in any language, or an explicit verdict verb, adjacent to an explicit /10 or 'out of 10'",
+      "never an unrestricted bare-number fallback",
+      "never a number lifted from the rationale",
+      "never a component or criterion score presented as the verdict",
+      "ambiguous responses remain unresolved and stay excluded from every analysis"
+    ],
+    "blinded_review": {
+      "required": true,
+      "read": "response text only",
+      "forbidden_during_adjudication": ["contrasts", "cell means", "effect estimates",
+                                        "condition-level aggregates"],
+      "ordering": "adjudication completes before any contrast is computed"
+    },
+    "independent_verification": {
+      "required_for": "every manually recovered score",
+      "method": "a second independent blinded pass re-derives the score from the response text without seeing the first pass's value",
+      "agreement_required": true,
+      "on_disagreement": "leave the response unresolved; never split the difference, never prefer one reader",
+      "decision_ref": "E6"
+    },
+    "evidence_required_per_recovery": "the quoted phrase that justifies the score",
+    "freezing": "adjudication file written, hashed, and frozen before analysis; hash recorded in the results manifest",
+    "counts_reported": ["automatically_recovered", "manually_recovered_and_verified",
+                        "remaining_unresolved"]
+  },
+
+  "attrition_reporting": {
+    "transparent": true,
+    "conditional_on_analysis_choice": false,
+    "breakdown": ["scorer", "dataset", "condition"],
+    "include": ["count", "rate", "per-condition spread within each scorer", "parse_status",
+                "full response text"],
+    "silent_drop": "never",
+    "note": "described and interpreted in the write-up; does NOT alter which analysis is primary"
+  },
+
+  "diagnostic_contrasts": {
+    "confirmatory": false,
+    "multiplicity_adjusted": false,
+    "presentation": "descriptive, unadjusted 95% CIs",
+    "caveat": "with 7 contrasts across several scopes some will exclude zero by chance; not seven independent confirmations",
+    "scopes": ["pooled", "dataset", "scorer"],
+    "contrasts": [
+      {"a": "other_low_2", "b": "self_low_2"},
+      {"a": "unrelated_low_2", "b": "self_low_2"},
+      {"a": "no_history", "b": "unrelated_low_2"},
+      {"a": "no_history", "b": "verbal_negative"},
+      {"a": "self_high_10", "b": "self_low_2"},
+      {"a": "self_high_10", "b": "no_history"},
+      {"a": "no_history", "b": "other_low_2"}
+    ]
+  },
+
+  "robustness": {
+    "R1_trimmed_mean": {"trim_fraction": 0.10, "symmetric": true,
+                        "applied": "within each cell, in place of the mean",
+                        "estimands": ["primary_8_cell", "secondary_12_cell"],
+                        "decision_ref": "E4"},
+    "R2_leave_one_task_out": {
+      "n_recomputations_primary": 500, "n_recomputations_secondary": 578,
+      "report": ["min", "max", "range", "10 most influential tasks by absolute shift"]},
+    "R3_adjudicated_vs_complete_case": {
+      "primary_variant": "adjudicated", "sensitivity_variant": "complete_case",
+      "run_for": "every estimand"},
+    "R4_prior_use_descriptive": {
+      "groups": {"previously_used": 74, "held_out": 504},
+      "CONFOUNDED_WITH_DATASET": true,
+      "confound_statement": "Previous-use status is completely confounded with MT-Bench and cannot receive a causal interpretation. All 74 previously-used tasks are MT-Bench; only 4 MT-Bench tasks are naive, so any group difference is indistinguishable from a MT-Bench vs other-datasets difference.",
+      "status": "descriptive only",
+      "forbidden_claim": "no statement of the form 'prior exposure changes the effect' may be made from this comparison",
+      "design_level_answer": "the primary analysis, restricted to the 500 never-used tasks"},
+    "R5_attrition_audit": "see attrition_reporting"
+  },
+
+  "collection_failure_policy": {
+    "technical_failure_definition": ["exception during generation or scoring",
+                                     "literally empty output"],
+    "retry": {"max_attempts": 3, "identical_prompt": true, "identical_decoding_config": true},
+    "determinism_note": "with do_sample=False and a fixed seed a deterministic empty output reproduces on retry; retries absorb environmental faults (CUDA/OOM/transient IO), not model behaviour",
+    "parse_failure_is_not_a_technical_failure": true,
+    "parse_failure_never_retried": true,
+    "never_alter_prompt_or_decoding_to_obtain_a_parseable_response": true,
+    "reserve_substitution_after_run_begins": false,
+    "persistent_failure_handling": {
+      "outcome": "remains missing",
+      "stays_in_manifest": true,
+      "contributes_no_records": true,
+      "reduces_N_and_N_is_stated": true,
+      "substituted": false
+    },
+    "implementation_change_required": {
+      "file": "scripts/generate_scaled_candidates.py",
+      "change": "disable reserve substitution on persistent failure",
+      "reason": "current code substitutes from the reserve list; the plan forbids it"
+    },
+    "token_capped_answer": {"treated_as": "valid outcome", "regenerated": false,
+                            "excluded": false},
+    "exclusion_on_answer_quality_scores_or_effects": "never, at any point, for any reason"
+  },
+
+  "pinned_provenance": {
+    "task_manifest_v2_sha256": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+    "task_manifest_v1_sha256_superseded": "b3e3f49d6940026790e10313ba0ae7018a741cdd837584f8cd35e65df3475ea9",
+    "sources": {
+      "mtbench": {"repo": "HuggingFaceH4/mt_bench_prompts",
+        "revision": "e3a795c5e9a82ee40611c416b8a7786c73198991",
+        "file_sha256": "420ae1d63cbf0f499d8afc3b28d86714e77f13e44c133eedf942ed16c544dd34"},
+      "arena_hard": {"repo": "lmarena/arena-hard-auto",
+        "revision": "196f6b826783b3da7310e361a805fa36f0be83f3",
+        "file_sha256": "a75cef6623db6b27aec810497b059f0659705d7ff48dcbccc5bd5b130728ac73"},
+      "wildbench": {"repo": "allenai/WildBench",
+        "revision": "26c49eb39d7d5ce2099b0bbafed5a88dcce954ec",
+        "file_sha256": "e1fbdc5d46deca34e77f92991c23b0476860e26adf2bf28379a3bb3bf00d3ed6"}
+    },
+    "modules": {
+      "scaled_conditions.py": "ef676689c8c3e673de64526fe1a9b26379632d1030d31e018fc6cbef42f94a64",
+      "scaled_parsing.py": "3a6a59caa666092fe49f13603364cb8222e894fe0c6c93855e54116cdd88ba78",
+      "exact_generation.py": "34b3c6fbcdfd36c305fca0a22aa7130538cd58f7249b01dcfb7c7f287e147ff3",
+      "score_recovery.py": "49d34c129d5ad20a7501cac232e745974dd3a04ecf4d002546de39e43a355d99",
+      "english_assessment.py": "2cf30c6a2ff0ff0b58cfc48dc9a7a070bfe43c50e9beda9786e7221d1493e1d2",
+      "language_decisions.py": "5e7f860ded4d27c7d63924df47bc5e7e7d0b27cd3d63cbbf4bf2ef791da066d5"
+    },
+    "mistral_config_hashes": {
+      "config.json": "ff5f8d1747db4e16def20db719d867e74d0b764330249357351b2b44520b8001",
+      "tokenizer_config.json": "85090a231c4b1432c95cf62d5857777df08c0939fc698bf89b91ccc96f92400e",
+      "generation_config.json": "ba3438ca12420844b39264cc665c93f8ce16232dff902837791eaf80799ca457",
+      "special_tokens_map.json": "5bc5d1c106bf86895473568ef5211f3fde8415e6fdee039223d6db8ca52cbe01",
+      "params.json": "2bc824a0e7adb9b27bb0932bdda1666e05b533b6a6446ca76ee711eefb06dbdc",
+      "chat_template": "3934d199bfe5b6fab5cba1b5f8ee475e8d5738ac315f21cb09545b4e665cc005"
+    },
+    "seeds": {"selection": 20260817, "bootstrap": 20260818, "decoding": 42}
+  },
+
+  "supporting_prior_experiment": {
+    "label": "90-task scaled behavioral run (separate supporting experiment)",
+    "adjudicated_pair_weighted_pooled": 1.201,
+    "ci_95": [1.061, 1.347],
+    "merged_into_this_study": false,
+    "may_be_cited_alongside": true
+  },
+
+  "deliverables": [
+    "raw_results.jsonl", "frozen_olmo_answers.json", "selected_tasks.json",
+    "generation_records.jsonl", "results.csv", "condition_summary.csv",
+    "contrast_summary.csv", "primary_heldout_500_analysis.json",
+    "secondary_full_578_analysis.json", "task_level_effects.csv", "robustness/",
+    "parse_failure_audit.csv", "parse_failure_report.md",
+    "score_recovery_adjudication.json", "bootstrap_config.json", "environment.json",
+    "manifest_generation.json", "manifest_scoring.json", "run.log", "full_responses.txt",
+    "figures (PNG + PDF)"
+  ],
+
+  "open_decisions": [
+    {"id": "E1", "priority": "BLOCKS RUN", "severity": "highest",
+     "issue": "Mistral's official chat template injects a default system persona AND today's date via strftime_now when no system turn is supplied, so 'use the official template' and 'add no system prompt' cannot both be satisfied as written",
+     "verified": "by reading the template at the pinned revision",
+     "consequences": [
+       "a user-only message does not yield a system-prompt-free prompt for this model (Qwen verified clean by contrast)",
+       "the rendered prompt changes every calendar day, so scoring prompts are not byte-reproducible",
+       "the default persona tells the model to ask for clarification rather than answer ambiguous requests, plausibly raising non-score responses for this scorer specifically"],
+     "options": ["pass an explicit empty system message",
+                 "accept the default persona and pin the date",
+                 "modify the template to skip the system block",
+                 "drop Mistral"],
+     "recommendation": "pass an explicit empty system message: no persona, no evaluation instructions, no date leakage, template unmodified; cost is an empty [SYSTEM_PROMPT][/SYSTEM_PROMPT] tag pair",
+     "related_action": "the pre-flight gate should record the RENDERED template output for one fixed task per scorer, not just the template hash, because Llama-3.1's template is known in some versions to inject a 'Today Date:' string and could not be re-verified from here (gated repo)"},
+    {"id": "E2", "priority": "BLOCKS RUN", "severity": "highest",
+     "issue": "the 24B scorer does not fit on the current GPU in BF16 and quantization is excluded",
+     "numbers": {"bf16_weights_gib": 43.9, "with_kv_and_activations_gib": 48,
+                 "current_gpu": "RTX 5000 Ada 32 GiB", "fits": false},
+     "options": ["single >=80 GiB GPU (A100/H100)",
+                 "multi-GPU sharding totalling >= ~55 GiB usable"],
+     "implementation_note": "exact_generation pins device_map={\"\": 0}, which forces one device and will OOM; a 24B scorer needs device_map=\"auto\" or a larger single card"},
+    {"id": "E3", "priority": "informational",
+     "issue": "Mistral ships generation_config with temperature 0.15 and do_sample true",
+     "status": "mitigated: do_sample=False is passed explicitly on every call, overriding the shipped default; expect a benign 'temperature set while do_sample=False' warning"},
+    {"id": "E4", "priority": "before analysis",
+     "issue": "confirm the 10% symmetric trim is applied within each cell rather than to the set of cell means",
+     "recommendation": "within each cell, as written"},
+    {"id": "E5", "priority": "before analysis",
+     "issue": "bootstrap empty-cell rule needs sign-off even though it should never fire",
+     "recommendation": "average over non-empty cells and report the affected replicate count"},
+    {"id": "E6", "priority": "before analysis",
+     "issue": "independent verification of manually recovered scores requires a genuinely separate second reader",
+     "recommendation": "confirm who performs the second blinded pass, and that it does not see the first pass's value; otherwise the requirement is nominal rather than real"},
+    {"id": "E7", "priority": "before run",
+     "issue": "publication status of this plan; project rules keep 'the plan' local and unpushed, but a public pre-registration only carries weight if filed before results exist",
+     "recommendation": "decide now, while no result exists"}
+  ]
+}

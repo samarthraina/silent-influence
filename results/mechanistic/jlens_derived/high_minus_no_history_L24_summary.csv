@@ -1,0 +1,41 @@
+token_id,token_string,mean_signed_delta_logprob,sign_consistency,n_tasks,role,sorting_rule
+5573, score,-1.389078,0.9444,72,suppressed,mean signed delta; top 20 each end
+18607, Score,-1.304866,0.9444,72,suppressed,mean signed delta; top 20 each end
+12618,score,-1.097418,0.9028,72,suppressed,mean signed delta; top 20 each end
+22264,.score,-0.941160,0.8889,72,suppressed,mean signed delta; top 20 each end
+12483, scores,-0.888619,0.8333,72,suppressed,mean signed delta; top 20 each end
+10793,Score,-0.880417,0.8889,72,suppressed,mean signed delta; top 20 each end
+82360,SCORE,-0.853032,0.8889,72,suppressed,mean signed delta; top 20 each end
+47795,scores,-0.790493,0.8333,72,suppressed,mean signed delta; top 20 each end
+16957, scored,-0.764909,0.8750,72,suppressed,mean signed delta; top 20 each end
+20413, scoring,-0.740596,0.8333,72,suppressed,mean signed delta; top 20 each end
+64219,(scores,-0.738215,0.8472,72,suppressed,mean signed delta; top 20 each end
+35580,(score,-0.721915,0.8472,72,suppressed,mean signed delta; top 20 each end
+70354, SCORE,-0.721510,0.8472,72,suppressed,mean signed delta; top 20 each end
+71094, Scores,-0.702407,0.7778,72,suppressed,mean signed delta; top 20 each end
+10622,_score,-0.643833,0.8333,72,suppressed,mean signed delta; top 20 each end
+76274,-score,-0.634224,0.7917,72,suppressed,mean signed delta; top 20 each end
+14038,izard,-0.626331,0.7778,72,suppressed,mean signed delta; top 20 each end
+83180,.Score,-0.616904,0.7778,72,suppressed,mean signed delta; top 20 each end
+28297,_scores,-0.613428,0.7778,72,suppressed,mean signed delta; top 20 each end
+64827,_SCORE,-0.531391,0.7639,72,suppressed,mean signed delta; top 20 each end
+10015, brief,4.981573,1.0000,72,promoted,mean signed delta; top 20 each end
+6796,brief,4.317457,1.0000,72,promoted,mean signed delta; top 20 each end
+1268, how,4.262084,1.0000,72,promoted,mean signed delta; top 20 each end
+27851, briefly,4.182338,1.0000,72,promoted,mean signed delta; top 20 each end
+37618, Brief,4.030034,1.0000,72,promoted,mean signed delta; top 20 each end
+9250, excellent,3.996495,1.0000,72,promoted,mean signed delta; top 20 each end
+14268, perfectly,3.919935,1.0000,72,promoted,mean signed delta; top 20 each end
+1664, well,3.779088,1.0000,72,promoted,mean signed delta; top 20 each end
+87084,Brief,3.686603,1.0000,72,promoted,mean signed delta; top 20 each end
+5269,how,3.675436,1.0000,72,promoted,mean signed delta; top 20 each end
+701, your,3.657472,1.0000,72,promoted,mean signed delta; top 20 each end
+2533, since,3.641257,1.0000,72,promoted,mean signed delta; top 20 each end
+8414, excell,3.607603,1.0000,72,promoted,mean signed delta; top 20 each end
+98519, breve,3.588810,1.0000,72,promoted,mean signed delta; top 20 each end
+3766, previous,3.571743,1.0000,72,promoted,mean signed delta; top 20 each end
+4395, everything,3.505409,1.0000,72,promoted,mean signed delta; top 20 each end
+433, it,3.481868,1.0000,72,promoted,mean signed delta; top 20 each end
+2500, another,3.415534,1.0000,72,promoted,mean signed delta; top 20 each end
+3249, why,3.409244,1.0000,72,promoted,mean signed delta; top 20 each end
+33689, superb,3.397577,1.0000,72,promoted,mean signed delta; top 20 each end

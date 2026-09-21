@@ -1,0 +1,62 @@
+# Dataset registry (Phase 1D).
+#
+# A dataset is a file plus a field mapping. Adding a source is a block here, never a code
+# change. `fields` maps this repo's names onto whatever the source file happens to call
+# them; `stratify: true` makes sampling balance over `category` when one is present.
+#
+# To add a candidate dataset:
+#   my_dataset:
+#     path: data/prompts/my_dataset.jsonl
+#     format: jsonl            # json_list | jsonl
+#     fields: {id: qid, text: question, category: domain}
+#     stratify: true
+# then add its name to `experiment.datasets` in a run config and pin candidate
+# responses for it with scripts/pin_candidates.py.
+
+datasets:
+
+  arena_hard_v2:
+    path: data/prompts/arena_hard_v2_30_seed42.json
+    format: json_list
+    fields:
+      id: prompt_id
+      text: prompt
+      category: subcategory
+    stratify: true
+    note: "30 prompts, seed 42, stratified coding/math/creative_writing"
+
+  # Pinned by scripts/prepare_dataset.py; each file records its source repo,
+  # revision, file sha256 and any exclusions.
+  mtbench_t1:
+    path: data/prompts/mtbench_t1_pinned.json
+    format: pinned_json
+    fields:
+      id: prompt_id
+      text: prompt
+      category: subcategory
+    stratify: true
+    note: "MT-Bench first turn only; question_id 131 and 138 excluded (the tasks
+           themselves ask for numeric ratings). Apache-2.0."
+
+  alpaca_eval:
+    path: data/prompts/alpaca_eval_pinned.json
+    format: pinned_json
+    fields:
+      id: prompt_id
+      text: prompt
+      category: subcategory
+    stratify: true
+    note: "AlpacaEval instructions, single-turn. CC-BY-NC-4.0 — non-commercial,
+           affects redistribution in a public artifact repo."
+
+  wildbench_v2:
+    path: data/prompts/wildbench_v2_pinned.json
+    format: pinned_json
+    fields:
+      id: prompt_id
+      text: prompt
+      category: subcategory
+    stratify: true
+    note: "WildBench v2 single-turn, structurally eligible subset (697 of 1024).
+           Exclusions and reasons are recorded in the pinned file. Licence is not
+           declared in the repo metadata - check the dataset card before redistribution."

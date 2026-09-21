@@ -1,0 +1,38 @@
+# ============================================================================
+# DATASET SUITABILITY SCREEN — judging. Not Phase 1A data.
+# ============================================================================
+# no_history ONLY. No score_1..score_10 arm is present, so dataset selection is
+# structurally incapable of being made on prior-score effect size.
+#
+# One judge per config so the three can run as separate processes, one per GPU,
+# with CUDA_VISIBLE_DEVICES picking the device. No multi-model sharing.
+#
+# Grid: 3 datasets x 12 prompts x 1 candidate x 1 condition x K=1 = 36 units.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidates:
+  path: data/candidates/screen_candidates_v1.json
+
+experiment:
+  name: SCREEN_nohistory_llama8b
+  seed: 42
+  datasets: [mtbench_t1, alpaca_eval, arena_hard_v2]
+  n_prompts: 12
+  judge_models: [llama8b]
+  evaluated_models: [modelx_olmo3]
+  candidates_per_prompt: 1
+  exclude_self_judging: true
+  prior_context_conditions: [no_history]
+  rubric_variants: [grounded]
+  output_protocols: [score_only]
+  history_template: dyadic_anon_prior_round
+  replicates: 1
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

@@ -1,0 +1,60 @@
+{
+  "record": "final_analysis_plan_v2_freeze",
+  "frozen_at_utc": "2026-08-17T08:01:11+00:00",
+  "status": "FROZEN",
+  "plan_version": 2,
+  "supersedes": "final_behavioral_study_sap_v1",
+  "artifacts": {
+    "human_readable_plan": {
+      "path": "Code/research_notes/final_analysis_plan.md",
+      "sha256": "9eecd39b4f8c6a60e32a1821f90b5b4e5415c993d894517f5876922b863e46ff",
+      "bytes": 20020
+    },
+    "machine_readable_config": {
+      "path": "configs/final_analysis_plan.json",
+      "sha256": "ea41c3d6f4af734605850896049d54952eec9f9450713881b24b2d52611cd52c",
+      "bytes": 21120
+    },
+    "mistral_scorer_pin": {
+      "path": "configs/scorer_mistral_small_24b_pin.json",
+      "sha256": "3ad5fec336531bc625274835cf23391d3c1a5f54ab27ee7142e9bd83c480b19a",
+      "bytes": 6581
+    },
+    "task_manifest_v2_frozen": {
+      "path": "data/prompts/final_tasks_v2_english_seed20260817.json",
+      "sha256": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f"
+    },
+    "task_manifest_v1_superseded": {
+      "path": "data/prompts/final_tasks_seed20260817.json",
+      "sha256": "b3e3f49d6940026790e10313ba0ae7018a741cdd837584f8cd35e65df3475ea9"
+    },
+    "manifest_v2_freeze_record": {
+      "path": "results/final_task_selection/manifest_v2_freeze_record.json",
+      "sha256": "d00e1d686f1325f7e77414c75789c31d0649db4744c6272f34469a99da6c170f"
+    }
+  },
+  "estimands": {
+    "primary_confirmatory": {
+      "population": "500 held-out Arena-Hard + WildBench tasks",
+      "cells": 8,
+      "cell_weight": 0.125,
+      "measurement": "blinded adjudicated scores"
+    },
+    "key_secondary": {
+      "population": "all 578 tasks",
+      "cells": 12,
+      "cell_weight": 0.08333333333333333,
+      "measurement": "blinded adjudicated scores"
+    },
+    "principal_sensitivity": "automatic-parser complete cases"
+  },
+  "n_scoring_calls": 13872,
+  "scorers": 4,
+  "blocking_open_decisions": [
+    "E1 (Mistral template injects system prompt + today's date)",
+    "E2 (24B does not fit 32 GiB in BF16; quantization excluded)"
+  ],
+  "no_models_run": true,
+  "no_weights_downloaded": true,
+  "no_gpu_used": true
+}

@@ -1,0 +1,203 @@
+{
+  "stage": "HELD-OUT CONTROL VALIDATION",
+  "layer": 24,
+  "beta": 1.5,
+  "alpha": 1.0,
+  "frozen_before_validation": true,
+  "success_criteria": {
+    "primary": "steering self_low_2 toward no_history at L24 produces mean normalized movement > 0 with a task-bootstrap 95% CI excluding 0",
+    "control_1": "learned-direction normalized movement exceeds the early-layer L2 arm",
+    "control_2": "learned-direction normalized movement exceeds the norm-matched random-direction arm",
+    "specificity": "shifts induced under no_history and unrelated_low_2 are reported; if they match the self_low_2 shift the intervention is nonspecific and the primary result does not support a score-specific mechanism",
+    "declared_before_validation": true
+  },
+  "bootstrap": {
+    "unit": "task",
+    "n": 10000,
+    "seed": 20260818
+  },
+  "integrity": {
+    "n_calls": 240,
+    "parse_ok": 239,
+    "parse_ok_rate": 0.9958,
+    "a5_valid": 240,
+    "a5_valid_rate": 1.0,
+    "noop_identity": {
+      "n": 24,
+      "n_identical": 24,
+      "rate": 1.0
+    }
+  },
+  "arms": {
+    "steer": {
+      "arm": "steer",
+      "n": 24,
+      "raw_mean": 0.6083333333333334,
+      "raw_ci": [
+        0.13750000000000004,
+        1.1458333333333335
+      ],
+      "normalized_mean": 0.22860392720306513,
+      "normalized_ci": [
+        0.04214559386973179,
+        0.42005507662835245
+      ],
+      "n_excluded_no_denominator": 0,
+      "frac_toward": 0.3333333333333333,
+      "frac_away": 0.041666666666666664,
+      "frac_unchanged": 0.625
+    },
+    "ablate": {
+      "arm": "ablate",
+      "n": 24,
+      "raw_mean": 0.4916666666666667,
+      "raw_ci": [
+        0.041666666666666664,
+        1.0083333333333335
+      ],
+      "normalized_mean": 0.21562499999999998,
+      "normalized_ci": [
+        0.022890625000000053,
+        0.4104166666666666
+      ],
+      "n_excluded_no_denominator": 0,
+      "frac_toward": 0.2916666666666667,
+      "frac_away": 0.041666666666666664,
+      "frac_unchanged": 0.6666666666666666
+    },
+    "noop": {
+      "arm": "noop",
+      "n": 24,
+      "raw_mean": 0.0,
+      "raw_ci": [
+        0.0,
+        0.0
+      ],
+      "normalized_mean": 0.0,
+      "normalized_ci": [
+        0.0,
+        0.0
+      ],
+      "n_excluded_no_denominator": 0,
+      "frac_toward": 0.0,
+      "frac_away": 0.0,
+      "frac_unchanged": 1.0
+    },
+    "steer_early_L2": {
+      "arm": "steer_early_L2",
+      "n": 24,
+      "raw_mean": 0.4583333333333333,
+      "raw_ci": [
+        0.041666666666666664,
+        0.875
+      ],
+      "normalized_mean": 0.08429118773946359,
+      "normalized_ci": [
+        -0.20043103448275865,
+        0.3264128352490418
+      ],
+      "n_excluded_no_denominator": 0,
+      "frac_toward": 0.375,
+      "frac_away": 0.125,
+      "frac_unchanged": 0.5
+    },
+    "steer_random": {
+      "arm": "steer_random",
+      "n": 24,
+      "raw_mean": 0.0,
+      "raw_ci": [
+        -0.16666666666666666,
+        0.20833333333333334
+      ],
+      "normalized_mean": -0.0625,
+      "normalized_ci": [
+        -0.1875,
+        0.041666666666666664
+      ],
+      "n_excluded_no_denominator": 0,
+      "frac_toward": 0.041666666666666664,
+      "frac_away": 0.08333333333333333,
+      "frac_unchanged": 0.875
+    }
+  },
+  "specificity": {
+    "steer_on_no_history": {
+      "arm": "steer_on_no_history",
+      "n": 24,
+      "raw_mean": 0.029166666666666636,
+      "raw_ci": [
+        -0.06666666666666672,
+        0.14583333333333334
+      ],
+      "normalized_mean": 0.034770114942528726,
+      "normalized_ci": [
+        -0.02772988505747127,
+        0.1307770593869727
+      ],
+      "n_excluded_no_denominator": 0,
+      "frac_toward": 0.125,
+      "frac_away": 0.08333333333333333,
+      "frac_unchanged": 0.7916666666666666
+    },
+    "steer_on_unrelated": {
+      "arm": "steer_on_unrelated",
+      "n": 23,
+      "raw_mean": 0.30434782608695654,
+      "raw_ci": [
+        0.08695652173913043,
+        0.5217391304347826
+      ],
+      "normalized_mean": 0.1992753623188406,
+      "normalized_ci": [
+        0.04710144927536233,
+        0.41304347826086957
+      ],
+      "n_excluded_no_denominator": 0,
+      "frac_toward": 0.2608695652173913,
+      "frac_away": 0.0,
+      "frac_unchanged": 0.7391304347826086
+    }
+  },
+  "gap": {
+    "n_tasks": 24,
+    "gap_before_mean": 1.9124999999999999,
+    "gap_after_steering_mean": 1.3041666666666667,
+    "gap_reduction_mean": 0.6083333333333332,
+    "gap_reduction_ci": [
+      0.13750000000000004,
+      1.1458333333333335
+    ]
+  },
+  "control_comparisons": [
+    {
+      "comparison": "steer - steer_early_L2",
+      "n_tasks": 24,
+      "mean_normalized_difference": 0.14431273946360157,
+      "ci": [
+        -0.10417534722222221,
+        0.4054271431992336
+      ],
+      "exceeds_control": false
+    },
+    {
+      "comparison": "steer - steer_random",
+      "n_tasks": 24,
+      "mean_normalized_difference": 0.29110392720306516,
+      "ci": [
+        0.09340277777777778,
+        0.4894004430076623
+      ],
+      "exceeds_control": true
+    },
+    {
+      "comparison": "steer - noop",
+      "n_tasks": 24,
+      "mean_normalized_difference": 0.22860392720306513,
+      "ci": [
+        0.04214559386973179,
+        0.42005507662835245
+      ],
+      "exceeds_control": true
+    }
+  ]
+}

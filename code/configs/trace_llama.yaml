@@ -1,0 +1,28 @@
+# ============================================================================
+# PHASE 2B TRACE — causal activation patching, Llama-3.1-8B-Instruct.
+# ============================================================================
+# Matched endpoint pair only. Task, candidate and rubric are byte-identical
+# between source and target; only the prior-score context differs.
+#
+# Layer indexing is identical to Phase 2A: L0 = embed_tokens output,
+# L>=1 = POST-block hook on layers[L-1], i.e. exactly hidden_states[L].
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+trace:
+  name: PHASE2B_trace_llama_arenahard
+  judge_model: llama8b
+  source_glob: results/arenahard/judge/*/records.jsonl
+  out_dir: results/phase2b/trace_llama
+  history_template: dyadic_anon_prior_round
+  low_condition: score_1
+  high_condition: score_10
+  control_layer_step: 4      # controls on a reduced layer grid to bound cost
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

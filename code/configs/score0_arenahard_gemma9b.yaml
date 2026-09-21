@@ -1,0 +1,38 @@
+# ============================================================================
+# POST-HOC EXPLORATORY — score_0 boundary extension (arenahard, gemma9b).
+# ============================================================================
+# NOT part of the frozen confirmatory 1-10 sweep. Added after that sweep was
+# frozen; folding it in retroactively would redefine a finished result.
+# score_0 is the SAME history sentence with the numeral 0. It is not
+# no_history, which has no sentence at all, and the two never share an axis.
+# Everything else - candidates, rubric, protocol, decoding, seed - is the
+# frozen protocol byte for byte; only the injected numeral differs.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidates:
+  path: data/candidates/arenahard_20.json
+
+experiment:
+  name: SCORE0_ARENAHARD_gemma9b
+  seed: 42
+  datasets: [arena_hard_v2]
+  n_prompts: 20
+  judge_models: [gemma9b]
+  evaluated_models: [modelx_olmo3]
+  candidates_per_prompt: 1
+  exclude_self_judging: true
+  prior_context_conditions:
+    - score_0
+  rubric_variants: [grounded]
+  output_protocols: [score_only]
+  history_template: dyadic_anon_prior_round
+  replicates: 1
+
+generation:
+  temperature: 0.0
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: false

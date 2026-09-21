@@ -1,0 +1,229 @@
+{
+  "stage": "CROSS-MODEL PATCHING REPLICATION",
+  "instrument_note": "layer selection used a LOGIT lens (each model's own unembedding); Llama's L24 used a JACOBIAN lens. Layer numbers are NOT comparable across architectures. Replication claims rest on the held-out causal patching results only.",
+  "success_criteria_predeclared": [
+    "normalized selected-layer movement 95% CI excludes zero",
+    "selected-layer minus L2 paired difference 95% CI excludes zero"
+  ],
+  "bootstrap": {
+    "n": 10000,
+    "seed": 20260818,
+    "design": "task-clustered, dataset-stratified"
+  },
+  "baselines": "within-host; archived-score reproduction reported, never used to exclude",
+  "models": {
+    "gemma": {
+      "selected_layer": 36,
+      "n_layers": 42,
+      "eligible_layers": [
+        5,
+        38
+      ],
+      "selection_metric": "logit-lens JSD (bits) between the two conditions' readouts",
+      "layer_frozen_before_validation": true,
+      "directions": {
+        "self_low_2->no_history": {
+          "arm": "patch_L36_lo2hi",
+          "n_calls": 71,
+          "raw_movement_mean": -0.0915,
+          "raw_ci": [
+            -0.331,
+            0.0634
+          ],
+          "normalized_mean": 0.125,
+          "normalized_ci": [
+            -0.0625,
+            0.375
+          ],
+          "n_zero_denominator_excluded_from_normalized": 39,
+          "toward_fraction": 0.0563,
+          "away_fraction": 0.0563,
+          "unchanged_fraction": 0.8873,
+          "paired_selected_minus_L2": {
+            "n_paired_tasks": 32,
+            "mean_difference_normalized": 0.0078,
+            "ci": [
+              -0.1562,
+              0.2109
+            ]
+          },
+          "criterion_1_normalized_ci_excludes_zero": false,
+          "criterion_2_paired_vs_L2_ci_excludes_zero": false,
+          "BOTH_CRITERIA_PASSED": false
+        },
+        "no_history->self_low_2": {
+          "arm": "patch_L36_hi2lo",
+          "n_calls": 71,
+          "raw_movement_mean": -0.0141,
+          "raw_ci": [
+            -0.1408,
+            0.0845
+          ],
+          "normalized_mean": 0.0573,
+          "normalized_ci": [
+            -0.0833,
+            0.1875
+          ],
+          "n_zero_denominator_excluded_from_normalized": 39,
+          "toward_fraction": 0.0704,
+          "away_fraction": 0.0563,
+          "unchanged_fraction": 0.8732,
+          "paired_selected_minus_L2": {
+            "n_paired_tasks": 32,
+            "mean_difference_normalized": -0.0312,
+            "ci": [
+              -0.1406,
+              0.0625
+            ]
+          },
+          "criterion_1_normalized_ci_excludes_zero": false,
+          "criterion_2_paired_vs_L2_ci_excludes_zero": false,
+          "BOTH_CRITERIA_PASSED": false
+        }
+      },
+      "noop_identity": {
+        "n": 144,
+        "identical": 144,
+        "rate": 1.0
+      },
+      "same_identity": {
+        "n": 144,
+        "identical": 144,
+        "rate": 1.0
+      },
+      "within_host_baseline_reproduces_archived": {
+        "n_comparable": 142,
+        "matched": 142,
+        "rate": 1.0,
+        "archived_missing": 2,
+        "used_to_exclude_tasks": false,
+        "note": "recomputed against merged_raw_results.jsonl; the ext72 manifest carries only dataset and task_id by design, so the in-run field was null and the first pass reported 0.0% spuriously"
+      }
+    },
+    "qwen": {
+      "selected_layer": 27,
+      "n_layers": 36,
+      "eligible_layers": [
+        5,
+        32
+      ],
+      "selection_metric": "logit-lens JSD (bits) between the two conditions' readouts",
+      "layer_frozen_before_validation": true,
+      "directions": {
+        "self_low_2->no_history": {
+          "arm": "patch_L27_lo2hi",
+          "n_calls": 72,
+          "raw_movement_mean": -0.0139,
+          "raw_ci": [
+            -0.1528,
+            0.125
+          ],
+          "normalized_mean": 0.0575,
+          "normalized_ci": [
+            -0.0149,
+            0.1431
+          ],
+          "n_zero_denominator_excluded_from_normalized": 14,
+          "toward_fraction": 0.1111,
+          "away_fraction": 0.0694,
+          "unchanged_fraction": 0.8194,
+          "paired_selected_minus_L2": {
+            "n_paired_tasks": 58,
+            "mean_difference_normalized": 0.0374,
+            "ci": [
+              -0.0362,
+              0.1144
+            ]
+          },
+          "criterion_1_normalized_ci_excludes_zero": false,
+          "criterion_2_paired_vs_L2_ci_excludes_zero": false,
+          "BOTH_CRITERIA_PASSED": false
+        },
+        "no_history->self_low_2": {
+          "arm": "patch_L27_hi2lo",
+          "n_calls": 72,
+          "raw_movement_mean": 0.0139,
+          "raw_ci": [
+            -0.125,
+            0.1528
+          ],
+          "normalized_mean": 0.0709,
+          "normalized_ci": [
+            -0.0086,
+            0.191
+          ],
+          "n_zero_denominator_excluded_from_normalized": 14,
+          "toward_fraction": 0.0972,
+          "away_fraction": 0.0556,
+          "unchanged_fraction": 0.8472,
+          "paired_selected_minus_L2": {
+            "n_paired_tasks": 58,
+            "mean_difference_normalized": -0.0299,
+            "ci": [
+              -0.0954,
+              0.0316
+            ]
+          },
+          "criterion_1_normalized_ci_excludes_zero": false,
+          "criterion_2_paired_vs_L2_ci_excludes_zero": false,
+          "BOTH_CRITERIA_PASSED": false
+        }
+      },
+      "noop_identity": {
+        "n": 144,
+        "identical": 144,
+        "rate": 1.0
+      },
+      "same_identity": {
+        "n": 144,
+        "identical": 144,
+        "rate": 1.0
+      },
+      "within_host_baseline_reproduces_archived": {
+        "n_comparable": 144,
+        "matched": 119,
+        "rate": 0.8264,
+        "archived_missing": 0,
+        "used_to_exclude_tasks": false,
+        "note": "recomputed against merged_raw_results.jsonl; the ext72 manifest carries only dataset and task_id by design, so the in-run field was null and the first pass reported 0.0% spuriously"
+      }
+    }
+  },
+  "integrity": {
+    "expected_total": 1440,
+    "per_model_expected": 720,
+    "records_total": 1440,
+    "per_model": {
+      "gemma": {
+        "records": 720,
+        "unique_units": 720,
+        "expected_units": 720,
+        "n_tasks": 72,
+        "n_arms": 10,
+        "arms_expected": 10,
+        "missing": [],
+        "n_missing": 0,
+        "n_duplicate": 0,
+        "n_unexpected": 0,
+        "parse_failed": 10,
+        "a5_invalid": 3,
+        "technical_failures": 0
+      },
+      "qwen": {
+        "records": 720,
+        "unique_units": 720,
+        "expected_units": 720,
+        "n_tasks": 72,
+        "n_arms": 10,
+        "arms_expected": 10,
+        "missing": [],
+        "n_missing": 0,
+        "n_duplicate": 0,
+        "n_unexpected": 0,
+        "parse_failed": 0,
+        "a5_invalid": 0,
+        "technical_failures": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+check,value,ci_low,ci_high,note
+R1 10% trimmed macro (12 cells),1.1063,1.0482,1.1805,
+R2 leave-one-task-out range,0.0242,,,234 recomputations; max shift 0.01557
+"S1 three-scorer (no OLMo), 9 cells",1.2574,1.1878,1.3291,"robustness check, NOT a correction of a confound (see C1_1)"
+Superseded v2 8-cell estimand,1.2419,1.1566,1.3294,arena_hard+wildbench only; NOT the A9 confirmatory primary

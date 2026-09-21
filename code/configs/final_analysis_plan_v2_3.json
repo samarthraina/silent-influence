@@ -1,0 +1,305 @@
+{
+  "plan_id": "final_behavioral_study_sap_v2_amendment_A3",
+  "plan_version": "2.3",
+  "status": "pre-specified; NO study output exists. The real A100 preflight produced only preflight artifacts in an isolated directory and generated no candidate answers and no scoring records.",
+  "prospective": true,
+  "prospective_evidence": {
+    "results/final_behavioral_study": "absent before and after the real preflight",
+    "results/final_behavioral_study_adjudicated": "absent before and after the real preflight",
+    "data/candidates/final_olmo_answers.json": "absent",
+    "generation_calls_executed": 0,
+    "scoring_calls_executed": 0,
+    "preflight_artifacts_location": "/workspace/preflight/ (isolated; outside both final-results directories)",
+    "note": "The findings resolved here come exclusively from preflight template rendering, a residency/use_cache gate, and a 12-call cache probe on the canonical preflight task with a PLACEHOLDER answer. No frozen candidate answer was scored."
+  },
+
+  "amends": {
+    "plan_id": "final_behavioral_study_sap_v2_amendment_A2",
+    "machine_readable_path": "configs/final_analysis_plan_v2_2.json",
+    "machine_readable_sha256": "9b202820df5d0d8837e22bd701a473e48eb5f726cd1baf854018ef16e828cbc3",
+    "clarification_path": "configs/final_analysis_plan_v2_2_clarification_C1.json",
+    "clarification_sha256": "998e11461163c0b03a6490ef6c3e5c150f491f819d8d658acb3ea23bfb0c96e6",
+    "preserved_unmodified": true
+  },
+  "amendment_chain": [
+    {"version": "2.0", "path": "configs/final_analysis_plan.json",
+     "sha256": "ea41c3d6f4af734605850896049d54952eec9f9450713881b24b2d52611cd52c",
+     "status": "historical, preserved unmodified"},
+    {"version": "2.1", "path": "configs/final_analysis_plan_v2_1.json",
+     "sha256": "0d92256df8e71fa74bcd9fa378f4602a71c47fec43dee709fc4b44f8991455b0",
+     "status": "historical, preserved unmodified"},
+    {"version": "2.2", "path": "configs/final_analysis_plan_v2_2.json",
+     "sha256": "9b202820df5d0d8837e22bd701a473e48eb5f726cd1baf854018ef16e828cbc3",
+     "status": "historical, preserved unmodified"},
+    {"version": "2.2-C1", "path": "configs/final_analysis_plan_v2_2_clarification_C1.json",
+     "sha256": "998e11461163c0b03a6490ef6c3e5c150f491f819d8d658acb3ea23bfb0c96e6",
+     "status": "historical, preserved unmodified; its cache requirement is SUPERSEDED by A3 F2"},
+    {"version": "2.3", "path": "configs/final_analysis_plan_v2_3.json",
+     "narrative": "Code/research_notes/final_analysis_plan_amendment_A3.md",
+     "status": "current"}
+  ],
+  "amendment_narrative": "Code/research_notes/final_analysis_plan_amendment_A3.md",
+  "overwrites_history": false,
+  "non_destructive": true,
+
+  "origin": "the first real (non-stub) A100 preflight gate. It failed closed on three findings and produced no study output. A3 resolves exactly those three findings and nothing else.",
+
+  "unchanged_by_A3": [
+    "the frozen 578-task manifest and its hash",
+    "the frozen candidate answers (none exist yet; the generator and its decoding are untouched)",
+    "the six conditions and their exact added_context wording",
+    "the scoring prompt renderer and its wording",
+    "the automatic parser and the recovery rules",
+    "the four-scorer panel and its pinned revisions",
+    "deterministic production decoding (do_sample=False, seed 42, max_new_tokens 512)",
+    "the retry / technical-failure / parse-failure policy and the no-reserve-substitution rule",
+    "the primary 8-cell estimand at 1/8 and the key secondary 12-cell estimand at 1/12",
+    "the bootstrap plan (10,000 replicates, seed 20260818, task-clustered, dataset-stratified, shared draws)",
+    "the 7 diagnostic contrasts and the robustness suite R1-R5",
+    "S1_three_scorer_sensitivity (6 cells at 1/6, 9 cells at 1/9, non-confirmatory, shared draws)",
+    "the total number of scoring calls: 13,872",
+    "batch size 1 as the default, and the requirement of BOTH token-ID equivalence AND a measured memory preflight before any batch > 1"
+  ],
+  "statistical_content_changed": false,
+  "statistical_content_note": "no estimand, weight, population, contrast, bootstrap parameter, measurement basis or failure policy changes. A3 changes one scorer's permitted template boilerplate, replaces one execution-verification gate with a differently-scoped one, and narrows one gate's control-token exception.",
+
+  "F1_llama31_template_envelope": {
+    "finding": "the pinned Llama-3.1-8B-Instruct chat template emits an unrequested system block containing two date lines, on every render, under every condition.",
+    "observed_block_verbatim": "<|begin_of_text|><|start_header_id|>system<|end_header_id|>\\n\\nCutting Knowledge Date: December 2023\\nToday Date: 26 Jul 2024\\n\\n<|eot_id|>",
+    "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+    "chat_template_sha256_matches_frozen_record": true,
+
+    "empty_system_message_resolution_REJECTED": {
+      "reason": "empirically ineffective for this template, unlike Mistral (A1 E1) and OLMo-3.1-32B (A2 E8)",
+      "template_evidence": "the header and both date lines are emitted UNCONDITIONALLY, before system_message is interpolated: '{%- else %}{%- set system_message = \"\" %}{%- endif %} {{- \"<|start_header_id|>system<|end_header_id|>\\\\n\\\\n\" }} {{- \"Cutting Knowledge Date: December 2023\\\\n\" }} {{- \"Today Date: \" + date_string + \"\\\\n\\\\n\" }} {{- system_message }}'. There is no `if not has_system` guard of the kind that made the empty-system fix work for Mistral and OLMo.",
+      "measured_consequence": "an explicit empty system message renders BYTE-IDENTICALLY to user-only for all six conditions (6/6 identical), i.e. it is a verified no-op",
+      "date_string_kwarg_also_insufficient": "passing date_string changes only the second line; 'Cutting Knowledge Date: December 2023' persists",
+      "template_modification": "prohibited (official_chat_template_unmodified remains true)",
+      "conclusion": "zero date residual is unattainable for this model with the official template unmodified. A3 therefore does NOT claim suppression."
+    },
+
+    "resolution": {
+      "decision": "keep Llama-3.1 on the USER-ONLY envelope (no cosmetic empty system turn, since it provably changes nothing), and permit exactly one occurrence of the known literal block as expected tokenizer control structure",
+      "envelope": "user_only",
+      "envelope_unchanged_from_A2": true,
+      "permitted_literal": {
+        "bytes": 134,
+        "sha256": "1bcaed965fbd9c2aa99e9967fc4b2f05a9c07377f56790c9acc9372bd7be64d5",
+        "must_appear_exactly_once": true,
+        "must_appear_at_position_zero": true,
+        "permitted_for": ["llama"],
+        "permitted_for_any_other_scorer": false
+      },
+      "precedent": "identical enumerate-and-permit pattern already approved for Mistral's empty [SYSTEM_PROMPT][/SYSTEM_PROMPT] pair (A1 E1), Qwen3's empty <think></think> pair, and Gemma's terminal <start_of_turn>model cue (A3 F3). In every case a specific, fully-enumerated, semantically empty control structure is permitted and everything else is still failed.",
+      "acceptance_criteria_all_required": [
+        "the permitted literal appears exactly once, at position 0, byte-identical to the pinned sha256",
+        "after removing that single literal and the tokenizer's own special tokens, ZERO residual alphabetic words of 3+ characters remain",
+        "ZERO date hits and ZERO persona hits outside the permitted literal",
+        "the frozen user prompt appears VERBATIM in the render",
+        "the six frozen render hashes below reproduce exactly"
+      ],
+      "verified_prospectively": {
+        "method": "rendered the pinned template with the real pinned tokenizer (template rendering only; no weights loaded, no GPU) for all six conditions, then applied the rule above through the same gate function the on-GPU preflight uses",
+        "conditions_passing": 6,
+        "literal_occurrences_per_render": 1,
+        "residual_words_after_rule": 0,
+        "date_hits_after_rule": 0,
+        "persona_hits_after_rule": 0,
+        "frozen_prompt_verbatim": true
+      }
+    },
+
+    "why_this_does_not_threaten_the_estimand": {
+      "block_is_condition_invariant": "1 distinct system block across all six conditions (measured)",
+      "block_is_task_invariant": "1 distinct system block across three different tasks (measured)",
+      "block_is_date_stable": "the date is a hardcoded template default ('26 Jul 2024'), not strftime; the host clock read 2026-08-17 and the render was unaffected, so prompts remain byte-reproducible across calendar days",
+      "block_contains": "no persona, no scorer or generator identity, no task content, no evaluation instruction, no authorship claim",
+      "contrast_argument": "because the block is byte-identical across conditions, it enters both arms of every paired within-cell contrast equally and therefore cancels in the paired difference no_history - self_low_2. This is the ADDITIVE case, and the same reasoning Clarification C1_1 already set out.",
+      "what_is_NOT_claimed": [
+        "it is NOT claimed that the block has no effect on Llama's score LEVEL",
+        "it is NOT claimed that no template-by-condition interaction is possible; C1_1's correction applies here unchanged",
+        "it is NOT claimed that this makes the estimate conservative"
+      ],
+      "existing_robustness_coverage": "S1_three_scorer_sensitivity already recomputes the primary without the OLMo scorer; panel-composition sensitivity is reported regardless. No new sensitivity analysis is added by A3.",
+      "transparency_requirement": "the write-up must state that Llama-3.1's prompts carry this fixed template preamble, quote it, and state that it is condition-invariant."
+    },
+
+    "frozen_render_hashes": {
+      "note": "sha256 of the rendered TEXT for the canonical preflight task wildbench/00c7916a072b4947 with the standard placeholder answer, user-only envelope. These are the values MEASURED in the real A100 preflight and are frozen here unchanged -- the resolution permits the literal rather than altering the render, so no 'corrected' hash differs from what was observed.",
+      "canonical_task": "wildbench/00c7916a072b4947",
+      "canonical_question_sha256": "462b09c2e8ef464bbd896acb386ba928e5dc97dddbb39388014469c1dd72c0f4",
+      "envelope": "user_only",
+      "no_history":      {"sha256": "0cf47086465e7cd88f10da3ca2c5111195864262149fffc36aba4698e448f8d9", "input_tokens": 151},
+      "self_low_2":      {"sha256": "9a2ba5d7dbf695bbb918f9eb5c44720977f4313081dc057de39d23febc086276", "input_tokens": 166},
+      "other_low_2":     {"sha256": "56a3c8d4583196d606e303e333fd83973e4c35fdc7b04e8b8f70ecb254cc02eb", "input_tokens": 168},
+      "unrelated_low_2": {"sha256": "dae0f0f59bd9ecb957deca7e9b35070f833f22ec5137173cb05cfebb97a04be7", "input_tokens": 168},
+      "verbal_negative": {"sha256": "108a9d7745883e671310ebc7e25509500ab92a4ffbfd3681673d078d174c1c0f", "input_tokens": 165},
+      "self_high_10":    {"sha256": "a4b97b0e31059f35f13b1b44956df57cd28fab6332e00d8f526400b933132065", "input_tokens": 166}
+    },
+
+    "disclosure": "This is a prospective template-envelope finding discovered by the first real preflight, BEFORE any study generation or scoring. Amendments A1 and A2 both recorded Llama's template cleanliness as explicitly conditional on this gate and unverifiable off-box (the repo is gated, HTTP 401). The gate performed its intended function: it detected the injection before any data existed."
+  },
+
+  "F2_olmo_cache_validation_supersedes_C1_2": {
+    "supersedes": {
+      "record": "configs/final_analysis_plan_v2_2_clarification_C1.json",
+      "sha256": "998e11461163c0b03a6490ef6c3e5c150f491f819d8d658acb3ea23bfb0c96e6",
+      "clause": "C1_2_use_cache_requirement.prerun_equivalence_check",
+      "superseded_requirement": "exact equality of generated token IDs between the cache-on and cache-off arms for all six conditions",
+      "C1_preserved_unmodified": true,
+      "note": "C1 remains on disk unchanged and is carried forward by hash; only this one clause is replaced, and only prospectively."
+    },
+    "retained_from_C1_2_unchanged_and_still_MANDATORY": [
+      "explicitly set model.config.use_cache = True after loading the OLMo scorer",
+      "explicitly pass use_cache=True to every generate() call for the OLMo scorer",
+      "do not rely on GenerationConfig defaults or on inheritance from config.json, which ships use_cache=false"
+    ],
+    "why_the_old_requirement_is_withdrawn": {
+      "measured_outcome": "the real A100 preflight cache-on/cache-off check FAILED on 3 of 6 conditions",
+      "root_cause_assessment": "cache-off is not a production path and follows a numerically different BF16 kernel path on this architecture (Olmo3: 48 sliding-window + 16 full-attention layers, YaRN rope scaling). Divergences begin at near-tie greedy argmax decisions between near-synonymous continuations and then compound autoregressively.",
+      "measured_divergence": {
+        "no_history":      {"len_on": 74,  "len_off": 82,  "first_divergence_index": 48, "differing_tokens": 26,  "parsed_score_on": 0.0, "parsed_score_off": 0.0, "parsed_score_same": true},
+        "unrelated_low_2": {"len_on": 139, "len_off": 132, "first_divergence_index": 4,  "differing_tokens": 127, "parsed_score_on": 0.0, "parsed_score_off": 0.0, "parsed_score_same": true},
+        "verbal_negative": {"len_on": 110, "len_off": 117, "first_divergence_index": 80, "differing_tokens": 28,  "parsed_score_on": 0.0, "parsed_score_off": 0.0, "parsed_score_same": true}
+      },
+      "falsified_premise": "C1_2's stated inference was that a cache mismatch 'would also threaten run-to-run reproducibility'. That inference is empirically false here: the cache-on path reproduced byte-identically across repeated calls in all six conditions while the cache-on/cache-off comparison failed in three.",
+      "cache_off_is_not_faster_or_slower_by_an_order_of_magnitude": "measured 1.3x slower, not the ~10x O(n^2) inflation A2's use_cache_trap anticipated",
+      "explicitly_not_claimed": [
+        "it is NOT claimed that the cache-on and cache-off computational paths are equivalent",
+        "it is NOT claimed that either path is 'the correct one'",
+        "the divergence is recorded as a PREFLIGHT ENGINEERING FINDING about kernel paths, never as a study result, and must not appear as one in the write-up"
+      ]
+    },
+    "replacement_gate_production_path_reproducibility": {
+      "name": "OLMo production-path reproducibility gate",
+      "scope": "the OLMo-3.1-32B-Instruct scorer",
+      "rationale": "the study only ever executes the cache-on path. What must be guaranteed is that THAT path is deterministic and reproducible, which is exactly what this gate tests and what the superseded gate did not.",
+      "set": "the canonical preflight task wildbench/00c7916a072b4947 with the standard placeholder candidate answer, rendered under all six frozen conditions",
+      "repetitions_per_condition": 3,
+      "n_conditions": 6,
+      "n_calls": 18,
+      "consumes_study_data": false,
+      "consumes_study_data_note": "the placeholder answer is not a frozen candidate answer, so this gate touches no study observation",
+      "all_calls_use": {"use_cache": true, "do_sample": false, "seed": 42, "max_new_tokens": 512},
+      "invariants_required_across_the_three_repetitions_within_every_condition": [
+        "identical generated token-ID sequences (compared by sha256 of the trimmed token-ID sequence)",
+        "identical rendered input text (compared by sha256)",
+        "identical tokenized input-ID sequence (compared by sha256)",
+        "identical generation kwargs dict"
+      ],
+      "criterion": "EXACT identity on all four invariants, for all three repetitions, in all six conditions",
+      "on_any_mismatch": "HARD STOP before any study execution; return for review. Do not average, do not retry into a pass, do not proceed on a majority.",
+      "supporting_evidence_already_observed": {
+        "note": "a 2-repetition version of exactly this check already passed in the preflight investigation; the gate formalises it at 3 repetitions",
+        "repetitions_observed": 2,
+        "conditions_identical": 6,
+        "conditions_total": 6,
+        "result": "PASS"
+      }
+    },
+    "classification": "execution-verification requirement. Caching affects cost and kernel path; the frozen design's requirement is that the executed path be reproducible."
+  },
+
+  "F3_gemma_terminal_generation_cue": {
+    "finding": "the Gemma-2-9B-it render tripped fail-condition 1 on the single residual word 'model', which originates solely from the template's terminal generation cue '<start_of_turn>model'. Gemma names its assistant role 'model' rather than 'assistant'.",
+    "assessment": "a gate false positive, not a content leak. The render is '<bos><start_of_turn>user\\n<frozen prompt><end_of_turn>\\n<start_of_turn>model\\n' -- no system block, no date, no persona, no tool text.",
+    "resolution": {
+      "decision": "treat ONLY the exact terminal generation cue as expected tokenizer control structure",
+      "permitted_cue": "<start_of_turn>model",
+      "permitted_for": ["gemma"],
+      "rules_all_required": [
+        "the cue is recognised ONLY as the terminal element of the render (trailing whitespace permitted after it)",
+        "the cue must appear EXACTLY ONCE in the whole render",
+        "arbitrary occurrences of the bare word 'model' are NOT whitelisted anywhere",
+        "the word 'model' appearing anywhere other than inside that single terminal cue is a residual-content FAILURE",
+        "the frozen user prompt must appear VERBATIM",
+        "ZERO other residual semantic content, ZERO date hits, ZERO persona hits"
+      ],
+      "explicitly_rejected_alternative": "adding 'model' to the global control-token list. That would blind the gate to a mid-prompt injection containing the word, and would apply to scorers for which it is not a role name.",
+      "verified_prospectively": {
+        "method": "rendered the pinned Gemma template with the real pinned tokenizer (template rendering only; no weights, no GPU) for all six conditions and applied the rule above",
+        "conditions_passing": 6,
+        "terminal_cue_present": 6,
+        "other_cue_occurrences": 0,
+        "residual_words_after_rule": 0,
+        "date_hits": 0,
+        "persona_hits": 0,
+        "frozen_prompt_verbatim": true
+      }
+    },
+    "render_hashes_informational": {
+      "note": "Gemma's envelope is UNCHANGED (user-only). These are the values measured in the real preflight, recorded so a future gate run can perform a reproducibility comparison. They are informational, not a new acceptance requirement.",
+      "envelope": "user_only",
+      "no_history": "b8d725b1d484da7a681da4f3f90e85fc6122c7f6f385c2431b24d5bc8177515d",
+      "self_low_2": "6339d4ea85e9695d6290d89c03b95bba687aac7b2c15ab98e5b9a4f3522f8e0b",
+      "other_low_2": "7ef6c71def5360cd142d66c9a7d15b89a32b6ad91cf879a34fb3954f3dbd6d1e",
+      "unrelated_low_2": "cb36dd5599dbd56568f2da8a50cadc79a71f6f7d5e7b5504bb59110e07a3c189",
+      "verbal_negative": "ee5b476d319c849cf5a0b77b2ad768b6f9545ff49d09a025ca1fa349410c6fd5",
+      "self_high_10": "40d618c33c8aa7135b7ad3ccc4135c1b998f9639a1ae4b704b09eccd64b1f230"
+    }
+  },
+
+  "preflight_results_carried_forward_as_already_passing": {
+    "note": "recorded so a re-run can be compared against them; A3 does not change any of these requirements",
+    "weight_shard_verification": {"shards": 14, "result": "PASS", "all_byte_exact": true},
+    "bf16_single_gpu_residency": {
+      "result": "PASS for all four scorers",
+      "no_cpu_offload": true, "no_disk_offload": true, "no_quantization": true,
+      "no_automatic_device_mapping": true, "device_map": {"": 0},
+      "measured_weight_bytes": {"llama": 16060522496, "qwen": 16381470720,
+                                "gemma": 18483411968, "olmo32b": 64467044352}
+    },
+    "use_cache_assertion_olmo32b": {"model_config_use_cache": true,
+                                    "generation_config_use_cache": true, "result": "PASS"},
+    "olmo32b_render_gate": {"conditions_passing": 6,
+      "reproduced_A2_frozen_render_hashes_exactly": true},
+    "qwen_render_gate": {"conditions_passing": 6},
+    "frozen_artifact_gate_on_gpu_host": {"artifacts_checked": 20, "result": "PASS"},
+    "cpu_test_suite_on_gpu_host": {"tests": 408, "passed": 408, "failed": 0}
+  },
+
+  "implementation_requirements_NOT_YET_APPLIED": {
+    "note": "A3 deliberately changes no implementation code. Every item below must be applied, the full local suite rerun, and the real preflight re-run and passed, before the study may start.",
+    "items": [
+      {
+        "id": "R1",
+        "file": "src/silent_influence/final_preflight_checks.py",
+        "change": "add a per-scorer permitted-literal mechanism for Llama: strip exactly ONE occurrence of the 134-byte block with sha256 1bcaed965fbd9c2aa99e9967fc4b2f05a9c07377f56790c9acc9372bd7be64d5, only when it occurs at position 0, only for scorer_key 'llama'. If it occurs zero times or more than once, FAIL. Do not add its words to any global token list.",
+        "must_not": "must not make the date-phrase or persona checks weaker for any other scorer, and must not whitelist the words 'Cutting', 'Knowledge', 'Date', 'December', 'Today' globally"
+      },
+      {
+        "id": "R2",
+        "file": "src/silent_influence/final_preflight_checks.py",
+        "change": "add a Gemma terminal-cue rule: recognise '<start_of_turn>model' ONLY as the terminal element (trailing whitespace allowed) and ONLY when it occurs exactly once in the whole render, only for scorer_key 'gemma'. Any other occurrence of the cue, or of the bare word 'model', remains a residual-content failure.",
+        "must_not": "must not add 'model' to CONTROL_TOKENS"
+      },
+      {
+        "id": "R3",
+        "file": "scripts/verify_final_preflight_gate.py",
+        "change": "replace run_cache_equivalence_check (cache-on vs cache-off, 12 calls) with a production-path reproducibility check: 3 repetitions x 6 conditions = 18 calls, all with use_cache=True, comparing generated token-ID sha256, rendered-text sha256, input-token-ID sha256 and the generation kwargs dict across the three repetitions within each condition. Hard-fail on any mismatch.",
+        "also": "keep the existing use_cache assertion (model.config and generation_config both True) unchanged; keep CACHE_CHECK_REQUIRED_SCORERS so the gate cannot pass vacuously"
+      },
+      {
+        "id": "R4",
+        "file": "scripts/verify_final_preflight_gate.py",
+        "change": "add the six frozen Llama render hashes from F1 and the six frozen OLMo hashes from A2 to the reproducibility comparison, so a template or tokenizer change is detected as a hash mismatch"
+      },
+      {
+        "id": "R5",
+        "file": "tests/",
+        "change": "add CPU-safe tests for: the Llama permitted-literal rule (exactly-once, position-0, and failure on zero/two occurrences); a mid-prompt 'model' occurrence still failing for Gemma; a mid-prompt copy of the Llama literal still failing; the 18-call reproducibility gate's mismatch detection; and that no global token list gained 'model' or the date words"
+      }
+    ],
+    "gpu_steps_still_outstanding_after_the_code_changes": [
+      "re-run the real non-stub preflight gate and pass it",
+      "run the real 288-call batching-equivalence smoke test plus the measured memory preflight (never run; blocked by the hard stop)",
+      "measure peak VRAM at batch size 1 for each model",
+      "measure throughput on a small sample before committing to the full run"
+    ]
+  },
+
+  "unresolved_scientific_decisions": {
+    "count": 0,
+    "statement": "none. A3 resolves all three preflight findings. What remains is implementation and re-verification only."
+  }
+}

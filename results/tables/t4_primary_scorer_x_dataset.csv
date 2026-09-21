@@ -1,0 +1,13 @@
+dataset,scorer,cell_mean,n_retained_pairs
+mtbench,llama,1.7455,77
+arena_hard,llama,1.8293,74
+wildbench,llama,1.2099,71
+mtbench,qwen,1.4423,78
+arena_hard,qwen,1.9408,76
+wildbench,qwen,1.7895,76
+mtbench,gemma,0.3377,77
+arena_hard,gemma,0.6154,78
+wildbench,gemma,0.4067,75
+mtbench,olmo32b,0.5789,76
+arena_hard,olmo32b,0.9957,70
+wildbench,olmo32b,1.1479,72

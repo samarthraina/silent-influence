@@ -1,0 +1,61 @@
+{
+  "record": "manifest_v2_acceptance_and_freeze",
+  "frozen_at_utc": "2026-08-17T07:56:52+00:00",
+  "status": "ACCEPTED AND FROZEN",
+  "arena_hard_category_allocation": "UNCHANGED from the as-built v2 draw (coding 105 / creative_writing 73 / math 72); the proposed v1-proportion alternative was explicitly declined",
+  "manifest": {
+    "path": "data/prompts/final_tasks_v2_english_seed20260817.json",
+    "sha256": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+    "n_selected_total": 578,
+    "per_dataset": {
+      "mtbench": 78,
+      "arena_hard": 250,
+      "wildbench": 250
+    },
+    "categories": {
+      "mtbench": {
+        "coding": 10,
+        "extraction": 8,
+        "humanities": 10,
+        "math": 10,
+        "reasoning": 10,
+        "roleplay": 10,
+        "stem": 10,
+        "writing": 10
+      },
+      "arena_hard": {
+        "coding": 105,
+        "creative_writing": 73,
+        "math": 72
+      },
+      "wildbench": {
+        "Advice seeking": 3,
+        "Brainstorming": 7,
+        "Coding & Debugging": 55,
+        "Creative Writing": 45,
+        "Data Analysis": 7,
+        "Editing": 17,
+        "Information seeking": 33,
+        "Math": 23,
+        "Planning": 27,
+        "Reasoning": 29,
+        "Role playing": 4
+      }
+    },
+    "n_previously_used": 74,
+    "n_held_out": 504
+  },
+  "supersedes_v1": {
+    "path": "data/prompts/final_tasks_seed20260817.json",
+    "sha256": "b3e3f49d6940026790e10313ba0ae7018a741cdd837584f8cd35e65df3475ea9",
+    "status": "preserved unmodified; multilingual; not used for the final study"
+  },
+  "selection_seed": 20260817,
+  "deterministic_re_derivation_verified": true,
+  "modules": {
+    "english_assessment.py": "2cf30c6a2ff0ff0b58cfc48dc9a7a070bfe43c50e9beda9786e7221d1493e1d2",
+    "language_decisions.py": "5e7f860ded4d27c7d63924df47bc5e7e7d0b27cd3d63cbbf4bf2ef791da066d5",
+    "select_final_tasks_v2_english.py": "d7e5a18cfaca7006dca13f275a6dd2e731aedab1a1ce70b9d8293c4ea7be4989"
+  },
+  "no_further_changes_permitted_without": "an explicit new versioned manifest; this file is the acceptance record"
+}

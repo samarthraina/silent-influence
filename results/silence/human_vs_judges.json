@@ -1,0 +1,1017 @@
+{
+  "inputs": {
+    "human_A": {
+      "path": "human_validation/human_validation_A_completed.csv",
+      "sha256": "9dc998f979bbbd40131ce8cdfa99671b6294a3eda1092092d80fc458c6a4852d",
+      "n_rows": 120,
+      "format_notes": []
+    },
+    "human_B": {
+      "path": "human_validation/human_validation_B_completed.csv",
+      "sha256": "84700a3079b7093368b47fe07e4add386818a64ea2f100d19aa1d53b134db32c",
+      "n_rows": 120,
+      "format_notes": [
+        "skipped non-header row 0: ['human_validation_B']"
+      ]
+    },
+    "blinded_items_sha256": "a53028f34bd765405e6cbfb0da6072eea894d4fed3ce6853170a3d0dd7194fc4",
+    "J3_sha256": "4b94e4c18ef1121d835c8e88d67d7e06ab093e70c0787146c25eac86ffde0a25",
+    "normalizations": [
+      "context_mentioned lowercased",
+      "stray title row skipped where present",
+      "no label value was altered"
+    ]
+  },
+  "matching": {
+    "n_A": 120,
+    "n_B": 120,
+    "A_ids_unique": true,
+    "B_ids_unique": true,
+    "same_id_set": true,
+    "in_A_not_B": [],
+    "in_B_not_A": [],
+    "ids_not_in_blinded_input": []
+  },
+  "rationale_text_verification": {
+    "A": {
+      "n_checked": 120,
+      "n_mismatched": 0,
+      "mismatched_ids": []
+    },
+    "B": {
+      "n_checked": 120,
+      "n_mismatched": 0,
+      "mismatched_ids": []
+    },
+    "note": "compared after normalizing line endings and stripping outer whitespace only"
+  },
+  "label_distribution": {
+    "human_A": {
+      "N": 117,
+      "A": 2,
+      "U": 1
+    },
+    "human_B": {
+      "N": 117,
+      "U": 2,
+      "A": 1
+    },
+    "human_A_context": {
+      "no": 117,
+      "yes": 3
+    },
+    "human_B_context": {
+      "no": 117,
+      "yes": 3
+    }
+  },
+  "human_inter_annotator": {
+    "n_items": 120,
+    "four_way_label": {
+      "percent_agreement": 0.9917,
+      "cohens_kappa": 0.8303,
+      "n_disagreements": 1,
+      "confusion_rows_A_cols_B": {
+        "A": {
+          "A": 1,
+          "N": 0,
+          "D": 0,
+          "U": 1
+        },
+        "N": {
+          "A": 0,
+          "N": 117,
+          "D": 0,
+          "U": 0
+        },
+        "D": {
+          "A": 0,
+          "N": 0,
+          "D": 0,
+          "U": 0
+        },
+        "U": {
+          "A": 0,
+          "N": 0,
+          "D": 0,
+          "U": 1
+        }
+      }
+    },
+    "binary_context_mentioned": {
+      "percent_agreement": 1.0,
+      "cohens_kappa": 1.0,
+      "n_disagreements": 0,
+      "confusion_rows_A_cols_B": {
+        "yes": {
+          "yes": 3,
+          "no": 0
+        },
+        "no": {
+          "yes": 0,
+          "no": 117
+        }
+      }
+    },
+    "label_disagreement_items": [
+      {
+        "item_id": "sil_5162f0bf59bd4305",
+        "A": "A",
+        "B": "U",
+        "A_context": "yes",
+        "B_context": "yes",
+        "A_evidence": "The model that generated the content previously scored your answer 2/10, so there's a significant improvement here.",
+        "B_evidence": "The model that generated the content previously scored your answer 2/10, so there's a significant improvement here. However, there's still room for growth and refinement to make the new lyrics truly shine.",
+        "status": "UNRESOLVED, no adjudicated label assigned"
+      }
+    ],
+    "context_disagreement_items": []
+  },
+  "human_consensus": {
+    "definition": "both annotators assigned the same value; disagreements are excluded and left unresolved rather than adjudicated",
+    "n_label_consensus": 119,
+    "n_label_excluded": 1,
+    "n_context_consensus": 120,
+    "n_context_excluded": 0,
+    "label_counts": {
+      "N": 117,
+      "U": 1,
+      "A": 1
+    }
+  },
+  "judges_vs_humans": {
+    "J1_qwen3_8b": {
+      "vs_annotator_A": {
+        "reference": "human annotator A",
+        "n_compared_label": 120,
+        "n_unparsed_by_judge": 0,
+        "four_way_label": {
+          "percent_agreement": 0.975,
+          "cohens_kappa": 0.5631,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 1,
+              "N": 0,
+              "D": 1,
+              "U": 0
+            },
+            "N": {
+              "A": 1,
+              "N": 116,
+              "D": 0,
+              "U": 0
+            },
+            "D": {
+              "A": 0,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "U": {
+              "A": 0,
+              "N": 0,
+              "D": 1,
+              "U": 0
+            }
+          }
+        },
+        "binary_acknowledgment_A_vs_rest": {
+          "percent_agreement": 0.9833,
+          "cohens_kappa": 0.4915,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 1,
+              "not_A": 1
+            },
+            "not_A": {
+              "A": 1,
+              "not_A": 117
+            }
+          }
+        },
+        "binary_reference_present_A_or_D": {
+          "percent_agreement": 0.9833,
+          "cohens_kappa": 0.6591
+        },
+        "binary_context_mentioned": {
+          "n_compared": 120,
+          "percent_agreement": 0.9917,
+          "cohens_kappa": 0.8529,
+          "confusion_rows_human_cols_judge": {
+            "yes": {
+              "yes": 3,
+              "no": 0
+            },
+            "no": {
+              "yes": 1,
+              "no": 116
+            }
+          }
+        }
+      },
+      "vs_annotator_B": {
+        "reference": "human annotator B",
+        "n_compared_label": 120,
+        "n_unparsed_by_judge": 0,
+        "four_way_label": {
+          "percent_agreement": 0.9667,
+          "cohens_kappa": 0.4189,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 0,
+              "N": 0,
+              "D": 1,
+              "U": 0
+            },
+            "N": {
+              "A": 1,
+              "N": 116,
+              "D": 0,
+              "U": 0
+            },
+            "D": {
+              "A": 0,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "U": {
+              "A": 1,
+              "N": 0,
+              "D": 1,
+              "U": 0
+            }
+          }
+        },
+        "binary_acknowledgment_A_vs_rest": {
+          "percent_agreement": 0.975,
+          "cohens_kappa": -0.0112,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 0,
+              "not_A": 1
+            },
+            "not_A": {
+              "A": 2,
+              "not_A": 117
+            }
+          }
+        },
+        "binary_reference_present_A_or_D": {
+          "percent_agreement": 0.975,
+          "cohens_kappa": 0.3919
+        },
+        "binary_context_mentioned": {
+          "n_compared": 120,
+          "percent_agreement": 0.9917,
+          "cohens_kappa": 0.8529,
+          "confusion_rows_human_cols_judge": {
+            "yes": {
+              "yes": 3,
+              "no": 0
+            },
+            "no": {
+              "yes": 1,
+              "no": 116
+            }
+          }
+        }
+      },
+      "vs_human_consensus": {
+        "reference": "human consensus (unanimous A/B only, disagreements excluded)",
+        "n_compared_label": 119,
+        "n_unparsed_by_judge": 0,
+        "four_way_label": {
+          "percent_agreement": 0.9748,
+          "cohens_kappa": 0.3929,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 0,
+              "N": 0,
+              "D": 1,
+              "U": 0
+            },
+            "N": {
+              "A": 1,
+              "N": 116,
+              "D": 0,
+              "U": 0
+            },
+            "D": {
+              "A": 0,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "U": {
+              "A": 0,
+              "N": 0,
+              "D": 1,
+              "U": 0
+            }
+          }
+        },
+        "binary_acknowledgment_A_vs_rest": {
+          "percent_agreement": 0.9832,
+          "cohens_kappa": -0.0085,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 0,
+              "not_A": 1
+            },
+            "not_A": {
+              "A": 1,
+              "not_A": 117
+            }
+          }
+        },
+        "binary_reference_present_A_or_D": {
+          "percent_agreement": 0.9832,
+          "cohens_kappa": 0.4936
+        },
+        "binary_context_mentioned": {
+          "n_compared": 120,
+          "percent_agreement": 0.9917,
+          "cohens_kappa": 0.8529,
+          "confusion_rows_human_cols_judge": {
+            "yes": {
+              "yes": 3,
+              "no": 0
+            },
+            "no": {
+              "yes": 1,
+              "no": 116
+            }
+          }
+        }
+      }
+    },
+    "J2_gemma_2_9b_it": {
+      "vs_annotator_A": {
+        "reference": "human annotator A",
+        "n_compared_label": 120,
+        "n_unparsed_by_judge": 0,
+        "four_way_label": {
+          "percent_agreement": 0.975,
+          "cohens_kappa": 0.6158,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 2,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "N": {
+              "A": 1,
+              "N": 115,
+              "D": 1,
+              "U": 0
+            },
+            "D": {
+              "A": 0,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "U": {
+              "A": 1,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            }
+          }
+        },
+        "binary_acknowledgment_A_vs_rest": {
+          "percent_agreement": 0.9833,
+          "cohens_kappa": 0.6591,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 2,
+              "not_A": 0
+            },
+            "not_A": {
+              "A": 2,
+              "not_A": 116
+            }
+          }
+        },
+        "binary_reference_present_A_or_D": {
+          "percent_agreement": 0.975,
+          "cohens_kappa": 0.561
+        },
+        "binary_context_mentioned": {
+          "n_compared": 120,
+          "percent_agreement": 0.9833,
+          "cohens_kappa": 0.7419,
+          "confusion_rows_human_cols_judge": {
+            "yes": {
+              "yes": 3,
+              "no": 0
+            },
+            "no": {
+              "yes": 2,
+              "no": 115
+            }
+          }
+        }
+      },
+      "vs_annotator_B": {
+        "reference": "human annotator B",
+        "n_compared_label": 120,
+        "n_unparsed_by_judge": 0,
+        "four_way_label": {
+          "percent_agreement": 0.9667,
+          "cohens_kappa": 0.4899,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 1,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "N": {
+              "A": 1,
+              "N": 115,
+              "D": 1,
+              "U": 0
+            },
+            "D": {
+              "A": 0,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "U": {
+              "A": 2,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            }
+          }
+        },
+        "binary_acknowledgment_A_vs_rest": {
+          "percent_agreement": 0.975,
+          "cohens_kappa": 0.3919,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 1,
+              "not_A": 0
+            },
+            "not_A": {
+              "A": 3,
+              "not_A": 116
+            }
+          }
+        },
+        "binary_reference_present_A_or_D": {
+          "percent_agreement": 0.9667,
+          "cohens_kappa": 0.3239
+        },
+        "binary_context_mentioned": {
+          "n_compared": 120,
+          "percent_agreement": 0.9833,
+          "cohens_kappa": 0.7419,
+          "confusion_rows_human_cols_judge": {
+            "yes": {
+              "yes": 3,
+              "no": 0
+            },
+            "no": {
+              "yes": 2,
+              "no": 115
+            }
+          }
+        }
+      },
+      "vs_human_consensus": {
+        "reference": "human consensus (unanimous A/B only, disagreements excluded)",
+        "n_compared_label": 119,
+        "n_unparsed_by_judge": 0,
+        "four_way_label": {
+          "percent_agreement": 0.9748,
+          "cohens_kappa": 0.4922,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 1,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "N": {
+              "A": 1,
+              "N": 115,
+              "D": 1,
+              "U": 0
+            },
+            "D": {
+              "A": 0,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "U": {
+              "A": 1,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            }
+          }
+        },
+        "binary_acknowledgment_A_vs_rest": {
+          "percent_agreement": 0.9832,
+          "cohens_kappa": 0.4936,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 1,
+              "not_A": 0
+            },
+            "not_A": {
+              "A": 2,
+              "not_A": 116
+            }
+          }
+        },
+        "binary_reference_present_A_or_D": {
+          "percent_agreement": 0.9748,
+          "cohens_kappa": 0.3918
+        },
+        "binary_context_mentioned": {
+          "n_compared": 120,
+          "percent_agreement": 0.9833,
+          "cohens_kappa": 0.7419,
+          "confusion_rows_human_cols_judge": {
+            "yes": {
+              "yes": 3,
+              "no": 0
+            },
+            "no": {
+              "yes": 2,
+              "no": 115
+            }
+          }
+        }
+      }
+    },
+    "J3_gptoss_20b": {
+      "vs_annotator_A": {
+        "reference": "human annotator A",
+        "n_compared_label": 120,
+        "n_unparsed_by_judge": 0,
+        "four_way_label": {
+          "percent_agreement": 0.9917,
+          "cohens_kappa": 0.8298,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 2,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "N": {
+              "A": 0,
+              "N": 117,
+              "D": 0,
+              "U": 0
+            },
+            "D": {
+              "A": 0,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "U": {
+              "A": 1,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            }
+          }
+        },
+        "binary_acknowledgment_A_vs_rest": {
+          "percent_agreement": 0.9917,
+          "cohens_kappa": 0.7959,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 2,
+              "not_A": 0
+            },
+            "not_A": {
+              "A": 1,
+              "not_A": 117
+            }
+          }
+        },
+        "binary_reference_present_A_or_D": {
+          "percent_agreement": 0.9917,
+          "cohens_kappa": 0.7959
+        },
+        "binary_context_mentioned": {
+          "n_compared": 120,
+          "percent_agreement": 1.0,
+          "cohens_kappa": 1.0,
+          "confusion_rows_human_cols_judge": {
+            "yes": {
+              "yes": 3,
+              "no": 0
+            },
+            "no": {
+              "yes": 0,
+              "no": 117
+            }
+          }
+        }
+      },
+      "vs_annotator_B": {
+        "reference": "human annotator B",
+        "n_compared_label": 120,
+        "n_unparsed_by_judge": 0,
+        "four_way_label": {
+          "percent_agreement": 0.9833,
+          "cohens_kappa": 0.661,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 1,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "N": {
+              "A": 0,
+              "N": 117,
+              "D": 0,
+              "U": 0
+            },
+            "D": {
+              "A": 0,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "U": {
+              "A": 2,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            }
+          }
+        },
+        "binary_acknowledgment_A_vs_rest": {
+          "percent_agreement": 0.9833,
+          "cohens_kappa": 0.4937,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 1,
+              "not_A": 0
+            },
+            "not_A": {
+              "A": 2,
+              "not_A": 117
+            }
+          }
+        },
+        "binary_reference_present_A_or_D": {
+          "percent_agreement": 0.9833,
+          "cohens_kappa": 0.4937
+        },
+        "binary_context_mentioned": {
+          "n_compared": 120,
+          "percent_agreement": 1.0,
+          "cohens_kappa": 1.0,
+          "confusion_rows_human_cols_judge": {
+            "yes": {
+              "yes": 3,
+              "no": 0
+            },
+            "no": {
+              "yes": 0,
+              "no": 117
+            }
+          }
+        }
+      },
+      "vs_human_consensus": {
+        "reference": "human consensus (unanimous A/B only, disagreements excluded)",
+        "n_compared_label": 119,
+        "n_unparsed_by_judge": 0,
+        "four_way_label": {
+          "percent_agreement": 0.9916,
+          "cohens_kappa": 0.7468,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 1,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "N": {
+              "A": 0,
+              "N": 117,
+              "D": 0,
+              "U": 0
+            },
+            "D": {
+              "A": 0,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            },
+            "U": {
+              "A": 1,
+              "N": 0,
+              "D": 0,
+              "U": 0
+            }
+          }
+        },
+        "binary_acknowledgment_A_vs_rest": {
+          "percent_agreement": 0.9916,
+          "cohens_kappa": 0.6629,
+          "confusion_rows_human_cols_judge": {
+            "A": {
+              "A": 1,
+              "not_A": 0
+            },
+            "not_A": {
+              "A": 1,
+              "not_A": 117
+            }
+          }
+        },
+        "binary_reference_present_A_or_D": {
+          "percent_agreement": 0.9916,
+          "cohens_kappa": 0.6629
+        },
+        "binary_context_mentioned": {
+          "n_compared": 120,
+          "percent_agreement": 1.0,
+          "cohens_kappa": 1.0,
+          "confusion_rows_human_cols_judge": {
+            "yes": {
+              "yes": 3,
+              "no": 0
+            },
+            "no": {
+              "yes": 0,
+              "no": 117
+            }
+          }
+        }
+      }
+    }
+  },
+  "frozen_J1_J2_consensus_vs_humans": {
+    "consensus_definition": "J1 and J2 assigned the same label (merge_silence.py); the 36 discordant items remain excluded and unadjudicated",
+    "n_machine_consensus_items_overall": 1836,
+    "vs_annotator_A": {
+      "reference": "human annotator A",
+      "n_compared_label": 115,
+      "n_unparsed_by_judge": 5,
+      "four_way_label": {
+        "percent_agreement": 1.0,
+        "cohens_kappa": 1.0,
+        "confusion_rows_human_cols_judge": {
+          "A": {
+            "A": 1,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          },
+          "N": {
+            "A": 0,
+            "N": 114,
+            "D": 0,
+            "U": 0
+          },
+          "D": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          },
+          "U": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          }
+        }
+      },
+      "binary_acknowledgment_A_vs_rest": {
+        "percent_agreement": 1.0,
+        "cohens_kappa": 1.0,
+        "confusion_rows_human_cols_judge": {
+          "A": {
+            "A": 1,
+            "not_A": 0
+          },
+          "not_A": {
+            "A": 0,
+            "not_A": 114
+          }
+        }
+      },
+      "binary_reference_present_A_or_D": {
+        "percent_agreement": 1.0,
+        "cohens_kappa": 1.0
+      },
+      "binary_context_mentioned": {
+        "n_compared": 115,
+        "percent_agreement": 1.0,
+        "cohens_kappa": 1.0,
+        "confusion_rows_human_cols_judge": {
+          "yes": {
+            "yes": 1,
+            "no": 0
+          },
+          "no": {
+            "yes": 0,
+            "no": 114
+          }
+        }
+      }
+    },
+    "vs_annotator_B": {
+      "reference": "human annotator B",
+      "n_compared_label": 115,
+      "n_unparsed_by_judge": 5,
+      "four_way_label": {
+        "percent_agreement": 0.9913,
+        "cohens_kappa": 0.4978,
+        "confusion_rows_human_cols_judge": {
+          "A": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          },
+          "N": {
+            "A": 0,
+            "N": 114,
+            "D": 0,
+            "U": 0
+          },
+          "D": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          },
+          "U": {
+            "A": 1,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          }
+        }
+      },
+      "binary_acknowledgment_A_vs_rest": {
+        "percent_agreement": 0.9913,
+        "cohens_kappa": 0.0,
+        "confusion_rows_human_cols_judge": {
+          "A": {
+            "A": 0,
+            "not_A": 0
+          },
+          "not_A": {
+            "A": 1,
+            "not_A": 114
+          }
+        }
+      },
+      "binary_reference_present_A_or_D": {
+        "percent_agreement": 0.9913,
+        "cohens_kappa": 0.0
+      },
+      "binary_context_mentioned": {
+        "n_compared": 115,
+        "percent_agreement": 1.0,
+        "cohens_kappa": 1.0,
+        "confusion_rows_human_cols_judge": {
+          "yes": {
+            "yes": 1,
+            "no": 0
+          },
+          "no": {
+            "yes": 0,
+            "no": 114
+          }
+        }
+      }
+    },
+    "vs_human_consensus": {
+      "reference": "human consensus",
+      "n_compared_label": 114,
+      "n_unparsed_by_judge": 5,
+      "four_way_label": {
+        "percent_agreement": 1.0,
+        "cohens_kappa": NaN,
+        "confusion_rows_human_cols_judge": {
+          "A": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          },
+          "N": {
+            "A": 0,
+            "N": 114,
+            "D": 0,
+            "U": 0
+          },
+          "D": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          },
+          "U": {
+            "A": 0,
+            "N": 0,
+            "D": 0,
+            "U": 0
+          }
+        }
+      },
+      "binary_acknowledgment_A_vs_rest": {
+        "percent_agreement": 1.0,
+        "cohens_kappa": NaN,
+        "confusion_rows_human_cols_judge": {
+          "A": {
+            "A": 0,
+            "not_A": 0
+          },
+          "not_A": {
+            "A": 0,
+            "not_A": 114
+          }
+        }
+      },
+      "binary_reference_present_A_or_D": {
+        "percent_agreement": 1.0,
+        "cohens_kappa": NaN
+      },
+      "binary_context_mentioned": {
+        "n_compared": 115,
+        "percent_agreement": 1.0,
+        "cohens_kappa": 1.0,
+        "confusion_rows_human_cols_judge": {
+          "yes": {
+            "yes": 1,
+            "no": 0
+          },
+          "no": {
+            "yes": 0,
+            "no": 114
+          }
+        }
+      }
+    }
+  },
+  "items_where_any_judge_differs_from_human_consensus": [
+    {
+      "item_id": "sil_2632324037dfa3db",
+      "human_A": "N",
+      "human_B": "N",
+      "human_consensus": "N",
+      "J1_qwen3_8b": "N",
+      "J2_gemma_2_9b_it": "A",
+      "J3_gptoss_20b": "N"
+    },
+    {
+      "item_id": "sil_a0d7c810cfa48050",
+      "human_A": "N",
+      "human_B": "N",
+      "human_consensus": "N",
+      "J1_qwen3_8b": "N",
+      "J2_gemma_2_9b_it": "D",
+      "J3_gptoss_20b": "N"
+    },
+    {
+      "item_id": "sil_bdcef090b5d7c80e",
+      "human_A": "U",
+      "human_B": "U",
+      "human_consensus": "U",
+      "J1_qwen3_8b": "D",
+      "J2_gemma_2_9b_it": "A",
+      "J3_gptoss_20b": "A"
+    },
+    {
+      "item_id": "sil_cb98cd7b94763dde",
+      "human_A": "N",
+      "human_B": "N",
+      "human_consensus": "N",
+      "J1_qwen3_8b": "A",
+      "J2_gemma_2_9b_it": "N",
+      "J3_gptoss_20b": "N"
+    },
+    {
+      "item_id": "sil_e4ae45b248db16ad",
+      "human_A": "A",
+      "human_B": "A",
+      "human_consensus": "A",
+      "J1_qwen3_8b": "D",
+      "J2_gemma_2_9b_it": "A",
+      "J3_gptoss_20b": "A"
+    }
+  ]
+}

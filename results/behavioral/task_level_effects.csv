@@ -1,0 +1,234 @@
+dataset,task_id,category,mean_effect,n_scorers
+arena_hard,7bb0b31e023f4a6e,math,3.3333333333333335,3
+mtbench,140,extraction,3.0,4
+arena_hard,ee6a697e2b39423e,creative_writing,3.0,4
+arena_hard,b9ebb67820354dcd,coding,2.75,4
+arena_hard,f85200a0f1bd4543,math,2.75,4
+wildbench,f41bb5bf57c8481c,Data Analysis,2.75,4
+wildbench,02cda0d324384da7,Data Analysis,2.75,4
+wildbench,273bdb150c8f4147,Role playing,2.6666666666666665,3
+arena_hard,40303f2127f04daa,coding,2.5,4
+wildbench,8e46fba4555e4055,Creative Writing,2.375,4
+wildbench,05e420b7d62d4911,Planning,2.375,4
+mtbench,156,humanities,2.25,4
+arena_hard,246e229a26a14ea7,coding,2.25,4
+arena_hard,76894809e0fe48d9,coding,2.25,4
+arena_hard,707e6bd0d8994e71,coding,2.25,4
+arena_hard,96b1f6807445484a,creative_writing,2.25,4
+wildbench,b4b03645522f4602,Information seeking,2.25,4
+wildbench,eb57ead639294c64,Math,2.25,4
+wildbench,2d4853074c7745db,Planning,2.25,4
+arena_hard,972994b9fc544dc3,math,2.1666666666666665,3
+mtbench,95,roleplay,2.0,4
+mtbench,102,reasoning,2.0,4
+mtbench,105,reasoning,2.0,4
+mtbench,125,coding,2.0,4
+mtbench,126,coding,2.0,4
+mtbench,142,stem,2.0,4
+mtbench,151,humanities,2.0,4
+arena_hard,e457fae4890745c8,coding,2.0,4
+arena_hard,c90da77eb80240b3,coding,2.0,4
+arena_hard,b7825d0fc00e4d83,coding,2.0,4
+arena_hard,4c4458aad8034481,math,2.0,4
+arena_hard,c8f5fb0700cd4ff8,math,2.0,4
+arena_hard,c360754ce6014514,math,2.0,4
+wildbench,7ae4e561d4b34e57,Editing,2.0,4
+wildbench,80fa71beeb4f4768,Planning,2.0,3
+arena_hard,4bf132b69be3469b,coding,2.0,2
+wildbench,6313fcb6d9544faf,Coding & Debugging,1.9500000000000002,4
+mtbench,89,writing,1.875,4
+arena_hard,dfc2bd06e952492d,creative_writing,1.875,4
+arena_hard,9434458ae86049f9,creative_writing,1.775,4
+mtbench,88,writing,1.75,4
+mtbench,98,roleplay,1.75,4
+mtbench,101,reasoning,1.75,4
+arena_hard,5df63b6b49dd4c71,coding,1.75,4
+arena_hard,4c7d8a034c4e40f6,creative_writing,1.75,4
+arena_hard,5ab052c7cef84016,creative_writing,1.75,4
+arena_hard,98cd87bd9b3448a7,creative_writing,1.75,4
+arena_hard,bdd19128a8fd4a99,math,1.75,4
+arena_hard,f102436b3ea440d6,math,1.75,4
+arena_hard,f3176f24b8364008,math,1.75,4
+wildbench,d9d3a0f99c694d72,Coding & Debugging,1.75,4
+wildbench,0622b8b2a74a4363,Coding & Debugging,1.75,4
+wildbench,f5e325dcfa434e22,Creative Writing,1.75,4
+wildbench,5f632c21b2d241dd,Creative Writing,1.75,4
+wildbench,c7185d033b964a1e,Information seeking,1.75,4
+wildbench,535225ef43a64eef,Math,1.75,4
+wildbench,c926c9ebdfce4cdc,Planning,1.7,4
+arena_hard,e1a4d59e7ef74055,math,1.6666666666666667,3
+arena_hard,605d67a8ce1f4d62,creative_writing,1.625,4
+arena_hard,6034f779ea6a49b6,coding,1.5499999999999998,4
+mtbench,87,writing,1.5,4
+mtbench,97,roleplay,1.5,4
+mtbench,103,reasoning,1.5,4
+mtbench,110,reasoning,1.5,4
+mtbench,118,math,1.5,4
+mtbench,120,math,1.5,4
+mtbench,130,coding,1.5,4
+mtbench,143,stem,1.5,4
+mtbench,148,stem,1.5,4
+mtbench,153,humanities,1.5,4
+mtbench,160,humanities,1.5,4
+arena_hard,632169bbda8b43ba,coding,1.5,4
+arena_hard,dcac3317be714a64,coding,1.5,4
+arena_hard,cab26034a7d64266,coding,1.5,4
+arena_hard,236ecfda72434b55,coding,1.5,4
+arena_hard,4a687ddb55244a91,creative_writing,1.5,4
+arena_hard,8b18b97cf1244aa3,creative_writing,1.5,4
+wildbench,8706aea5150d4d8b,Coding & Debugging,1.5,4
+wildbench,99c1bf7021044b69,Creative Writing,1.5,4
+wildbench,984eefa3549f4e41,Math,1.5,4
+wildbench,fb8077cdf0094ab5,Reasoning,1.5,4
+wildbench,363f1e97e4a14a26,Reasoning,1.5,4
+mtbench,121,coding,1.475,4
+mtbench,96,roleplay,1.375,4
+arena_hard,11a638d7129444c7,creative_writing,1.375,4
+arena_hard,92fda90ee2ba47d2,creative_writing,1.375,4
+wildbench,102ff8ac971c4aa1,Creative Writing,1.375,4
+wildbench,e7ec17697c10438e,Creative Writing,1.375,4
+wildbench,0d2610c428e74f0d,Information seeking,1.375,4
+wildbench,a35c3fe1cbe241ed,Math,1.375,4
+arena_hard,3b72cdccb79646d6,math,1.3333333333333333,3
+mtbench,84,writing,1.25,4
+mtbench,90,writing,1.25,4
+mtbench,91,roleplay,1.25,4
+mtbench,109,reasoning,1.25,4
+mtbench,134,extraction,1.25,4
+mtbench,147,stem,1.25,4
+mtbench,149,stem,1.25,4
+mtbench,152,humanities,1.25,4
+arena_hard,b9825cd52d934287,coding,1.25,4
+arena_hard,0275cb6eae1649c1,coding,1.25,4
+arena_hard,d7765737164a4164,coding,1.25,4
+arena_hard,4027c1a8845a4516,coding,1.25,4
+arena_hard,d309137e15d14f9f,creative_writing,1.25,4
+arena_hard,ca0ddd4ab3c84bbe,creative_writing,1.25,4
+arena_hard,51b620f7c9864b4e,creative_writing,1.25,4
+arena_hard,2700a551d7854f1c,math,1.25,4
+wildbench,ec4d1f13b33d476e,Coding & Debugging,1.25,4
+wildbench,b5300bce101c4998,Creative Writing,1.25,4
+wildbench,c40db1c020804e92,Creative Writing,1.25,4
+wildbench,b1286af91e8d4363,Creative Writing,1.25,4
+wildbench,073e70dc86a54d9c,Planning,1.25,4
+wildbench,512cc91caecc4a72,Planning,1.25,4
+mtbench,132,extraction,1.25,2
+wildbench,d447bfd72c5d4794,Editing,1.1749999999999998,4
+arena_hard,a10d396f07574a4a,coding,1.125,4
+arena_hard,7799882ac02d4c89,creative_writing,1.125,4
+arena_hard,8e5a22167b244dd1,creative_writing,1.125,4
+arena_hard,70dc029ac785461c,creative_writing,1.125,4
+arena_hard,92a5f85ad8414404,creative_writing,1.125,4
+wildbench,0ac4ec1b7279416c,Brainstorming,1.125,4
+wildbench,33ced2dfa17f4e81,Brainstorming,1.125,4
+wildbench,0204f978aba442c5,Coding & Debugging,1.125,4
+wildbench,d612376e16724e1d,Creative Writing,1.125,4
+wildbench,c8306c274a244093,Creative Writing,1.125,4
+wildbench,b9f7518558474161,Creative Writing,1.125,4
+wildbench,573df775a7994b2d,Reasoning,1.125,4
+wildbench,f482c63648464b2b,Reasoning,1.0625,4
+mtbench,83,writing,1.0,4
+mtbench,93,roleplay,1.0,4
+mtbench,99,roleplay,1.0,4
+mtbench,100,roleplay,1.0,4
+mtbench,112,math,1.0,4
+mtbench,115,math,1.0,4
+mtbench,117,math,1.0,4
+mtbench,119,math,1.0,4
+mtbench,124,coding,1.0,4
+mtbench,135,extraction,1.0,4
+mtbench,141,stem,1.0,4
+mtbench,145,stem,1.0,4
+mtbench,146,stem,1.0,4
+arena_hard,bfdf93b4e65b4b0e,coding,1.0,4
+arena_hard,a0502a5076bc4a5f,coding,1.0,4
+arena_hard,ed0f0468c4764e1b,coding,1.0,4
+arena_hard,a7e53142cfb04757,creative_writing,1.0,4
+arena_hard,61ecce54fb4846a6,math,1.0,4
+wildbench,254002fea37a4755,Coding & Debugging,1.0,3
+wildbench,4c7b131e24e34295,Coding & Debugging,1.0,4
+wildbench,cc89d4690cd44285,Coding & Debugging,1.0,3
+wildbench,fc39c802b8734936,Math,1.0,4
+mtbench,136,extraction,1.0,2
+arena_hard,190cb332ca03436f,coding,1.0,1
+mtbench,81,writing,0.875,4
+mtbench,94,roleplay,0.875,4
+arena_hard,2da7e53308a547d6,coding,0.875,4
+arena_hard,6325cdbd18634391,creative_writing,0.875,4
+wildbench,eefe41e78705423b,Editing,0.875,4
+arena_hard,908d8003ba3b4d4c,coding,0.7999999999999998,4
+mtbench,82,writing,0.75,4
+mtbench,92,roleplay,0.75,4
+mtbench,113,math,0.75,4
+mtbench,114,math,0.75,4
+mtbench,127,coding,0.75,4
+mtbench,150,stem,0.75,4
+mtbench,155,humanities,0.75,4
+mtbench,158,humanities,0.75,4
+mtbench,159,humanities,0.75,4
+arena_hard,06add81598044afd,coding,0.75,4
+arena_hard,6a02a908d61e46c5,coding,0.75,4
+arena_hard,9d877079fa644134,creative_writing,0.75,4
+arena_hard,5b17cfc31450426c,creative_writing,0.75,4
+arena_hard,e3610f8a81434e6f,math,0.75,4
+wildbench,9da7e6f959a74f3b,Advice seeking,0.75,4
+wildbench,1be884c963e54768,Coding & Debugging,0.75,4
+wildbench,9ab8f1cdc1a247bd,Editing,0.75,4
+wildbench,f38b820da54f4df1,Information seeking,0.75,4
+wildbench,3393551ffae44a42,Planning,0.75,4
+wildbench,6b3657694d9b4d4d,Reasoning,0.75,4
+wildbench,6577d12c73a340c8,Information seeking,0.6666666666666666,3
+mtbench,86,writing,0.625,4
+mtbench,154,humanities,0.625,4
+arena_hard,a4fb13fbc93f4eaa,coding,0.625,4
+wildbench,5ee139c109344637,Creative Writing,0.5666666666666664,3
+arena_hard,fc8a0fea66134a6e,math,0.5425,4
+mtbench,85,writing,0.5,4
+mtbench,107,reasoning,0.5,4
+mtbench,122,coding,0.5,4
+mtbench,133,extraction,0.5,4
+mtbench,137,extraction,0.5,4
+mtbench,139,extraction,0.5,4
+mtbench,144,stem,0.5,4
+mtbench,157,humanities,0.5,4
+arena_hard,510f53828ef248ad,coding,0.5,4
+arena_hard,4cd76997d2214c72,math,0.5,4
+arena_hard,79fb96a5bee24f82,math,0.5,4
+wildbench,f688239304c040a3,Coding & Debugging,0.5,4
+wildbench,72da41d2f5cf4838,Coding & Debugging,0.5,4
+wildbench,58ea3dc4bbc9461a,Coding & Debugging,0.5,4
+wildbench,3b4cd3f7b0754123,Creative Writing,0.5,4
+wildbench,e626a329b62b408c,Editing,0.5,4
+wildbench,df1a79e6fd9f46cb,Information seeking,0.5,4
+wildbench,2ae29dbc65a44107,Information seeking,0.5,4
+wildbench,bb056fc94b704670,Planning,0.5,4
+wildbench,b5c341d6560a4b2c,Reasoning,0.5,4
+wildbench,6faeb29f4d214e4a,Reasoning,0.5,4
+wildbench,6a00c8c9ca924a9e,Reasoning,0.5,4
+mtbench,123,coding,0.375,4
+wildbench,cd1a59e3c9a34720,Editing,0.375,4
+arena_hard,eec5785a6f59458d,math,0.3500000000000001,4
+wildbench,78f977778df9437f,Information seeking,0.3333333333333333,3
+arena_hard,b569d74273d4420e,math,0.3333333333333333,3
+wildbench,957e2ced46e84447,Math,0.3333333333333333,3
+mtbench,129,coding,0.25,4
+arena_hard,c57522c6e2ed40f9,coding,0.25,4
+arena_hard,bbbef3843faa4611,coding,0.25,4
+arena_hard,41cd1c96ac424f7e,math,0.25,4
+wildbench,9a5f5ec7ede84fc5,Coding & Debugging,0.25,4
+wildbench,e89e6b6f441e4a52,Coding & Debugging,0.25,4
+wildbench,7e071f9bd9e24dca,Information seeking,0.25,4
+wildbench,713ef999889442ea,Coding & Debugging,0.0,4
+wildbench,a33e9277db4446b8,Reasoning,0.0,1
+wildbench,24222844618e4743,Math,0.0,1
+wildbench,2149588bda5a45f4,Information seeking,-0.17500000000000004,4
+mtbench,128,coding,-0.25,4
+arena_hard,4b9ba55ea5704f0d,math,-0.25,4
+wildbench,6634578f233b44f9,Coding & Debugging,-0.25,4
+mtbench,106,reasoning,-0.5,4
+mtbench,111,math,-0.5,4
+mtbench,116,math,-0.5,4
+mtbench,108,reasoning,-0.75,4
+arena_hard,369827bfcf534e0a,math,-1.0,3
+arena_hard,cd58c7967f4b446e,coding,-1.0,1
+mtbench,104,reasoning,-2.5,4

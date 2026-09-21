@@ -1,0 +1,9 @@
+# CPU analysis of saved results. Supports the table and figure builders listed in
+# REPRODUCIBILITY.md; see OMISSIONS.md for unavailable upstream inputs. No model weights.
+# torch and transformers are intentionally excluded from this CPU-only file.
+# For generation, scoring, annotation, or mechanistic model inference, use
+# requirements-production.txt and its CUDA-specific PyTorch installation command.
+numpy>=1.24
+matplotlib>=3.7
+pyyaml>=6.0
+pytest>=8.0

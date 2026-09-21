@@ -1,0 +1,22 @@
+{
+  "analysis": "complete-case confirmatory primary contrast",
+  "contrast": "no_history_minus_self_low_2",
+  "estimator": "frozen: analyze_final_study.pivot_scores + contrast_diffs, unchanged",
+  "measurement_basis": "complete_case",
+  "thresholds_prespecified": [
+    ">0",
+    ">=0.5",
+    ">=1.0",
+    ">=1.5",
+    ">=2.0",
+    ">=2.5",
+    ">=3.0"
+  ],
+  "thresholds_chosen_after_inspecting_results": false,
+  "bootstrap": {
+    "n_replicates": 10000,
+    "seed": 20260818,
+    "design": "task-clustered, dataset-stratified; resampling unit (dataset, task); scorer rows travel with the task"
+  },
+  "top_tail_and_max_are_descriptive_not_confirmatory": true
+}

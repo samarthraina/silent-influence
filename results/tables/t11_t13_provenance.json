@@ -1,0 +1,21 @@
+{
+  "analysis": "OLMo-3.1-32B only -- DESCRIPTIVE, not confirmatory",
+  "contrast": "no_history_minus_self_low_2",
+  "measurement_basis": "complete_case",
+  "n_pairs": 218,
+  "estimator": "frozen pivot_scores + contrast_diffs, restricted to olmo32b",
+  "bootstrap": {
+    "n_replicates": 10000,
+    "seed": 20260818,
+    "design": "paired-task, dataset-stratified; unit = task pair"
+  },
+  "mean_delta": 0.9007,
+  "mean_delta_ci95": [
+    0.6982,
+    1.0947
+  ],
+  "max_and_top_tail_are_descriptive_only": true,
+  "no_task_selection_performed": true,
+  "rationales_not_inspected": true,
+  "final_analysis_modified": false
+}

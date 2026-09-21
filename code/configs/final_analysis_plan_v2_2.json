@@ -1,0 +1,333 @@
+{
+  "plan_id": "final_behavioral_study_sap_v2_amendment_A2",
+  "plan_version": "2.2",
+  "status": "pre-specified; NO model output exists for any task in the frozen manifest, and none exists for either the superseded or the replacement fourth scorer",
+  "prospective": true,
+  "prospective_evidence": [
+    "results/final_behavioral_study/ does not exist",
+    "results/final_behavioral_study_adjudicated/ does not exist",
+    "data/candidates/final_olmo_answers.json does not exist",
+    "no generation or scoring call has been executed for this study on any model"
+  ],
+
+  "amends": {
+    "plan_id": "final_behavioral_study_sap_v2_amendment_A1",
+    "machine_readable_path": "configs/final_analysis_plan_v2_1.json",
+    "machine_readable_sha256": "0d92256df8e71fa74bcd9fa378f4602a71c47fec43dee709fc4b44f8991455b0",
+    "narrative_path": "Code/research_notes/final_analysis_plan_amendment_A1.md",
+    "narrative_sha256": "6007e2a7723a84b24fa2a3d877ce62938b1d1f3794a33ddc1a0a3159a57633bb",
+    "preserved_unmodified": true
+  },
+  "amendment_chain": [
+    {"version": "2.0", "path": "configs/final_analysis_plan.json",
+     "sha256": "ea41c3d6f4af734605850896049d54952eec9f9450713881b24b2d52611cd52c",
+     "narrative": "Code/research_notes/final_analysis_plan.md",
+     "narrative_sha256": "9eecd39b4f8c6a60e32a1821f90b5b4e5415c993d894517f5876922b863e46ff",
+     "status": "historical, preserved unmodified"},
+    {"version": "2.1", "path": "configs/final_analysis_plan_v2_1.json",
+     "sha256": "0d92256df8e71fa74bcd9fa378f4602a71c47fec43dee709fc4b44f8991455b0",
+     "narrative": "Code/research_notes/final_analysis_plan_amendment_A1.md",
+     "narrative_sha256": "6007e2a7723a84b24fa2a3d877ce62938b1d1f3794a33ddc1a0a3159a57633bb",
+     "status": "historical, preserved unmodified"},
+    {"version": "2.2", "path": "configs/final_analysis_plan_v2_2.json",
+     "narrative": "Code/research_notes/final_analysis_plan_amendment_A2.md",
+     "status": "current"}
+  ],
+  "amendment_narrative": "Code/research_notes/final_analysis_plan_amendment_A2.md",
+  "overwrites_history": false,
+  "history_note": "v2.0 and v2.1 are carried forward by reference and hash. Nothing in them is edited. The Mistral pin file is retained unmodified as a historical artifact even though that scorer will never be run.",
+
+  "what_this_amendment_changes": [
+    "the identity of the FOURTH scorer only: mistralai/Mistral-Small-24B-Instruct-2501 -> allenai/Olmo-3.1-32B-Instruct",
+    "the fourth scorer's hardware envelope, because 32B BF16 needs ~60 GiB of weights rather than ~44 GiB",
+    "adds one prespecified SENSITIVITY analysis (S1) restricted to the three non-OLMo scorers",
+    "records the earlier OLMo-3.1-32B Playground interactions as motivating exploratory evidence, explicitly outside the confirmatory dataset"
+  ],
+  "what_this_amendment_does_not_change": [
+    "the frozen 578-task manifest and its hash",
+    "the six conditions and their exact added_context wording",
+    "the scoring prompt renderer and its wording",
+    "the automatic parser and the recovery rules",
+    "deterministic decoding (do_sample=False, seed 42, max_new_tokens 512)",
+    "the primary confirmatory estimand, its population, its 8 cells and its 1/8 weights",
+    "the key secondary estimand, its 12 cells and its 1/12 weights",
+    "the bootstrap plan (10,000 replicates, seed 20260818, task-clustered, dataset-stratified, percentile CI, shared draws)",
+    "the 7 diagnostic contrasts, the robustness suite R1-R5, and the failure policy",
+    "the total number of scoring calls: 13,872",
+    "equal weighting of the four scorers"
+  ],
+
+  "unchanged_from_plan_v2_and_A1": {
+    "task_manifest_path": "data/prompts/final_tasks_v2_english_seed20260817.json",
+    "task_manifest_sha256": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+    "n_tasks": 578,
+    "n_conditions": 6,
+    "conditions": ["no_history", "self_low_2", "other_low_2", "unrelated_low_2",
+                   "verbal_negative", "self_high_10"],
+    "n_scorers": 4,
+    "n_scoring_calls": 13872,
+    "call_grid": "578 tasks x 6 conditions x 4 scorers",
+    "scorers_equally_weighted": true,
+    "prompt_renderer": "silent_influence.scaled_conditions",
+    "prompt_renderer_sha256": "ef676689c8c3e673de64526fe1a9b26379632d1030d31e018fc6cbef42f94a64",
+    "automatic_parser": "silent_influence.scaled_parsing",
+    "automatic_parser_sha256": "3a6a59caa666092fe49f13603364cb8222e894fe0c6c93855e54116cdd88ba78",
+    "primary_confirmatory": {
+      "population": "the 500 fully held-out arena_hard + wildbench tasks",
+      "contrast": "no_history_minus_self_low_2",
+      "estimand": "equal_weighted_macro_average_over_8_cells",
+      "n_cells": 8, "cell_weight": 0.125,
+      "measurement": "blinded_adjudicated_scores",
+      "is_the_only_confirmatory_analysis": true
+    },
+    "key_secondary": {
+      "population": "all 578 tasks", "n_cells": 12,
+      "cell_weight": 0.08333333333333333,
+      "measurement": "blinded_adjudicated_scores", "confirmatory": false
+    },
+    "principal_sensitivity": "automatic_parser_complete_cases",
+    "bootstrap": {"n_replicates": 10000, "seed": 20260818, "resampling_unit": "task",
+                  "stratification": "by dataset", "ci_method": "percentile",
+                  "shared_draws": true},
+    "diagnostic_contrasts": {"count": 7, "confirmatory": false, "multiplicity_adjusted": false},
+    "decoding": {"do_sample": false, "temperature": 0, "seed": 42,
+                 "scorer_max_new_tokens": 512,
+                 "decode": {"skip_special_tokens": true, "clean_up_tokenization_spaces": false}},
+    "collection_failure_policy": "unchanged: retry technical failures 3x with identical prompt and decoding, never retry a parse failure, no reserve substitution, persistent failures remain missing and reduce a stated N",
+    "no_conditional_rule_changing_primary_from_observed_data": true
+  },
+
+  "scorer_panel": {
+    "count": 4,
+    "equal_weight_per_scorer_in_every_macro_average": true,
+    "scorers": [
+      {"key": "llama", "hf_id": "meta-llama/Llama-3.1-8B-Instruct",
+       "revision": "0e9e39f249a16976918f6564b8830bc894c89659",
+       "messages": "user_only", "disable_thinking": false, "changed_in_A2": false},
+      {"key": "qwen", "hf_id": "Qwen/Qwen3-8B",
+       "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+       "messages": "user_only", "disable_thinking": true, "changed_in_A2": false},
+      {"key": "gemma", "hf_id": "google/gemma-2-9b-it",
+       "revision": "11c9b309abf73637e4b6f9a3fa1e92e615547819",
+       "messages": "user_only", "disable_thinking": false, "changed_in_A2": false},
+      {"key": "olmo32b", "hf_id": "allenai/Olmo-3.1-32B-Instruct",
+       "revision": "ac0587e4a7744a551c059d8cd17ba220bc940dae",
+       "messages": "explicit_empty_system_message", "disable_thinking": false,
+       "changed_in_A2": true, "replaces": "mistralai/Mistral-Small-24B-Instruct-2501",
+       "config_pin_file": "configs/scorer_olmo3_1_32b_pin.json"}
+    ],
+    "superseded_fourth_scorer": {
+      "hf_id": "mistralai/Mistral-Small-24B-Instruct-2501",
+      "revision": "9527884be6e5616bdd54de542f9ae13384489724",
+      "pin_file": "configs/scorer_mistral_small_24b_pin.json",
+      "pin_file_sha256": "3ad5fec336531bc625274835cf23391d3c1a5f54ab27ee7142e9bd83c480b19a",
+      "status": "never run; no output exists; pin retained unmodified as a historical artifact"
+    },
+    "generator": {"hf_id": "allenai/Olmo-3-7B-Instruct",
+                  "revision": "6e5971d9eba42665f5bd5a0fcf047f299ce1dccc",
+                  "changed_in_A2": false}
+  },
+
+  "E8_resolution_olmo32b_template": {
+    "issue": "the official chat template injects a default system block whenever no message carries role=='system', leaking a persona ('You are Olmo'), a builder attribution ('Ai2'), a hardcoded knowledge cutoff ('date cutoff is December 2024'), a weights URL and a tool-availability statement into what must be a bare scoring prompt",
+    "decision": "pass an explicit empty system message, exactly as Amendment A1 resolved the same class of problem for the superseded Mistral scorer",
+    "messages": [{"role": "system", "content": ""}, {"role": "user", "content": "<frozen scoring prompt>"}],
+    "official_template_modified": false,
+    "chat_template_sha256": "49a944c9814e130bd3cc80a2420c55ff22e24a4e4ba97009aa60000909b5eac3",
+    "expected_render_shape": "<|im_start|>system\\n<|im_end|>\\n<|im_start|>user\\n<frozen user prompt><|im_end|>\\n<|im_start|>assistant\\n",
+    "empty_system_block_permitted": true,
+    "empty_system_block_permitted_for": ["olmo32b"],
+    "verification": {
+      "method": "rendered the byte-verified pinned chat_template.jinja with jinja2 for all six frozen conditions under both message shapes, then ran every render through the SAME gate function the on-GPU preflight uses (silent_influence.final_preflight_checks.check_render). No weights, no model, no GPU.",
+      "tools_argument_passed": null,
+      "tools_argument_note": "transformers passes tools=None when none are supplied, which this protocol never does; the render mirrors that exactly",
+      "user_only_variant_failed_conditions": 6,
+      "user_only_variant_residual_alphabetic_words": 27,
+      "user_only_variant_persona_detected": "You are Olmo",
+      "user_only_variant_leaks": ["You are Olmo", "Ai2", "date cutoff", "December 2024",
+                                  "huggingface.co/allenai", "access to any functions",
+                                  "<functions></functions>"],
+      "empty_system_variant_failed_conditions": 0,
+      "empty_system_variant_residual_alphabetic_words": 0,
+      "empty_system_variant_date_hits": 0,
+      "empty_system_variant_persona_hits": 0,
+      "verified_prospectively": true
+    },
+    "frozen_render_hashes_for_preflight_reproducibility_test": {
+      "note": "sha256 of the rendered TEXT for the canonical preflight task wildbench/00c7916a072b4947 with the standard placeholder answer, empty-system variant. The on-GPU preflight must reproduce these, which is fail condition 5.",
+      "canonical_task": "wildbench/00c7916a072b4947",
+      "canonical_question_sha256": "462b09c2e8ef464bbd896acb386ba928e5dc97dddbb39388014469c1dd72c0f4",
+      "no_history": "fbdd9919fb1c3a0d5321f6a691e6eb42627e813490631c31d71663719e7730a9",
+      "self_low_2": "02752c84fc561381717f72c8ee3be4b9f7e6ec5f9ef0c0ae3537c05d9feaa650",
+      "other_low_2": "89a6eccddf80fb6b68e64e09231efc116138e157aee5e07070af5dad994382f7",
+      "unrelated_low_2": "2bd0148649e9d95b592a2aef17ff500d16938ac972362385121a7c10c5d2ac5a",
+      "verbal_negative": "10e19e1c734f65a0dedeabb37baca910007bc48277beaeb454104d0ebdd44fdd",
+      "self_high_10": "056a182d3b121f4d6201734e80d3c49d9919d01a1d2dbf241478f1a5a7876681"
+    },
+    "incidental_findings": [
+      "the repo ships the template TWICE (chat_template.jinja and an embedded copy in tokenizer_config.json). Both are byte-identical (same sha256) and render identically on the empty-system path, so the transformers precedence rule between them cannot change what the model receives.",
+      "unlike Mistral, the injected date is a hardcoded literal rather than strftime_now, so this template's render is stable across calendar days and does not carry Mistral's cross-day reproducibility defect.",
+      "pad_token (<|pad|>, 100277) differs from eos_token (<|endoftext|>, 100257), so batched padding and the terminator-trimming path must not assume they are equal.",
+      "add_generation_prompt is handled INSIDE the message loop and gated on loop.last, so it is a no-op for an empty message list; this protocol always supplies at least a system and a user turn."
+    ],
+    "other_scorers_unchanged": {
+      "llama": {"messages": "user_only", "conditional_on": "preflight gate confirming no hidden content", "offbox_reverification": "not possible; repo gated (HTTP 401)"},
+      "qwen": {"messages": "user_only", "independently_verified_clean": true, "enable_thinking": false},
+      "gemma": {"messages": "user_only", "conditional_on": "preflight gate confirming no hidden content", "offbox_reverification": "not possible; fetch failed"}
+    }
+  },
+
+  "E9_resolution_olmo32b_hardware": {
+    "gpu_requirement": "one full 80 GB GPU (A100 80GB / H100 80GB or larger), exclusively available to this process",
+    "precision": "bfloat16",
+    "quantization": "prohibited",
+    "cpu_offload": "prohibited",
+    "disk_offload": "prohibited",
+    "automatic_device_mapping": "prohibited",
+    "device_map": {"": 0},
+    "device_map_rationale": "an explicit single-device map. device_map='auto' is forbidden because it would silently shard or offload when memory is tight, which is exactly the failure this envelope must make impossible rather than survive.",
+    "vram_budget": {
+      "bf16_weight_bytes": 64467127296,
+      "bf16_weight_gib": 60.04,
+      "kv_cache_gib_batch1_worst_case": 1.25,
+      "activations_logits_context_allowance_gib": 4.0,
+      "estimated_peak_gib_batch1": 65.3,
+      "gpu_usable_gib": 79.2,
+      "estimated_headroom_gib": 13.9,
+      "worst_case_prompt_tokens": 4600,
+      "worst_case_total_tokens": 5112,
+      "fits_at_batch1": true
+    },
+    "headroom_change_vs_superseded_scorer": {
+      "mistral_24b_peak_gib": 48.0, "mistral_24b_headroom_gib": 31.2,
+      "olmo_32b_peak_gib": 65.3, "olmo_32b_headroom_gib": 13.9,
+      "consequence": "batch size 1 remains comfortable; micro-batching becomes genuinely marginal and is therefore gated on a memory preflight in addition to the token-ID equivalence test"
+    },
+    "residency_gate_checks": "unchanged from Amendment A1 (all six checks), applied to this model",
+    "additional_required_check": "assert the effective generation-time use_cache is True; config.json ships use_cache=false, which if it reached generation would make decoding O(n^2) and inflate runtime by roughly an order of magnitude. This is a cost property only and cannot change greedy-decoded output.",
+    "on_failure": "abort before any inference and return for review"
+  },
+
+  "batching": {
+    "default_batch_size": 1,
+    "olmo32b_starting_batch_size": 1,
+    "micro_batching_permitted_only_after": "BOTH (a) demonstrated exact token-ID equivalence with batch size 1 on the pre-specified 288-call smoke set, AND (b) a memory preflight showing the intended batch size fits within the measured headroom",
+    "memory_preflight_added_in_A2_because": "the 32B scorer leaves ~13.9 GiB of headroom rather than ~31.2 GiB, and each additional batch row costs ~1.25 GiB of KV cache plus activation growth",
+    "equivalence_smoke_set": "unchanged from Amendment A1: the same 6 frozen tasks from the completed 90-task run, verified outside the 578-task manifest; 6 tasks x 6 conditions x 4 scorers x 2 paths = 288 calls",
+    "equivalence_criterion": "sha256 of the generated TOKEN-ID sequence identical between the batch-1 and batched paths",
+    "on_any_mismatch_or_oom": "that model runs the entire study at batch size 1",
+    "equivalence_is_per_model": true,
+    "never_inferred_across_models": true
+  },
+
+  "S1_three_scorer_sensitivity": {
+    "added_in": "A2",
+    "prespecified": true,
+    "confirmatory": false,
+    "status": "robustness check, NOT a correction of a confound",
+    "label": "primary recomputed on the three non-OLMo scorers",
+    "motivation": "the frozen candidate answers were generated by allenai/Olmo-3-7B-Instruct, and the fourth scorer is allenai/Olmo-3.1-32B-Instruct: a different version and size, but the same model family. A reader may reasonably ask whether same-family affinity drives the result.",
+    "why_it_is_robustness_and_not_confound_correction": [
+      "the scoring prompt never identifies the author of the content: no model name, no provenance, no authorship claim appears anywhere in the frozen prompt (verified by scanning the rendered prompt for model identifiers). Scorer-facing generator identity is anonymous.",
+      "for a given task the candidate answer is BYTE-IDENTICAL across all six conditions (one frozen answer per task, hashed and reused).",
+      "therefore any family-affinity term is constant within a (task, scorer) cell across conditions and cancels exactly in the paired within-cell difference no_history - self_low_2. It cannot manufacture or reverse a condition contrast.",
+      "what family affinity could plausibly shift is the LEVEL of the scores, not the contrast. A level shift matters only through a range/ceiling mechanism: if this scorer rates same-family text near the top of the scale, there is less headroom for a downward manipulation to move it, which would compress rather than inflate the measured effect. Compression works against the hypothesis, so this is a conservative direction.",
+      "S1 is prespecified precisely so that this reasoning is testable rather than merely asserted."
+    ],
+    "estimand_primary_population": {
+      "population": "the same 500 fully held-out arena_hard + wildbench tasks",
+      "scorers": ["llama", "qwen", "gemma"],
+      "estimand": "equal_weighted_macro_average_over_6_cells",
+      "n_cells": 6, "cell_weight": 0.16666666666666666,
+      "dataset_total_weight": 0.5, "scorer_total_weight": 0.3333333333333333,
+      "contrast": "no_history_minus_self_low_2",
+      "measurement": "blinded_adjudicated_scores"
+    },
+    "estimand_secondary_population": {
+      "population": "all 578 tasks",
+      "scorers": ["llama", "qwen", "gemma"],
+      "estimand": "equal_weighted_macro_average_over_9_cells",
+      "n_cells": 9, "cell_weight": 0.1111111111111111,
+      "contrast": "no_history_minus_self_low_2",
+      "measurement": "blinded_adjudicated_scores"
+    },
+    "bootstrap": "the SAME resampled task-sets as every other statistic in the plan (shared draws, 10,000 replicates, seed 20260818, task-clustered, dataset-stratified, percentile CI). No new draws are taken.",
+    "also_reported_on": "the automatic-parser complete-case basis, like every other estimand (R3)",
+    "reported": ["macro_average", "ci_95", "per_cell_means_with_N",
+                 "difference_from_the_four_scorer_primary",
+                 "the fourth scorer's own cell means with N, so its individual behaviour is visible"],
+    "decision_rule": "NONE",
+    "explicitly_forbidden": [
+      "S1 may never replace, override or become the primary analysis",
+      "no rule may switch the primary from the four-scorer 8-cell macro on the basis of S1 or of any observed data (this preserves plan v2's no_conditional_rule_changing_primary_from_observed_data)",
+      "S1 disagreeing with the primary is reported as a limitation of interpretation, not as grounds for discarding either estimate"
+    ],
+    "interpretation_guidance": "if the three-scorer and four-scorer macro averages agree within their intervals, same-family affinity is not driving the result. If they differ materially, the write-up must report both and discuss the fourth scorer's level and range behaviour, without recasting either as the corrected number."
+  },
+
+  "exploratory_provenance": {
+    "olmo_3_1_32b_playground_examples": {
+      "what_they_were": "informal interactive Playground exchanges with OLMo-3.1-32B-Instruct conducted before this amendment",
+      "role": "motivating exploratory evidence only -- they are the reason this model was considered as a scorer at all",
+      "in_confirmatory_dataset": false,
+      "prompts_entering_the_confirmatory_dataset": "none",
+      "outputs_entering_the_confirmatory_dataset": "none",
+      "contribute_any_score_or_record": false,
+      "influence_on_the_frozen_design": "the choice of which model to pin as the fourth scorer, and nothing else",
+      "not_comparable_to_study_data_because": [
+        "they were not produced under the frozen scoring prompt",
+        "they were not produced under deterministic decoding (no do_sample=False, no fixed seed, no pinned revision)",
+        "they were not produced against the frozen candidate answers",
+        "they were not produced under any of the six conditions"
+      ],
+      "no_hypothesis_derived_from_study_data": true,
+      "hypothesis_provenance": "the primary hypothesis and contrast predate this amendment and predate any OLMo-3.1-32B interaction; they come from the 24-task pilot and the completed 90-task run, both of which are separate supporting experiments",
+      "citation_rule": "these examples may be described in the write-up as motivation for the scorer choice. They must never be presented as a result, an effect size, or evidence for or against the hypothesis."
+    }
+  },
+
+  "statistical_content_changed": false,
+  "statistical_content_note": "no estimand, weight, population, contrast, bootstrap parameter, failure policy or measurement basis carried over from plan v2 / A1 is altered. The scorer panel composition changes (one of four members is a different model), and one prespecified non-confirmatory sensitivity analysis is added. Both are recorded here before any data exists.",
+
+  "implementation_changes_required_but_NOT_YET_MADE": {
+    "note": "this amendment deliberately does not touch implementation code. Every item below must be applied, and the full local test suite rerun, before the preflight is executed.",
+    "items": [
+      "scripts/run_final_scoring.py: replace the mistral ExactModelSpec with olmo32b (hf_id allenai/Olmo-3.1-32B-Instruct, revision ac0587e4a7744a551c059d8cd17ba220bc940dae)",
+      "src/silent_influence/final_study_messages.py: EMPTY_SYSTEM_SCORER_KEYS becomes ('olmo32b',) and MISTRAL_KEY is retired; the empty-system rationale comment must point at A2 E8",
+      "scripts/verify_final_preflight_gate.py: same scorer-list substitution; also assert the effective use_cache is True and record it in the gate report",
+      "scripts/run_batching_equivalence_smoke.py: same scorer-list substitution; add the memory preflight required by A2 batching",
+      "scripts/analyze_final_study.py: SCORERS becomes ['llama','qwen','gemma','olmo32b'] and the S1 three-scorer sensitivity (6-cell and 9-cell) is implemented on the shared bootstrap draws",
+      "scripts/write_run_integrity_manifest.py: scorer list, and pin-file hash verification pointed at configs/scorer_olmo3_1_32b_pin.json while retaining the Mistral pin as a historical entry",
+      "src/silent_influence/final_preflight_checks.py: no change expected -- <|im_start|>/<|im_end|>/system/user/assistant are already control tokens, and the empty-system render verified clean through the existing gate function",
+      "tests: update the scorer-panel expectations and add S1 coverage; the Qwen <think> and persona-case regression tests remain valid unchanged"
+    ],
+    "estimated_runtime_change": {
+      "superseded_mistral_24b_hours": 11.0,
+      "olmo32b_hours_scaled_by_params": 15.0,
+      "scaling_basis": "32.23B / 23.57B = 1.368x, applied to A1's estimate; UNMEASURED for this model",
+      "total_order_hours": 30.0,
+      "previous_total_order_hours": 26.0,
+      "status": "must be measured on a small sample before committing to the full run; the 288-call smoke test doubles as that measurement",
+      "risk": "if the use_cache=false shipped default reaches generation, throughput could be roughly an order of magnitude worse; the preflight assertion exists to catch that before hours are spent"
+    },
+    "estimated_disk_change": {
+      "weights_total_gb": 130.1,
+      "previous_weights_total_gb": 112.7,
+      "total_footprint_gb": 162,
+      "provisioning_recommendation_gb": 250,
+      "recommendation_unchanged": true
+    }
+  },
+
+  "unresolved_scientific_decisions": {
+    "count": 0,
+    "statement": "none. The statistical design is settled and carried forward from plan v2 and A1 unchanged; A2 changes one scorer's identity and adds one prespecified non-confirmatory sensitivity analysis.",
+    "remaining_items_are_execution_or_verification_only": [
+      "apply the implementation changes listed above and rerun the full local test suite",
+      "run the preflight and pass it, including Llama's and Gemma's template cleanliness which cannot be verified off-box, and the new use_cache assertion",
+      "run the 288-call batching equivalence smoke test and the new memory preflight before enabling any micro-batching",
+      "measure throughput on a small sample before committing to the full run",
+      "exercise checkpoint/resume rather than assume it"
+    ]
+  }
+}

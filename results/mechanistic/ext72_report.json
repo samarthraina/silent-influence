@@ -1,0 +1,511 @@
+{
+  "stage": "72-TASK GENERALIZATION REPLICATION",
+  "provenance": {
+    "specified_after_observing_the_24_task_control_result": true,
+    "preregistered_before_that_result": false,
+    "statement": "This 72-task extension was specified after the mixed 24-task control outcome was seen. The 72 tasks are themselves mechanistically unseen, so the replication is prospective with respect to them, but the decision to run it was outcome-motivated and must not be described as preregistered."
+  },
+  "manifest_sha256_frozen_before_run": true,
+  "reused_without_retuning": {
+    "layer": 24,
+    "beta": 1.5,
+    "alpha": 1.0,
+    "direction_file": "out/control_discovery/steering_direction.pt",
+    "random_direction_seed": 20260818,
+    "no_coefficient_search": true,
+    "no_layer_search": true,
+    "no_window_search": true,
+    "no_task_replacement": true
+  },
+  "primary_weighting": "all 72 tasks, equal weight per dataset (mean of 3 dataset means)",
+  "normalization": "(patched - target_baseline) / (source_baseline - target_baseline)",
+  "bootstrap": {
+    "unit": "task, stratified by dataset",
+    "n": 10000,
+    "seed": 20260818
+  },
+  "validity": {
+    "n_calls": 1224,
+    "parse_ok": 1223,
+    "parse_ok_rate": 0.9992,
+    "a5_valid": 1222,
+    "a5_valid_rate": 0.9984,
+    "noop_identity": "144/144",
+    "same_condition_identity": "144/144"
+  },
+  "arms": {
+    "steer": {
+      "label": "steer",
+      "n_tasks": 72,
+      "raw_equal_dataset_mean": 0.08888888888888889,
+      "raw_ci": [
+        -0.1972222222222222,
+        0.3666666666666667
+      ],
+      "normalized_equal_dataset_mean": 0.13544973544973546,
+      "normalized_ci": [
+        -0.0032477553310886367,
+        0.2732086740420073
+      ],
+      "n_excluded_no_denominator": 11,
+      "frac_toward": 0.2777777777777778,
+      "frac_away": 0.1388888888888889,
+      "frac_unchanged": 0.5833333333333334
+    },
+    "ablate": {
+      "label": "ablate",
+      "n_tasks": 72,
+      "raw_equal_dataset_mean": 0.055555555555555546,
+      "raw_ci": [
+        -0.20833333333333337,
+        0.3055555555555556
+      ],
+      "normalized_equal_dataset_mean": 0.11052589385922718,
+      "normalized_ci": [
+        -0.017789401956068613,
+        0.23741522366522366
+      ],
+      "n_excluded_no_denominator": 11,
+      "frac_toward": 0.2361111111111111,
+      "frac_away": 0.1111111111111111,
+      "frac_unchanged": 0.6527777777777778
+    },
+    "steer_early_L2": {
+      "label": "steer_early_L2",
+      "n_tasks": 71,
+      "raw_equal_dataset_mean": 0.1086352657004831,
+      "raw_ci": [
+        -0.23262077294685984,
+        0.43358846618357466
+      ],
+      "normalized_equal_dataset_mean": 0.13858986692320024,
+      "normalized_ci": [
+        -0.027510762385762364,
+        0.2877362514029179
+      ],
+      "n_excluded_no_denominator": 11,
+      "frac_toward": 0.36619718309859156,
+      "frac_away": 0.14084507042253522,
+      "frac_unchanged": 0.49295774647887325
+    },
+    "steer_random": {
+      "label": "steer_random",
+      "n_tasks": 72,
+      "raw_equal_dataset_mean": -0.09722222222222222,
+      "raw_ci": [
+        -0.2916666666666667,
+        0.09722222222222221
+      ],
+      "normalized_equal_dataset_mean": 0.027449094115760787,
+      "normalized_ci": [
+        -0.12267235850569184,
+        0.1924803591470258
+      ],
+      "n_excluded_no_denominator": 11,
+      "frac_toward": 0.08333333333333333,
+      "frac_away": 0.08333333333333333,
+      "frac_unchanged": 0.8333333333333334
+    },
+    "steer_on_no_history": {
+      "label": "steer_on_no_history",
+      "n_tasks": 72,
+      "raw_equal_dataset_mean": 0.10277777777777776,
+      "raw_ci": [
+        -0.1041666666666667,
+        0.35694444444444445
+      ],
+      "normalized_equal_dataset_mean": 0.025569183902517247,
+      "normalized_ci": [
+        -0.060362253487253485,
+        0.11881593714927051
+      ],
+      "n_excluded_no_denominator": 11,
+      "frac_toward": 0.19444444444444445,
+      "frac_away": 0.19444444444444445,
+      "frac_unchanged": 0.6111111111111112
+    },
+    "steer_on_unrelated": {
+      "label": "steer_on_unrelated",
+      "n_tasks": 72,
+      "raw_equal_dataset_mean": -0.3055555555555556,
+      "raw_ci": [
+        -0.6597222222222222,
+        0.0
+      ],
+      "normalized_equal_dataset_mean": -0.0706245461147422,
+      "normalized_ci": [
+        -0.31254822530864196,
+        0.14384531590413932
+      ],
+      "n_excluded_no_denominator": 21,
+      "frac_toward": 0.125,
+      "frac_away": 0.2222222222222222,
+      "frac_unchanged": 0.6527777777777778
+    },
+    "patch_L24_lo2hi": {
+      "label": "patch_L24_lo2hi",
+      "n_tasks": 72,
+      "raw_equal_dataset_mean": -0.10138888888888888,
+      "raw_ci": [
+        -0.43333333333333335,
+        0.24583333333333335
+      ],
+      "normalized_equal_dataset_mean": 0.21965889049222384,
+      "normalized_ci": [
+        0.05968193843193843,
+        0.3963365299823633
+      ],
+      "n_excluded_no_denominator": 11,
+      "frac_toward": 0.3333333333333333,
+      "frac_away": 0.1527777777777778,
+      "frac_unchanged": 0.5138888888888888
+    },
+    "patch_L24_hi2lo": {
+      "label": "patch_L24_hi2lo",
+      "n_tasks": 72,
+      "raw_equal_dataset_mean": 0.125,
+      "raw_ci": [
+        -0.1388888888888889,
+        0.375
+      ],
+      "normalized_equal_dataset_mean": 0.18886884720218053,
+      "normalized_ci": [
+        0.08597372534872533,
+        0.29980148709315374
+      ],
+      "n_excluded_no_denominator": 11,
+      "frac_toward": 0.2361111111111111,
+      "frac_away": 0.09722222222222222,
+      "frac_unchanged": 0.6666666666666666
+    },
+    "patch_L2_lo2hi": {
+      "label": "patch_L2_lo2hi",
+      "n_tasks": 72,
+      "raw_equal_dataset_mean": 0.08333333333333333,
+      "raw_ci": [
+        -0.04861111111111111,
+        0.25
+      ],
+      "normalized_equal_dataset_mean": -0.0010221260221260238,
+      "normalized_ci": [
+        -0.04816317941317941,
+        0.04178992303992299
+      ],
+      "n_excluded_no_denominator": 11,
+      "frac_toward": 0.05555555555555555,
+      "frac_away": 0.06944444444444445,
+      "frac_unchanged": 0.875
+    },
+    "patch_L2_hi2lo": {
+      "label": "patch_L2_hi2lo",
+      "n_tasks": 72,
+      "raw_equal_dataset_mean": -0.06944444444444445,
+      "raw_ci": [
+        -0.2638888888888889,
+        0.09756944444443942
+      ],
+      "normalized_equal_dataset_mean": 0.019288119288119285,
+      "normalized_ci": [
+        -0.0935064935064935,
+        0.11741402116402114
+      ],
+      "n_excluded_no_denominator": 11,
+      "frac_toward": 0.1111111111111111,
+      "frac_away": 0.041666666666666664,
+      "frac_unchanged": 0.8472222222222222
+    }
+  },
+  "paired_comparisons": {
+    "learned_vs_random": {
+      "comparison": "steer - steer_random",
+      "n_paired_tasks": 61,
+      "mean_difference_normalized": 0.10800064133397468,
+      "ci": [
+        -0.07643438351771686,
+        0.28913720538720533
+      ],
+      "frac_learned_greater": 0.2786885245901639,
+      "exceeds_control": false
+    },
+    "learned_vs_early_L2": {
+      "comparison": "steer - steer_early_L2",
+      "n_paired_tasks": 60,
+      "mean_difference_normalized": -0.0046745230078563405,
+      "ci": [
+        -0.17854503367003366,
+        0.18682800224466886
+      ],
+      "frac_learned_greater": 0.13333333333333333,
+      "exceeds_control": false
+    },
+    "patch_L24_vs_L2_lo2hi": {
+      "comparison": "patch L24 - L2 (self_low_2->no_history)",
+      "n_paired_tasks": 61,
+      "mean_difference_normalized": 0.22068101651434982,
+      "ci": [
+        0.06647050865800867,
+        0.39495250120250114
+      ],
+      "frac_learned_greater": 0.3442622950819672,
+      "exceeds_control": true
+    },
+    "patch_L24_vs_L2_hi2lo": {
+      "comparison": "patch L24 - L2 (no_history->self_low_2)",
+      "n_paired_tasks": 61,
+      "mean_difference_normalized": 0.16958072791406123,
+      "ci": [
+        0.0338668430335097,
+        0.3173918751002084
+      ],
+      "frac_learned_greater": 0.2786885245901639,
+      "exceeds_control": true
+    }
+  },
+  "specificity": {
+    "note": "same learned direction, same beta, applied to three conditions. If the shift under no_history and unrelated_low_2 matches the self_low_2 shift, the intervention is a nonspecific score-shifter.",
+    "raw_shift_from_own_baseline": {
+      "self_low_2": {
+        "equal_dataset_mean": 0.08888888888888889
+      },
+      "no_history": {
+        "equal_dataset_mean": 0.10277777777777776
+      },
+      "unrelated_low_2": {
+        "equal_dataset_mean": -0.3055555555555556
+      }
+    }
+  },
+  "secondary_analytical_strata": {
+    "declared_analytical_only": true,
+    "used_in_selection": false,
+    "strata": {
+      "high_delta_ge2": {
+        "steer": {
+          "label": "high_delta_ge2/steer",
+          "n_tasks": 33,
+          "raw_equal_dataset_mean": 0.39797979797979793,
+          "raw_ci": [
+            -0.06608946608946609,
+            0.827445887445887
+          ],
+          "normalized_equal_dataset_mean": 0.09715247715247714,
+          "normalized_ci": [
+            -0.06994949494949497,
+            0.24458970658970658
+          ],
+          "n_excluded_no_denominator": 0,
+          "frac_toward": 0.3939393939393939,
+          "frac_away": 0.15151515151515152,
+          "frac_unchanged": 0.45454545454545453
+        },
+        "ablate": {
+          "label": "high_delta_ge2/ablate",
+          "n_tasks": 33,
+          "raw_equal_dataset_mean": 0.38816738816738816,
+          "raw_ci": [
+            -0.055988455988455955,
+            0.7855699855699855
+          ],
+          "normalized_equal_dataset_mean": 0.10975468975468972,
+          "normalized_ci": [
+            -0.058877344877344875,
+            0.2582481962481961
+          ],
+          "n_excluded_no_denominator": 0,
+          "frac_toward": 0.36363636363636365,
+          "frac_away": 0.15151515151515152,
+          "frac_unchanged": 0.48484848484848486
+        },
+        "patch_L24_lo2hi": {
+          "label": "high_delta_ge2/patch_L24_lo2hi",
+          "n_tasks": 33,
+          "raw_equal_dataset_mean": -0.7258297258297258,
+          "raw_ci": [
+            -1.238683261183261,
+            -0.28427128427128423
+          ],
+          "normalized_equal_dataset_mean": 0.1657118807118807,
+          "normalized_ci": [
+            0.05525390812890812,
+            0.2914004329004329
+          ],
+          "n_excluded_no_denominator": 0,
+          "frac_toward": 0.3939393939393939,
+          "frac_away": 0.06060606060606061,
+          "frac_unchanged": 0.5454545454545454
+        },
+        "patch_L24_hi2lo": {
+          "label": "high_delta_ge2/patch_L24_hi2lo",
+          "n_tasks": 33,
+          "raw_equal_dataset_mean": 0.5151515151515151,
+          "raw_ci": [
+            0.09204906204906203,
+            0.9399855699855698
+          ],
+          "normalized_equal_dataset_mean": 0.18178451178451174,
+          "normalized_ci": [
+            0.054610750360750374,
+            0.3132046657046657
+          ],
+          "n_excluded_no_denominator": 0,
+          "frac_toward": 0.3333333333333333,
+          "frac_away": 0.06060606060606061,
+          "frac_unchanged": 0.6060606060606061
+        }
+      },
+      "moderate_0_to_2": {
+        "steer": {
+          "label": "moderate_0_to_2/steer",
+          "n_tasks": 23,
+          "raw_equal_dataset_mean": 0.1592592592592593,
+          "raw_ci": [
+            -0.0037037037037036813,
+            0.3481481481481481
+          ],
+          "normalized_equal_dataset_mean": 0.1469135802469136,
+          "normalized_ci": [
+            -0.01111111111111109,
+            0.32962962962962966
+          ],
+          "n_excluded_no_denominator": 0,
+          "frac_toward": 0.21739130434782608,
+          "frac_away": 0.043478260869565216,
+          "frac_unchanged": 0.7391304347826086
+        },
+        "ablate": {
+          "label": "moderate_0_to_2/ablate",
+          "n_tasks": 23,
+          "raw_equal_dataset_mean": 0.13703703703703704,
+          "raw_ci": [
+            0.0,
+            0.3074074074074074
+          ],
+          "normalized_equal_dataset_mean": 0.13703703703703704,
+          "normalized_ci": [
+            0.0,
+            0.3074074074074074
+          ],
+          "n_excluded_no_denominator": 0,
+          "frac_toward": 0.13043478260869565,
+          "frac_away": 0.0,
+          "frac_unchanged": 0.8695652173913043
+        },
+        "patch_L24_lo2hi": {
+          "label": "moderate_0_to_2/patch_L24_lo2hi",
+          "n_tasks": 23,
+          "raw_equal_dataset_mean": -0.05870370370370371,
+          "raw_ci": [
+            -0.26926388888888886,
+            0.14222222222222222
+          ],
+          "normalized_equal_dataset_mean": 0.016931216931216932,
+          "normalized_ci": [
+            -0.16084656084656085,
+            0.19313492063492047
+          ],
+          "n_excluded_no_denominator": 0,
+          "frac_toward": 0.30434782608695654,
+          "frac_away": 0.21739130434782608,
+          "frac_unchanged": 0.4782608695652174
+        },
+        "patch_L24_hi2lo": {
+          "label": "moderate_0_to_2/patch_L24_hi2lo",
+          "n_tasks": 23,
+          "raw_equal_dataset_mean": 0.17407407407407405,
+          "raw_ci": [
+            0.03333333333333333,
+            0.3481481481481481
+          ],
+          "normalized_equal_dataset_mean": 0.17407407407407405,
+          "normalized_ci": [
+            0.03333333333333333,
+            0.3481481481481481
+          ],
+          "n_excluded_no_denominator": 0,
+          "frac_toward": 0.17391304347826086,
+          "frac_away": 0.0,
+          "frac_unchanged": 0.8260869565217391
+        }
+      },
+      "nonresponsive_le0": {
+        "steer": {
+          "label": "nonresponsive_le0/steer",
+          "n_tasks": 16,
+          "raw_equal_dataset_mean": -0.3527777777777778,
+          "raw_ci": [
+            -1.2,
+            0.4444444444444444
+          ],
+          "normalized_equal_dataset_mean": 0.6666666666666666,
+          "normalized_ci": [
+            0.5,
+            0.8333333333333334
+          ],
+          "n_excluded_no_denominator": 11,
+          "frac_toward": 0.125,
+          "frac_away": 0.25,
+          "frac_unchanged": 0.625
+        },
+        "ablate": {
+          "label": "nonresponsive_le0/ablate",
+          "n_tasks": 16,
+          "raw_equal_dataset_mean": -0.19444444444444445,
+          "raw_ci": [
+            -0.6333333333333333,
+            0.31111111111111106
+          ],
+          "normalized_equal_dataset_mean": 0.25,
+          "normalized_ci": [
+            0.16666666666666666,
+            0.3333333333333333
+          ],
+          "n_excluded_no_denominator": 11,
+          "frac_toward": 0.125,
+          "frac_away": 0.1875,
+          "frac_unchanged": 0.6875
+        },
+        "patch_L24_lo2hi": {
+          "label": "nonresponsive_le0/patch_L24_lo2hi",
+          "n_tasks": 16,
+          "raw_equal_dataset_mean": 1.1166666666666667,
+          "raw_ci": [
+            0.16944444444444443,
+            2.213923611111111
+          ],
+          "normalized_equal_dataset_mean": 1.3214285714285714,
+          "normalized_ci": [
+            0.9761904761904762,
+            1.6666666666666667
+          ],
+          "n_excluded_no_denominator": 11,
+          "frac_toward": 0.25,
+          "frac_away": 0.25,
+          "frac_unchanged": 0.5
+        },
+        "patch_L24_hi2lo": {
+          "label": "nonresponsive_le0/patch_L24_hi2lo",
+          "n_tasks": 16,
+          "raw_equal_dataset_mean": -0.5,
+          "raw_ci": [
+            -1.1944444444444444,
+            0.17777777777777773
+          ],
+          "normalized_equal_dataset_mean": 0.25,
+          "normalized_ci": [
+            0.16666666666666666,
+            0.3333333333333333
+          ],
+          "n_excluded_no_denominator": 11,
+          "frac_toward": 0.125,
+          "frac_away": 0.3125,
+          "frac_unchanged": 0.5625
+        }
+      }
+    },
+    "task_counts": {
+      "high_delta_ge2": 33,
+      "moderate_0_to_2": 23,
+      "nonresponsive_le0": 16
+    }
+  }
+}

@@ -1,0 +1,45 @@
+# ============================================================================
+# CALIBRATION ONLY — NOT Phase 1 data. Do not pool with any Phase 1 records.
+# ============================================================================
+# Diagnostic B: does K > 1 buy anything at T=0.3?
+#
+# The 16-unit smoke found all 8 replicate pairs byte-identical despite distinct
+# seeds and do_sample: true. K=5 on a wider set measures how general that is,
+# per (prompt x condition) cell: distinct raw outputs, distinct score pairs,
+# within-cell SD.
+#
+# Temperature deliberately unchanged at 0.3 -- this measures the configured
+# setting, not a hypothetical one.
+#
+# Prompts are 5 of the 20 Phase 1A prompts (nested sample, same seed):
+#   prompt_ids 3, 9, 16, 17, 22
+#
+# Grid: 5 prompts x 1 candidate x 3 conditions x 1 rubric x K=5 = 75 generations.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+candidates:
+  path: data/candidates/pinned_candidates_v1.json
+
+experiment:
+  name: CALIBRATION_diagB_k_usefulness
+  seed: 42
+  datasets: [arena_hard_v2]
+  n_prompts: 5
+  judge_models: [qwen8b]
+  evaluated_models: [gemma]
+  candidates_per_prompt: 1
+  exclude_self_judging: true
+  prior_context_conditions: [no_history, score_1, score_10]
+  rubric_variants: [grounded]
+  output_protocols: [score_only]
+  history_template: dyadic_anon_prior_round
+  replicates: 5
+
+generation:
+  temperature: 0.3
+  top_p: 1.0
+  max_new_tokens: 96
+  do_sample: true

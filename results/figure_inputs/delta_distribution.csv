@@ -1,0 +1,234 @@
+dataset,category,task_id,panel_delta,n_valid_scorers,delta_llama,delta_qwen,delta_gemma,delta_olmo32b
+arena_hard,coding,0275cb6eae1649c1,1.25,4,2.0,2.0,1.0,0.0
+arena_hard,coding,06add81598044afd,0.75,4,0.0,2.0,1.0,0.0
+arena_hard,creative_writing,11a638d7129444c7,1.375,4,1.0,2.0,1.0,1.5
+arena_hard,coding,190cb332ca03436f,1.0,1,,,1.0,
+arena_hard,coding,236ecfda72434b55,1.5,4,2.0,2.0,2.0,0.0
+arena_hard,coding,246e229a26a14ea7,2.25,4,3.0,3.0,0.0,3.0
+arena_hard,math,2700a551d7854f1c,1.25,4,1.0,2.0,1.0,1.0
+arena_hard,coding,2da7e53308a547d6,0.875,4,1.0,2.5,0.0,0.0
+arena_hard,math,369827bfcf534e0a,-1.0,3,,1.0,-2.0,-2.0
+arena_hard,math,3b72cdccb79646d6,1.333333,3,0.0,2.0,2.0,
+arena_hard,coding,4027c1a8845a4516,1.25,4,2.0,1.0,0.0,2.0
+arena_hard,coding,40303f2127f04daa,2.5,4,3.0,2.0,0.0,5.0
+arena_hard,math,41cd1c96ac424f7e,0.25,4,0.0,1.0,0.0,0.0
+arena_hard,creative_writing,4a687ddb55244a91,1.5,4,1.0,1.0,2.0,2.0
+arena_hard,math,4b9ba55ea5704f0d,-0.25,4,2.0,2.0,0.0,-5.0
+arena_hard,coding,4bf132b69be3469b,2.0,2,,2.0,2.0,
+arena_hard,math,4c4458aad8034481,2.0,4,1.0,2.0,1.0,4.0
+arena_hard,creative_writing,4c7d8a034c4e40f6,1.75,4,10.0,-4.0,1.0,0.0
+arena_hard,math,4cd76997d2214c72,0.5,4,0.0,2.0,0.0,0.0
+arena_hard,coding,510f53828ef248ad,0.5,4,1.0,1.0,0.0,0.0
+arena_hard,creative_writing,51b620f7c9864b4e,1.25,4,2.0,1.0,1.0,1.0
+arena_hard,creative_writing,5ab052c7cef84016,1.75,4,2.0,3.0,0.0,2.0
+arena_hard,creative_writing,5b17cfc31450426c,0.75,4,1.0,1.0,1.0,0.0
+arena_hard,coding,5df63b6b49dd4c71,1.75,4,2.0,3.0,0.0,2.0
+arena_hard,coding,6034f779ea6a49b6,1.55,4,3.0,1.0,1.0,1.2
+arena_hard,creative_writing,605d67a8ce1f4d62,1.625,4,3.5,1.0,1.0,1.0
+arena_hard,math,61ecce54fb4846a6,1.0,4,3.0,1.0,0.0,0.0
+arena_hard,coding,632169bbda8b43ba,1.5,4,2.0,2.0,1.0,1.0
+arena_hard,creative_writing,6325cdbd18634391,0.875,4,3.0,0.5,0.0,0.0
+arena_hard,coding,6a02a908d61e46c5,0.75,4,3.0,0.0,0.0,0.0
+arena_hard,coding,707e6bd0d8994e71,2.25,4,5.0,3.0,1.0,0.0
+arena_hard,creative_writing,70dc029ac785461c,1.125,4,1.0,0.5,2.0,1.0
+arena_hard,coding,76894809e0fe48d9,2.25,4,1.0,3.0,1.0,4.0
+arena_hard,creative_writing,7799882ac02d4c89,1.125,4,2.0,1.0,0.0,1.5
+arena_hard,math,79fb96a5bee24f82,0.5,4,0.0,2.0,0.0,0.0
+arena_hard,math,7bb0b31e023f4a6e,3.333333,3,2.0,4.0,4.0,
+arena_hard,creative_writing,8b18b97cf1244aa3,1.5,4,1.0,2.0,1.0,2.0
+arena_hard,creative_writing,8e5a22167b244dd1,1.125,4,1.5,0.0,2.0,1.0
+arena_hard,coding,908d8003ba3b4d4c,0.8,4,1.2,2.0,0.0,0.0
+arena_hard,creative_writing,92a5f85ad8414404,1.125,4,1.0,2.0,0.0,1.5
+arena_hard,creative_writing,92fda90ee2ba47d2,1.375,4,1.0,2.0,1.0,1.5
+arena_hard,creative_writing,9434458ae86049f9,1.775,4,2.1,3.0,1.0,1.0
+arena_hard,creative_writing,96b1f6807445484a,2.25,4,4.0,3.0,0.0,2.0
+arena_hard,math,972994b9fc544dc3,2.166667,3,1.5,5.0,0.0,
+arena_hard,creative_writing,98cd87bd9b3448a7,1.75,4,1.0,3.0,2.0,1.0
+arena_hard,creative_writing,9d877079fa644134,0.75,4,1.0,1.0,0.0,1.0
+arena_hard,coding,a0502a5076bc4a5f,1.0,4,1.0,3.0,0.0,0.0
+arena_hard,coding,a10d396f07574a4a,1.125,4,3.0,1.5,0.0,0.0
+arena_hard,coding,a4fb13fbc93f4eaa,0.625,4,0.0,2.0,1.0,-0.5
+arena_hard,creative_writing,a7e53142cfb04757,1.0,4,0.0,2.0,1.0,1.0
+arena_hard,math,b569d74273d4420e,0.333333,3,0.0,1.0,0.0,
+arena_hard,coding,b7825d0fc00e4d83,2.0,4,2.0,3.0,0.0,3.0
+arena_hard,coding,b9825cd52d934287,1.25,4,1.0,3.0,0.0,1.0
+arena_hard,coding,b9ebb67820354dcd,2.75,4,4.0,6.0,1.0,0.0
+arena_hard,coding,bbbef3843faa4611,0.25,4,0.0,0.5,0.0,0.5
+arena_hard,math,bdd19128a8fd4a99,1.75,4,1.0,5.0,0.0,1.0
+arena_hard,coding,bfdf93b4e65b4b0e,1.0,4,2.0,1.0,0.0,1.0
+arena_hard,math,c360754ce6014514,2.0,4,6.0,2.0,1.0,-1.0
+arena_hard,coding,c57522c6e2ed40f9,0.25,4,0.0,1.0,0.0,0.0
+arena_hard,math,c8f5fb0700cd4ff8,2.0,4,4.0,3.0,0.0,1.0
+arena_hard,coding,c90da77eb80240b3,2.0,4,2.0,2.0,0.0,4.0
+arena_hard,creative_writing,ca0ddd4ab3c84bbe,1.25,4,2.0,2.0,0.0,1.0
+arena_hard,coding,cab26034a7d64266,1.5,4,3.0,2.0,0.0,1.0
+arena_hard,coding,cd58c7967f4b446e,-1.0,1,,,-1.0,
+arena_hard,creative_writing,d309137e15d14f9f,1.25,4,1.0,2.0,1.0,1.0
+arena_hard,coding,d7765737164a4164,1.25,4,1.0,2.0,1.0,1.0
+arena_hard,coding,dcac3317be714a64,1.5,4,0.0,3.0,2.0,1.0
+arena_hard,creative_writing,dfc2bd06e952492d,1.875,4,2.0,2.0,2.0,1.5
+arena_hard,math,e1a4d59e7ef74055,1.666667,3,2.0,3.0,0.0,
+arena_hard,math,e3610f8a81434e6f,0.75,4,1.0,2.0,0.0,0.0
+arena_hard,coding,e457fae4890745c8,2.0,4,5.0,1.0,0.0,2.0
+arena_hard,coding,ed0f0468c4764e1b,1.0,4,-2.0,3.0,1.0,2.0
+arena_hard,creative_writing,ee6a697e2b39423e,3.0,4,3.0,3.0,2.0,4.0
+arena_hard,math,eec5785a6f59458d,0.35,4,1.4,0.0,0.0,0.0
+arena_hard,math,f102436b3ea440d6,1.75,4,0.0,4.0,1.0,2.0
+arena_hard,math,f3176f24b8364008,1.75,4,4.0,1.0,1.0,1.0
+arena_hard,math,f85200a0f1bd4543,2.75,4,4.0,2.0,1.0,4.0
+arena_hard,math,fc8a0fea66134a6e,0.5425,4,1.17,1.0,0.0,0.0
+mtbench,roleplay,100,1.0,4,2.0,1.0,0.0,1.0
+mtbench,reasoning,101,1.75,4,4.0,3.0,0.0,0.0
+mtbench,reasoning,102,2.0,4,2.0,3.0,4.0,-1.0
+mtbench,reasoning,103,1.5,4,0.0,3.0,1.0,2.0
+mtbench,reasoning,104,-2.5,4,2.0,-2.0,0.0,-10.0
+mtbench,reasoning,105,2.0,4,5.0,2.0,0.0,1.0
+mtbench,reasoning,106,-0.5,4,-2.0,1.0,0.0,-1.0
+mtbench,reasoning,107,0.5,4,2.0,0.0,0.0,0.0
+mtbench,reasoning,108,-0.75,4,0.0,-4.0,1.0,0.0
+mtbench,reasoning,109,1.25,4,2.0,0.0,2.0,1.0
+mtbench,reasoning,110,1.5,4,4.0,1.0,0.0,1.0
+mtbench,math,111,-0.5,4,-2.0,0.0,0.0,0.0
+mtbench,math,112,1.0,4,4.0,0.0,0.0,0.0
+mtbench,math,113,0.75,4,2.0,1.0,0.0,0.0
+mtbench,math,114,0.75,4,0.0,2.0,0.0,1.0
+mtbench,math,115,1.0,4,4.0,0.0,0.0,0.0
+mtbench,math,116,-0.5,4,2.0,-3.0,0.0,-1.0
+mtbench,math,117,1.0,4,0.0,2.0,0.0,2.0
+mtbench,math,118,1.5,4,5.0,0.0,1.0,0.0
+mtbench,math,119,1.0,4,1.0,2.0,1.0,0.0
+mtbench,math,120,1.5,4,3.0,3.0,0.0,0.0
+mtbench,coding,121,1.475,4,2.9,2.0,0.0,1.0
+mtbench,coding,122,0.5,4,3.0,0.0,0.0,-1.0
+mtbench,coding,123,0.375,4,1.0,0.5,0.0,0.0
+mtbench,coding,124,1.0,4,4.0,0.0,0.0,0.0
+mtbench,coding,125,2.0,4,1.0,5.0,0.0,2.0
+mtbench,coding,126,2.0,4,1.0,5.0,0.0,2.0
+mtbench,coding,127,0.75,4,1.0,3.0,-1.0,0.0
+mtbench,coding,128,-0.25,4,1.0,1.0,0.0,-3.0
+mtbench,coding,129,0.25,4,-2.0,1.0,0.0,2.0
+mtbench,coding,130,1.5,4,3.0,1.0,0.0,2.0
+mtbench,extraction,132,1.25,2,2.5,0.0,,
+mtbench,extraction,133,0.5,4,2.0,0.0,0.0,0.0
+mtbench,extraction,134,1.25,4,-2.0,7.0,0.0,0.0
+mtbench,extraction,135,1.0,4,2.0,0.0,2.0,0.0
+mtbench,extraction,136,1.0,2,,2.0,0.0,
+mtbench,extraction,137,0.5,4,2.0,0.0,0.0,0.0
+mtbench,extraction,139,0.5,4,-4.0,4.0,2.0,0.0
+mtbench,extraction,140,3.0,4,4.0,4.0,3.0,1.0
+mtbench,stem,141,1.0,4,2.0,1.0,0.0,1.0
+mtbench,stem,142,2.0,4,1.0,5.0,0.0,2.0
+mtbench,stem,143,1.5,4,1.0,1.0,1.0,3.0
+mtbench,stem,144,0.5,4,2.0,1.0,0.0,-1.0
+mtbench,stem,145,1.0,4,1.0,2.0,0.0,1.0
+mtbench,stem,146,1.0,4,2.0,2.0,-1.0,1.0
+mtbench,stem,147,1.25,4,1.0,1.0,1.0,2.0
+mtbench,stem,148,1.5,4,3.0,2.0,1.0,0.0
+mtbench,stem,149,1.25,4,2.0,2.0,0.0,1.0
+mtbench,stem,150,0.75,4,1.0,1.0,1.0,0.0
+mtbench,humanities,151,2.0,4,2.0,3.0,1.0,2.0
+mtbench,humanities,152,1.25,4,2.0,2.0,0.0,1.0
+mtbench,humanities,153,1.5,4,2.0,1.0,2.0,1.0
+mtbench,humanities,154,0.625,4,1.0,1.0,0.0,0.5
+mtbench,humanities,155,0.75,4,2.0,0.0,0.0,1.0
+mtbench,humanities,156,2.25,4,4.0,3.0,0.0,2.0
+mtbench,humanities,157,0.5,4,0.0,1.0,0.0,1.0
+mtbench,humanities,158,0.75,4,0.0,2.0,0.0,1.0
+mtbench,humanities,159,0.75,4,0.0,1.0,1.0,1.0
+mtbench,humanities,160,1.5,4,2.0,2.0,0.0,2.0
+mtbench,writing,81,0.875,4,1.0,2.0,0.0,0.5
+mtbench,writing,82,0.75,4,2.0,0.0,1.0,0.0
+mtbench,writing,83,1.0,4,2.0,2.0,-1.0,1.0
+mtbench,writing,84,1.25,4,2.0,2.0,0.0,1.0
+mtbench,writing,85,0.5,4,1.0,0.0,0.0,1.0
+mtbench,writing,86,0.625,4,1.5,1.0,0.0,0.0
+mtbench,writing,87,1.5,4,1.0,2.0,0.0,3.0
+mtbench,writing,88,1.75,4,4.0,1.0,1.0,1.0
+mtbench,writing,89,1.875,4,2.0,2.0,2.0,1.5
+mtbench,writing,90,1.25,4,3.0,1.0,0.0,1.0
+mtbench,roleplay,91,1.25,4,2.0,2.0,0.0,1.0
+mtbench,roleplay,92,0.75,4,2.0,1.0,0.0,0.0
+mtbench,roleplay,93,1.0,4,1.0,2.0,0.0,1.0
+mtbench,roleplay,94,0.875,4,3.0,1.0,-1.0,0.5
+mtbench,roleplay,95,2.0,4,4.0,3.0,0.0,1.0
+mtbench,roleplay,96,1.375,4,2.5,3.0,0.0,0.0
+mtbench,roleplay,97,1.5,4,3.0,2.0,1.0,0.0
+mtbench,roleplay,98,1.75,4,4.0,0.0,0.0,3.0
+mtbench,roleplay,99,1.0,4,0.0,1.0,0.0,3.0
+wildbench,Coding & Debugging,0204f978aba442c5,1.125,4,1.0,2.0,0.0,1.5
+wildbench,Data Analysis,02cda0d324384da7,2.75,4,4.0,4.0,0.0,3.0
+wildbench,Planning,05e420b7d62d4911,2.375,4,2.0,3.0,0.0,4.5
+wildbench,Coding & Debugging,0622b8b2a74a4363,1.75,4,0.0,2.0,1.0,4.0
+wildbench,Planning,073e70dc86a54d9c,1.25,4,1.0,2.0,1.0,1.0
+wildbench,Brainstorming,0ac4ec1b7279416c,1.125,4,2.5,1.5,0.0,0.5
+wildbench,Information seeking,0d2610c428e74f0d,1.375,4,0.0,3.0,1.0,1.5
+wildbench,Creative Writing,102ff8ac971c4aa1,1.375,4,2.0,2.0,0.0,1.5
+wildbench,Coding & Debugging,1be884c963e54768,0.75,4,1.0,1.0,0.0,1.0
+wildbench,Information seeking,2149588bda5a45f4,-0.175,4,-0.7,0.0,0.0,0.0
+wildbench,Math,24222844618e4743,0.0,1,,0.0,,
+wildbench,Coding & Debugging,254002fea37a4755,1.0,3,,1.0,3.0,-1.0
+wildbench,Role playing,273bdb150c8f4147,2.666667,3,6.0,0.0,2.0,
+wildbench,Information seeking,2ae29dbc65a44107,0.5,4,1.0,0.0,1.0,0.0
+wildbench,Planning,2d4853074c7745db,2.25,4,2.0,2.0,0.0,5.0
+wildbench,Planning,3393551ffae44a42,0.75,4,1.0,1.5,0.0,0.5
+wildbench,Brainstorming,33ced2dfa17f4e81,1.125,4,1.5,2.0,0.0,1.0
+wildbench,Reasoning,363f1e97e4a14a26,1.5,4,2.0,3.0,0.0,1.0
+wildbench,Creative Writing,3b4cd3f7b0754123,0.5,4,0.0,1.0,0.0,1.0
+wildbench,Coding & Debugging,4c7b131e24e34295,1.0,4,1.0,1.0,1.0,1.0
+wildbench,Planning,512cc91caecc4a72,1.25,4,0.0,3.0,0.0,2.0
+wildbench,Math,535225ef43a64eef,1.75,4,2.0,4.0,0.0,1.0
+wildbench,Reasoning,573df775a7994b2d,1.125,4,1.5,2.0,1.0,0.0
+wildbench,Coding & Debugging,58ea3dc4bbc9461a,0.5,4,0.0,2.0,0.0,0.0
+wildbench,Creative Writing,5ee139c109344637,0.566667,3,,1.0,1.0,-0.3
+wildbench,Creative Writing,5f632c21b2d241dd,1.75,4,2.0,1.0,2.0,2.0
+wildbench,Coding & Debugging,6313fcb6d9544faf,1.95,4,2.4,2.0,-1.0,4.4
+wildbench,Information seeking,6577d12c73a340c8,0.666667,3,1.0,1.0,0.0,
+wildbench,Coding & Debugging,6634578f233b44f9,-0.25,4,0.0,0.0,0.0,-1.0
+wildbench,Reasoning,6a00c8c9ca924a9e,0.5,4,0.5,0.0,1.0,0.5
+wildbench,Reasoning,6b3657694d9b4d4d,0.75,4,1.0,0.0,1.0,1.0
+wildbench,Reasoning,6faeb29f4d214e4a,0.5,4,0.0,3.0,-1.0,0.0
+wildbench,Coding & Debugging,713ef999889442ea,0.0,4,0.0,0.0,0.0,0.0
+wildbench,Coding & Debugging,72da41d2f5cf4838,0.5,4,0.0,2.0,0.0,0.0
+wildbench,Information seeking,78f977778df9437f,0.333333,3,,1.0,0.0,0.0
+wildbench,Editing,7ae4e561d4b34e57,2.0,4,2.0,2.0,1.0,3.0
+wildbench,Information seeking,7e071f9bd9e24dca,0.25,4,1.0,0.0,0.0,0.0
+wildbench,Planning,80fa71beeb4f4768,2.0,3,,3.0,1.0,2.0
+wildbench,Coding & Debugging,8706aea5150d4d8b,1.5,4,0.0,2.0,1.0,3.0
+wildbench,Creative Writing,8e46fba4555e4055,2.375,4,4.0,3.0,1.0,1.5
+wildbench,Math,957e2ced46e84447,0.333333,3,0.0,1.0,0.0,
+wildbench,Math,984eefa3549f4e41,1.5,4,0.0,4.0,0.0,2.0
+wildbench,Creative Writing,99c1bf7021044b69,1.5,4,4.0,3.0,1.0,-2.0
+wildbench,Coding & Debugging,9a5f5ec7ede84fc5,0.25,4,0.0,2.0,0.0,-1.0
+wildbench,Editing,9ab8f1cdc1a247bd,0.75,4,1.0,1.0,0.0,1.0
+wildbench,Advice seeking,9da7e6f959a74f3b,0.75,4,1.0,1.0,0.0,1.0
+wildbench,Reasoning,a33e9277db4446b8,0.0,1,,,0.0,
+wildbench,Math,a35c3fe1cbe241ed,1.375,4,3.0,2.5,0.0,0.0
+wildbench,Creative Writing,b1286af91e8d4363,1.25,4,1.0,1.5,1.0,1.5
+wildbench,Information seeking,b4b03645522f4602,2.25,4,2.0,5.0,1.0,1.0
+wildbench,Creative Writing,b5300bce101c4998,1.25,4,1.0,2.0,1.0,1.0
+wildbench,Reasoning,b5c341d6560a4b2c,0.5,4,0.0,0.0,0.0,2.0
+wildbench,Creative Writing,b9f7518558474161,1.125,4,0.0,2.0,2.0,0.5
+wildbench,Planning,bb056fc94b704670,0.5,4,1.0,1.0,0.0,0.0
+wildbench,Creative Writing,c40db1c020804e92,1.25,4,1.0,2.0,0.0,2.0
+wildbench,Information seeking,c7185d033b964a1e,1.75,4,1.0,4.0,0.0,2.0
+wildbench,Creative Writing,c8306c274a244093,1.125,4,1.5,2.0,0.0,1.0
+wildbench,Planning,c926c9ebdfce4cdc,1.7,4,2.5,1.0,1.0,2.3
+wildbench,Coding & Debugging,cc89d4690cd44285,1.0,3,1.0,2.0,,0.0
+wildbench,Editing,cd1a59e3c9a34720,0.375,4,0.0,1.0,0.0,0.5
+wildbench,Editing,d447bfd72c5d4794,1.175,4,1.2,2.0,0.5,1.0
+wildbench,Creative Writing,d612376e16724e1d,1.125,4,1.0,2.0,1.0,0.5
+wildbench,Coding & Debugging,d9d3a0f99c694d72,1.75,4,1.0,6.0,0.0,0.0
+wildbench,Information seeking,df1a79e6fd9f46cb,0.5,4,1.0,1.0,0.0,0.0
+wildbench,Editing,e626a329b62b408c,0.5,4,1.0,0.0,1.0,0.0
+wildbench,Creative Writing,e7ec17697c10438e,1.375,4,0.0,2.0,1.0,2.5
+wildbench,Coding & Debugging,e89e6b6f441e4a52,0.25,4,0.0,1.0,-1.0,1.0
+wildbench,Math,eb57ead639294c64,2.25,4,4.0,1.0,1.0,3.0
+wildbench,Coding & Debugging,ec4d1f13b33d476e,1.25,4,0.0,3.0,0.0,2.0
+wildbench,Editing,eefe41e78705423b,0.875,4,1.0,1.0,0.0,1.5
+wildbench,Information seeking,f38b820da54f4df1,0.75,4,2.0,1.0,0.0,0.0
+wildbench,Data Analysis,f41bb5bf57c8481c,2.75,4,4.0,1.0,1.0,5.0
+wildbench,Reasoning,f482c63648464b2b,1.0625,4,3.0,1.0,0.0,0.25
+wildbench,Creative Writing,f5e325dcfa434e22,1.75,4,1.0,3.0,1.0,2.0
+wildbench,Coding & Debugging,f688239304c040a3,0.5,4,1.0,1.0,0.0,0.0
+wildbench,Reasoning,fb8077cdf0094ab5,1.5,4,1.0,3.0,0.0,2.0
+wildbench,Math,fc39c802b8734936,1.0,4,-2.0,5.0,0.0,1.0

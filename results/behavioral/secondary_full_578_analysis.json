@@ -1,0 +1,803 @@
+{
+  "measurement_basis": "complete_case",
+  "secondary": {
+    "population": "all 578 tasks",
+    "contrast": "no_history_minus_self_low_2",
+    "n_cells": 12,
+    "cell_weight": 0.08333333333333333,
+    "macro_average": 1.1699584012855417,
+    "n_empty_cells": 0,
+    "cell_means": {
+      "mtbench|llama": 1.7454545454545456,
+      "mtbench|qwen": 1.4423076923076923,
+      "mtbench|gemma": 0.33766233766233766,
+      "mtbench|olmo32b": 0.5789473684210527,
+      "arena_hard|llama": 1.8293243243243245,
+      "arena_hard|qwen": 1.9407894736842106,
+      "arena_hard|gemma": 0.6153846153846154,
+      "arena_hard|olmo32b": 0.9957142857142858,
+      "wildbench|llama": 1.2098591549295776,
+      "wildbench|qwen": 1.7894736842105263,
+      "wildbench|gemma": 0.4066666666666667,
+      "wildbench|olmo32b": 1.1479166666666667
+    },
+    "cell_n": {
+      "mtbench|llama": 77,
+      "mtbench|qwen": 78,
+      "mtbench|gemma": 77,
+      "mtbench|olmo32b": 76,
+      "arena_hard|llama": 74,
+      "arena_hard|qwen": 76,
+      "arena_hard|gemma": 78,
+      "arena_hard|olmo32b": 70,
+      "wildbench|llama": 71,
+      "wildbench|qwen": 76,
+      "wildbench|gemma": 75,
+      "wildbench|olmo32b": 72
+    },
+    "ci_95": {
+      "ci_low": 1.099288435839116,
+      "ci_high": 1.2431467796257658,
+      "n_bootstrap_reps": 10000
+    },
+    "n_empty_cell_replicates": 0
+  },
+  "task_level_distribution_full_578": {
+    "overall": {
+      "n_tasks": 233,
+      "fraction_gt_0": 0.9399141630901288,
+      "fraction_eq_0": 0.012875536480686695,
+      "fraction_lt_0": 0.04721030042918455,
+      "fraction_ge_1": 0.6523605150214592,
+      "fraction_ge_2": 0.15450643776824036,
+      "min": -2.5,
+      "p25": 0.75,
+      "median": 1.125,
+      "p75": 1.625,
+      "max": 3.3333333333333335
+    },
+    "per_dataset": {
+      "mtbench": {
+        "n_tasks": 78,
+        "fraction_gt_0": 0.9230769230769231,
+        "fraction_eq_0": 0.0,
+        "fraction_lt_0": 0.07692307692307693,
+        "fraction_ge_1": 0.6282051282051282,
+        "fraction_ge_2": 0.11538461538461539,
+        "min": -2.5,
+        "p25": 0.75,
+        "median": 1.0,
+        "p75": 1.5,
+        "max": 3.0
+      },
+      "arena_hard": {
+        "n_tasks": 78,
+        "fraction_gt_0": 0.9615384615384616,
+        "fraction_eq_0": 0.0,
+        "fraction_lt_0": 0.038461538461538464,
+        "fraction_ge_1": 0.7307692307692307,
+        "fraction_ge_2": 0.21794871794871795,
+        "min": -1.0,
+        "p25": 0.875,
+        "median": 1.25,
+        "p75": 1.75,
+        "max": 3.3333333333333335
+      },
+      "wildbench": {
+        "n_tasks": 77,
+        "fraction_gt_0": 0.935064935064935,
+        "fraction_eq_0": 0.03896103896103896,
+        "fraction_lt_0": 0.025974025974025976,
+        "fraction_ge_1": 0.5974025974025974,
+        "fraction_ge_2": 0.12987012987012986,
+        "min": -0.25,
+        "p25": 0.5,
+        "median": 1.125,
+        "p75": 1.5,
+        "max": 2.75
+      }
+    }
+  },
+  "pooled_summaries": {
+    "task_weighted": {
+      "heldout_500": {
+        "mean": 1.2193870967741935,
+        "n": 155
+      },
+      "full_578": {
+        "mean": 1.156030042918455,
+        "n": 233
+      }
+    },
+    "pair_weighted": {
+      "heldout_500": {
+        "mean": 1.2426013513513514,
+        "n": 592
+      },
+      "full_578": {
+        "mean": 1.1694666666666667,
+        "n": 900
+      }
+    },
+    "dataset_wise": {
+      "mtbench": {
+        "mean": 1.026092985961407,
+        "n_scorers_with_data": 4
+      },
+      "arena_hard": {
+        "mean": 1.3453031747768591,
+        "n_scorers_with_data": 4
+      },
+      "wildbench": {
+        "mean": 1.1384790431183593,
+        "n_scorers_with_data": 4
+      }
+    },
+    "scorer_wise": {
+      "llama": {
+        "mean": 1.5948793415694826,
+        "n_datasets_with_data": 3
+      },
+      "qwen": {
+        "mean": 1.7241902834008098,
+        "n_datasets_with_data": 3
+      },
+      "gemma": {
+        "mean": 0.45323787323787323,
+        "n_datasets_with_data": 3
+      },
+      "olmo32b": {
+        "mean": 0.9075261069340016,
+        "n_datasets_with_data": 3
+      }
+    }
+  },
+  "diagnostics": {
+    "point": {
+      "no_history_minus_self_low_2": {
+        "pooled": {
+          "null": {
+            "mean": 1.1694666666666667,
+            "n": 900
+          }
+        },
+        "dataset": {
+          "mtbench": {
+            "mean": 1.0288961038961038,
+            "n": 308
+          },
+          "arena_hard": {
+            "mean": 1.3441946308724833,
+            "n": 298
+          },
+          "wildbench": {
+            "mean": 1.1396258503401362,
+            "n": 294
+          }
+        },
+        "scorer": {
+          "olmo32b": {
+            "mean": 0.9006880733944954,
+            "n": 218
+          },
+          "gemma": {
+            "mean": 0.4543478260869565,
+            "n": 230
+          },
+          "qwen": {
+            "mean": 1.7217391304347827,
+            "n": 230
+          },
+          "llama": {
+            "mean": 1.6021171171171171,
+            "n": 222
+          }
+        }
+      },
+      "other_low_2_minus_self_low_2": {
+        "pooled": {
+          "null": {
+            "mean": 0.6561863173216885,
+            "n": 687
+          }
+        },
+        "dataset": {
+          "mtbench": {
+            "mean": 0.6228448275862069,
+            "n": 232
+          },
+          "arena_hard": {
+            "mean": 0.6767543859649123,
+            "n": 228
+          },
+          "wildbench": {
+            "mean": 0.6696035242290749,
+            "n": 227
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "mean": 0.2576419213973799,
+            "n": 229
+          },
+          "qwen": {
+            "mean": 1.1021739130434782,
+            "n": 230
+          },
+          "llama": {
+            "mean": 0.6065789473684211,
+            "n": 228
+          }
+        }
+      },
+      "unrelated_low_2_minus_self_low_2": {
+        "pooled": {
+          "null": {
+            "mean": 0.3626453488372093,
+            "n": 688
+          }
+        },
+        "dataset": {
+          "mtbench": {
+            "mean": 0.34120171673819744,
+            "n": 233
+          },
+          "arena_hard": {
+            "mean": 0.36403508771929827,
+            "n": 228
+          },
+          "wildbench": {
+            "mean": 0.3832599118942731,
+            "n": 227
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "mean": -0.3130434782608696,
+            "n": 230
+          },
+          "qwen": {
+            "mean": 0.6558441558441559,
+            "n": 231
+          },
+          "llama": {
+            "mean": 0.748898678414097,
+            "n": 227
+          }
+        }
+      },
+      "no_history_minus_unrelated_low_2": {
+        "pooled": {
+          "null": {
+            "mean": 0.8940995607613469,
+            "n": 683
+          }
+        },
+        "dataset": {
+          "mtbench": {
+            "mean": 0.8336206896551724,
+            "n": 232
+          },
+          "arena_hard": {
+            "mean": 1.064934497816594,
+            "n": 229
+          },
+          "wildbench": {
+            "mean": 0.7810810810810811,
+            "n": 222
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "mean": 0.7727272727272727,
+            "n": 231
+          },
+          "qwen": {
+            "mean": 1.08008658008658,
+            "n": 231
+          },
+          "llama": {
+            "mean": 0.8265610859728506,
+            "n": 221
+          }
+        }
+      },
+      "no_history_minus_verbal_negative": {
+        "pooled": {
+          "null": {
+            "mean": 1.1930746705710102,
+            "n": 683
+          }
+        },
+        "dataset": {
+          "mtbench": {
+            "mean": 1.1762931034482758,
+            "n": 232
+          },
+          "arena_hard": {
+            "mean": 1.3168995633187772,
+            "n": 229
+          },
+          "wildbench": {
+            "mean": 1.0828828828828827,
+            "n": 222
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "mean": 0.4090909090909091,
+            "n": 231
+          },
+          "qwen": {
+            "mean": 1.5239130434782608,
+            "n": 230
+          },
+          "llama": {
+            "mean": 1.666081081081081,
+            "n": 222
+          }
+        }
+      },
+      "self_high_10_minus_self_low_2": {
+        "pooled": {
+          "null": {
+            "mean": 2.281686046511628,
+            "n": 688
+          }
+        },
+        "dataset": {
+          "mtbench": {
+            "mean": 2.2034632034632033,
+            "n": 231
+          },
+          "arena_hard": {
+            "mean": 2.490350877192982,
+            "n": 228
+          },
+          "wildbench": {
+            "mean": 2.1528384279475983,
+            "n": 229
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "mean": 1.2785087719298245,
+            "n": 228
+          },
+          "qwen": {
+            "mean": 3.0926724137931036,
+            "n": 232
+          },
+          "llama": {
+            "mean": 2.459649122807017,
+            "n": 228
+          }
+        }
+      },
+      "self_high_10_minus_no_history": {
+        "pooled": {
+          "null": {
+            "mean": 1.0090014684287811,
+            "n": 681
+          }
+        },
+        "dataset": {
+          "mtbench": {
+            "mean": 1.0004347826086957,
+            "n": 230
+          },
+          "arena_hard": {
+            "mean": 1.034780701754386,
+            "n": 228
+          },
+          "wildbench": {
+            "mean": 0.9914798206278027,
+            "n": 223
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "mean": 0.8296943231441049,
+            "n": 229
+          },
+          "qwen": {
+            "mean": 1.3695652173913044,
+            "n": 230
+          },
+          "llama": {
+            "mean": 0.8204054054054054,
+            "n": 222
+          }
+        }
+      },
+      "no_history_minus_other_low_2": {
+        "pooled": {
+          "null": {
+            "mean": 0.5923201174743025,
+            "n": 681
+          }
+        },
+        "dataset": {
+          "mtbench": {
+            "mean": 0.5385281385281385,
+            "n": 231
+          },
+          "arena_hard": {
+            "mean": 0.7305701754385965,
+            "n": 228
+          },
+          "wildbench": {
+            "mean": 0.5063063063063064,
+            "n": 222
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "mean": 0.20217391304347826,
+            "n": 230
+          },
+          "qwen": {
+            "mean": 0.6353711790393013,
+            "n": 229
+          },
+          "llama": {
+            "mean": 0.9521171171171171,
+            "n": 222
+          }
+        }
+      }
+    },
+    "ci_95": {
+      "no_history_minus_self_low_2": {
+        "pooled": {
+          "null": {
+            "ci_low": 1.0987183766002844,
+            "ci_high": 1.2433284127121904,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "dataset": {
+          "arena_hard": {
+            "ci_low": 1.2253940886699508,
+            "ci_high": 1.4678768947745562,
+            "n_bootstrap_reps": 10000
+          },
+          "mtbench": {
+            "ci_low": 0.9023112922705314,
+            "ci_high": 1.1645699082470928,
+            "n_bootstrap_reps": 10000
+          },
+          "wildbench": {
+            "ci_low": 1.0213055848530213,
+            "ci_high": 1.256434690241228,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "scorer": {
+          "olmo32b": {
+            "ci_low": 0.7526100475881463,
+            "ci_high": 1.0552289424968182,
+            "n_bootstrap_reps": 10000
+          },
+          "gemma": {
+            "ci_low": 0.3724832214765101,
+            "ci_high": 0.53125,
+            "n_bootstrap_reps": 10000
+          },
+          "qwen": {
+            "ci_low": 1.582142857142857,
+            "ci_high": 1.8613181840599724,
+            "n_bootstrap_reps": 10000
+          },
+          "llama": {
+            "ci_low": 1.4458273381294964,
+            "ci_high": 1.75963535776704,
+            "n_bootstrap_reps": 10000
+          }
+        }
+      },
+      "other_low_2_minus_self_low_2": {
+        "pooled": {
+          "null": {
+            "ci_low": 0.5917041090629801,
+            "ci_high": 0.7200957524157989,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "dataset": {
+          "arena_hard": {
+            "ci_low": 0.5499999999999999,
+            "ci_high": 0.8007194244604317,
+            "n_bootstrap_reps": 10000
+          },
+          "mtbench": {
+            "ci_low": 0.513986013986014,
+            "ci_high": 0.7304762620192307,
+            "n_bootstrap_reps": 10000
+          },
+          "wildbench": {
+            "ci_low": 0.5724137931034483,
+            "ci_high": 0.7664233576642335,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "ci_low": 0.19148153942428037,
+            "ci_high": 0.3194444444444444,
+            "n_bootstrap_reps": 10000
+          },
+          "qwen": {
+            "ci_low": 0.9620623802681992,
+            "ci_high": 1.241750236518448,
+            "n_bootstrap_reps": 10000
+          },
+          "llama": {
+            "ci_low": 0.4776223776223776,
+            "ci_high": 0.734697742733457,
+            "n_bootstrap_reps": 10000
+          }
+        }
+      },
+      "unrelated_low_2_minus_self_low_2": {
+        "pooled": {
+          "null": {
+            "ci_low": 0.29050734782333587,
+            "ci_high": 0.43525285653829876,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "dataset": {
+          "arena_hard": {
+            "ci_low": 0.24814814814814815,
+            "ci_high": 0.4745251776977753,
+            "n_bootstrap_reps": 10000
+          },
+          "mtbench": {
+            "ci_low": 0.19095982142857143,
+            "ci_high": 0.5,
+            "n_bootstrap_reps": 10000
+          },
+          "wildbench": {
+            "ci_low": 0.2861522911051213,
+            "ci_high": 0.4776143169502804,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "ci_low": -0.4026868941088739,
+            "ci_high": -0.21678321678321677,
+            "n_bootstrap_reps": 10000
+          },
+          "qwen": {
+            "ci_low": 0.5361788858386975,
+            "ci_high": 0.7730496453900709,
+            "n_bootstrap_reps": 10000
+          },
+          "llama": {
+            "ci_low": 0.6190476190476191,
+            "ci_high": 0.8785714285714286,
+            "n_bootstrap_reps": 10000
+          }
+        }
+      },
+      "no_history_minus_unrelated_low_2": {
+        "pooled": {
+          "null": {
+            "ci_low": 0.8155028600596318,
+            "ci_high": 0.9727622559025212,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "dataset": {
+          "arena_hard": {
+            "ci_low": 0.9249493585884315,
+            "ci_high": 1.2027022415295783,
+            "n_bootstrap_reps": 10000
+          },
+          "mtbench": {
+            "ci_low": 0.6694416666666667,
+            "ci_high": 0.995862777515352,
+            "n_bootstrap_reps": 10000
+          },
+          "wildbench": {
+            "ci_low": 0.6915542487314011,
+            "ci_high": 0.8718541167066347,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "ci_low": 0.673755171394799,
+            "ci_high": 0.8636440940012368,
+            "n_bootstrap_reps": 10000
+          },
+          "qwen": {
+            "ci_low": 0.944078947368421,
+            "ci_high": 1.222972972972973,
+            "n_bootstrap_reps": 10000
+          },
+          "llama": {
+            "ci_low": 0.6807312150279776,
+            "ci_high": 0.9753554626369327,
+            "n_bootstrap_reps": 10000
+          }
+        }
+      },
+      "no_history_minus_verbal_negative": {
+        "pooled": {
+          "null": {
+            "ci_low": 1.1054115817535546,
+            "ci_high": 1.2795939576754487,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "dataset": {
+          "arena_hard": {
+            "ci_low": 1.1708022015540382,
+            "ci_high": 1.4584826164045637,
+            "n_bootstrap_reps": 10000
+          },
+          "mtbench": {
+            "ci_low": 1.0091430876147927,
+            "ci_high": 1.345205479452055,
+            "n_bootstrap_reps": 10000
+          },
+          "wildbench": {
+            "ci_low": 0.9460978876473289,
+            "ci_high": 1.2185185185185186,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "ci_low": 0.31788079470198677,
+            "ci_high": 0.4931972789115646,
+            "n_bootstrap_reps": 10000
+          },
+          "qwen": {
+            "ci_low": 1.3664323268377387,
+            "ci_high": 1.6826939655172413,
+            "n_bootstrap_reps": 10000
+          },
+          "llama": {
+            "ci_low": 1.4973472884731165,
+            "ci_high": 1.8306627331711274,
+            "n_bootstrap_reps": 10000
+          }
+        }
+      },
+      "self_high_10_minus_self_low_2": {
+        "pooled": {
+          "null": {
+            "ci_low": 2.199768916624354,
+            "ci_high": 2.363885057872158,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "dataset": {
+          "arena_hard": {
+            "ci_low": 2.3386666666666667,
+            "ci_high": 2.643457959376476,
+            "n_bootstrap_reps": 10000
+          },
+          "mtbench": {
+            "ci_low": 2.0683373709195907,
+            "ci_high": 2.335616438356164,
+            "n_bootstrap_reps": 10000
+          },
+          "wildbench": {
+            "ci_low": 2.016663907284768,
+            "ci_high": 2.288738110481068,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "ci_low": 1.1654676258992807,
+            "ci_high": 1.3878205128205128,
+            "n_bootstrap_reps": 10000
+          },
+          "qwen": {
+            "ci_low": 2.9349242322499776,
+            "ci_high": 3.2533344594594595,
+            "n_bootstrap_reps": 10000
+          },
+          "llama": {
+            "ci_low": 2.315492957746479,
+            "ci_high": 2.6055221674876847,
+            "n_bootstrap_reps": 10000
+          }
+        }
+      },
+      "self_high_10_minus_no_history": {
+        "pooled": {
+          "null": {
+            "ci_low": 0.9498335020454166,
+            "ci_high": 1.0659448989891636,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "dataset": {
+          "arena_hard": {
+            "ci_low": 0.9351335616438354,
+            "ci_high": 1.1360196382607095,
+            "n_bootstrap_reps": 10000
+          },
+          "mtbench": {
+            "ci_low": 0.889654533844189,
+            "ci_high": 1.1035460992907802,
+            "n_bootstrap_reps": 10000
+          },
+          "wildbench": {
+            "ci_low": 0.8986387471655328,
+            "ci_high": 1.080369765270739,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "ci_low": 0.7482511283043197,
+            "ci_high": 0.9097222222222222,
+            "n_bootstrap_reps": 10000
+          },
+          "qwen": {
+            "ci_low": 1.2414965986394557,
+            "ci_high": 1.493008207070707,
+            "n_bootstrap_reps": 10000
+          },
+          "llama": {
+            "ci_low": 0.6932401763465592,
+            "ci_high": 0.949124402667647,
+            "n_bootstrap_reps": 10000
+          }
+        }
+      },
+      "no_history_minus_other_low_2": {
+        "pooled": {
+          "null": {
+            "ci_low": 0.53356004405428,
+            "ci_high": 0.6506007181405803,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "dataset": {
+          "arena_hard": {
+            "ci_low": 0.6372794117647059,
+            "ci_high": 0.8233111723856208,
+            "n_bootstrap_reps": 10000
+          },
+          "mtbench": {
+            "ci_low": 0.4166666666666667,
+            "ci_high": 0.659883126133126,
+            "n_bootstrap_reps": 10000
+          },
+          "wildbench": {
+            "ci_low": 0.41889621134314736,
+            "ci_high": 0.5886563194664972,
+            "n_bootstrap_reps": 10000
+          }
+        },
+        "scorer": {
+          "gemma": {
+            "ci_low": 0.13945578231292516,
+            "ci_high": 0.26223776223776224,
+            "n_bootstrap_reps": 10000
+          },
+          "qwen": {
+            "ci_low": 0.5132428546531892,
+            "ci_high": 0.7605633802816901,
+            "n_bootstrap_reps": 10000
+          },
+          "llama": {
+            "ci_low": 0.8235221198041567,
+            "ci_high": 1.0849684509326845,
+            "n_bootstrap_reps": 10000
+          }
+        }
+      }
+    },
+    "note": "non-confirmatory, unadjusted for multiplicity"
+  }
+}

@@ -1,0 +1,26 @@
+# ============================================================================
+# Jacobian-lens readout across all 11 prior-score conditions — judge: llama8b
+# ============================================================================
+# Official implementation: anthropics/jacobian-lens @ 581d398613e5602a5af361e1c34d3a92ea82ba8e
+# Lens pre-fitted with that same code on Salesforce/wikitext only; never refitted here,
+# and none of our tasks, prompts or results contributed to it.
+# jlens layer i == our L(i+1); the extra final row is the model's own output.
+
+include:
+  - configs/models.yaml
+  - configs/datasets.yaml
+
+jlens:
+  name: JLENS_ALLCONDS_llama8b
+  judge_model: llama8b
+  source_glob: results/arenahard/judge/*/records.jsonl
+  out_dir: results/jlens_allconds
+  history_template: dyadic_anon_prior_round
+  conditions: [no_history, score_1, score_2, score_3, score_4, score_5,
+               score_6, score_7, score_8, score_9, score_10]
+  lens_repo: neuronpedia/jacobian-lens
+  lens_file: llama3.1-8b-it/jlens/Salesforce-wikitext/Llama-3.1-8B-Instruct_jacobian_lens.pt
+  lens_revision: a4114d7752d11eb546e6cf372213d7e75526d3a1
+  max_seq_len: 8192
+  force_bos: false
+  top_n: 10

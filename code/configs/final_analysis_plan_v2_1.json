@@ -1,0 +1,235 @@
+{
+  "plan_id": "final_behavioral_study_sap_v2_amendment_A1",
+  "plan_version": "2.1",
+  "amends": {
+    "plan_id": "final_behavioral_study_sap_v2",
+    "human_readable_sha256": "9eecd39b4f8c6a60e32a1821f90b5b4e5415c993d894517f5876922b863e46ff",
+    "machine_readable_path": "configs/final_analysis_plan.json",
+    "machine_readable_sha256": "ea41c3d6f4af734605850896049d54952eec9f9450713881b24b2d52611cd52c",
+    "preserved_unmodified": true,
+    "note": "plan v2 is carried forward by reference and hash; this file adds execution constraints and closes open decisions. It does not replace v2 and does not alter its history."
+  },
+  "amendment_narrative": "Code/research_notes/final_analysis_plan_amendment_A1.md",
+  "status": "pre-specified; no model output exists for any task in the frozen manifest",
+  "statistical_content_changed": false,
+  "statistical_content_note": "no estimand, weight, population, contrast, bootstrap parameter, or measurement basis is altered by this amendment; it is entirely about execution",
+
+  "unchanged_from_plan_v2": {
+    "task_manifest_sha256": "a001d48b7769311da33cba1a8ef51bb4e9d1a27b2cc0d007bce85adab606037f",
+    "n_tasks": 578,
+    "n_scoring_calls": 13872,
+    "n_scorers": 4,
+    "primary_confirmatory": {"population": "500 held-out arena_hard + wildbench",
+                             "n_cells": 8, "cell_weight": 0.125,
+                             "measurement": "blinded_adjudicated_scores"},
+    "key_secondary": {"population": "all 578", "n_cells": 12,
+                      "cell_weight": 0.08333333333333333,
+                      "measurement": "blinded_adjudicated_scores"},
+    "principal_sensitivity": "automatic_parser_complete_cases",
+    "bootstrap": {"n_replicates": 10000, "seed": 20260818,
+                  "resampling_unit": "task", "stratification": "by dataset",
+                  "ci_method": "percentile"},
+    "no_conditional_rule_changing_primary_from_observed_data": true,
+    "diagnostic_contrasts": {"count": 7, "confirmatory": false,
+                             "multiplicity_adjusted": false}
+  },
+
+  "E1_resolution_mistral_template": {
+    "decision": "pass an explicit empty system message",
+    "messages": [{"role": "system", "content": ""}, {"role": "user", "content": "<frozen scoring prompt>"}],
+    "official_template_modified": false,
+    "chat_template_sha256": "3934d199bfe5b6fab5cba1b5f8ee475e8d5738ac315f21cb09545b4e665cc005",
+    "empty_system_tags_permitted": true,
+    "empty_system_tags_permitted_for": ["mistral"],
+    "expected_render_shape": "<s>[SYSTEM_PROMPT][/SYSTEM_PROMPT][INST]<frozen user prompt>[/INST]",
+    "verification": {
+      "method": "rendered the pinned template locally with jinja2, substituting a sentinel date 1999-12-31 for strftime_now so any date leakage would be visible; no weights, no model, no GPU",
+      "residual_alphabetic_words_after_removing_frozen_prompt_and_control_tokens": 0,
+      "sentinel_date_leaked": false,
+      "persona_leaked": false,
+      "contains_current_date_phrase": false,
+      "contains_knowledge_base_phrase": false,
+      "contains_clarify_instruction": false,
+      "contrast_user_only_variant_residual_words": 92,
+      "contrast_user_only_variant_leaks_date_and_persona": true,
+      "verified_prospectively": true
+    },
+    "incidental_findings": [
+      "add_generation_prompt=True is a no-op for this template (no such branch; [/INST] is the generation cue); kept for uniformity",
+      "strftime_now is still called on the template's first line even in the empty-system path, so the function must be available; its value never reaches the output"
+    ],
+    "other_scorers": {
+      "llama": {"messages": "user_only", "conditional_on": "preflight gate confirming no hidden content",
+                "offbox_reverification": "not possible; repo gated (HTTP 401)",
+                "known_risk": "Llama-3.1 templates in some versions inject a 'Today Date:' string"},
+      "qwen": {"messages": "user_only", "independently_verified_clean": true,
+               "basis": "emits a system block only when `tools` is passed, which this protocol never does",
+               "enable_thinking": false},
+      "gemma": {"messages": "user_only", "conditional_on": "preflight gate confirming no hidden content",
+                "offbox_reverification": "not possible; fetch failed"}
+    }
+  },
+
+  "E2_resolution_hardware_and_placement": {
+    "gpu_requirement": "a single A100 80GB or faster 80GB GPU",
+    "device_map": {"": 0},
+    "device_map_retained": true,
+    "device_map_rationale": "48 GiB peak for the 24B scorer against 80 GiB makes single-device placement viable unchanged; it would have OOM'd on the previous 32 GiB card",
+    "precision": "bfloat16 where specified",
+    "cpu_offload": "prohibited",
+    "disk_offload": "prohibited",
+    "quantization": "prohibited",
+    "full_gpu_residency_required": true,
+    "vram_budget": {"mistral_bf16_weights_gib": 43.9,
+                    "mistral_with_kv_and_activations_gib": 48,
+                    "worst_case_prompt_tokens": 4600,
+                    "gpu_capacity_gib": 80},
+    "residency_gate_checks": [
+      "every parameter .device.type == 'cuda'",
+      "every buffer .device.type == 'cuda'",
+      "if hf_device_map exists, no entry maps to 'cpu', 'disk' or 'meta'",
+      "no quantization configuration present on the loaded config",
+      "every PARAMETER dtype is torch.bfloat16; non-persistent buffers such as rotary inv_freq may be float32 and are exempt",
+      "post-load torch.cuda.memory_allocated() within tolerance of the expected BF16 weight size"
+    ],
+    "on_failure": "abort before any inference and return for review"
+  },
+
+  "preflight_prompt_render_gate": {
+    "canonical_task": {
+      "selection_rule": "lexicographically smallest source_task_id in the 500-task primary population; rendering consumes nothing because no inference occurs",
+      "dataset": "wildbench",
+      "task_id": "00c7916a072b4947",
+      "category": "Planning",
+      "question_chars": 315,
+      "question_sha256": "462b09c2e8ef464bbd896acb386ba928e5dc97dddbb39388014469c1dd72c0f4"
+    },
+    "renders_required": 24,
+    "renders_grid": "4 scorers x 6 conditions",
+    "save_complete_prompt_verbatim": true,
+    "record_per_render": [
+      "full rendered text",
+      "sha256 of rendered text",
+      "tokenized input-ID sequence",
+      "sha256 of token-ID sequence",
+      "input token count",
+      "first and last input token IDs",
+      "tokenizer chat_template sha256",
+      "attn_implementation",
+      "transformers version",
+      "decode settings"
+    ],
+    "fail_conditions": {
+      "1_residual_content_primary_gate": "after removing the frozen user prompt text and the model's control/special tokens, the remainder must contain no alphabetic word of 3+ characters; catches dates, personas and unrequested instructions together, model-agnostically",
+      "2_date_test": "no YYYY-MM-DD, DD Mon YYYY or Mon DD, YYYY substring; none of 'current date', 'today', 'todays date', 'knowledge cutoff', 'knowledge base was last updated', 'cutting knowledge date' (case-insensitive)",
+      "3_persona_test": "no 'You are <Name>' construction; none of 'Large Language Model', 'created by', 'developed by', 'I am an AI'",
+      "4_instruction_test": "subsumed by test 1: evaluation guidance beyond the frozen prompt necessarily leaves residual alphabetic words",
+      "5_reproducibility_test": "rendered-text and token-ID hashes frozen at preflight; the run must reproduce them. Self-enforcing against date injection, because a date-bearing template renders differently on a later calendar day"
+    },
+    "exception": "for mistral only, the empty [SYSTEM_PROMPT][/SYSTEM_PROMPT] tag pair is permitted and is not a residual-content violation",
+    "on_failure": "fail the gate and return for review"
+  },
+
+  "generation_determinism": {
+    "applies_to": "every scorer and the generator, on every call",
+    "do_sample": false,
+    "do_sample_explicitly_passed": true,
+    "seed": 42,
+    "seed_mechanism": "transformers.set_seed immediately before every call",
+    "max_new_tokens": {"scoring": 512, "generation": 2048},
+    "ignore_model_provided_sampling_defaults": true,
+    "how": "after load, set model.generation_config.do_sample=False and temperature/top_p/top_k=None, AND still pass the explicit kwargs; kwarg precedence alone leaves the shipped values resident in the merged config",
+    "rationale": "a silent reversion to sampling would be indistinguishable in the output from a real effect",
+    "known_shipped_defaults": {"mistral": {"temperature": 0.15, "do_sample": true}},
+    "expected_benign_warning": "temperature set while do_sample=False",
+    "qwen_enable_thinking": false,
+    "decode": {"skip_special_tokens": true, "clean_up_tokenization_spaces": false}
+  },
+
+  "batching": {
+    "default_batch_size": 1,
+    "micro_batching_permitted_only_after": "demonstrated exact token-for-token equivalence with batch size 1 on the pre-specified smoke set",
+    "bucketing": "length-bucketed",
+    "mistral_starting_batch_size": 1,
+    "mistral_batch_determined_only_by": "the smoke test; no batch size assumed in advance",
+    "equivalence_smoke_set": {
+      "source": "frozen answers from the completed 90-task run",
+      "verified_outside_578_manifest": true,
+      "contamination": "none; these tasks are already used and are not in the study manifest",
+      "selection_rationale": "spans the prompt+answer length range, including two token-capped answers to exercise the longest bucket",
+      "tasks": [
+        {"dataset": "arena_hard", "task_id": "15df2da070ca483d", "chars": 65, "answer_tokens": 3, "capped": false},
+        {"dataset": "arena_hard", "task_id": "449e2408d16d43e9", "chars": 894, "answer_tokens": 226, "capped": false},
+        {"dataset": "wildbench", "task_id": "ee56e822a2a146f2", "chars": 2595, "answer_tokens": 380, "capped": false},
+        {"dataset": "wildbench", "task_id": "8f75b90101a842b4", "chars": 4084, "answer_tokens": 395, "capped": false},
+        {"dataset": "wildbench", "task_id": "cd4a0c09e12146ad", "chars": 7531, "answer_tokens": 2048, "capped": true},
+        {"dataset": "wildbench", "task_id": "d62241ec92e64571", "chars": 11328, "answer_tokens": 2048, "capped": true}
+      ],
+      "n_tasks": 6,
+      "n_units": 144,
+      "n_units_note": "6 tasks x 6 conditions x 4 scorers",
+      "n_calls_total": 288,
+      "n_calls_note": "144 at batch size 1 plus 144 batched"
+    },
+    "equivalence_criterion": "sha256 of the GENERATED TOKEN-ID SEQUENCE identical between batch-1 and batched runs for all 144 units",
+    "secondary_confirmation": ["decoded text", "parsed score"],
+    "criterion_rationale": "text comparison alone can hide a divergence that later changes a parse; padding and attention-mask handling can flip a greedy argmax at a near-tie",
+    "on_any_mismatch": "that model runs the entire study at batch size 1",
+    "equivalence_is_per_model": true,
+    "never_inferred_across_models": true
+  },
+
+  "checkpoint_and_resume": {
+    "mandatory": true,
+    "rationale": "the sequential runtime approaches or exceeds a single rental",
+    "requirements": [
+      "every completed call written to JSONL immediately (append + fsync) before the next begins",
+      "resume skips any unit already present by unit_id and never regenerates it",
+      "a truncated trailing record is repaired on reopen, costing at most the one interrupted unit",
+      "resume must be exercised and verified (interrupt and restart) before the long run, not assumed from the code",
+      "results synced to durable storage DURING the run, not only at the end",
+      "the generator's reserve-substitution path stays disabled; resume must not reintroduce it"
+    ],
+    "revised_runtime_estimate_hours": {
+      "three_small_scorers": 13, "mistral_24b": 11, "generation": 2, "total_order": 26,
+      "previous_estimate_on_32gib_card": 44,
+      "status": "unmeasured on A100; must be measured on a small sample before committing to the full run",
+      "measurement_vehicle": "the 288-call batching smoke test doubles as the throughput measurement"
+    }
+  },
+
+  "closed_decisions": {
+    "E4_trimmed_mean": {"status": "accepted", "trim_fraction": 0.10, "symmetric": true,
+                        "applied": "within each cell"},
+    "E5_empty_cell_rule": {"status": "accepted",
+                           "action": "average over the non-empty cells in that replicate",
+                           "report": "count of affected replicates"},
+    "E6_independent_verifiers": {
+      "status": "resolved",
+      "n_verifiers": 2,
+      "verifier_roles": ["verifier_1", "verifier_2"],
+      "identities_recorded_in": "Code/research_notes/final_analysis_plan_amendment_A1.md (outside the pushable repository)",
+      "identities_omitted_here_because": "author names in a public repo config during anonymous review would deanonymize the submission; the same reasoning that closes E7 applies to E6's implementation",
+      "procedure": "each verifier performs a blinded pass from response text only, without seeing the other's value",
+      "on_disagreement": "the response remains unresolved and is excluded from every analysis; never split the difference, never prefer a reader"
+    },
+    "E7_preregistration": {
+      "status": "resolved",
+      "public_preregistration_during_anonymous_review": false,
+      "action": "plan, amendment and all hashes timestamped and retained locally for release after review concludes"
+    }
+  },
+
+  "unresolved_scientific_decisions": {
+    "count": 0,
+    "statement": "none; the statistical design is settled and carried forward from plan v2 unchanged",
+    "remaining_items_are_execution_or_verification_only": [
+      "run preflight and pass it, including establishing Llama's and Gemma's template cleanliness which could not be verified off-box",
+      "run the batching equivalence smoke test before enabling any micro-batching",
+      "measure throughput on a small sample before the full run",
+      "exercise resume rather than assume it",
+      "implementation change: disable reserve substitution in scripts/generate_scaled_candidates.py",
+      "implementation change: add the mistral scorer with its empty-system message to the scorer list"
+    ]
+  }
+}

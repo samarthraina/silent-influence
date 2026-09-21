@@ -1,0 +1,53 @@
+# GPU path only: re-running generation, four-scorer evaluation, silence annotation, or the
+# mechanistic pipeline. The CPU analysis path needs none of this.
+#
+# THE AUTHORITATIVE REFERENCE SOFTWARE RECORD IS
+# code/orchestration/production_environment.json, captured during the A100 OLMo-32B scoring
+# stage. The pins below restate it; where the two disagree, the JSON wins.
+#
+# Reference software record (captured during the A100 OLMo-32B scoring stage)
+#   Python              3.12.13  (conda-forge, GCC 14.3.0)
+#   platform            Linux 5.15.0, glibc 2.39
+#   torch               2.12.0+cu126
+#   transformers        5.15.0
+#   accelerate          1.14.0
+#   safetensors         0.8.0
+#   huggingface_hub     1.18.0
+#   numpy               2.4.6
+#   GPU of that stage   1 x NVIDIA A100-SXM4-80GB
+#
+# That GPU line is the device of the captured stage, NOT the only GPU used in the study. The
+# behavioural evaluation ran as separate single-GPU jobs on stage-specific hardware:
+#   OLMo-3.1-32B scorer     NVIDIA A100-SXM4-80GB
+#   Llama-3.1-8B scorer     NVIDIA GeForce RTX 3090
+#   Qwen3-8B scorer         NVIDIA GeForce RTX 3090
+#   Gemma-2-9B-IT scorer    NVIDIA GeForce RTX 4090
+#   silence judge J3        NVIDIA RTX A6000, 48 GB, separate vLLM environment (see below)
+#   J1/J2 and mechanistic   device not recorded in the retained archives; not inferred
+# Across the scoring stages the pinned model revisions, prompts, decoding policy, batch-size
+# constraints, and core software versions were reproduced. See REPRODUCIBILITY.md section 2.2.
+# production_environment.json is left byte-exact as a historical record of its own stage.
+#
+# torch 2.12.0+cu126 is a CUDA-specific build, NOT the default PyPI wheel. `pip install
+# torch==2.12.0` resolves to whatever CUDA variant is current for your platform and will not
+# reproduce this environment. Install it from the CUDA 12.6 index:
+#
+#   pip install torch==2.12.0 --index-url https://download.pytorch.org/whl/cu126
+#
+# The +cu126 local version identifier cannot be requested from PyPI, which is why it is a
+# comment here rather than a pin: a pinned `torch==2.12.0+cu126` fails against PyPI.
+-r requirements-analysis.txt
+
+transformers==5.15.0
+accelerate==1.14.0
+safetensors==0.8.0
+huggingface_hub==1.18.0
+numpy==2.4.6
+
+# Silence judge J3 only (openai/gpt-oss-20b), run on a separate 48 GB card. This wheel is
+# built against CUDA 13 and needs a matching torch build; see REPRODUCIBILITY.md section 2.6.
+# It was NOT part of the behavioural production environment above.
+vllm==0.27.1
+
+# Jacobian Lens: vendored in this package at third_party/jacobian-lens, Apache-2.0, upstream
+# commit 581d398613e5602a5af361e1c34d3a92ea82ba8e. Not on PyPI; put it on PYTHONPATH.
