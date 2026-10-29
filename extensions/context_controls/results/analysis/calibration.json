@@ -1,0 +1,473 @@
+{
+  "planned_units": 360,
+  "final_units": 360,
+  "status_counts": {
+    "valid": 359,
+    "capped_incomplete": 1
+  },
+  "environment_deviation": "torch 2.14.1+cu126 vs original 2.12.0+cu126; other pins as original",
+  "label": "Follow-up analysis; not pooled with original headline",
+  "llama": {
+    "primary_interaction": {
+      "planned_tasks": 30,
+      "complete_tasks": 29,
+      "complete_case": {
+        "estimate": -0.9068965517241379,
+        "n": 29,
+        "intervals": {
+          "0.950": [
+            -1.5517241379310345,
+            -0.296551724137931
+          ],
+          "0.975": [
+            -1.6517241379310343,
+            -0.21034482758620687
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        -0.9666666666666667,
+        -0.6333333333333333
+      ]
+    },
+    "cells": {
+      "original|no_history": {
+        "planned": 30,
+        "valid": 30,
+        "mean_valid": 7.636666666666668,
+        "status_counts": {
+          "valid": 30
+        }
+      },
+      "original|self_low_2": {
+        "planned": 30,
+        "valid": 30,
+        "mean_valid": 6.4,
+        "status_counts": {
+          "valid": 30
+        }
+      },
+      "original|unrelated_low_2": {
+        "planned": 30,
+        "valid": 30,
+        "mean_valid": 7.166666666666667,
+        "status_counts": {
+          "valid": 30
+        }
+      },
+      "explicit_v1|no_history": {
+        "planned": 30,
+        "valid": 29,
+        "mean_valid": 8.275862068965518,
+        "status_counts": {
+          "valid": 29,
+          "capped_incomplete": 1
+        }
+      },
+      "explicit_v1|self_low_2": {
+        "planned": 30,
+        "valid": 30,
+        "mean_valid": 6.13,
+        "status_counts": {
+          "valid": 30
+        }
+      },
+      "explicit_v1|unrelated_low_2": {
+        "planned": 30,
+        "valid": 30,
+        "mean_valid": 7.446666666666667,
+        "status_counts": {
+          "valid": 30
+        }
+      }
+    },
+    "unrelated_low_interaction": {
+      "planned_tasks": 30,
+      "complete_tasks": 29,
+      "complete_case": {
+        "estimate": -0.37241379310344824,
+        "n": 29,
+        "intervals": {
+          "0.950": [
+            -0.8310344827586207,
+            0.062068965517241406
+          ],
+          "0.975": [
+            -0.903448275862069,
+            0.1206896551724138
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        -0.41666666666666663,
+        -0.08333333333333327
+      ]
+    },
+    "self_vs_unrelated_interaction": {
+      "planned_tasks": 30,
+      "complete_tasks": 30,
+      "complete_case": {
+        "estimate": -0.55,
+        "n": 30,
+        "intervals": {
+          "0.950": [
+            -1.2333333333333334,
+            0.08333333333333333
+          ],
+          "0.975": [
+            -1.35,
+            0.16666666666666666
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        -0.55,
+        -0.55
+      ]
+    },
+    "self_low_effect_original": {
+      "planned_tasks": 30,
+      "complete_tasks": 30,
+      "complete_case": {
+        "estimate": 1.2366666666666666,
+        "n": 30,
+        "intervals": {
+          "0.950": [
+            0.6933333333333335,
+            1.7666666666666666
+          ],
+          "0.975": [
+            0.6166666666666668,
+            1.8366666666666664
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        1.2366666666666666,
+        1.2366666666666666
+      ]
+    },
+    "self_low_effect_explicit": {
+      "planned_tasks": 30,
+      "complete_tasks": 29,
+      "complete_case": {
+        "estimate": 2.2103448275862068,
+        "n": 29,
+        "intervals": {
+          "0.950": [
+            1.5586206896551724,
+            2.8793103448275863
+          ],
+          "0.975": [
+            1.4517241379310346,
+            2.9724137931034478
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        1.87,
+        2.203333333333333
+      ]
+    },
+    "unrelated_low_effect_original": {
+      "planned_tasks": 30,
+      "complete_tasks": 30,
+      "complete_case": {
+        "estimate": 0.47000000000000003,
+        "n": 30,
+        "intervals": {
+          "0.950": [
+            -0.023333333333333338,
+            0.9366666666666668
+          ],
+          "0.975": [
+            -0.09666666666666665,
+            1.0033333333333334
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        0.47000000000000003,
+        0.47000000000000003
+      ]
+    },
+    "unrelated_low_effect_explicit": {
+      "planned_tasks": 30,
+      "complete_tasks": 29,
+      "complete_case": {
+        "estimate": 0.8827586206896553,
+        "n": 29,
+        "intervals": {
+          "0.950": [
+            0.4241379310344827,
+            1.3827586206896552
+          ],
+          "0.975": [
+            0.37241379310344824,
+            1.4551724137931035
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        0.5533333333333333,
+        0.8866666666666667
+      ]
+    },
+    "baseline_shift_no_history": {
+      "planned_tasks": 30,
+      "complete_tasks": 29,
+      "complete_case": {
+        "estimate": 0.6275862068965516,
+        "n": 29,
+        "intervals": {
+          "0.950": [
+            0.40344827586206894,
+            0.8586206896551724
+          ],
+          "0.975": [
+            0.3758620689655172,
+            0.8862068965517241
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        0.3633333333333333,
+        0.6966666666666667
+      ]
+    }
+  },
+  "qwen": {
+    "primary_interaction": {
+      "planned_tasks": 30,
+      "complete_tasks": 30,
+      "complete_case": {
+        "estimate": 1.0333333333333334,
+        "n": 30,
+        "intervals": {
+          "0.950": [
+            0.4,
+            1.7
+          ],
+          "0.975": [
+            0.3,
+            1.8
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        1.0333333333333334,
+        1.0333333333333334
+      ]
+    },
+    "cells": {
+      "original|no_history": {
+        "planned": 30,
+        "valid": 30,
+        "mean_valid": 8.166666666666666,
+        "status_counts": {
+          "valid": 30
+        }
+      },
+      "original|self_low_2": {
+        "planned": 30,
+        "valid": 30,
+        "mean_valid": 6.4,
+        "status_counts": {
+          "valid": 30
+        }
+      },
+      "original|unrelated_low_2": {
+        "planned": 30,
+        "valid": 30,
+        "mean_valid": 7.266666666666667,
+        "status_counts": {
+          "valid": 30
+        }
+      },
+      "explicit_v1|no_history": {
+        "planned": 30,
+        "valid": 30,
+        "mean_valid": 8.366666666666667,
+        "status_counts": {
+          "valid": 30
+        }
+      },
+      "explicit_v1|self_low_2": {
+        "planned": 30,
+        "valid": 30,
+        "mean_valid": 7.633333333333334,
+        "status_counts": {
+          "valid": 30
+        }
+      },
+      "explicit_v1|unrelated_low_2": {
+        "planned": 30,
+        "valid": 30,
+        "mean_valid": 7.733333333333333,
+        "status_counts": {
+          "valid": 30
+        }
+      }
+    },
+    "unrelated_low_interaction": {
+      "planned_tasks": 30,
+      "complete_tasks": 30,
+      "complete_case": {
+        "estimate": 0.26666666666666666,
+        "n": 30,
+        "intervals": {
+          "0.950": [
+            -0.5666666666666667,
+            0.9333333333333333
+          ],
+          "0.975": [
+            -0.7333333333333333,
+            1.0
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        0.26666666666666666,
+        0.26666666666666666
+      ]
+    },
+    "self_vs_unrelated_interaction": {
+      "planned_tasks": 30,
+      "complete_tasks": 30,
+      "complete_case": {
+        "estimate": 0.7666666666666667,
+        "n": 30,
+        "intervals": {
+          "0.950": [
+            0.0,
+            1.6333333333333333
+          ],
+          "0.975": [
+            -0.1,
+            1.7666666666666666
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        0.7666666666666667,
+        0.7666666666666667
+      ]
+    },
+    "self_low_effect_original": {
+      "planned_tasks": 30,
+      "complete_tasks": 30,
+      "complete_case": {
+        "estimate": 1.7666666666666666,
+        "n": 30,
+        "intervals": {
+          "0.950": [
+            1.0333333333333334,
+            2.466666666666667
+          ],
+          "0.975": [
+            0.9333333333333333,
+            2.566666666666667
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        1.7666666666666666,
+        1.7666666666666666
+      ]
+    },
+    "self_low_effect_explicit": {
+      "planned_tasks": 30,
+      "complete_tasks": 30,
+      "complete_case": {
+        "estimate": 0.7333333333333333,
+        "n": 30,
+        "intervals": {
+          "0.950": [
+            0.4,
+            1.1333333333333333
+          ],
+          "0.975": [
+            0.3333333333333333,
+            1.1666666666666667
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        0.7333333333333333,
+        0.7333333333333333
+      ]
+    },
+    "unrelated_low_effect_original": {
+      "planned_tasks": 30,
+      "complete_tasks": 30,
+      "complete_case": {
+        "estimate": 0.9,
+        "n": 30,
+        "intervals": {
+          "0.950": [
+            0.13333333333333333,
+            1.4333333333333333
+          ],
+          "0.975": [
+            0.0,
+            1.5
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        0.9,
+        0.9
+      ]
+    },
+    "unrelated_low_effect_explicit": {
+      "planned_tasks": 30,
+      "complete_tasks": 30,
+      "complete_case": {
+        "estimate": 0.6333333333333333,
+        "n": 30,
+        "intervals": {
+          "0.950": [
+            0.23333333333333334,
+            1.1666666666666667
+          ],
+          "0.975": [
+            0.16666666666666666,
+            1.2333333333333334
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        0.6333333333333333,
+        0.6333333333333333
+      ]
+    },
+    "baseline_shift_no_history": {
+      "planned_tasks": 30,
+      "complete_tasks": 30,
+      "complete_case": {
+        "estimate": 0.2,
+        "n": 30,
+        "intervals": {
+          "0.950": [
+            -0.03333333333333333,
+            0.43333333333333335
+          ],
+          "0.975": [
+            -0.06666666666666667,
+            0.4666666666666667
+          ]
+        }
+      },
+      "planned_population_bounds": [
+        0.2,
+        0.2
+      ]
+    }
+  },
+  "historical_provenance_comparison": {
+    "n": 180,
+    "exact_text_match": 34,
+    "both_valid": 180,
+    "same_score": 143
+  }
+}

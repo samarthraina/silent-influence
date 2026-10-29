@@ -76,6 +76,14 @@ In Llama, Jacobian Lens readouts identify **layer 24** within a fixed eligible b
 
 This is a scoped causal intervention result. The tested single steering direction did not establish robust control, and the Gemma/Qwen mechanistic extensions did not meet their stated criteria. Those findings remain part of the evidence. [Mechanistic results](results/figure_inputs/mechanistic_summary.json) · [Extended results](EXTENDED_RESULTS.md).
 
+### Follow-up: separating behavior from mechanism
+
+New controls retain strong behavioral differences while narrowing the mechanistic interpretation. With history present in both conditions, positive versus negative feedback produces mean score gaps of **2.84 points in Llama** and **3.23 in Qwen** on 72 tasks each. An explicit rubric reduces the history effect in Qwen and increases it in Llama.
+
+Patching between these matched histories at Llama L24 or Qwen L27 shows **no reliable transfer advantage over the early-layer control** in either direction. All four adjusted confidence intervals include zero. This limits a feedback-valence interpretation of the earlier history-versus-no-history intervention; it does not negate the behavioral result or establish that no mechanism exists elsewhere.
+
+[Explore the follow-up results and methods](extensions/context_controls/README.md) · [Download the self-contained graph briefing](extensions/context_controls/graphs.html) · [Inspect the raw records](extensions/context_controls/results/raw/) · [Reproduce the analysis](extensions/context_controls/scripts/analyze_results.py)
+
 ## Try it locally
 
 **The first examples need only Python 3.10+. No package installation, model weights, GPU, API key, or network access is needed after cloning.**

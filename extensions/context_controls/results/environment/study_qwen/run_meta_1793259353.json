@@ -1,0 +1,15 @@
+{
+  "model": "qwen",
+  "mode": "study",
+  "action": "mhp_qwen_study_run",
+  "torch": "2.14.1+cu126",
+  "transformers": "5.15.0",
+  "attn": "sdpa",
+  "dtype": "torch.bfloat16",
+  "device": "NVIDIA A100-SXM4-80GB",
+  "chat_template_sha256": "a55ee1b1660128b7098723e0abcd92caa0788061051c62d51cbe87d9cf1974d8",
+  "n_layers": 36,
+  "site_layer": 27,
+  "hook_module_site": "model.model.layers[26]",
+  "started_utc": "2026-10-29T07:35:53Z"
+}

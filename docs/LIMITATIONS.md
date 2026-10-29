@@ -44,3 +44,8 @@ so the study does not establish a uniquely social motive or retaliation mechanis
 The work motivates evaluating contextual robustness and checking explanations against
 controlled changes. It does not demonstrate a deployed monitor or a successful preventive
 safeguard. The repository examples inspect retained results rather than reproduce inference.
+
+
+## Context-control follow-up
+
+The matched-history follow-up did not establish feedback-valence transfer at Llama L24 or Qwen L27. This narrows the earlier low-history versus no-history interpretation; it does not establish a null mechanism at all locations. See the [methods, results, and commands](../extensions/context_controls/README.md) and [self-contained graph briefing](../extensions/context_controls/graphs.html).

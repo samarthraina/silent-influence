@@ -1,0 +1,76 @@
+{
+  "release": "context-controls-2026-10-30",
+  "scope": "Completed calibration and two matched-history patching studies",
+  "source_adaptations": [
+    {
+      "file": "src/rba/calib.py",
+      "source_sha256": "99edfc909ebf429180049062b3ed579f09461efac51afbceb1560218d3deca90",
+      "public_sha256": "dcbfae96676f72f912a938104f0c405bce3b6ea7092640abc607c38a4b85e724"
+    },
+    {
+      "file": "src/rba/runner.py",
+      "source_sha256": "900d9b322526617b636a64e0156585a7fab26c777c44826f397f2ca79769d85d",
+      "public_sha256": "ffcaba3beada6bf8d20a8330e99caedf5fae6b37f53541cbe8a38a1764b3ebf9"
+    },
+    {
+      "file": "src/rba/units.py",
+      "source_sha256": "2576cbb9e2167f94226771fc9d3e830d73b47897cbd983a52ade9d3321d25ef7",
+      "public_sha256": "2576cbb9e2167f94226771fc9d3e830d73b47897cbd983a52ade9d3321d25ef7"
+    },
+    {
+      "file": "src/rba/mhp.py",
+      "source_sha256": "1d9058318877ab59949e2047eb03afc8650862de0b8b1e906a8b66f8cf019158",
+      "public_sha256": "5b78f7a2d2c87682a1835a3efe3e4e4a8709a51431edc53ba09932b376c3a452"
+    },
+    {
+      "file": "src/rba/mhp_store.py",
+      "source_sha256": "9e565ce45d3a2595bcf4d2b8bd4ae92d5595a80cc57347d1530dd6605ec52415",
+      "public_sha256": "9e565ce45d3a2595bcf4d2b8bd4ae92d5595a80cc57347d1530dd6605ec52415"
+    },
+    {
+      "file": "src/rba/budget.py",
+      "source_sha256": "55fdfafd6a557fe9dfd521bea43622a5bdf0884992600f8ce86caf95c9da5a38",
+      "public_sha256": "09145dd23e2855930c0b6226b2918b953d123800afa34f54bd2f641f21615fe7"
+    },
+    {
+      "file": "src/rba/launch.py",
+      "source_sha256": "f9fc1d061d31fa9d9a2d072cf72e64188f12954dcb47fffbe11127071727f610",
+      "public_sha256": "f029b0a3649d319e78ed982a3bc1e32c78bf62becf32cb9481af60eed3e3366c"
+    },
+    {
+      "file": "src/rba/gates.py",
+      "source_sha256": "d87c1cb314fb46ea37c79a7e6134160a3ec4e973f80760ffaa0fb5a69cc6e21b",
+      "public_sha256": "c24b8df3242927e48706dc10eda19f00a7ba6b782f28110e5ce2bdad7435bf85"
+    },
+    {
+      "file": "scripts/run_calibration.py",
+      "source_sha256": "06d51dc4fb2d03b8dc1b479fcd207c10760341d58ed178abd25bd61a487e4b56",
+      "public_sha256": "c33e322e51c5f9b74cd74765b6f11f5bea3c2eaa94596ffd414d8d807baf9a1e"
+    },
+    {
+      "file": "scripts/run_mhp.py",
+      "source_sha256": "7f4ee0263be754f9f52945f375b4a725eb8db41a3dd9c4f8bc0ec869f1a637f9",
+      "public_sha256": "af7986d796c14373f149b9dd6eed0070d8f664c8a3819898717e4ecb466a4431"
+    },
+    {
+      "file": "scripts/analyze_results.py",
+      "source_sha256": "436a70d1808929ddc22b01993f0f5ae031c07213be31302a443b44e2a63e2df0",
+      "public_sha256": "9a0735980db5db00772860b15bf63922466f7b4713cca23a74bc932ac663a505"
+    },
+    {
+      "file": "src/rba/analysis.py",
+      "source_sha256": "6310e6d449dc21bca4125ed452d7b6d7bc6d1a8b423769d9ebc82dffd131e417",
+      "public_sha256": "8fe62c6a222e339f60d6c51389c1b0a6cb389e97d802c5a5eeb944ddadd86e81"
+    }
+  ],
+  "notes": [
+    "Public inputs resolved relative to repository root, administrative approval names neutralized, approvals reset.",
+    "Original raw generation records and frozen run manifests are retained byte-for-byte.",
+    "Reanalysis writes to outputs/analysis; original results remain unchanged.",
+    "New calibration executions record the current public generation/parser/validity code hashes in a separate execution manifest.",
+    "Model generation, scoring, validity, patching directions and estimator semantics are unchanged.",
+    "Host configuration, private annotation linkage, billing records, and browser-chat checks are outside this release.",
+    "Single engineering-smoke task overlaps the patching set: arena_hard/2da7e53308a547d6. Exclusion sensitivity is included.",
+    "Public patching launch adds prompt-hash and pre-load budget validation plus an explicit stage-cap argument; saved records are unchanged."
+  ]
+}

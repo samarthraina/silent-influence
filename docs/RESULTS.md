@@ -73,3 +73,8 @@ Read the [mechanistic summary](../results/figure_inputs/mechanistic_summary.json
 [extended results](../EXTENDED_RESULTS.md). The tested mean-difference steering and ablation
 directions did not establish robust control. Gemma/Qwen extensions did not meet the stated
 criteria, and used model-specific logit-lens selection rather than the fitted Llama lens.
+
+
+## Context-control follow-up
+
+The completed calibration and matched-history patching studies are documented separately. Rubric effects differ by model, and all four selected-layer minus control patching intervals include zero. See the [methods, results, and commands](../extensions/context_controls/README.md) and [self-contained graph briefing](../extensions/context_controls/graphs.html).

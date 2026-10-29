@@ -84,3 +84,8 @@ The public examples and verifier are portable standard-library Python. Most mode
 require a separately prepared GPU environment. Historical selectors that require the
 pilot workspace are provenance tools rather than quick-start entry points. See
 [reproduction](../REPRODUCIBILITY.md) and [omissions](../OMISSIONS.md) before executing them.
+
+
+## Context-control follow-up
+
+The context-control extension contains the calibration renderer, matched-history patching executor, resumable record storage, tests, and reproducible analyses. See the [methods, results, and commands](../extensions/context_controls/README.md) and [self-contained graph briefing](../extensions/context_controls/graphs.html).

@@ -34,3 +34,11 @@ jobs:
           python examples/compare_prompts.py
       - name: Run portable tests
         run: python tools/run_tests.py
+      - name: Check context-control records and tests
+        run: |
+          python extensions/context_controls/scripts/verify_results.py
+          python -m pytest extensions/context_controls/tests -q -p no:cacheprovider
+      - name: Reproduce context-control analyses
+        run: |
+          python extensions/context_controls/scripts/analyze_results.py
+          python extensions/context_controls/scripts/verify_results.py --compare-reanalysis

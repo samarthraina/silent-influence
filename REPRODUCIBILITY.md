@@ -363,3 +363,8 @@ The analysis stages consume the shipped records directly and need no GPU:
   analysis output.
 - A queue of 36 score-recovery items is unadjudicated. Those items enter **no** estimate
   reported in the paper or shipped here, and no adjudication was performed for this package.
+
+
+## Context-control follow-up
+
+The context-control extension includes 1,800 raw final units, exact manifests, CPU-only reanalysis, and gated inference entry points. See the [methods, results, and commands](extensions/context_controls/README.md) and [self-contained graph briefing](extensions/context_controls/graphs.html).

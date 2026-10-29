@@ -1,0 +1,17 @@
+{
+  "recorded_gpu_packages": {
+    "torch": "2.14.1+cu126",
+    "transformers": "5.15.0",
+    "accelerate": "1.14.0",
+    "safetensors": "0.8.0",
+    "huggingface_hub": "1.18.0",
+    "tokenizers": "0.22.2",
+    "numpy": "2.5.4",
+    "jinja2": "3.1.6"
+  },
+  "hardware": "NVIDIA A100-SXM4-80GB",
+  "precision": "bfloat16",
+  "attention": "sdpa",
+  "original_torch": "2.12.0+cu126",
+  "note": "These are recorded versions, not a claim that all artifacts remain available from package registries."
+}

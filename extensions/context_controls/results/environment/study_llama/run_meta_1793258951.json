@@ -1,0 +1,15 @@
+{
+  "model": "llama",
+  "mode": "study",
+  "action": "mhp_study_run",
+  "torch": "2.14.1+cu126",
+  "transformers": "5.15.0",
+  "attn": "sdpa",
+  "dtype": "torch.bfloat16",
+  "device": "NVIDIA A100-SXM4-80GB",
+  "chat_template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+  "n_layers": 32,
+  "site_layer": 24,
+  "hook_module_site": "model.model.layers[23]",
+  "started_utc": "2026-10-29T07:29:11Z"
+}

@@ -1,0 +1,47 @@
+{
+  "record_id": "rba_execution_gates",
+  "version": "v1",
+  "note": "All gates unconfirmed. Only the researcher may confirm a gate, with evidence. This file authorizes nothing by itself.",
+  "gates": {
+    "gpu_budget_confirmed": {
+      "confirmed": false,
+      "evidence": null,
+      "confirmed_by": null
+    },
+    "release_rules_confirmed": {
+      "confirmed": false,
+      "evidence": null,
+      "confirmed_by": null
+    },
+    "annotators_confirmed": {
+      "confirmed": false,
+      "evidence": null,
+      "confirmed_by": null
+    },
+    "researcher_code_review": {
+      "confirmed": false,
+      "evidence": null,
+      "confirmed_by": null
+    },
+    "engineering_preflight_authorized": {
+      "confirmed": false,
+      "evidence": null,
+      "confirmed_by": null
+    },
+    "mhp_spec_reviewed": {
+      "confirmed": false,
+      "evidence": null,
+      "confirmed_by": null
+    },
+    "research_execution_approved": {
+      "confirmed": false,
+      "evidence": null,
+      "confirmed_by": null
+    },
+    "mhp_qwen_spec_reviewed": {
+      "confirmed": false,
+      "evidence": null,
+      "confirmed_by": null
+    }
+  }
+}
