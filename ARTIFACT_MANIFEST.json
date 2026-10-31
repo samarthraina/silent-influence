@@ -2,8 +2,8 @@
   "package": "silent-influence",
   "format_version": 1,
   "scope": "Public release files, excluding this manifest and local generated artifacts",
-  "n_files": 521,
-  "total_bytes": 105645531,
+  "n_files": 559,
+  "total_bytes": 116954148,
   "files": [
     {
       "path": ".gitattributes",
@@ -1574,6 +1574,196 @@
       "path": "extensions/context_controls/tests/test_mhp_store.py",
       "size": 3989,
       "sha256": "e99a40eac32daf73757bffc5876eff1d76431e54fef68b8ff5cd8c6aeb5ac073"
+    },
+    {
+      "path": "extensions/mech_v2/README.md",
+      "size": 2141,
+      "sha256": "ccd6223acf23bc57ebd18632c84ae0415cb31e0b2cf32ec1c09fbd549cc2decb"
+    },
+    {
+      "path": "extensions/mech_v2/data/mech_v2/freeze_s6_llama.json",
+      "size": 1957,
+      "sha256": "d9c577a2035ced9076e8a37831a7d678c7bc6033429f7c2dca4fcb9e2fd1a04f"
+    },
+    {
+      "path": "extensions/mech_v2/data/mech_v2/freeze_s6_llama.sha256",
+      "size": 88,
+      "sha256": "4c30491d8a070cb89da27d1ff1b698f546d4850ba7b477c74835261ba085f756"
+    },
+    {
+      "path": "extensions/mech_v2/data/mech_v2/freeze_s6_qwen.json",
+      "size": 2011,
+      "sha256": "f519abbf1f659cb3e3f5156f85a73305b06165b5fd009a5bf834b90b2742b5f7"
+    },
+    {
+      "path": "extensions/mech_v2/data/mech_v2/freeze_s6_qwen.sha256",
+      "size": 87,
+      "sha256": "afa8c0f1c401e0c18ff7fb7c27803d7ee7668f1e93b940c5f8f716ba67041980"
+    },
+    {
+      "path": "extensions/mech_v2/data/mech_v2/splits_v1.json",
+      "size": 378911,
+      "sha256": "ed8f9c2a5054f2c9f8d9c7d2d6d755a47f53818609af52fca943473cd86b2b59"
+    },
+    {
+      "path": "extensions/mech_v2/data/mech_v2/splits_v1.sha256",
+      "size": 82,
+      "sha256": "59fa96b60faf7d0a21334c568001a3f83ed41c56e1d7b378b1a1b89dd8f0eabc"
+    },
+    {
+      "path": "extensions/mech_v2/docs/mech_plan_v2.md",
+      "size": 29667,
+      "sha256": "2b287e19bf3fc01173a21588546e3ac66f90701c1471e597d1f3c9b88a9e575f"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/analysis.html",
+      "size": 23481,
+      "sha256": "75df83fbbc4e3b1acf307971325317f4576b99fb5c2242070a7a9f5c0c63a845"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/figures/fig1_patch_site.png",
+      "size": 50623,
+      "sha256": "fd54b2d1b235c15da4b1f799f4fefccaf7fb3bfcadaab782ffcdd4d32aa045e7"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/figures/fig2_validation.png",
+      "size": 67956,
+      "sha256": "1b9dd89ab65fcf2486626adb8eeba9c50fc7eb620a701f97cbe5ba44168b873f"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/figures/fig3_read_window.png",
+      "size": 53759,
+      "sha256": "29be6ebd3ea0718e5850bd2ec076029ed8a7b15b2ffa8eacdd3c11f0790bfdaf"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/figures/fig4_generation.png",
+      "size": 49065,
+      "sha256": "a925a255cd4b3207f4798ef65d3a6fb0b6b6b5c8c712d0165c688f70dea9a16b"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/gens_llama.jsonl",
+      "size": 68284,
+      "sha256": "f088a4ac60e1d69d999effa8b0c0df36b291deb9d40e57c2226d58d7191557fa"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/gens_qwen.jsonl",
+      "size": 60341,
+      "sha256": "0b0852ce8e07f3e9bb50ec13f8e7608b09032064d51b2e7404eecd410dc21443"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s1_llama.jsonl",
+      "size": 195214,
+      "sha256": "af3c23dd29afdabbb5e6336dcc3ccf37338e2953939c5d66de6167907cb910cf"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s1_qwen.jsonl",
+      "size": 166119,
+      "sha256": "4fb0c2bcf120469b74327356137d1f8b1956bb2ca37543cdb02c0005855ee748"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s2_llama.jsonl",
+      "size": 165488,
+      "sha256": "0c97ae406af7b8c6fc8eceb3af006fe3d8d4d1f3fda3b09291788c349d6805d8"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s2_qwen.jsonl",
+      "size": 153465,
+      "sha256": "66c18cd6b270aad4e95e3d2a1ac610e8ad7767aebaab96b73a93e2a472cde6b7"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s3_llama.jsonl",
+      "size": 56253,
+      "sha256": "81a484a099f0b6dfa2d1f1bed64553eac0706aee7c6f92e2f0f6d49ac8912e40"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s3_qwen.jsonl",
+      "size": 50596,
+      "sha256": "62df1e4b3b7e4639243e17f78a785cace0cb3b4c669542e6403c5d7f3318fe78"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s4_llama.jsonl",
+      "size": 8143338,
+      "sha256": "46713a42b0a36e4c803c0323a9bfbba4c3f6e97a5796007d55e2bd98988e54a3"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s5_llama_primary.jsonl",
+      "size": 249507,
+      "sha256": "504243b3a068ce39b12c57e64fe3403579d8aeb66abb99d646300674d7863f8f"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s5_llama_tail.jsonl",
+      "size": 249726,
+      "sha256": "8c8aa207240a64805cb55aa1d03c956bea5f41e95aa82328b5583d139d71ee47"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s5_qwen_w18_26.jsonl",
+      "size": 56740,
+      "sha256": "a3a2c5d32130a031a4a083b8e41ec9ad070b6afba52a30a4f97aa7cf7e992637"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s5_qwen_w9_26.jsonl",
+      "size": 56740,
+      "sha256": "c0a9f29a43f67e23658db915967f661f8a92b9d4b0e336233a5584dc9871a053"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s6_llama.jsonl",
+      "size": 468489,
+      "sha256": "41d831cbf48e3b4d7f1f595a0137a5f89099a2175bed71a2da08bdfa941599f3"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/results/s6_qwen.jsonl",
+      "size": 432989,
+      "sha256": "217ac48b2807f45e8d122777edd1323a456e5c26fe05d12492726ced33a153e7"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/s6_llama_summary.json",
+      "size": 2480,
+      "sha256": "197c05ba98fbc23275a0e16e034aa6815fed95c704c546a46b9ff66ddf312669"
+    },
+    {
+      "path": "extensions/mech_v2/results/mech_v2/s6_qwen_summary.json",
+      "size": 2522,
+      "sha256": "e7949ba515752941326bf54d528a71468d42d05a51d070dd8c9cdd2d88e18f66"
+    },
+    {
+      "path": "extensions/mech_v2/scripts/mech_v2_figures.py",
+      "size": 6967,
+      "sha256": "a89030f5e7dec7de399c96a2095b4b0c54533b0562ad9f652e03cf760eb8bbf6"
+    },
+    {
+      "path": "extensions/mech_v2/scripts/mech_v2_make_splits.py",
+      "size": 3255,
+      "sha256": "876806f86e3e7df901ea16263f05f34ef22192f41e8f23f3cef84b5bb365e618"
+    },
+    {
+      "path": "extensions/mech_v2/src/mech_v2/__init__.py",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "extensions/mech_v2/src/mech_v2/analysis.py",
+      "size": 13166,
+      "sha256": "d26965099675fbf06a1b223f26ab7a9ed0f4c74ecef973d1e1633f529628c5ce"
+    },
+    {
+      "path": "extensions/mech_v2/src/mech_v2/core.py",
+      "size": 18551,
+      "sha256": "f37de6336e0a834fc62568288ab6e2784bc30c876bb33862da78630d72347b5a"
+    },
+    {
+      "path": "extensions/mech_v2/src/mech_v2/modal_app.py",
+      "size": 2103,
+      "sha256": "df92d5199c7363d47efb65f5aec82dc84c3f993cd4e83d88e2ee7dfd5ccc3672"
+    },
+    {
+      "path": "extensions/mech_v2/src/mech_v2/stages.py",
+      "size": 19026,
+      "sha256": "4643eae62bcb9269be845a7f2d0839bc5df5a51a0628cfe6bab6eb142a893ab0"
+    },
+    {
+      "path": "extensions/mech_v2/tests/test_mech_v2.py",
+      "size": 7430,
+      "sha256": "e06f53f544902fa4570acbb2dda25b47b3381d712d3080f5a27df59f9dce6b30"
     },
     {
       "path": "figures/analysis/analysis/f1_primary_12_cells.pdf",
