@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Silent Influence</title>
+  <meta name="description" content="One sentence about a past interaction lowers an LLM's score of an identical answer by 1.17 points, and 98.4% of its explanations never mention it. Behavioral evidence across four scorers and a causal look inside Llama's layer 24.">
+  <meta property="og:title" content="Silent Influence: How Minimal Inter-Agent Context Shapes LLM Behavior">
+  <meta property="og:description" content="Same answer. One added sentence. A lower score, and an explanation that stays silent about why.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#04050d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%2338e1ff'/%3E%3Cstop offset='.5' stop-color='%23a78bfa'/%3E%3Cstop offset='1' stop-color='%23ff5c7a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='none' stroke='url(%23g)' stroke-width='6'/%3E%3Ccircle cx='32' cy='32' r='9' fill='url(%23g)'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <header class="nav">
+    <a class="nav-brand" href="#top" aria-label="Silent Influence home">
+      <svg viewBox="0 0 64 64" width="22" height="22" aria-hidden="true"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#38e1ff"/><stop offset=".5" stop-color="#a78bfa"/><stop offset="1" stop-color="#ff5c7a"/></linearGradient></defs><circle cx="32" cy="32" r="26" fill="none" stroke="url(#lg)" stroke-width="6"/><circle cx="32" cy="32" r="9" fill="url(#lg)"/></svg>
+      <span>Silent Influence</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#story">Phenomenon</a>
+      <a href="#playground">Playground</a>
+      <a href="#results">Results</a>
+      <a href="#inside">Inside the model</a>
+      <a href="#cite">Cite</a>
+    </nav>
+    <a class="nav-cta" href="https://github.com/samarthraina/silent-influence" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      <span>Code</span>
+    </a>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-inner wrap">
+        <p class="eyebrow reveal-hero"><span class="dot"></span> AI safety · Reliable evaluation · Mechanistic interpretability</p>
+        <h1 class="hero-title">
+          <span class="line"><span class="word">Silent</span></span>
+          <span class="line"><span class="word grad">Influence</span></span>
+        </h1>
+        <p class="hero-sub reveal-hero">How minimal inter-agent context shapes LLM behavior, <em class="serif">without a word about it</em> in the explanation.</p>
+        <ul class="authors reveal-hero" aria-label="Authors">
+          <li>Samarth Raina</li><li>Vidhi Bhutani</li><li>Raj Milind Taware</li><li>Kartik Garg</li><li>Amit Dhanda</li><li>Vinija Jain</li><li>Aman Chadha</li><li>Amitava Das</li>
+        </ul>
+        <div class="hero-actions reveal-hero">
+          <span class="btn btn-ghost is-disabled" aria-disabled="true" title="arXiv preprint coming soon">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm8 1.5V8h4.5L14 3.5ZM8 12h8v1.5H8V12Zm0 3.5h8V17H8v-1.5Z"/></svg>
+            arXiv <span class="soon">soon</span>
+          </span>
+          <a class="btn btn-primary magnetic" href="https://github.com/samarthraina/silent-influence" target="_blank" rel="noopener">
+            <svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            Code &amp; data
+          </a>
+          <a class="btn btn-ghost magnetic" href="#cite">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M7 7h4v4H8.5c0 1.7.8 2.8 2.5 3.3v2.2C8.2 16 7 14 7 11V7Zm7 0h4v4h-2.5c0 1.7.8 2.8 2.5 3.3v2.2c-2.8-.5-4-2.5-4-5.5V7Z"/></svg>
+            BibTeX
+          </a>
+        </div>
+        <div class="hero-legend reveal-hero" aria-hidden="true">
+          <span><i class="sw sw-a"></i>Agent A writes one answer</span>
+          <span><i class="sw sw-s"></i>One sentence of history</span>
+          <span><i class="sw sw-b"></i>Agent B's 32 layers score it</span>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#question" aria-label="Scroll to the question"><span></span></a>
+    </section>
+
+    <!-- ============ QUESTION ============ -->
+    <section class="question wrap" id="question">
+      <p class="big-q split-reveal">Can <span class="hl-a">one sentence</span> about a past interaction change how an AI judges an <span class="hl-b">identical answer</span>, and would it ever <span class="hl-s serif">tell you?</span></p>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="stats wrap" aria-label="Key numbers">
+      <div class="stat card-tilt">
+        <div class="stat-num"><span class="count" data-to="1.17" data-dec="2">0</span><small>pts</small></div>
+        <div class="stat-label">lower score from one sentence of history</div>
+        <div class="stat-meta">95% CI 1.10–1.24 · 900 matched pairs</div>
+      </div>
+      <div class="stat card-tilt">
+        <div class="stat-num"><span class="count" data-to="94.0" data-dec="1">0</span><small>%</small></div>
+        <div class="stat-label">of tasks score lower on average</div>
+        <div class="stat-meta">219 of 233 tasks · 4 scorers</div>
+      </div>
+      <div class="stat card-tilt stat-silent">
+        <div class="stat-num"><span class="count" data-to="98.4" data-dec="1">0</span><small>%</small></div>
+        <div class="stat-label">of explanations never mention it</div>
+        <div class="stat-meta">898 of 913 self-low rationales</div>
+      </div>
+      <div class="stat card-tilt">
+        <div class="stat-num"><span class="count" data-to="22" data-dec="0">0</span><small>%</small></div>
+        <div class="stat-label">of the gap moved by patching one layer</div>
+        <div class="stat-meta">Llama layer 24 · 72 held-out tasks</div>
+      </div>
+    </section>
+
+    <!-- ============ STORY (pinned) ============ -->
+    <section class="story" id="story">
+      <div class="story-pin">
+        <div class="story-grid wrap">
+          <div class="story-copy">
+            <p class="kicker">The phenomenon</p>
+            <div class="story-steps">
+              <div class="story-step is-active" data-step="0">
+                <h2>Same question.<br>Same answer.</h2>
+                <p>An answer is written once and frozen, byte for byte. A scorer model rates it from 0 to 10 and explains why.</p>
+              </div>
+              <div class="story-step" data-step="1">
+                <h2>Add <span class="grad-coral">one sentence.</span></h2>
+                <p>Before scoring, the scorer reads a single line claiming the answer's author once gave <em>its</em> answer a 2/10. Nothing else changes.</p>
+              </div>
+              <div class="story-step" data-step="2">
+                <h2>The score drops.<br><span class="serif">The reason stays silent.</span></h2>
+                <p>The same correct answer falls from 8 to 4. The explanation finds a "mistake" that isn't there and never mentions the history it was given.</p>
+              </div>
+            </div>
+            <div class="story-dots" aria-hidden="true"><span class="is-active"></span><span></span><span></span></div>
+          </div>
+
+          <div class="story-visual" aria-live="polite">
+            <div class="judge-card">
+              <div class="jc-head">
+                <span class="jc-badge">MT-Bench · reasoning</span>
+                <span class="jc-model">Scorer: Llama 3.1 8B</span>
+              </div>
+              <div class="jc-q"><span class="jc-label">Question</span><p id="story-q"></p></div>
+              <div class="jc-a">
+                <span class="jc-label">Frozen answer <svg viewBox="0 0 24 24" width="12" height="12" aria-hidden="true"><path fill="currentColor" d="M12 2a5 5 0 0 0-5 5v3H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-1V7a5 5 0 0 0-5-5Zm-3 8V7a3 3 0 1 1 6 0v3H9Z"/></svg></span>
+                <p id="story-a"></p>
+              </div>
+              <div class="jc-ctx" id="story-ctx">
+                <span class="jc-label">Added history</span>
+                <p><span class="typed" id="story-ctx-text"></span><span class="caret"></span></p>
+              </div>
+              <div class="jc-out">
+                <div class="jc-score">
+                  <svg viewBox="0 0 120 120" class="ring"><circle cx="60" cy="60" r="52" class="ring-bg"/><circle cx="60" cy="60" r="52" class="ring-fg" id="story-ring"/></svg>
+                  <div class="jc-score-num"><span id="story-score">8</span><small>/10</small></div>
+                </div>
+                <div class="jc-why">
+                  <span class="jc-label">Scorer's explanation</span>
+                  <p id="story-why"></p>
+                  <span class="mention-flag" id="story-flag"><i></i>Mentions the history? <b>No</b></span>
+                </div>
+              </div>
+            </div>
+            <p class="fine">Recorded MT-Bench task 101 · chosen after inspecting outcomes to illustrate the effect, not to estimate it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DESIGN ============ -->
+    <section class="design wrap" id="design">
+      <div class="section-head">
+        <p class="kicker">The controlled experiment</p>
+        <h2 class="h2 split-reveal">Freeze everything. <span class="grad">Change one sentence.</span></h2>
+        <p class="lede">OLMo 3 7B writes one answer for each of 234 tasks from MT-Bench, Arena-Hard and WildBench. Four open-weight scorers grade each frozen answer under six histories. The question, answer, rubric and decoding stay fixed within every comparison.</p>
+      </div>
+
+      <div class="flow" aria-label="Study pipeline">
+        <svg class="flow-lines" viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+          <defs><linearGradient id="flowg" x1="0" x2="1"><stop offset="0" stop-color="#38e1ff"/><stop offset=".55" stop-color="#a78bfa"/><stop offset="1" stop-color="#ff5c7a"/></linearGradient></defs>
+          <path d="M60 60 H940" class="flow-path"/>
+          <path d="M60 60 H940" class="flow-dash"/>
+        </svg>
+        <div class="flow-node"><div class="fn-icon">?</div><h3>Task</h3><p>234 prompts · 3 benchmarks</p></div>
+        <div class="flow-node fn-a"><div class="fn-icon">A</div><h3>Agent A answers</h3><p>OLMo 3 7B · frozen bytes</p></div>
+        <div class="flow-node fn-s"><div class="fn-icon">“</div><h3>+ One sentence</h3><p>6 histories, 1 varies</p></div>
+        <div class="flow-node fn-b"><div class="fn-icon">B</div><h3>Agent B scores</h3><p>Llama · Qwen · Gemma · OLMo 32B</p></div>
+        <div class="flow-node fn-o"><div class="fn-icon">≈</div><h3>Score + reason</h3><p>4,680 judgments</p></div>
+      </div>
+
+      <div class="conds" id="conds"></div>
+    </section>
+
+    <!-- ============ PLAYGROUND ============ -->
+    <section class="playground" id="playground">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Interactive · recorded data</p>
+          <h2 class="h2 split-reveal">One answer. <span class="grad">Six histories.</span></h2>
+          <p class="lede">Choose a recorded task and switch the history the scorer sees. Every score and explanation below is the model's actual output on the same frozen answer.</p>
+        </div>
+
+        <div class="pg">
+          <div class="pg-left">
+            <div class="seg" role="tablist" aria-label="Example task" id="pg-examples"></div>
+            <div class="pg-task">
+              <span class="jc-label">Question</span>
+              <p id="pg-q"></p>
+              <span class="jc-label">Frozen answer <span class="sha" id="pg-sha"></span></span>
+              <pre id="pg-a"></pre>
+            </div>
+            <div class="pg-conds" role="radiogroup" aria-label="History condition" id="pg-conds"></div>
+          </div>
+
+          <div class="pg-right">
+            <div class="pg-ctx">
+              <span class="jc-label">What the scorer is told</span>
+              <p id="pg-ctx"></p>
+            </div>
+            <div class="pg-meter">
+              <div class="gauge">
+                <svg viewBox="0 0 200 120" aria-hidden="true">
+                  <defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#ff5c7a"/><stop offset=".5" stop-color="#a78bfa"/><stop offset="1" stop-color="#34d399"/></linearGradient></defs>
+                  <path d="M20 110 A80 80 0 0 1 180 110" class="g-bg"/>
+                  <path d="M20 110 A80 80 0 0 1 180 110" class="g-fg" id="pg-gauge"/>
+                  <line x1="100" y1="110" x2="100" y2="42" class="g-needle" id="pg-needle"/>
+                  <circle cx="100" cy="110" r="6" class="g-hub"/>
+                </svg>
+                <div class="gauge-num"><span id="pg-score">8</span><small>/10</small></div>
+                <div class="gauge-delta" id="pg-delta"></div>
+              </div>
+              <div class="pg-bars" id="pg-bars" aria-label="Scores under all six histories"></div>
+            </div>
+            <div class="pg-why">
+              <div class="pg-why-head">
+                <span class="jc-label" id="pg-scorer"></span>
+                <span class="mention-flag" id="pg-flag"></span>
+              </div>
+              <div class="pg-why-text" id="pg-why"></div>
+            </div>
+          </div>
+        </div>
+        <p class="fine center">Examples were selected after inspecting outcomes to illustrate the effect; they are not estimates of its size. Context-mention labels exist only for the two primary conditions.</p>
+      </div>
+    </section>
+
+    <!-- ============ RESULTS ============ -->
+    <section class="results wrap" id="results">
+      <div class="section-head">
+        <p class="kicker">What we found</p>
+        <h2 class="h2 split-reveal">A small sentence, <span class="grad">a consistent shift.</span></h2>
+        <p class="lede">Every scorer, every dataset and 94% of tasks move the same way. A low rating of the scorer's own answer lowers the score most, but unrelated low ratings and purely verbal negativity also pull scores down, so this is contextual influence rather than a uniquely personal grudge.</p>
+      </div>
+
+      <div class="panel panel-wide">
+        <div class="panel-head">
+          <div>
+            <h3>Mean score under each history</h3>
+            <p>Llama, Qwen and Gemma, the three scorers that ran all six histories. Axis starts at 5.</p>
+          </div>
+          <div class="seg seg-sm" role="tablist" aria-label="Scorer" id="ladder-tabs"></div>
+        </div>
+        <div class="chart" id="chart-ladder"></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-head"><div><h3>Effect by scorer</h3><p>No history − self-low, points (95% CI)</p></div></div>
+          <div class="chart" id="chart-scorers"></div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div><h3>Every cell is positive</h3><p>Effect per scorer × benchmark, points</p></div></div>
+          <div class="chart" id="chart-heat"></div>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="panel">
+          <div class="panel-head"><div><h3>Task-level shifts</h3><p>Per-task effect averaged over scorers, 233 tasks</p></div></div>
+          <div class="chart" id="chart-hist"></div>
+        </div>
+        <div class="panel panel-silence">
+          <div class="panel-head"><div><h3>The silence</h3><p>913 self-low explanations, annotated for any mention of the history</p></div></div>
+          <div class="chart" id="chart-waffle"></div>
+          <div class="waffle-legend">
+            <span><i class="sw sw-silent"></i><b>898</b> never mention it</span>
+            <span><i class="sw sw-ack"></i><b>15</b> acknowledge or deny it</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSIDE THE MODEL ============ -->
+    <section class="inside" id="inside">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="kicker">Mechanistic case study · Llama 3.1 8B</p>
+          <h2 class="h2 split-reveal">Where does the sentence <span class="grad">live inside the model?</span></h2>
+          <p class="lede">A Jacobian-Lens readout compares the model's internal predictions with and without the history at the last input position. The two runs separate most at <b>layer 24</b>. Drag to rotate, then click a layer or use the slider to read what it predicts.</p>
+        </div>
+
+        <div class="explorer">
+          <div class="explorer-stage">
+            <canvas id="layers-canvas" aria-label="3D stack of Llama's layers; brightness shows how strongly each layer separates the two conditions"></canvas>
+            <div id="layers-labels" class="layers-labels"></div>
+            <div class="stage-hint">Drag to orbit · click a layer</div>
+          </div>
+          <aside class="explorer-panel">
+            <div class="ep-top">
+              <div>
+                <span class="jc-label">Layer</span>
+                <div class="ep-layer"><span id="ep-layer">24</span><small>/ 31</small></div>
+              </div>
+              <div class="ep-jsd">
+                <span class="jc-label">Separation (JSD)</span>
+                <div><span id="ep-jsd">0.316</span> <small>bits</small></div>
+              </div>
+            </div>
+            <div class="ep-status" id="ep-status"></div>
+            <input type="range" min="1" max="31" value="24" id="ep-range" aria-label="Select layer">
+            <div class="ep-spark" id="ep-spark"></div>
+            <div class="seg seg-sm seg-wrap" role="tablist" aria-label="Contrast" id="ep-contrast"></div>
+            <div class="ep-tokens">
+              <div><span class="jc-label up">↑ Promoted</span><ul id="ep-up"></ul></div>
+              <div><span class="jc-label down">↓ Suppressed</span><ul id="ep-down"></ul></div>
+            </div>
+            <p class="fine">Mean change in log-probability across 72 tasks, with the share of tasks that agree in sign. Tokens are tokenizer fragments, not concepts.</p>
+          </aside>
+        </div>
+
+        <div class="insight-row">
+          <div class="insight card-tilt"><span class="ins-tag t-coral">self-low − no history</span><p>Promotes <code>brief</code>, <code>despite</code>. Suppresses <code>score</code>. The model is not echoing the "2/10"; it leans toward curt, deficiency-flavored language.</p></div>
+          <div class="insight card-tilt"><span class="ins-tag t-green">self-high − self-low</span><p>A clean valence axis: <code>excellent</code>, <code>perfectly</code> versus <code>disappointing</code>, <code>failure</code>. Every one of the 72 tasks agrees in sign.</p></div>
+          <div class="insight card-tilt"><span class="ins-tag t-violet">self-low − unrelated low</span><p>A self-reference axis: <code>feedback</code>, <code>your</code>, <code>criticism</code>. Being the target of the low rating carries its own signal.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PATCHING ============ -->
+    <section class="patch wrap" id="patch">
+      <div class="section-head">
+        <p class="kicker">Causal test</p>
+        <h2 class="h2 split-reveal">Transplant layer 24. <span class="grad">The score follows.</span></h2>
+        <p class="lede">We copy the full hidden state at layer 24 from one run into the other and measure how far the score moves toward the source. On 72 held-out tasks, it moves about a fifth of the way in both directions. The same transplant at layer 2 does nothing.</p>
+      </div>
+      <div class="patch-grid">
+        <div class="patch-diagram" id="patch-diagram" aria-hidden="true">
+          <div class="pd-col pd-low">
+            <span class="pd-title">Run with low history</span>
+            <div class="pd-stack"></div>
+            <span class="pd-out">score ↓</span>
+          </div>
+          <div class="pd-beam"><span class="pd-orb"></span><span class="pd-l">L24</span></div>
+          <div class="pd-col pd-none">
+            <span class="pd-title">Run with no history</span>
+            <div class="pd-stack"></div>
+            <span class="pd-out">score <span class="pd-shift">↘</span></span>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><div><h3>Share of the score gap transferred</h3><p>72 held-out tasks · mean with 95% CI</p></div></div>
+          <div class="chart" id="chart-patch"></div>
+        </div>
+      </div>
+      <div class="scope-note">
+        <div class="sn-icon">i</div>
+        <p><b>Scope.</b> The mechanistic study is exploratory and covers Llama only. A single averaged steering direction did not reliably reproduce the effect (CI includes zero) and did not beat a random direction, which points to a causally relevant but task-dependent representation rather than a single switch.</p>
+      </div>
+    </section>
+
+    <!-- ============ WHY ============ -->
+    <section class="why wrap" id="why">
+      <div class="section-head">
+        <p class="kicker">Why it matters</p>
+        <h2 class="h2 split-reveal">Explanations are not <span class="grad">an audit trail.</span></h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card card-tilt"><div class="why-n">01</div><h3>Models judge models</h3><p>LLMs grade answers, rank alternatives and give feedback to other agents. Their judgments carry context from earlier interactions.</p></div>
+        <div class="why-card card-tilt"><div class="why-n">02</div><h3>Reading the reasoning misses it</h3><p>When the explanation stays silent about what moved the score, explanation-based oversight can't see the dependence.</p></div>
+        <div class="why-card card-tilt"><div class="why-n">03</div><h3>Audit with counterfactuals</h3><p>Swap the context, hold everything else fixed and compare. That catches what the explanation leaves out.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ CITE ============ -->
+    <section class="cite wrap" id="cite">
+      <div class="section-head">
+        <p class="kicker">Citation</p>
+        <h2 class="h2">BibTeX</h2>
+      </div>
+      <div class="bib">
+        <button class="copy" id="copy-bib" type="button">Copy</button>
+<pre id="bibtex">@misc{raina2026silentinfluence,
+  title  = {Silent Influence: How Minimal Inter-Agent Context
+            Shapes {LLM} Behavior},
+  author = {Raina, Samarth and Bhutani, Vidhi and Taware, Raj Milind
+            and Garg, Kartik and Dhanda, Amit and Jain, Vinija
+            and Chadha, Aman and Das, Amitava},
+  year   = {2026},
+  note   = {Preprint},
+  url    = {https://github.com/samarthraina/silent-influence}
+}</pre>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <p>Silent Influence · Numbers come from the recorded results in the <a href="https://github.com/samarthraina/silent-influence" target="_blank" rel="noopener">public release</a>, complete-case basis.</p>
+    <a href="#top" class="to-top">Back to top ↑</a>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="assets/data.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

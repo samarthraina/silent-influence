@@ -2,8 +2,8 @@
   "package": "silent-influence",
   "format_version": 1,
   "scope": "Public release files, excluding this manifest and local generated artifacts",
-  "n_files": 521,
-  "total_bytes": 105645531,
+  "n_files": 529,
+  "total_bytes": 105829565,
   "files": [
     {
       "path": ".gitattributes",
@@ -1261,6 +1261,11 @@
       "sha256": "0f9d658e7b381d3ba54f6a35efc514d60ae69c6254a0dcb4b6d1ee5cdfee15e2"
     },
     {
+      "path": "docs/.nojekyll",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
       "path": "docs/CODE_GUIDE.md",
       "size": 4790,
       "sha256": "cf9c292d82f317ffdd68bb7400bc0a9da1e854986b4cd2ae41f2a528a7618078"
@@ -1279,6 +1284,36 @@
       "path": "docs/RESULTS.md",
       "size": 4997,
       "sha256": "1ad0d234e13234f414156505c3b830631f316c989e0bf6010195c0cbc3dfb170"
+    },
+    {
+      "path": "docs/assets/css/style.css",
+      "size": 36410,
+      "sha256": "0ab8a07f9258055ece1443770484a85887ef4ad072dfbefa842c800b0ef98980"
+    },
+    {
+      "path": "docs/assets/data.js",
+      "size": 49594,
+      "sha256": "1e32fe7b9650bb9ea6d4e73f2263adb3581473f5fea410f3396de74c272ff726"
+    },
+    {
+      "path": "docs/assets/js/hero.js",
+      "size": 14356,
+      "sha256": "c7c85c7b6a766757424157c6f6c5be27327cba9f187816bd5266bcb09249ac38"
+    },
+    {
+      "path": "docs/assets/js/layers3d.js",
+      "size": 11729,
+      "sha256": "acefaac10d8aa58ed6e4dafc84b0d93a4da41e89861fb6fa67be6bbc5903bf12"
+    },
+    {
+      "path": "docs/assets/js/main.js",
+      "size": 38960,
+      "sha256": "ffd4bd49f9264f12c9612b294a152d47b5c3fd0c0baed667a8b0f056e7a4d32f"
+    },
+    {
+      "path": "docs/index.html",
+      "size": 26076,
+      "sha256": "60460c1e06691b95ed4d09a2e19bfce0ce6f065d4edda602c887ecf5ec9499a9"
     },
     {
       "path": "examples/compare_prompts.py",
@@ -2599,6 +2634,11 @@
       "path": "tools/build_manifest.py",
       "size": 1303,
       "sha256": "abeb04fe18f5d47264e7c22a2fa872539004410e6ee3663b14b5da74fe227f3d"
+    },
+    {
+      "path": "tools/build_site_data.py",
+      "size": 6909,
+      "sha256": "0fa50efc0f1cbc8a54450146af449897f151cf787c08ca9199cc09124b7988e7"
     },
     {
       "path": "tools/run_tests.py",
